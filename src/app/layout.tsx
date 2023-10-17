@@ -1,16 +1,16 @@
-import React from 'react'
-import "@/styles/globals.scss"
+import React from "react";
 
-const RootLayout = ({
-  children,
-}: {
-  children: React.ReactNode
-}) => {
+import Layout from "@/components/Layout";
+import "@/styles/globals.scss";
+
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Layout>{children}</Layout>
+      </body>
     </html>
-  )
-}
+  );
+};
 
-export default RootLayout
+export default RootLayout;

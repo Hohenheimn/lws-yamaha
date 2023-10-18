@@ -9,12 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       fontSize: {
-        "1rem": "1rem",
-        "1-2rem": "1.5rem",
-        "2rem": "2rem",
-        "3rem": "3rem",
-        "4rem": "4rem",
-        "5rem": "5rem",
+        "cs-sm": "1rem",
+        "cs-md": "1.5rem",
+        "cs-lg": "2rem",
+        "cs-xl": "3rem",
+        "cs-2xl": "4rem",
+        "cs-3xl": "5rem",
       },
       colors: {
         primary: "#131313",

@@ -20,25 +20,25 @@
 }
 
 * {
-  @apply text-[1rem] font-montserrat-regular;
+  @apply text-cs-sm font-montserrat-regular;
 }
 
 h1 {
-  @apply text-5rem font-montserrat-bold;
+  @apply text-cs-3xl font-montserrat-bold;
 }
 
 h2 {
-  @apply text-4rem font-montserrat-bold;
+  @apply text-cs-2xl font-montserrat-bold;
 }
 
 h3 {
-  @apply text-3rem font-montserrat-bold;
+  @apply text-cs-xl font-montserrat-bold;
 }
 
 h4 {
-  @apply text-2rem font-montserrat-bold;
+  @apply text-cs-lg font-montserrat-bold;
 }
 
 h5 {
-  @apply text-1-2rem font-montserrat-bold;
+  @apply text-cs-md font-montserrat-bold;
 }

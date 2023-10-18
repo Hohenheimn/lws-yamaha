@@ -2,13 +2,10 @@ import React from "react";
 import Image from "next/image";
 
 import Link from "next/link";
-
-import { BiSearch } from "react-icons/bi";
-import { FaBars } from "react-icons/fa";
 import { PiShareBold } from "react-icons/pi";
 
 import SocialMediaIcons from "../SocialMediaIcons";
-import { navUrls } from "./NavUrl";
+import NavBar from "./NavBar";
 
 type props = {
   children: React.ReactNode;
@@ -17,33 +14,9 @@ type props = {
 function Layout({ children }: props) {
   return (
     <main>
-      <nav className="w-full flex justify-center bg-primary-2 text-white py-3">
-        <div className=" w-11/12 flex items-center justify-between">
-          <aside>
-            <Image
-              src="/images/logo/logo.png"
-              alt="logo"
-              width={120}
-              height={100}
-            />
-          </aside>
-          <ul className=" flex gap-5 items-center">
-            {navUrls.map((item, indx) => (
-              <li key={indx}>
-                <Link href={item.url}>{item.title}</Link>
-              </li>
-            ))}
-            <li>
-              <BiSearch className=" text-1-2rem cursor-pointer" />
-            </li>
-            <li>
-              <FaBars className=" text-1-2rem cursor-pointer" />
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <NavBar />
       {children}
-      <footer className="w-full flex justify-center items-center flex-col bg-primary text-white pb-5 pt-10 space-y-20">
+      <footer className="w-full flex justify-center items-center flex-col bg-primary text-white pb-5 pt-10 pb-15 space-y-20">
         <ul className=" flex items-center w-full gap-5">
           <li className=" border border-white flex-1"></li>
           <li>

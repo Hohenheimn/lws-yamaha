@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontSize: {
+        "cs-xs": ".9rem",
         "cs-sm": "1rem",
         "cs-md": "1.5rem",
         "cs-lg": "2rem",
@@ -21,7 +22,9 @@ const config: Config = {
         "primary-2": "#0c0c0c",
         secondary: "#323232",
         "secondary-2": "#212121",
+        " tertiary-0": "#d52b1e",
         tertiary: "#d52b1e",
+        "hover-tertiary": "#d04d43",
         quarternary: "#2f58cd",
       },
       fontFamily: {

@@ -1,6 +1,6 @@
 import React from "react";
-import Image from "next/image";
 
+import CardUnit from "@/components/CardUnit";
 import HeroBanner from "@/components/HeroBanner";
 
 const HomePage = () => {

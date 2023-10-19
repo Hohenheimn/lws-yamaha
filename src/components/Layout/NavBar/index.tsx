@@ -12,7 +12,7 @@ import SubMenu from "./SubMenu";
 export default function NavBar() {
   const [clickedMenu, setClickedMenu] = useState<navUrlsType | null>(null);
   return (
-    <nav className="w-full sticky top-0 flex justify-center bg-primary-2 text-white py-5 z-10">
+    <nav className="w-full sticky top-0 flex justify-center bg-primary-2 text-white py-5 z-50">
       <div className=" w-11/12 flex items-center justify-between">
         <aside>
           <Image

@@ -1,7 +1,9 @@
 import React from "react";
+import Image from "next/image";
 
 type props = {
   bgImage?: string;
+  blur?: boolean;
   bgColor?: string;
   fullWidth?: boolean;
   children: React.ReactNode;
@@ -11,19 +13,26 @@ type props = {
 function SectionContainer({
   bgImage,
   bgColor,
+  blur,
   fullWidth,
   children,
   className,
 }: props) {
   return (
     <section
-      className=" w-full flex justify-center py-14 bg-center bg-cover bg-no-repeat"
-      style={{
-        backgroundImage:
-          "url('https://photographylife.com/wp-content/uploads/2014/06/Nikon-D810-Image-Sample-6.jpg')",
-      }}
+      className={`relative w-full flex justify-center py-14 bg-center bg-cover bg-no-repeat`}
+      style={{ backgroundColor: bgColor }}
     >
-      <div className={`${fullWidth ? "w-full" : "w-11/12"} ${className}`}>
+      {bgImage && (
+        <Image
+          src={bgImage}
+          fill
+          alt="background"
+          className={` object-cover ${blur && "blur-sm"} `}
+        />
+      )}
+
+      <div className={`z-10 ${fullWidth ? "w-full" : "w-11/12"} ${className}`}>
         {children}
       </div>
     </section>

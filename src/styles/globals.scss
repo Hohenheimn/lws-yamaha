@@ -46,3 +46,12 @@ h4 {
 h5 {
   @apply text-cs-md font-montserrat-bold;
 }
+
+// Custom Swiper
+// make same height all slider
+.unit-carousel .swiper-slide {
+  height: 100% !important;
+}
+.unit-carousel.swiper {
+  @apply px-14;
+}

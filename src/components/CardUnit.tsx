@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-type props = {
+export type cardUnitType = {
   imageSrc: string;
   description: {
     engine_type: string;
@@ -12,7 +12,7 @@ type props = {
   url: string;
 };
 
-function CardUnit({ imageSrc, description, url }: props) {
+function CardUnit({ imageSrc, description, url }: cardUnitType) {
   return (
     <ul className="w-full h-full relative flex flex-col">
       <li className=" w-full aspect-[1.8/1] relative after:content-[''] after:absolute after:w-full after:bottom-0 after:left-0 after:h-[40%] after:bg-white after:rounded-tl-lg  after:rounded-tr-lg">

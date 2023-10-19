@@ -1,6 +1,8 @@
 import React from "react";
+import Image from "next/image";
 
 import CardUnit from "@/components/CardUnit";
+import CarouselSection from "@/components/CarouselSection";
 import HeroBanner from "@/components/HeroBanner";
 
 const HomePage = () => {
@@ -16,7 +18,8 @@ const HomePage = () => {
         textWidth="medium"
         textPosition={"center"}
         scrollTo="#"
-      />
+      />{" "}
+      <CarouselSection />
     </div>
   );
 };

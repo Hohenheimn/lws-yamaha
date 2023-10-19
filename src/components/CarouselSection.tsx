@@ -20,3 +20,12 @@ function CarouselSection() {
 }
 
 export default CarouselSection;
+
+/* <CardUnit
+            imageSrc={"/images/samples/sample-unit.png"}
+            description={{
+              engine_type: "Air cooled, 4-stroke, SOHC, 2-valve",
+              frame_type: "Underbone",
+              dimention: "1820mm x 675mm x 1050mm",
+            }}
+            url={""} */

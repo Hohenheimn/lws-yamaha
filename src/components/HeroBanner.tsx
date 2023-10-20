@@ -4,8 +4,7 @@ import Link from "next/link";
 
 type props = {
   imageSrc: string;
-  title: string;
-  textWidth: "medium" | "large";
+  title: React.ReactNode;
   description: string;
   textPosition: "center" | "bottom-left" | "bottom-right" | "bottom-center";
   height: "medium" | "large";
@@ -15,7 +14,6 @@ type props = {
 function HeroBanner({
   imageSrc,
   title,
-  textWidth,
   description,
   height,
   textPosition,
@@ -47,12 +45,8 @@ function HeroBanner({
       ${textPosition === "bottom-right" && "justify-end items-end"}
       ${textPosition === "bottom-center" && "justify-center items-end"}`}
       >
-        <aside
-          className={` w-11/12 relative z-10 text-white ${
-            textWidth === "medium" && "max-w-[45rem]"
-          }`}
-        >
-          <h2>{title}</h2>
+        <aside className={` relative z-10 text-white `}>
+          {title}
           <p>{description}</p>
         </aside>
       </div>

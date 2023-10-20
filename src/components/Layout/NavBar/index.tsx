@@ -12,7 +12,7 @@ import SubMenu from "./SubMenu";
 export default function NavBar() {
   const [clickedMenu, setClickedMenu] = useState<navUrlsType | null>(null);
   return (
-    <nav className="w-full sticky top-0 flex justify-center bg-primary-2 text-white py-5 z-50">
+    <nav className="w-full sticky top-0 flex justify-center bg-primary-2 text-white py-5 z-40">
       <div className=" w-11/12 flex items-center justify-between">
         <aside>
           <Image
@@ -22,7 +22,7 @@ export default function NavBar() {
             height={100}
           />
         </aside>
-        <ul className=" flex gap-8 items-center">
+        <ul className="hidden xl:flex gap-8 items-center">
           {navUrls.map((item, indx) => (
             <li key={indx}>
               {item?.url ? (

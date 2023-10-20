@@ -1,12 +1,13 @@
-import React from "react";
-import Image from "next/image";
+"use client";
 
-import CardUnit from "@/components/CardUnit";
+import React, { useState } from "react";
+
 import CarouselSection from "@/components/CarouselSection";
 import HeroBanner from "@/components/HeroBanner";
-import SectionContainer from "@/components/SectionContainer";
+import ScreenBanner from "@/components/ScreenBanner";
 
 const HomePage = () => {
+  const [showBanner, setShowBanner] = useState(true);
   const sampleUnit = [
     {
       imageSrc: "/images/samples/sample-unit.png",
@@ -56,14 +57,25 @@ const HomePage = () => {
   ];
   return (
     <div>
+      {showBanner && (
+        <ScreenBanner
+          imageUrl="/images/samples/sample-screen-banner.png"
+          setShow={setShowBanner}
+        />
+      )}
       <HeroBanner
         height="large"
         imageSrc={"/images/samples/sample-banner.jpg"}
-        title={"DESIGNED USING PURE TMAX DNA."}
+        title={
+          <h2>
+            DESIGNED USING
+            <br />
+            PURE TMAX DNA.
+          </h2>
+        }
         description={
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, dignissimos."
         }
-        textWidth="medium"
         textPosition={"center"}
         scrollTo="#personal-commuter"
       />
@@ -75,6 +87,7 @@ const HomePage = () => {
           }
           units={sampleUnit}
           bgImage={"/images/samples/sample-banner.jpg"}
+          url={"#"}
         />
       </div>
       <CarouselSection
@@ -84,6 +97,7 @@ const HomePage = () => {
         }
         units={sampleUnit}
         bgImage={"/images/samples/sample-banner.jpg"}
+        url={"#"}
       />
     </div>
   );

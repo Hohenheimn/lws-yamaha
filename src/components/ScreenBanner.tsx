@@ -10,7 +10,7 @@ type props = {
 function ScreenBanner({ imageUrl, setShow }: props) {
   return (
     <section className=" fixed top-0 left-0 w-screen h-screen flex justify-center items-center bg-[#00000043] z-50">
-      <aside className=" relative px-5">
+      <aside className=" relative">
         <div className=" flex justify-end w-full">
           <AiOutlineCloseCircle
             onClick={() => setShow(false)}

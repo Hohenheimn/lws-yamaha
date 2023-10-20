@@ -24,27 +24,27 @@ html {
 }
 
 * {
-  @apply text-cs-sm font-montserrat-regular;
+  @apply text-cs-xs xl:text-cs-sm font-montserrat-regular;
 }
 
 h1 {
-  @apply text-cs-3xl font-montserrat-bold;
+  @apply text-cs-2xl xl:text-cs-3xl font-montserrat-bold;
 }
 
 h2 {
-  @apply text-cs-2xl font-montserrat-bold;
+  @apply text-cs-xl xl:text-cs-2xl font-montserrat-bold;
 }
 
 h3 {
-  @apply text-cs-xl font-montserrat-bold;
+  @apply text-cs-lg xl:text-cs-xl font-montserrat-bold;
 }
 
 h4 {
-  @apply text-cs-lg font-montserrat-bold;
+  @apply text-cs-md xl:text-cs-lg font-montserrat-bold;
 }
 
 h5 {
-  @apply text-cs-md font-montserrat-bold;
+  @apply text-cs-sm xl:text-cs-md font-montserrat-bold;
 }
 
 // Custom Swiper

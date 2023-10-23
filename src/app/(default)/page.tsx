@@ -12,9 +12,12 @@ const HomePage = () => {
     {
       imageSrc: "/images/samples/sample-unit.png",
       description: {
-        engine_type: "",
-        frame_type: "",
-        dimention: "",
+        engine_type:
+          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo magnam adipisci consequuntur distinctio deleniti nulla ea! Non dolor reprehenderit recusandae. Nulla aperiam, deserunt voluptate vitae perspiciatis eos adipisci placeat perferendis.",
+        frame_type:
+          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo magnam adipisci consequuntur distinctio deleniti nulla ea! Non dolor reprehenderit recusandae. Nulla aperiam, deserunt voluptate vitae perspiciatis eos adipisci placeat perferendis.",
+        dimention:
+          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo magnam adipisci consequuntur distinctio deleniti nulla ea! Non dolor reprehenderit recusandae. Nulla aperiam, deserunt voluptate vitae perspiciatis eos adipisci placeat perferendis.",
       },
       url: "#",
     },
@@ -73,9 +76,7 @@ const HomePage = () => {
             PURE TMAX DNA.
           </h2>
         }
-        description={
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, dignissimos."
-        }
+        description={"Lorem ipsum dolor sit amet consectetur adipisicing elit."}
         textPosition={"center"}
         scrollTo="#personal-commuter"
       />
@@ -85,7 +86,7 @@ const HomePage = () => {
           description={
             " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti aliquam voluptate molestiae fuga architecto obcaecati dolorem blanditiis dolores, dolorum eveniet? Perferendis minima ullam ipsum sapiente veniam dolores facere quod dolorem."
           }
-          units={sampleUnit}
+          vehicles={sampleUnit}
           bgImage={"/images/samples/sample-banner.jpg"}
           url={"#"}
         />
@@ -95,7 +96,7 @@ const HomePage = () => {
         description={
           " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti aliquam voluptate molestiae fuga architecto obcaecati dolorem blanditiis dolores, dolorum eveniet? Perferendis minima ullam ipsum sapiente veniam dolores facere quod dolorem."
         }
-        units={sampleUnit}
+        vehicles={sampleUnit}
         bgImage={"/images/samples/sample-banner.jpg"}
         url={"#"}
       />

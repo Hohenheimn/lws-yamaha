@@ -9,13 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       fontSize: {
-        "cs-xs": ".9rem",
-        "cs-sm": "1rem",
+        "cs-xs": "1rem",
+        "cs-sm": "1.05rem",
         "cs-md": "1.5rem",
-        "cs-lg": "2rem",
-        "cs-xl": "3rem",
-        "cs-2xl": "4rem",
-        "cs-3xl": "5rem",
+        "cs-lg": "1.9rem",
+        "cs-xl": "2.5rem",
+        "cs-2xl": "3.5rem",
+        "cs-3xl": "4rem",
       },
       colors: {
         primary: "#131313",

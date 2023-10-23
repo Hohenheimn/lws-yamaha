@@ -22,14 +22,14 @@ function HeroBanner({
   return (
     <section
       className={` w-full relative ${height === "medium" && "h-[60vh]"} ${
-        height === "large" && "h-[80vh]"
+        height === "large" && "h-screen"
       } flex justify-center`}
     >
       <Image src={imageSrc} alt="banner" fill className=" object-cover" />
       {scrollTo && (
         <Link href={scrollTo} className=" absolute bottom-5">
           <Image
-            src="/images/button-icons/banner-arrow-down.png"
+            src="/images/button-icons/banner-arrow-down.svg"
             width={80}
             height={80}
             alt="arrow-down"
@@ -39,7 +39,7 @@ function HeroBanner({
 
       <div
         className={` h-full w-11/12 py-[5%] flex ${
-          textPosition === "center" && "justify-center items-center"
+          textPosition === "center" && "justify-center items-center text-center"
         }
       ${textPosition === "bottom-left" && "justify-start items-end"}
       ${textPosition === "bottom-right" && "justify-end items-end"}

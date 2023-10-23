@@ -15,18 +15,24 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
 import Button from "./Button";
-import CardUnit, { cardUnitType } from "./CardUnit";
 import SectionContainer from "./SectionContainer";
+import VehicleCard, { VehicleCardType } from "./VehicleCard";
 
 type props = {
   title: string;
   description: string;
-  units: cardUnitType[];
+  vehicles: VehicleCardType[];
   bgImage: string;
   url: string;
 };
 
-function CarouselSection({ title, description, units, bgImage, url }: props) {
+function CarouselSection({
+  title,
+  description,
+  vehicles,
+  bgImage,
+  url,
+}: props) {
   return (
     <SectionContainer
       className=" flex flex-col items-center space-y-5"
@@ -42,7 +48,7 @@ function CarouselSection({ title, description, units, bgImage, url }: props) {
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={30}
           slidesPerView={4}
-          autoHeight
+          // autoHeight
           className=" unit-carousel"
           breakpoints={{
             0: {
@@ -58,15 +64,19 @@ function CarouselSection({ title, description, units, bgImage, url }: props) {
               spaceBetween: 10,
             },
             1280: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            1440: {
               slidesPerView: 4,
               spaceBetween: 30,
             },
           }}
         >
           <SwiperNavigationButton />
-          {units.map((item, indx) => (
+          {vehicles.map((item, indx) => (
             <SwiperSlide key={indx}>
-              <CardUnit
+              <VehicleCard
                 imageSrc={item.imageSrc}
                 description={item.description}
                 url={item.url}
@@ -75,6 +85,7 @@ function CarouselSection({ title, description, units, bgImage, url }: props) {
           ))}
         </Swiper>
       </div>
+
       <Button url={url} size="large" appearance="primary">
         View Other Models
       </Button>
@@ -90,15 +101,15 @@ export const SwiperNavigationButton = () => {
     <>
       <button
         onClick={() => swiper.slidePrev()}
-        className=" absolute top-[50%] left-0 translate-y-[-50%] z-10 w-14 aspect-square rounded-full bg-gray-300 hover:bg-gray-400 duration-150 flex justify-center items-center"
+        className=" absolute top-[50%] left-0 translate-y-[-50%] z-10 w-[66px] aspect-square rounded-full bg-gray-300 hover:bg-gray-400 duration-150 flex justify-center items-center"
       >
-        <BiSolidLeftArrow className="text-cs-lg" />
+        <BiSolidLeftArrow className="text-cs-xl" />
       </button>
       <button
         onClick={() => swiper.slideNext()}
-        className=" absolute top-[50%] right-0 translate-y-[-50%] z-10 w-14 aspect-square rounded-full bg-gray-300 hover:bg-gray-400 duration-150 flex justify-center items-center"
+        className=" absolute top-[50%] right-0 translate-y-[-50%] z-10 w-[66px] aspect-square rounded-full bg-gray-300 hover:bg-gray-400 duration-150 flex justify-center items-center"
       >
-        <BiSolidRightArrow className="text-cs-lg" />
+        <BiSolidRightArrow className=" text-cs-xl" />
       </button>
     </>
   );

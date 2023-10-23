@@ -19,7 +19,7 @@ const HomePage = () => {
       url: "#",
     },
     {
-      imageSrc: "/images/samples/sample-unit.png",
+      imageSrc: "/images/samples/sample-bigbike.png",
       description: {
         engine_type: "",
         frame_type: "",
@@ -37,7 +37,7 @@ const HomePage = () => {
       url: "#",
     },
     {
-      imageSrc: "/images/samples/sample-unit.png",
+      imageSrc: "/images/samples/sample-bigbike.png",
       description: {
         engine_type: "",
         frame_type: "",

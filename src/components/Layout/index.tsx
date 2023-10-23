@@ -30,7 +30,7 @@ function Layout({ children }: props) {
           </li>
           <li className=" border border-white flex-1"></li>
         </ul>
-        <ul className=" flex gap-14">
+        <ul className=" flex flex-col sm:flex-row items-center gap-10 sm:gap-14">
           <li>
             <Link href="#">About Us</Link>
           </li>

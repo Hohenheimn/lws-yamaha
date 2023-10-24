@@ -9,19 +9,19 @@ type socialMediasType = {
 
 const socialMedias: socialMediasType[] = [
   {
-    iconUrl: "/images/social-media/instagram.png",
+    iconUrl: "/images/social-media/instagram.svg",
     link: "#",
   },
   {
-    iconUrl: "/images/social-media/youtube.png",
+    iconUrl: "/images/social-media/youtube.svg",
     link: "#",
   },
   {
-    iconUrl: "/images/social-media/facebook.png",
+    iconUrl: "/images/social-media/facebook.svg",
     link: "#",
   },
   {
-    iconUrl: "/images/social-media/tiktok.png",
+    iconUrl: "/images/social-media/tiktok.svg",
     link: "#",
   },
 ];
@@ -34,7 +34,7 @@ function SocialMediaIcons() {
           <Link href={item.link} target="_blank">
             <Image
               src={item.iconUrl}
-              alt={"instagram"}
+              alt={""}
               fill
               className=" object-contain"
             />

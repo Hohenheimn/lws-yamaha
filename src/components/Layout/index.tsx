@@ -22,7 +22,7 @@ function Layout({ children }: props) {
           <li className=" border border-white flex-1"></li>
           <li>
             <Image
-              src={"/images/footer/footer-quote.png"}
+              src={"/images/footer/footer-quote.svg"}
               width={700}
               height={200}
               alt={"footer-quote"}

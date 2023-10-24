@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 
-import CarouselSection from "@/components/CarouselSection";
 import HeroBanner from "@/components/HeroBanner";
 import ScreenBanner from "@/components/ScreenBanner";
+import CarouselSection from "@/components/Section/VehicleCarouselSection";
 
 const HomePage = () => {
   const [showBanner, setShowBanner] = useState(true);

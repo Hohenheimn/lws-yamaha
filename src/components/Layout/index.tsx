@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { PiShareBold } from "react-icons/pi";
 
-import ScreenBanner from "../ScreenBanner";
 import SocialMediaIcons from "../SocialMediaIcons";
 import NavBar from "./NavBar";
 

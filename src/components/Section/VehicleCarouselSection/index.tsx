@@ -14,9 +14,10 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
-import Button from "./Button";
-import SectionContainer from "./SectionContainer";
-import VehicleCard, { VehicleCardType } from "./Vehicles/VehicleCard";
+import Button from "../../Button";
+import VehicleCard, { VehicleCardType } from "../../Vehicles/VehicleCard";
+import SectionContainer from "../SectionContainer";
+import { SwiperNavigationButton } from "./VehicleNavigationButton";
 
 type props = {
   title: string;
@@ -26,7 +27,7 @@ type props = {
   url: string;
 };
 
-function CarouselSection({
+function VehicleCarouselSection({
   title,
   description,
   vehicles,
@@ -93,24 +94,4 @@ function CarouselSection({
   );
 }
 
-export default CarouselSection;
-
-export const SwiperNavigationButton = () => {
-  const swiper = useSwiper();
-  return (
-    <>
-      <button
-        onClick={() => swiper.slidePrev()}
-        className=" absolute top-[50%] left-0 translate-y-[-50%] z-10 w-[66px] aspect-square rounded-full bg-gray-300 hover:bg-gray-400 duration-150 flex justify-center items-center"
-      >
-        <BiSolidLeftArrow className="text-cs-xl" />
-      </button>
-      <button
-        onClick={() => swiper.slideNext()}
-        className=" absolute top-[50%] right-0 translate-y-[-50%] z-10 w-[66px] aspect-square rounded-full bg-gray-300 hover:bg-gray-400 duration-150 flex justify-center items-center"
-      >
-        <BiSolidRightArrow className=" text-cs-xl" />
-      </button>
-    </>
-  );
-};
+export default VehicleCarouselSection;

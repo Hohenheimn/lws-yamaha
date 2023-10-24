@@ -9,39 +9,53 @@ type props = {
   onClick?: () => void;
 };
 
+const LinkElement = ({ url, size, appearance, children }: props) => {
+  return (
+    <Link
+      href={url ? url : ""}
+      className={` inline-block bg-tertiary hover:bg-hover-tertiary duration-150 text-white rounded-3xl font-montserrat-medium ${
+        size === "medium" && "px-5 py-2 text-cs-xs rounded-3xl"
+      } ${size === "large" && " px-24 py-2 text-cs-sm rounded-lg"}
+     ${appearance === "primary" && "bg-tertiary hover:bg-hover-tertiary"} ${
+        appearance === "secondary" &&
+        " bg-quarternary hover:bg-hover-quarternary"
+      }`}
+    >
+      {children}
+    </Link>
+  );
+};
+
+const ButtonElement = ({ children, appearance, size, onClick }: props) => {
+  return (
+    <button
+      className={` inline-block bg-tertiary hover:bg-hover-tertiary duration-150 text-white rounded-3xl text-cs-xs font-montserrat-medium ${
+        size === "medium" && "px-5 py-2"
+      } ${size === "large" && "px-10 py-1"}
+           ${
+             appearance === "primary" && "bg-tertiary hover:bg-hover-tertiary"
+           } ${
+        appearance === "secondary" &&
+        " bg-quarternary hover:bg-hover-quarternary"
+      }`}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+};
+
 function Button({ children, appearance, size, url, onClick }: props) {
   return (
     <>
       {url ? (
-        <Link
-          href={url}
-          className={` inline-block bg-tertiary hover:bg-hover-tertiary duration-150 text-white rounded-3xl font-montserrat-medium ${
-            size === "medium" && "px-5 py-2 text-cs-xs rounded-3xl"
-          } ${size === "large" && " px-24 py-2 text-cs-sm rounded-lg"}
-           ${
-             appearance === "primary" && "bg-tertiary hover:bg-hover-tertiary"
-           } ${
-            appearance === "secondary" &&
-            " bg-quarternary hover:bg-hover-quarternary"
-          }`}
-        >
+        <LinkElement appearance={appearance} size={size} url={url}>
           {children}
-        </Link>
+        </LinkElement>
       ) : (
-        <button
-          className={` inline-block bg-tertiary hover:bg-hover-tertiary duration-150 text-white rounded-3xl text-cs-xs font-montserrat-medium ${
-            size === "medium" && "px-5 py-2"
-          } ${size === "large" && "px-10 py-1"}
-           ${
-             appearance === "primary" && "bg-tertiary hover:bg-hover-tertiary"
-           } ${
-            appearance === "secondary" &&
-            " bg-quarternary hover:bg-hover-quarternary"
-          }`}
-          onClick={onClick}
-        >
+        <ButtonElement appearance={appearance} size={size} onClick={onClick}>
           {children}
-        </button>
+        </ButtonElement>
       )}
     </>
   );

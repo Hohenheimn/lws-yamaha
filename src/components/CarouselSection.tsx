@@ -16,7 +16,7 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
 import Button from "./Button";
 import SectionContainer from "./SectionContainer";
-import VehicleCard, { VehicleCardType } from "./VehicleCard";
+import VehicleCard, { VehicleCardType } from "./Vehicles/VehicleCard";
 
 type props = {
   title: string;

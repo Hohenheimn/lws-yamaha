@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import BannerArrowDown from "./Icons/BannerArrowDown";
+
 type props = {
   imageSrc: string;
   title: React.ReactNode;
@@ -27,14 +29,14 @@ function HeroBanner({
     >
       <Image src={imageSrc} alt="banner" fill className=" object-cover" />
       {scrollTo && (
-        <Link href={scrollTo} className=" absolute bottom-5">
-          <Image
-            src="/images/button-icons/banner-arrow-down.svg"
-            width={80}
-            height={80}
-            alt="arrow-down"
+        <div className=" absolute bottom-5">
+          <BannerArrowDown
+            width={90}
+            height={90}
+            color={"#fff"}
+            link={scrollTo}
           />
-        </Link>
+        </div>
       )}
 
       <div

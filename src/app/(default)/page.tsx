@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-import HeroBanner from "@/components/HeroBanner";
+import Hero from "@/components/Hero";
 import ScreenBanner from "@/components/ScreenBanner";
 import CarouselSection from "@/components/Section/VehicleCarouselSection";
 
@@ -66,7 +66,7 @@ const HomePage = () => {
           setShow={setShowBanner}
         />
       )}
-      <HeroBanner
+      <Hero
         height="large"
         imageSrc={"/images/samples/sample-banner.jpg"}
         title={

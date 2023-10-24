@@ -33,6 +33,28 @@ function CarouselSection({
   bgImage,
   url,
 }: props) {
+  const breakpoints = {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 10,
+    },
+    1280: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+    1440: {
+      slidesPerView: 4,
+      spaceBetween: 30,
+    },
+  };
   return (
     <SectionContainer
       className=" flex flex-col items-center space-y-5"
@@ -48,30 +70,8 @@ function CarouselSection({
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={30}
           slidesPerView={4}
-          // autoHeight
           className=" unit-carousel"
-          breakpoints={{
-            0: {
-              slidesPerView: 1,
-              spaceBetween: 10,
-            },
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 10,
-            },
-            1280: {
-              slidesPerView: 3,
-              spaceBetween: 30,
-            },
-            1440: {
-              slidesPerView: 4,
-              spaceBetween: 30,
-            },
-          }}
+          breakpoints={breakpoints}
         >
           <SwiperNavigationButton />
           {vehicles.map((item, indx) => (

@@ -20,7 +20,7 @@ const ProductCard = (props: PropsType) => {
                 <Image fill src={props.image} alt={props.title} className='p-7 object-contain object-center' />
             </div>
 
-            <figcaption onClick={props.onClick} className='w-fitcursor-pointer'>
+            <figcaption onClick={props.onClick} className='w-fit cursor-pointer'>
                 <p className='productName text-[#f1f1f1] line-clamp-2 text-ellipsis'>{props.title}</p>
                 <p className='productPrice font-bold text-[#A3A3A3] line-clamp-1'>
                     {/* &#8369; */}

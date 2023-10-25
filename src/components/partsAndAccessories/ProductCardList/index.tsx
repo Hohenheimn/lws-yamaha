@@ -7,7 +7,9 @@ export type ProductCardListType = {
     noWrap?: boolean
 }
 
-const ProductCardList = (props: ProductCardListType) => {
+type PropsType = ProductCardListType
+
+const ProductCardList = (props: PropsType) => {
     return (
         <div className='flex flex-col gap-5'>
             <h3 className='text-[#f1f1f1] font-semibold'>{props.title}</h3>

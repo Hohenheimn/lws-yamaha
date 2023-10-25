@@ -11,7 +11,9 @@ export type ProductCardType = {
     onClick(): void
 }
 
-const ProductCard = (props: ProductCardType) => {
+type PropsType = ProductCardType
+
+const ProductCard = (props: PropsType) => {
     return (
         <figure className='productCard h-fit flex flex-col gap-4 w-[300px] flex-0'>
             <div onClick={props.onClick} className='relative w-full h-[300px] bg-[#323232] rounded-lg cursor-pointer'>

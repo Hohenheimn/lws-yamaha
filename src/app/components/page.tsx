@@ -1,13 +1,13 @@
 'use client'
 
-import ProductCard from '@/components/partsAndAccessories/ProductCard'
-import ProductCardList from '@/components/partsAndAccessories/ProductCardList'
-import ProductFilter from '@/components/partsAndAccessories/ProductFilter'
-import productsData from '@/data/partsAndAccessories/products'
-import productsFilterData from '@/data/partsAndAccessories/productsFilter'
+import Link from 'next/link'
 import React, { ReactNode, useMemo } from 'react'
+import ProductFilterComponent from './_components/ProductFilterComponent'
+import ProductCardComponent from './_components/ProductCardComponent'
+import ProductListsComponent from './_components/ProductListsComponent'
+import BreadcrumpsComponent from './_components/BreadcrumpsComponent'
 
-const componentTitles = ["Product Card", "Product Card List", "Product Filter"]
+const componentTitles = ["Product Card", "Product Card List", "Product Filter", 'Breadcrumps']
 
 const ComponentsPage = () => {
     const renderComponent = (args: { title: string; component: ReactNode }) => {
@@ -18,9 +18,9 @@ const ComponentsPage = () => {
     }
 
     const renderSideMenu = useMemo(() => {
-        return <aside className='bg-[#404040] py-4 px-7  flex flex-col gap-2 rounded-lg m-4 mr-0'>
+        return <aside className='bg-[#404040] py-4 px-7 hidden md:flex flex-col gap-2 rounded-lg m-4 mr-0'>
             {componentTitles.map((title) => (
-                <a key={title} href={`/components#${title}`} className='text-[#f1f1f1] font-semibold'>{title}</a>
+                <Link key={title} href={`/components#${title}`} className='text-[#f1f1f1] font-semibold'>{title}</Link>
             ))}
         </aside>
     }, [])
@@ -30,16 +30,13 @@ const ComponentsPage = () => {
             {renderSideMenu}
             <div className='flex flex-col gap-4 p-4 flex-1 h-screen overflow-y-auto scroll-smooth'>
                 {/* Product Card */}
-                {renderComponent({ title: 'Product Card', component: <ProductCard {...productsData[0]} onClick={() => console.log(productsData[0])} /> })}
+                {renderComponent({ title: 'Product Card', component: <ProductCardComponent /> })}
                 {/* Product Card List */}
-                {renderComponent({
-                    title: 'Product Card List', component: <div className='flex flex-col gap-16'>
-                        <ProductCardList title={'HJC Helmets'} products={productsData.map((product) => ({ ...product, onClick: () => console.log(product) }))} />
-                        <ProductCardList title={'Related Products'} products={productsData.map((product) => ({ ...product, onClick: () => console.log(product) }))} />
-                    </div>
-                })}
+                {renderComponent({ title: 'Product Card List', component: <ProductListsComponent /> })}
                 {/* Product Filter */}
-                {renderComponent({ title: 'Product Filter', component: <ProductFilter categories={productsFilterData} /> })}
+                {renderComponent({ title: 'Product Filter', component: <ProductFilterComponent /> })}
+                {/* Product Filter */}
+                {renderComponent({ title: "Breadcrumps", component: <BreadcrumpsComponent /> })}
                 {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "componentsTitle" */}
             </div>
         </div>

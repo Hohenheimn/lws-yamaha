@@ -3,7 +3,7 @@ const productsData = [
     id: 1,
     title: "HJC Helmet",
     image: "/assets/images/placeholder.png",
-    price: 3900,
+    price: 1739123123,
   },
   {
     id: 2,
@@ -13,7 +13,8 @@ const productsData = [
   },
   {
     id: 3,
-    title: "Another Helmet",
+    title:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam incidunt dolorem inventore, vero voluptatum, ut velit id beatae quibusdam quaerat harum laboriosam, suscipit alias deleniti.",
     image: "/assets/images/placeholder.png",
     price: 1300,
   },

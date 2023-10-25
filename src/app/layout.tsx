@@ -1,6 +1,12 @@
 import React from 'react'
 import "@/styles/globals.scss"
+import { Montserrat } from 'next/font/google';
 
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  display: 'swap',
+});
 
 const RootLayout = ({
   children,
@@ -8,8 +14,9 @@ const RootLayout = ({
   children: React.ReactNode
 }) => {
   return (
-    <html lang="en">
+    <html lang="en" className={montserrat.className}>
       <body className='bg-[#131313]'>{children}</body>
+
     </html>
   )
 }

@@ -40,7 +40,7 @@ const ComponentsPage = () => {
                 {/* Product Filter */}
                 {renderComponent({ title: "Breadcrumps", component: <BreadcrumpsComponent /> })}
                 {/* Embed Social */}
-                {renderComponent({ title: "Embed Socials", component: <EmbedSocialSection />, note: "Embed social card height depends on it's content" })}
+                {renderComponent({ title: "Embed Socials", component: <EmbedSocialSection />, note: "Embed social card height depends on its contents" })}
                 {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "title" property, add note if there's needed to expound the component */}
 
             </div>

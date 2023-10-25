@@ -1,6 +1,7 @@
 import React from 'react'
 import "@/styles/globals.scss"
 
+
 const RootLayout = ({
   children,
 }: {
@@ -8,7 +9,7 @@ const RootLayout = ({
 }) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className='bg-[#131313]'>{children}</body>
     </html>
   )
 }

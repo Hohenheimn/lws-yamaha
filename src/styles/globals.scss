@@ -2,49 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "montserrat-regular";
-  src: url("../../public/fonts/montserrat/Montserrat-Regular.ttf");
-}
-@font-face {
-  font-family: "montserrat-medium";
-  src: url("../../public/fonts/montserrat/Montserrat-Medium.ttf");
-}
-@font-face {
-  font-family: "montserrat-bold";
-  src: url("../../public/fonts/montserrat/Montserrat-Bold.ttf");
-}
-@font-face {
-  font-family: "montserrat-extrabold";
-  src: url("../../public/fonts/montserrat/Montserrat-ExtraBold.ttf");
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 * {
-  @apply text-cs-xs xl:text-cs-sm font-montserrat-regular;
+  @apply text-cs-xs xl:text-cs-sm;
 }
 
 h1 {
-  @apply text-cs-2xl xl:text-cs-3xl font-montserrat-bold;
+  @apply text-cs-2xl xl:text-cs-3xl font-bold;
 }
 
 h2 {
-  @apply text-cs-xl xl:text-cs-2xl font-montserrat-bold;
+  @apply text-cs-xl xl:text-cs-2xl font-bold;
 }
 
 h3 {
-  @apply text-cs-lg xl:text-cs-xl font-montserrat-bold;
+  @apply text-cs-lg xl:text-cs-xl font-bold;
 }
 
 h4 {
-  @apply text-cs-md xl:text-cs-lg font-montserrat-bold;
+  @apply text-cs-md xl:text-cs-lg font-bold;
 }
 
 h5 {
-  @apply text-cs-sm xl:text-cs-md font-montserrat-bold;
+  @apply text-cs-sm xl:text-cs-md font-bold;
 }
 
 .unit-carousel.swiper {

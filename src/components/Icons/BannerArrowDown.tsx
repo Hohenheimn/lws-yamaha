@@ -1,9 +1,10 @@
 import React from "react";
 import Link from "next/link";
 
-import { iconsPropType } from "./SocialIcons/Instagram";
+import { IconsPropType } from "./SocialIcons/Instagram";
 
-function BannerArrowDown({ width, height, color, link }: iconsPropType) {
+const BannerArrowDown = (props: IconsPropType) => {
+  const { width, height, color, link } = props;
   return (
     <Link href={link}>
       <svg
@@ -100,6 +101,6 @@ function BannerArrowDown({ width, height, color, link }: iconsPropType) {
       </svg>
     </Link>
   );
-}
+};
 
 export default BannerArrowDown;

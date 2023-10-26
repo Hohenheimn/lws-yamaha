@@ -1,13 +1,25 @@
 import React from "react";
+import { Montserrat } from "next/font/google";
 
-import Layout from "@/components/Layout";
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
+
+import Footer from "@/components/Layout/Footer";
+import Header from "@/components/Layout/Header";
+import "@/styles/globals.scss";
+
 import "@/styles/globals.scss";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
-      <body>
-        <Layout>{children}</Layout>
+    <html lang="en" className={montserrat.className}>
+      <body className="bg-[#131313]">
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );

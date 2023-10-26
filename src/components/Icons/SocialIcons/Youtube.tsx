@@ -2,9 +2,10 @@ import React from "react";
 
 import Link from "next/link";
 
-import { iconsPropType } from "./Instagram";
+import { IconsPropType } from "./Instagram";
 
-function Youtube({ width, height, color, link }: iconsPropType) {
+const Youtube = (props: IconsPropType) => {
+  const { width, height, color, link } = props;
   return (
     <Link href={link}>
       <svg
@@ -20,6 +21,6 @@ function Youtube({ width, height, color, link }: iconsPropType) {
       </svg>
     </Link>
   );
-}
+};
 
 export default Youtube;

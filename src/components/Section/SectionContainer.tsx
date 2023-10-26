@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-type props = {
+type PropsType = {
   bgImage?: string;
   blur?: boolean;
   bgColor?: string;
@@ -10,14 +10,8 @@ type props = {
   className?: string;
 };
 
-function SectionContainer({
-  bgImage,
-  bgColor,
-  blur,
-  fullWidth,
-  children,
-  className,
-}: props) {
+const SectionContainer = (props: PropsType) => {
+  const { bgImage, bgColor, blur, fullWidth, children, className } = props;
   return (
     <section
       className={`relative w-full flex justify-center py-14 bg-center bg-cover bg-no-repeat`}
@@ -37,6 +31,6 @@ function SectionContainer({
       </div>
     </section>
   );
-}
+};
 
 export default SectionContainer;

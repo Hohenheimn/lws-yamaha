@@ -1,22 +1,24 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 import BannerArrowDown from "../Icons/BannerArrowDown";
-import { heroTypes } from "./heroTypes";
 
-function Hero({
-  imageSrc,
-  title,
-  description,
-  height,
-  textPosition,
-  scrollTo,
-}: heroTypes) {
+type PropsType = {
+  imageSrc: string;
+  title: React.ReactNode;
+  description: string;
+  textPosition: "center" | "bottom-left" | "bottom-right" | "bottom-center";
+  fullHeight: boolean;
+  scrollTo?: string;
+};
+
+const Hero = (props: PropsType) => {
+  const { imageSrc, title, description, fullHeight, textPosition, scrollTo } =
+    props;
   return (
     <section
-      className={` w-full relative ${height === "medium" && "h-[60vh]"} ${
-        height === "large" && "h-screen"
+      className={` w-full relative ${!fullHeight && "h-[60vh]"} ${
+        fullHeight && "h-screen"
       } flex justify-center`}
     >
       <Image src={imageSrc} alt="banner" fill className=" object-cover" />
@@ -46,6 +48,6 @@ function Hero({
       </div>
     </section>
   );
-}
+};
 
 export default Hero;

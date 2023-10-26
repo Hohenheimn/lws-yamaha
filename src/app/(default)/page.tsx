@@ -3,72 +3,23 @@
 import React, { useState } from "react";
 
 import Hero from "@/components/Hero";
-import ScreenBanner from "@/components/ScreenBanner";
-import CarouselSection from "@/components/Section/VehicleCarouselSection";
+import MotorcycleCarouselSection from "@/components/Motorcycle/MotorcycleCarouselSection";
+import ScreenBanner from "@/components/Shared/Modal/ScreenBannerModal";
+import { motocycleCarousel } from "@/data/motorcycle/motorcycleCarousel";
 
 const HomePage = () => {
   const [showBanner, setShowBanner] = useState(true);
-  const sampleUnit = [
-    {
-      imageSrc: "/images/samples/sample-unit.png",
-      description: {
-        engine_type:
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo magnam adipisci consequuntur distinctio deleniti nulla ea! Non dolor reprehenderit recusandae. Nulla aperiam, deserunt voluptate vitae perspiciatis eos adipisci placeat perferendis.",
-        frame_type:
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo magnam adipisci consequuntur distinctio deleniti nulla ea! Non dolor reprehenderit recusandae. Nulla aperiam, deserunt voluptate vitae perspiciatis eos adipisci placeat perferendis.",
-        dimention:
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo magnam adipisci consequuntur distinctio deleniti nulla ea! Non dolor reprehenderit recusandae. Nulla aperiam, deserunt voluptate vitae perspiciatis eos adipisci placeat perferendis.",
-      },
-      url: "#",
-    },
-    {
-      imageSrc: "/images/samples/sample-bigbike.png",
-      description: {
-        engine_type: "",
-        frame_type: "",
-        dimention: "",
-      },
-      url: "#",
-    },
-    {
-      imageSrc: "/images/samples/sample-unit.png",
-      description: {
-        engine_type: "",
-        frame_type: "",
-        dimention: "",
-      },
-      url: "#",
-    },
-    {
-      imageSrc: "/images/samples/sample-bigbike.png",
-      description: {
-        engine_type: "",
-        frame_type: "",
-        dimention: "",
-      },
-      url: "#",
-    },
-    {
-      imageSrc: "/images/samples/sample-unit.png",
-      description: {
-        engine_type: "",
-        frame_type: "",
-        dimention: "",
-      },
-      url: "#",
-    },
-  ];
   return (
     <div>
       {showBanner && (
         <ScreenBanner
-          imageUrl="/images/samples/sample-screen-banner.png"
+          imageUrl="/assets/images/samples/sample-screen-banner.png"
           setShow={setShowBanner}
         />
       )}
       <Hero
-        height="large"
-        imageSrc={"/images/samples/sample-banner.jpg"}
+        fullHeight={true}
+        imageSrc={"/assets/images/samples/sample-banner.jpg"}
         title={
           <h2>
             DESIGNED USING
@@ -81,23 +32,23 @@ const HomePage = () => {
         scrollTo="#personal-commuter"
       />
       <div id="personal-commuter">
-        <CarouselSection
+        <MotorcycleCarouselSection
           title={"Personal Commuter"}
           description={
             " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti aliquam voluptate molestiae fuga architecto obcaecati dolorem blanditiis dolores, dolorum eveniet? Perferendis minima ullam ipsum sapiente veniam dolores facere quod dolorem."
           }
-          vehicles={sampleUnit}
-          bgImage={"/images/samples/sample-banner.jpg"}
+          motorcycle={motocycleCarousel}
+          bgImage={"/assets/images/samples/sample-banner.jpg"}
           url={"#"}
         />
       </div>
-      <CarouselSection
+      <MotorcycleCarouselSection
         title={"Big Bikes"}
         description={
           " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti aliquam voluptate molestiae fuga architecto obcaecati dolorem blanditiis dolores, dolorum eveniet? Perferendis minima ullam ipsum sapiente veniam dolores facere quod dolorem."
         }
-        vehicles={sampleUnit}
-        bgImage={"/images/samples/sample-banner.jpg"}
+        motorcycle={motocycleCarousel}
+        bgImage={"/assets/images/samples/sample-banner.jpg"}
         url={"#"}
       />
     </div>

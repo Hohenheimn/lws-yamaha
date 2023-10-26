@@ -3,14 +3,15 @@
 import React from "react";
 import Link from "next/link";
 
-export type iconsPropType = {
+export type IconsPropType = {
   width: number;
   height: number;
   color: string;
   link: string;
 };
 
-function Instagram({ width, height, color, link }: iconsPropType) {
+const Instagram = (props: IconsPropType) => {
+  const { width, height, color, link } = props;
   return (
     <Link href={link}>
       <svg
@@ -27,6 +28,6 @@ function Instagram({ width, height, color, link }: iconsPropType) {
       </svg>
     </Link>
   );
-}
+};
 
 export default Instagram;

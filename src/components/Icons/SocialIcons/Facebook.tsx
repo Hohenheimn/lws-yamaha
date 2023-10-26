@@ -1,14 +1,15 @@
 import React from "react";
 import Link from "next/link";
 
-type iconsPropType = {
+type IconsPropType = {
   width: number;
   height: number;
   color: string;
   link: string;
 };
 
-function Facebook({ width, height, color, link }: iconsPropType) {
+const Facebook = (props: IconsPropType) => {
+  const { width, height, color, link } = props;
   return (
     <Link href={link}>
       <svg
@@ -24,6 +25,6 @@ function Facebook({ width, height, color, link }: iconsPropType) {
       </svg>
     </Link>
   );
-}
+};
 
 export default Facebook;

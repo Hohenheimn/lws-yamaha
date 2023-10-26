@@ -16,7 +16,6 @@ const RootLayout = ({
   return (
     <html lang="en" className={montserrat.className}>
       <body className='bg-[#131313]'>{children}</body>
-
     </html>
   )
 }

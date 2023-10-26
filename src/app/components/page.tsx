@@ -2,13 +2,17 @@
 
 import Link from 'next/link'
 import { ReactNode, useMemo } from 'react'
+import ArrowTitles from './_components/ArrowTitles'
 import BreadcrumpsComponent from './_components/BreadcrumpsComponent'
 import EmbedSocialSection from './_components/EmbedSocialSection'
+import GridEmbedSocialSection from './_components/GridEmbedSocialSection'
+import NewsCardComponent from './_components/NewsCardComponent'
+import NewsCardListComponent from './_components/NewsCardListComponent'
 import ProductCardComponent from './_components/ProductCardComponent'
 import ProductFilterComponent from './_components/ProductFilterComponent'
 import ProductListsComponent from './_components/ProductListsComponent'
 
-const componentTitles = ["Product Card", "Product Card List", "Product Filter", 'Breadcrumps', 'Embed Socials']
+const componentTitles = ["Product Card", "Product Card List", "Product Filter", 'Breadcrumps', 'Embed Socials', 'Grid Embed Socials', 'News Card', 'News Card List', 'Arrow Titles']
 
 const ComponentsPage = () => {
     const renderComponent = (args: { title: string; note?: string; component: ReactNode, wireframeLink: string }) => {
@@ -61,12 +65,38 @@ const ComponentsPage = () => {
                     component: <BreadcrumpsComponent />,
                     wireframeLink: "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3545&mode=design&t=k72RwsE1mNhfW6Bi-1"
                 })}
-                {/* Embed Social */}
+                {/* Embed Socials */}
                 {renderComponent({
                     title: "Embed Socials",
                     component: <EmbedSocialSection />,
                     note: "Embed social card height depends on its contents",
                     wireframeLink: "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3&mode=design&t=k72RwsE1mNhfW6Bi-1"
+                })}
+                {/* Grid Embed Socials */}
+                {renderComponent({
+                    title: "Grid Embed Socials",
+                    component: <GridEmbedSocialSection />,
+                    wireframeLink: "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A1848&mode=design&t=k72RwsE1mNhfW6Bi-1"
+                })}
+                {/* News Card */}
+                {renderComponent({
+                    title: "News Card",
+                    component: <NewsCardComponent />,
+                    wireframeLink: "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3046&mode=design&t=k72RwsE1mNhfW6Bi-1"
+                })}
+
+                {/* News Card */}
+                {renderComponent({
+                    title: "News Card List",
+                    component: <NewsCardListComponent />,
+                    wireframeLink: "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3046&mode=design&t=k72RwsE1mNhfW6Bi-1"
+                })}
+                {/* Arrow Title */}
+                {renderComponent({
+                    title: "Arrow Titles",
+                    component: <ArrowTitles />,
+                    note: "Adjusted the font size and arrow size as it is too big",
+                    wireframeLink: "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=k72RwsE1mNhfW6Bi-1"
                 })}
                 {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "title" property, add note if there's needed to expound the component */}
 

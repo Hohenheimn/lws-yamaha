@@ -8,15 +8,10 @@ import ScreenBanner from "@/components/Shared/Modal/ScreenBannerModal";
 import { motocycleCarousel } from "@/data/motorcycle/motorcycleCarousel";
 
 const HomePage = () => {
-  const [showBanner, setShowBanner] = useState(true);
   return (
     <div>
-      {showBanner && (
-        <ScreenBanner
-          imageUrl="/assets/images/samples/sample-screen-banner.png"
-          setShow={setShowBanner}
-        />
-      )}
+      <ScreenBanner imageUrl="/assets/images/samples/sample-screen-banner.png" />
+
       <Hero
         fullHeight={true}
         imageSrc={"/assets/images/samples/sample-banner.jpg"}

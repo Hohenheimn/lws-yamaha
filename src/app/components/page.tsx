@@ -1,15 +1,19 @@
 "use client";
 
-import React, { ReactNode, useMemo } from "react";
+import { ReactNode, useMemo } from "react";
 import Link from "next/link";
 
+import ArrowTitles from "./_components/ArrowTitles";
 import BreadcrumpsComponent from "./_components/BreadcrumpsComponent";
 import EmbedSocialSection from "./_components/EmbedSocialSection";
+import GridEmbedSocialSection from "./_components/GridEmbedSocialSection";
 import HeroComponent from "./_components/Hero/HeroComponent";
 import HeroComponentFullScreen from "./_components/Hero/HeroComponentFullScreen";
 import MotorcycleCardComponent from "./_components/Motorcycle/MotorcycleCardComponent";
 import MotorcycleCardListComponent from "./_components/Motorcycle/MotorcycleCardListComponent";
 import MotorcycleCarouselComponent from "./_components/Motorcycle/MotorcycleCarouselComponent";
+import NewsCardComponent from "./_components/NewsCardComponent";
+import NewsCardListComponent from "./_components/NewsCardListComponent";
 import ProductCardComponent from "./_components/ProductCardComponent";
 import ProductFilterComponent from "./_components/ProductFilterComponent";
 import ProductListsComponent from "./_components/ProductListsComponent";
@@ -17,14 +21,18 @@ import ProductListsComponent from "./_components/ProductListsComponent";
 const componentTitles = [
   "Hero Homepage",
   "Hero Inside Pages",
-  "Motorcycle Card",
-  "Motorcycle Card List",
-  "Motorcycle Carousel",
+  "Motorcycle Model Card",
+  "Motorcycle Model Card List",
+  "Motorcycle Model Carousel",
   "Product Card",
   "Product Card List",
   "Product Filter",
   "Breadcrumps",
   "Embed Socials",
+  "Grid Embed Socials",
+  "News Card",
+  "News Card List",
+  "Arrow Titles",
 ];
 
 const ComponentsPage = () => {
@@ -39,13 +47,17 @@ const ComponentsPage = () => {
         id={args.title}
         className="flex flex-col gap-4 border border-solid-[#f1f1f1] p-4 rounded-lg"
       >
-        <legend className="text-[#f1f1f1] font-bold px-4">{args.title}</legend>
-        {args.note && (
-          <p className="text-[#ff6060] italic font-semibold px-4">
-            {args.note}
-          </p>
-        )}
-        <div className=" relative">{args.component}</div>
+        <legend className="text-[#f1f1f1] font-bold px-4">
+          <Link href={args.wireframeLink} target="_blank">
+            {args.title}{" "}
+          </Link>
+        </legend>
+        <div className="px-4">
+          {args.note && (
+            <p className="text-[#ff6060] italic font-semibold">{args.note}</p>
+          )}
+        </div>
+        {args.component}
       </fieldset>
     );
   };
@@ -87,21 +99,21 @@ const ComponentsPage = () => {
         })}
         {/* Motorcycle Card */}
         {renderComponent({
-          title: "Motorcycle Card",
+          title: "Motorcycle Model Card",
           component: <MotorcycleCardComponent />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-1231&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
         })}
         {/* Motorcycle Card List */}
         {renderComponent({
-          title: "Motorcycle Card List",
+          title: "Motorcycle Model Card List",
           component: <MotorcycleCardListComponent />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-1231&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
         })}
         {/* Motorcycle Carousel */}
         {renderComponent({
-          title: "Motorcycle Carousel",
+          title: "Motorcycle Model Section",
           component: <MotorcycleCarouselComponent />,
           note: "Cards width depends on number of carousel slides show per view, it may look thin since it suppose to be full width of screen",
           wireframeLink:
@@ -142,6 +154,29 @@ const ComponentsPage = () => {
           note: "Embed social card height depends on its contents",
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3&mode=design&t=k72RwsE1mNhfW6Bi-1",
+        })}
+        {/* News Card */}
+        {renderComponent({
+          title: "News Card",
+          component: <NewsCardComponent />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3046&mode=design&t=k72RwsE1mNhfW6Bi-1",
+        })}
+
+        {/* News Card */}
+        {renderComponent({
+          title: "News Card List",
+          component: <NewsCardListComponent />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3046&mode=design&t=k72RwsE1mNhfW6Bi-1",
+        })}
+        {/* Arrow Title */}
+        {renderComponent({
+          title: "Arrow Titles",
+          component: <ArrowTitles />,
+          note: "Adjusted the font size and arrow size as it is too big",
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=k72RwsE1mNhfW6Bi-1",
         })}
         {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "title" property, add note if there's needed to expound the component */}
       </div>

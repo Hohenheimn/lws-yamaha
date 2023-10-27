@@ -1,4 +1,4 @@
-import ArrowTitle from "@/components/Shared/ArrowTitle";
+import ArrowTitle from "@/components/shared/ArrowTitle";
 
 const ArrowTitles = () => {
   const titles = ["Other News", "Color & Price", "Features", "Facebook"];

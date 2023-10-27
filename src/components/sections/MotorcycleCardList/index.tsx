@@ -2,7 +2,7 @@ import React from "react";
 
 import MotorcycleCard, {
   MotorcycleCardType,
-} from "@/components/Motorcycle/MotorcycleCard";
+} from "@/components/motorcycle/MotorcycleCard";
 
 type PropsType = {
   motorcycles: MotorcycleCardType[];

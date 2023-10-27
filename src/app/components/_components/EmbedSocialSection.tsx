@@ -1,7 +1,7 @@
 import React from "react";
 
-import FacebookEmbedCard from "@/components/Shared/EmbedSocials/FacebookEmbedCard";
-import InstagramEmbedCard from "@/components/Shared/EmbedSocials/InstagramEmbedCard";
+import FacebookEmbedCard from "@/components/shared/EmbedSocials/FacebookEmbedCard";
+import InstagramEmbedCard from "@/components/shared/EmbedSocials/InstagramEmbedCard";
 
 const facebookUrls = [
   "https://www.facebook.com/ph.yamaha/posts/pfbid02dqcMenHYcyiLzgyGjASbM8j7zGnMRbuprKjenHKESmFQT2gf3GstmeoxcyfcqWcml",

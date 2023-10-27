@@ -1,4 +1,4 @@
-import { MotorcycleCardType } from "@/components/Motorcycle/MotorcycleCard";
+import { MotorcycleCardType } from "@/components/motorcycle/MotorcycleCard";
 
 export const motocycleCarousel: MotorcycleCardType[] = [
   {

@@ -6,7 +6,8 @@ import Link from "next/link";
 import { BiSearch } from "react-icons/bi";
 import { FaBars } from "react-icons/fa";
 
-import { navUrls, navUrlsType } from "./NavUrl";
+import { navUrls, navUrlsType } from "@/data/navigationUrl";
+
 import SubMenu from "./SubMenu";
 
 const Header = () => {

@@ -6,9 +6,9 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
   display: "swap",
 });
+import Footer from "@/components/shared/Footer";
 
-import Footer from "@/components/Layout/Footer";
-import Header from "@/components/Layout/Header";
+import Header from "@/components/shared/Header";
 import "@/styles/globals.scss";
 
 import "@/styles/globals.scss";

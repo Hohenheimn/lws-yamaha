@@ -1,4 +1,4 @@
-import GridEmbedSection from "@/components/Shared/EmbedSocials/GridEmbedSection";
+import GridEmbedSection from "@/components/shared/EmbedSocials/GridEmbedSection";
 
 const GridEmbedSocialSection = () => {
   return (

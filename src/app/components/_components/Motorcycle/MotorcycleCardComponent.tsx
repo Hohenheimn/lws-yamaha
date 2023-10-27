@@ -1,6 +1,6 @@
 import React from "react";
 
-import MotorcycleCard from "@/components/Motorcycle/MotorcycleCard";
+import MotorcycleCard from "@/components/motorcycle/MotorcycleCard";
 
 const MotorcycleCardComponent = () => {
   return (

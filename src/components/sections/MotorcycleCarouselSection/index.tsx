@@ -14,9 +14,12 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
-import SectionContainer from "../../Section/SectionContainer";
-import Button from "../../Shared/Button";
-import MotorcycleCard, { MotorcycleCardType } from "../MotorcycleCard";
+import MotorcycleCard, {
+  MotorcycleCardType,
+} from "@/components/motorcycle/MotorcycleCard";
+import Button from "@/components/shared/Button";
+
+import SectionContainer from "../SectionContainer";
 import { MotorcycleNavigationButton } from "./MotorcycleNavigationButton";
 
 type PropsType = {

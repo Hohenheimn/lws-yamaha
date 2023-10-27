@@ -1,12 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { AiFillInstagram, AiFillYoutube } from "react-icons/ai";
+import { FaFacebookF, FaTiktok } from "react-icons/fa";
 import { PiShareBold } from "react-icons/pi";
-
-import Facebook from "@/components/Icons/SocialIcons/Facebook";
-import Instagram from "@/components/Icons/SocialIcons/Instagram";
-import Tiktok from "@/components/Icons/SocialIcons/Tiktok";
-import Youtube from "@/components/Icons/SocialIcons/Youtube";
 
 const Footer = () => {
   return (
@@ -41,10 +38,18 @@ const Footer = () => {
       </ul>
       <p>Copyright {"©"} 2023 Yamaha Motors Philippines Inc.</p>
       <ul className=" flex gap-10 items-center">
-        <Instagram width={33} height={33} color={"#fff"} link={"#"} />
-        <Facebook width={30} height={30} color={"#fff"} link={"#"} />
-        <Youtube width={30} height={30} color={"#fff"} link={"#"} />
-        <Tiktok width={34} height={34} color={"#fff"} link={"#fff"} />
+        <Link href={""}>
+          <AiFillInstagram className=" text-cs-lg" />
+        </Link>
+        <Link href={""}>
+          <AiFillYoutube className=" text-cs-lg" />
+        </Link>
+        <Link href={""}>
+          <FaFacebookF className=" text-cs-lg" />
+        </Link>
+        <Link href={""}>
+          <FaTiktok className=" text-cs-lg" />
+        </Link>
       </ul>
     </footer>
   );

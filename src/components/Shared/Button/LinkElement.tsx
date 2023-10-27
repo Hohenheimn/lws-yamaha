@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
-import { ButtonProps } from ".";
+import { ButtonPropsType } from ".";
 
-const LinkElement = (props: ButtonProps) => {
+const LinkElement = (props: ButtonPropsType) => {
   const { url, size, appearance, children } = props;
   return (
     <Link

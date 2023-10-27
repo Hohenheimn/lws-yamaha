@@ -1,6 +1,7 @@
 import React from "react";
 
-import Hero from "@/components/Hero";
+import Hero from "@/components/sections/Hero";
+import Heading from "@/components/shared/Heading";
 
 const HeroComponentFullScreen = () => {
   return (
@@ -8,13 +9,7 @@ const HeroComponentFullScreen = () => {
       <Hero
         fullHeight={true}
         imageSrc={"/assets/images/placeholder.png"}
-        title={
-          <h2>
-            HOMEPAGE
-            <br />
-            HERO BANNER
-          </h2>
-        }
+        title={<Heading type="h2">{`HOMEPAGE \n HERO BANNER`}</Heading>}
         description={"Lorem ipsum dolor sit amet consectetur adipisicing elit."}
         textPosition={"center"}
         scrollTo="#personal-commuter"

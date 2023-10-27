@@ -1,6 +1,6 @@
 import React from "react";
 
-import MotorcycleCardList from "@/components/Motorcycle/MotorcycleCardList";
+import MotorcycleCardList from "@/components/sections/MotorcycleCardList";
 import { motocycleCarousel } from "@/data/motorcycle/motorcycleCarousel";
 
 const MotorcycleCardListComponent = () => {

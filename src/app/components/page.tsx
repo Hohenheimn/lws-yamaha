@@ -7,11 +7,11 @@ import ArrowTitles from "./_components/ArrowTitles";
 import BreadcrumpsComponent from "./_components/BreadcrumpsComponent";
 import EmbedSocialSection from "./_components/EmbedSocialSection";
 import GridEmbedSocialSection from "./_components/GridEmbedSocialSection";
-import HeroComponent from "./_components/Hero/HeroComponent";
-import HeroComponentFullScreen from "./_components/Hero/HeroComponentFullScreen";
-import MotorcycleCardComponent from "./_components/Motorcycle/MotorcycleCardComponent";
-import MotorcycleCardListComponent from "./_components/Motorcycle/MotorcycleCardListComponent";
-import MotorcycleCarouselComponent from "./_components/Motorcycle/MotorcycleCarouselComponent";
+import HeroComponent from "./_components/hero/HeroComponent";
+import HeroComponentFullScreen from "./_components/hero/HeroComponentFullScreen";
+import MotorcycleCardComponent from "./_components/motorcycle/MotorcycleCardComponent";
+import MotorcycleCardListComponent from "./_components/motorcycle/MotorcycleCardListComponent";
+import MotorcycleCarouselComponent from "./_components/motorcycle/MotorcycleCarouselComponent";
 import NewsCardComponent from "./_components/NewsCardComponent";
 import NewsCardListComponent from "./_components/NewsCardListComponent";
 import ProductCardComponent from "./_components/ProductCardComponent";
@@ -49,7 +49,7 @@ const ComponentsPage = () => {
       >
         <legend className="text-[#f1f1f1] font-bold px-4">
           <Link href={args.wireframeLink} target="_blank">
-            {args.title}{" "}
+            {args.title}
           </Link>
         </legend>
         <div className="px-4">

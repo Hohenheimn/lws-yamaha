@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-
-import BannerArrowDown from "../Icons/BannerArrowDown";
+import Link from "next/link";
+import { IoIosArrowDown } from "react-icons/io";
 
 type PropsType = {
   imageSrc: string;
@@ -24,12 +24,12 @@ const Hero = (props: PropsType) => {
       <Image src={imageSrc} alt="banner" fill className=" object-cover" />
       {scrollTo && (
         <div className=" absolute bottom-5">
-          <BannerArrowDown
-            width={90}
-            height={90}
-            color={"#fff"}
-            link={scrollTo}
-          />
+          <Link href={scrollTo}>
+            <aside className=" flex items-center flex-col text-white">
+              <IoIosArrowDown className=" text-[5rem] -mb-14" />
+              <IoIosArrowDown className=" text-[8rem] -mb-10" />
+            </aside>
+          </Link>
         </div>
       )}
 

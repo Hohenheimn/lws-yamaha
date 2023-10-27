@@ -4,7 +4,7 @@ import Link from "next/link";
 import ButtonElement from "./ButtonElement";
 import LinkElement from "./LinkElement";
 
-export type ButtonProps = {
+export type ButtonPropsType = {
   children: string;
   appearance: "primary" | "secondary";
   size: "medium" | "large";
@@ -12,7 +12,13 @@ export type ButtonProps = {
   onClick?: () => void;
 };
 
-const Button = ({ children, appearance, size, url, onClick }: ButtonProps) => {
+const Button = ({
+  children,
+  appearance,
+  size,
+  url,
+  onClick,
+}: ButtonPropsType) => {
   return (
     <>
       {url ? (

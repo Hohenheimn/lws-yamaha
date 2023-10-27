@@ -2,26 +2,20 @@
 
 import React, { useState } from "react";
 
-import Hero from "@/components/Hero";
-import MotorcycleCarouselSection from "@/components/Motorcycle/MotorcycleCarouselSection";
-import ScreenBanner from "@/components/Shared/Modal/ScreenBannerModal";
+import Hero from "@/components/sections/Hero";
+import MotorcycleCarouselSection from "@/components/sections/MotorcycleCarouselSection";
+import Heading from "@/components/shared/Heading";
+import ScreenBannerModal from "@/components/shared/Modal/ScreenBannerModal";
 import { motocycleCarousel } from "@/data/motorcycle/motorcycleCarousel";
 
 const HomePage = () => {
   return (
     <div>
-      <ScreenBanner imageUrl="/assets/images/samples/sample-screen-banner.png" />
-
+      <ScreenBannerModal imageUrl="/assets/images/samples/sample-screen-banner.png" />
       <Hero
         fullHeight={true}
         imageSrc={"/assets/images/samples/sample-banner.jpg"}
-        title={
-          <h2>
-            DESIGNED USING
-            <br />
-            PURE TMAX DNA.
-          </h2>
-        }
+        title={<Heading type="h2">{"DESIGNED USING\nPURE TMAX DNA."}</Heading>}
         description={"Lorem ipsum dolor sit amet consectetur adipisicing elit."}
         textPosition={"center"}
         scrollTo="#personal-commuter"

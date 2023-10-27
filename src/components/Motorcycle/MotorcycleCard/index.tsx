@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import Heading from "@/components/shared/Heading";
+
 export type MotorcycleCardType = {
   imageSrc: string;
   description: {
@@ -33,7 +35,7 @@ function MotorcycleCard({
       </li>
       <li className=" h-[325px] flex flex-col justify-between rounded-br-md rounded-bl-md px-3 py-6 bg-secondary text-white">
         <aside className="space-y-5">
-          <h5>Mio Gravis</h5>
+          <Heading type="h5">Mio Gravis</Heading>
           <ul className=" grid gap-2 grid-cols-5">
             <li className=" col-span-2 text-cs-xs font-medium">Engine Type:</li>
             <li className=" line-clamp-2 col-span-3 text-cs-xs text-gray-300">

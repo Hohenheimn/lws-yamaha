@@ -2,32 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
-
 * {
   @apply text-cs-xs xl:text-cs-sm;
-}
-
-h1 {
-  @apply text-cs-2xl xl:text-cs-3xl font-bold;
-}
-
-h2 {
-  @apply text-cs-xl xl:text-cs-2xl font-bold;
-}
-
-h3 {
-  @apply text-cs-lg xl:text-cs-xl font-bold;
-}
-
-h4 {
-  @apply text-cs-md xl:text-cs-lg font-bold;
-}
-
-h5 {
-  @apply text-cs-sm xl:text-cs-md font-bold;
 }
 
 .unit-carousel.swiper {

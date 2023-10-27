@@ -5,7 +5,6 @@ import { ReactNode, useMemo } from 'react'
 import ArrowTitles from './_components/ArrowTitles'
 import BreadcrumpsComponent from './_components/BreadcrumpsComponent'
 import EmbedSocialSection from './_components/EmbedSocialSection'
-import GridEmbedSocialSection from './_components/GridEmbedSocialSection'
 import NewsCardComponent from './_components/NewsCardComponent'
 import NewsCardListComponent from './_components/NewsCardListComponent'
 import ProductCardComponent from './_components/ProductCardComponent'
@@ -73,11 +72,11 @@ const ComponentsPage = () => {
                     wireframeLink: "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3&mode=design&t=k72RwsE1mNhfW6Bi-1"
                 })}
                 {/* Grid Embed Socials */}
-                {renderComponent({
+                {/* {renderComponent({
                     title: "Grid Embed Socials",
                     component: <GridEmbedSocialSection />,
                     wireframeLink: "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A1848&mode=design&t=k72RwsE1mNhfW6Bi-1"
-                })}
+                })} */}
                 {/* News Card */}
                 {renderComponent({
                     title: "News Card",

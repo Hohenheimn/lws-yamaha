@@ -1,5 +1,5 @@
-import FacebookEmbedCard from '@/components/EmbedSocials/FacebookEmbedCard'
-import InstagramEmbedCard from '@/components/EmbedSocials/InstagramEmbedCard'
+import FacebookEmbedCard from '@/components/shared/EmbedSocials/FacebookEmbedCard'
+import InstagramEmbedCard from '@/components/shared/EmbedSocials/InstagramEmbedCard'
 import React from 'react'
 
 const facebookUrls = ["https://www.facebook.com/ph.yamaha/posts/pfbid02dqcMenHYcyiLzgyGjASbM8j7zGnMRbuprKjenHKESmFQT2gf3GstmeoxcyfcqWcml", "https://www.facebook.com/ph.yamaha/posts/pfbid02hvhuA1TMx7STLssDtooe1hD4NG19unQh8ukGPFvDAGtSFTZjxqkr8qyh74BTtAG1l", "https://www.facebook.com/ph.yamaha/videos/1034674134348030"]

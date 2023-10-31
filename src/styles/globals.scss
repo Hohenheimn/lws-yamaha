@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-  @apply text-cs-xs xl:text-cs-sm;
+  @apply text-[.9rem] xl:text-[1.05rem];
 }
 
 .unit-carousel.swiper {

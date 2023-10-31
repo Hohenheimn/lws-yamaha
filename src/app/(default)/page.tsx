@@ -4,14 +4,15 @@ import React, { useState } from "react";
 
 import Hero from "@/components/sections/Hero";
 import MotorcycleCarouselSection from "@/components/sections/MotorcycleCarouselSection";
+import Button from "@/components/shared/Button";
 import Heading from "@/components/shared/Heading";
-import ScreenBannerModal from "@/components/shared/Modal/ScreenBannerModal";
+import AnnouncementModal from "@/components/shared/Modal/AnnouncementModal";
 import { motocycleCarousel } from "@/data/motorcycle/motorcycleCarousel";
 
 const HomePage = () => {
   return (
     <div>
-      <ScreenBannerModal imageUrl="/assets/images/samples/sample-screen-banner.png" />
+      <AnnouncementModal imageUrl="/assets/images/samples/sample-screen-banner.png" />
       <Hero
         fullHeight={true}
         imageSrc={"/assets/images/samples/sample-banner.jpg"}

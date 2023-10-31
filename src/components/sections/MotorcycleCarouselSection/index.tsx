@@ -19,6 +19,8 @@ import MotorcycleCard, {
 } from "@/components/motorcycle/MotorcycleCard";
 import Button from "@/components/shared/Button";
 
+import Heading from "@/components/shared/Heading";
+
 import SectionContainer from "../SectionContainer";
 import { MotorcycleNavigationButton } from "./MotorcycleNavigationButton";
 
@@ -61,7 +63,7 @@ function MotorcycleCarouselSection(props: PropsType) {
       blur={true}
     >
       <aside className=" w-11/12 max-w-[60rem] text-center text-white">
-        <h4 className=" mb-3">{title}</h4>
+        <Heading type="h4">{title}</Heading>
         <p>{description}</p>
       </aside>
       <div className=" w-full relative">

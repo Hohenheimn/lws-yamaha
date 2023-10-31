@@ -6,7 +6,7 @@ type PropsType = {
   imageUrl: string;
 };
 
-const ScreenBannerModal = (props: PropsType) => {
+const AnnouncementModal = (props: PropsType) => {
   const [show, setShow] = useState(true);
   const { imageUrl } = props;
   return (
@@ -34,4 +34,4 @@ const ScreenBannerModal = (props: PropsType) => {
   );
 };
 
-export default ScreenBannerModal;
+export default AnnouncementModal;

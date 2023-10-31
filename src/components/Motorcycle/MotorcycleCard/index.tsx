@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import Button from "@/components/shared/Button";
 import Heading from "@/components/shared/Heading";
 
 export type MotorcycleCardType = {
@@ -37,27 +38,24 @@ function MotorcycleCard({
         <aside className="space-y-5">
           <Heading type="h5">Mio Gravis</Heading>
           <ul className=" grid gap-2 grid-cols-5">
-            <li className=" col-span-2 text-cs-xs font-medium">Engine Type:</li>
-            <li className=" line-clamp-2 col-span-3 text-cs-xs text-gray-300">
+            <li className=" col-span-2 text-sm font-medium">Engine Type:</li>
+            <li className=" line-clamp-2 col-span-3 text-sm text-gray-300">
               {description.engine_type}
             </li>
-            <li className=" col-span-2 text-cs-xs font-medium">Frame Type:</li>
-            <li className=" line-clamp-1 col-span-3 text-cs-xs text-gray-300">
+            <li className=" col-span-2 text-sm font-medium">Frame Type:</li>
+            <li className=" line-clamp-1 col-span-3 text-sm text-gray-300">
               {description.frame_type}
             </li>
-            <li className=" col-span-2 text-cs-xs font-medium">Dimension:</li>
-            <li className=" line-clamp-2 col-span-3 text-cs-xs text-gray-300">
+            <li className=" col-span-2 text-sm font-medium">Dimension:</li>
+            <li className=" line-clamp-2 col-span-3 text-sm text-gray-300">
               {description.dimention}
             </li>
           </ul>
         </aside>
         <aside className="flex w-full justify-center">
-          <Link
-            href={url}
-            className=" bg-tertiary hover:bg-hover-tertiary duration-150 text-white px-5 py-2 rounded-3xl text-cs-xs font-medium"
-          >
+          <Button appearance={"primary"} size={"medium"}>
             View Model
-          </Link>
+          </Button>
         </aside>
       </li>
     </ul>

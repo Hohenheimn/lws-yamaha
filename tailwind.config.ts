@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontSize: {
-        "cs-xs": "1rem",
+        "cs-xs": ".9rem",
         "cs-sm": "1.05rem",
         "cs-md": "1.5rem",
         "cs-lg": "1.9rem",
@@ -26,6 +26,7 @@ const config: Config = {
         tertiary: "#d52b1e",
         "hover-tertiary": "#d04d43",
         quarternary: "#2f58cd",
+        "hover-quarternary": "#4d77ea",
       },
       fontFamily: {
         "montserrat-regular": "montserrat-regular",

@@ -3,6 +3,10 @@
 import { ReactNode, useMemo } from "react";
 import Link from "next/link";
 
+import Footer from "@/components/shared/Footer";
+
+import Header from "@/components/shared/Header";
+
 import ArrowTitles from "./_components/ArrowTitles";
 import BreadcrumpsComponent from "./_components/BreadcrumpsComponent";
 import EmbedSocialSection from "./_components/EmbedSocialSection";
@@ -19,6 +23,7 @@ import ProductFilterComponent from "./_components/ProductFilterComponent";
 import ProductListsComponent from "./_components/ProductListsComponent";
 
 const componentTitles = [
+  "Header",
   "Hero Homepage",
   "Hero Inside Pages",
   "Motorcycle Model Card",
@@ -33,6 +38,7 @@ const componentTitles = [
   "News Card",
   "News Card List",
   "Arrow Titles",
+  "Footer",
 ];
 
 const ComponentsPage = () => {
@@ -82,10 +88,19 @@ const ComponentsPage = () => {
     <div className="flex">
       {renderSideMenu}
       <div className="flex flex-col gap-4 p-4 flex-1 h-screen overflow-y-auto scroll-smooth scroll-pt-4 scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
+        {/* Header */}
+        {renderComponent({
+          title: "Header",
+          note: " It's a full screen component but because there is spacing on this page for the presentation, it doesn't seem like it is",
+          component: <Header />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
+        })}
+
         {/* Hero Homepage */}
         {renderComponent({
           title: "Hero Homepage",
-          note: "It's full screen but because there is spacing on this page for the presentation, it doesn't seem like it is",
+          note: "It's a full screen component but because there is spacing on this page for the presentation, it doesn't seem like it is",
           component: <HeroComponentFullScreen />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
@@ -177,6 +192,14 @@ const ComponentsPage = () => {
           note: "Adjusted the font size and arrow size as it is too big",
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=k72RwsE1mNhfW6Bi-1",
+        })}
+        {/* Footer */}
+        {renderComponent({
+          title: "Footer",
+          note: " It's a full screen component but because there is spacing on this page for the presentation, it doesn't seem like it is",
+          component: <Footer />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
         })}
         {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "title" property, add note if there's needed to expound the component */}
       </div>

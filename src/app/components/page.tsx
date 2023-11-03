@@ -11,8 +11,15 @@ import NewsCardListComponent from './_components/NewsCardListComponent'
 import ProductCardComponent from './_components/ProductCardComponent'
 import ProductFilterComponent from './_components/ProductFilterComponent'
 import ProductListsComponent from './_components/ProductListsComponent'
+import NewsGridSection from '@/components/sections/NewsGridSection'
+import news from '@/data/news'
+import BlogSection from '@/components/sections/BlogSection'
+import blogs from '@/data/blogs'
+import YamahaLifeStyleStudioSection from '@/components/sections/YamahaLifeStyleStudioSection'
+import YamahaHistoryCardComponent from './_components/YamahaHistoryCardComponent'
+import OtherNewsSection from './_components/OtherNewsSection'
 
-const componentTitles = ["Product Card", "Product Card List", "Product Filter", 'Breadcrumps', 'Embed Socials', 'Grid Embed Socials', 'News Card', 'News Card List', 'Arrow Titles']
+const componentTitles = ["Product Card", "Product Card List", "Product Filter", 'Breadcrumps', 'Embed Socials', 'Grid Embed Socials', 'News Card', 'News Card List', 'Arrow Titles', 'News Grid Section']
 
 const ComponentsPage = () => {
     const renderComponent = (args: { title: string; note?: string; component: ReactNode, wireframeLink: string }) => {
@@ -39,7 +46,7 @@ const ComponentsPage = () => {
 
     return (
         <div className='flex'>
-            {renderSideMenu}
+            {/* {renderSideMenu} */}
             <div className='flex flex-col gap-4 p-4 flex-1 h-screen overflow-y-auto scroll-smooth scroll-pt-4 scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full'>
                 {/* Product Card */}
                 {renderComponent({
@@ -97,6 +104,36 @@ const ComponentsPage = () => {
                     component: <ArrowTitles />,
                     note: "Adjusted the font size and arrow size as it is too big",
                     wireframeLink: "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=k72RwsE1mNhfW6Bi-1"
+                })}
+                {/* News Grid Section */}
+                {renderComponent({
+                    title: "News Grid Section",
+                    component: <NewsGridSection news={news.map((data) => ({ ...data, onClick: () => console.log(data) }))} />,
+                    wireframeLink: "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=0%3A3&mode=design&t=LvTWo9pHIn3MiGhO-1"
+                })}
+                {/* Yamaha Lifestyle Studio Section */}
+                {renderComponent({
+                    title: "Yamaha Lifestyle Studio Section",
+                    component: <YamahaLifeStyleStudioSection />,
+                    wireframeLink: "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3&mode=design&t=LvTWo9pHIn3MiGhO-1"
+                })}
+                {/* Blog Section */}
+                {renderComponent({
+                    title: "Blog Section",
+                    component: <BlogSection blog={blogs[0]} />,
+                    wireframeLink: "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A2630&mode=design&t=LvTWo9pHIn3MiGhO-1"
+                })}
+                {/* Yamaha History Card */}
+                {renderComponent({
+                    title: "Yamaha History Card",
+                    component: <YamahaHistoryCardComponent />,
+                    wireframeLink: "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A1781&mode=design&t=LvTWo9pHIn3MiGhO-1"
+                })}
+                {/* Other News Section */}
+                {renderComponent({
+                    title: "Other News Section",
+                    component: <OtherNewsSection />,
+                    wireframeLink: "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A2281&mode=design&t=LvTWo9pHIn3MiGhO-1"
                 })}
                 {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "title" property, add note if there's needed to expound the component */}
 

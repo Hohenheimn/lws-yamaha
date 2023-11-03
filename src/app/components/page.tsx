@@ -2,25 +2,21 @@
 
 import { ReactNode, useMemo } from "react";
 import Link from "next/link";
-
 import Footer from "@/components/shared/Footer";
-
 import Header from "@/components/shared/Header";
-
 import ArrowTitles from "./_components/ArrowTitles";
 import BreadcrumpsComponent from "./_components/BreadcrumpsComponent";
 import EmbedSocialSection from "./_components/EmbedSocialSection";
-import GridEmbedSocialSection from "./_components/GridEmbedSocialSection";
-import HeroComponent from "./_components/hero/HeroComponent";
-import HeroComponentFullScreen from "./_components/hero/HeroComponentFullScreen";
-import MotorcycleCardComponent from "./_components/motorcycle/MotorcycleCardComponent";
-import MotorcycleCardListComponent from "./_components/motorcycle/MotorcycleCardListComponent";
-import MotorcycleCarouselComponent from "./_components/motorcycle/MotorcycleCarouselComponent";
 import NewsCardComponent from "./_components/NewsCardComponent";
 import NewsCardListComponent from "./_components/NewsCardListComponent";
 import ProductCardComponent from "./_components/ProductCardComponent";
 import ProductFilterComponent from "./_components/ProductFilterComponent";
 import ProductListsComponent from "./_components/ProductListsComponent";
+import HeroComponentFullScreen from "./_components/Hero/HeroComponentFullScreen";
+import HeroComponent from "./_components/Hero/HeroComponent";
+import MotorcycleCardComponent from "./_components/Motorcycle/MotorcycleCardComponent";
+import MotorcycleCardListComponent from "./_components/Motorcycle/MotorcycleCardListComponent";
+import MotorcycleCarouselComponent from "./_components/Motorcycle/MotorcycleCarouselComponent";
 
 const componentTitles = [
   "Header",

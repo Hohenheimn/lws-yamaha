@@ -36,7 +36,7 @@ const Header = () => {
       <div className=" w-11/12 flex items-center justify-between gap-5">
         <aside>
           <Image
-            src="/images/logo/logo.png"
+            src="/assets/images/logo/logo.png"
             alt="logo"
             width={120}
             height={100}

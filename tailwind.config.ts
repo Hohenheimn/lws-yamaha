@@ -7,7 +7,13 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        background: "#131313",
+        red: "#D52B1E",
+        white: "#f1f1f1",
+      },
+    },
   },
   plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
 };

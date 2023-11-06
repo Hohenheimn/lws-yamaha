@@ -1,23 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
-
+import React from "react";
 import Hero from "@/components/sections/Hero";
 import MotorcycleCarouselSection from "@/components/sections/MotorcycleCarouselSection";
 import MotorcycleColorAndPriceSection from "@/components/sections/MotorcycleColorAndPriceSection";
-// import Heading from "@/components/shared/Heading";
-// import AnnouncementModal from "@/components/shared/Modal/AnnouncementModal";
+import Heading from "@/components/shared/Heading";
+import AnnouncementModal from "@/components/shared/Modal/AnnouncementModal";
 import { motocycleCarousel } from "@/data/motorcycle/motorcycleCarousel";
 
 const HomePage = () => {
   return (
     <div>
-      {/* <AnnouncementModal imageUrl="/assets/images/samples/sample-screen-banner.png" /> */}
+      <AnnouncementModal imageUrl="/assets/images/samples/sample-screen-banner.png" />
       <Hero
         fullHeight={true}
         imageSrc={"/assets/images/samples/sample-banner.jpg"}
-        // title={<Heading type="h2">{"DESIGNED USING\nPURE TMAX DNA."}</Heading>}
-        title="asdasd"
+        title={<Heading type="h2">{"DESIGNED USING\nPURE TMAX DNA."}</Heading>}
         description={"Lorem ipsum dolor sit amet consectetur adipisicing elit."}
         textPosition={"center"}
         scrollTo="#personal-commuter"

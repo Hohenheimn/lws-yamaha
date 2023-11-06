@@ -4,7 +4,6 @@ import React, { useState } from "react";
 
 import Hero from "@/components/sections/Hero";
 import MotorcycleCarouselSection from "@/components/sections/MotorcycleCarouselSection";
-import Button from "@/components/shared/Button";
 import Heading from "@/components/shared/Heading";
 import AnnouncementModal from "@/components/shared/Modal/AnnouncementModal";
 import { motocycleCarousel } from "@/data/motorcycle/motorcycleCarousel";

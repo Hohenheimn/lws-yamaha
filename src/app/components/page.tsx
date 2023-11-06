@@ -3,15 +3,15 @@
 import { ReactNode, useMemo } from "react";
 import Link from "next/link";
 
-import Footer from "@/components/shared/Footer";
-import Header from "@/components/shared/Header";
+// import Footer from "@/components/shared/Footer";
+// import Header from "@/components/shared/Header";
 
 import ArrowTitles from "./_components/ArrowTitles";
 import BreadcrumpsComponent from "./_components/BreadcrumpsComponent";
 import EmbedSocialSection from "./_components/EmbedSocialSection";
-import HeroComponent from "./_components/hero/HeroComponent";
-import HeroComponentFullScreen from "./_components/hero/HeroComponentFullScreen";
-import MotorcycleCardComponent from "./_components/motorcycle/MotorcycleCardComponent";
+// import HeroComponent from "./_components/hero/HeroComponent";
+// import HeroComponentFullScreen from "./_components/hero/HeroComponentFullScreen";
+// import MotorcycleCardComponent from "./_components/motorcycle/MotorcycleCardComponent";
 import MotorcycleCardListComponent from "./_components/motorcycle/MotorcycleCardListComponent";
 import MotorcycleCarouselComponent from "./_components/motorcycle/MotorcycleCarouselComponent";
 import NewsCardComponent from "./_components/NewsCardComponent";
@@ -87,36 +87,36 @@ const ComponentsPage = () => {
       {renderSideMenu}
       <div className="flex flex-col gap-4 p-4 flex-1 h-screen overflow-y-auto scroll-smooth scroll-pt-4 scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
         {/* Header */}
-        {renderComponent({
+        {/* {renderComponent({
           title: "Header",
           note: " It's a full screen component but because there is spacing on this page for the presentation, it doesn't seem like it is",
           component: <Header />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
-        })}
+        })} */}
 
         {/* Hero Homepage */}
-        {renderComponent({
+        {/* {renderComponent({
           title: "Hero Homepage",
           note: "It's a full screen component but because there is spacing on this page for the presentation, it doesn't seem like it is",
           component: <HeroComponentFullScreen />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
-        })}
+        })} */}
         {/* Hero Full Screen */}
-        {renderComponent({
+        {/* {renderComponent({
           title: "Hero Inside Pages",
           component: <HeroComponent />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-1231&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
-        })}
+        })} */}
         {/* Motorcycle Card */}
-        {renderComponent({
+        {/* {renderComponent({
           title: "Motorcycle Model Card",
           component: <MotorcycleCardComponent />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-1231&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
-        })}
+        })} */}
         {/* Motorcycle Card List */}
         {renderComponent({
           title: "Motorcycle Model Card List",
@@ -192,13 +192,13 @@ const ComponentsPage = () => {
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=k72RwsE1mNhfW6Bi-1",
         })}
         {/* Footer */}
-        {renderComponent({
+        {/* {renderComponent({
           title: "Footer",
           note: " It's a full screen component but because there is spacing on this page for the presentation, it doesn't seem like it is",
           component: <Footer />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
-        })}
+        })} */}
         {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "title" property, add note if there's needed to expound the component */}
       </div>
     </div>

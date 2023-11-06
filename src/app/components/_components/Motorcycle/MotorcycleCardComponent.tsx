@@ -1,11 +1,11 @@
 import React from "react";
 
-// import MotorcycleCard from "@/components/motorcycle/MotorcycleCard";
+import MotorcycleCard from "@/components/motorcycle/MotorcycleCard";
 
 const MotorcycleCardComponent = () => {
   return (
     <div className=" w-[350px] ">
-      {/* <MotorcycleCard
+      <MotorcycleCard
         imageSrc={"/assets/images/placeholder.png"}
         description={{
           engine_type:
@@ -17,7 +17,7 @@ const MotorcycleCardComponent = () => {
         }}
         url={"#"}
         inheritWidth={false}
-      /> */}
+      />
     </div>
   );
 };

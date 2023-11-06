@@ -26,7 +26,7 @@ const Hero = (props: PropsType) => {
         <div className=" absolute bottom-5">
           <Link href={scrollTo}>
             <aside className=" flex items-center flex-col text-white">
-              <IoIosArrowDown className=" text-[5rem] -mb-14" />
+              <IoIosArrowDown className=" text-[5rem] -mb-16" />
               <IoIosArrowDown className=" text-[8rem] -mb-10" />
             </aside>
           </Link>

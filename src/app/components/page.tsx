@@ -6,14 +6,18 @@ import Link from "next/link";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 
+import AccessoriesSectionComponent from "./_components/AccessoriesSectionComponent";
 import ArrowTitles from "./_components/ArrowTitles";
 import BreadcrumpsComponent from "./_components/BreadcrumpsComponent";
+import CcuMyRideLinkSectionComponent from "./_components/CcuMyRideLinkSectionComponent";
 import EmbedSocialSection from "./_components/EmbedSocialSection";
 import HeroComponent from "./_components/hero/HeroComponent";
 import HeroComponentFullScreen from "./_components/hero/HeroComponentFullScreen";
+import LifeWithMotorcycleSectionComponent from "./_components/LifeWithMotorcycleSectionComponent";
 import MotorcycleCardComponent from "./_components/motorcycle/MotorcycleCardComponent";
 import MotorcycleCardListComponent from "./_components/motorcycle/MotorcycleCardListComponent";
 import MotorcycleCarouselComponent from "./_components/motorcycle/MotorcycleCarouselComponent";
+import MotorcycleColorAndPriceSectionComponent from "./_components/MotorcycleColorAndPriceSectionComponent";
 import NewsCardComponent from "./_components/NewsCardComponent";
 import NewsCardListComponent from "./_components/NewsCardListComponent";
 import ProductCardComponent from "./_components/ProductCardComponent";
@@ -27,6 +31,10 @@ const componentTitles = [
   "Motorcycle Model Card",
   "Motorcycle Model Card List",
   "Motorcycle Model Carousel",
+  "Motorcycle Color And Price Section",
+  "Life With Motorcycle Section",
+  "Accessories Section",
+  "CCU MyRide Link Section",
   "Product Card",
   "Product Card List",
   "Product Filter",
@@ -132,6 +140,39 @@ const ComponentsPage = () => {
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
         })}
+
+        {renderComponent({
+          title: "Motorcycle Color And Price Section",
+          component: <MotorcycleColorAndPriceSectionComponent />,
+          note: "Cards width depends on number of carousel slides show per view, it may look thin since it suppose to be full width of screen",
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-505&mode=design&t=h209WHt5nneJ1fa7-0",
+        })}
+        {/* Motorcycle Carousel */}
+        {renderComponent({
+          title: "Life With Motorcycle Section",
+          component: <LifeWithMotorcycleSectionComponent />,
+          note: "Cards width depends on number of carousel slides show per view, it may look thin since it suppose to be full width of screen",
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-505&mode=design&t=h209WHt5nneJ1fa7-0",
+        })}
+        {/* Motorcycle Carousel */}
+        {renderComponent({
+          title: "Accessories Section",
+          component: <AccessoriesSectionComponent />,
+          note: "Cards width depends on number of carousel slides show per view, it may look thin since it suppose to be full width of screen",
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
+        })}
+        {/* Motorcycle Carousel */}
+        {renderComponent({
+          title: "Ccu MyRide Link Section",
+          component: <CcuMyRideLinkSectionComponent />,
+          note: "Cards width depends on number of carousel slides show per view, it may look thin since it suppose to be full width of screen",
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3315&mode=design&t=h209WHt5nneJ1fa7-0",
+        })}
+
         {/* Product Card */}
         {renderComponent({
           title: "Product Card",

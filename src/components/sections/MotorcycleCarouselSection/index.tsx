@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { ComponentProps } from "react";
 
 // Import Swiper React components
 import { BiSolidLeftArrow, BiSolidRightArrow } from "react-icons/bi";
@@ -14,9 +14,7 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
-import MotorcycleCard, {
-  MotorcycleCardType,
-} from "@/components/motorcycle/MotorcycleCard";
+import MotorcycleCard from "@/components/motorcycle/MotorcycleCard";
 import Button from "@/components/shared/Button";
 
 import Heading from "@/components/shared/Heading";
@@ -27,12 +25,12 @@ import { MotorcycleNavigationButton } from "./MotorcycleNavigationButton";
 type PropsType = {
   title: string;
   description: string;
-  motorcycle: MotorcycleCardType[];
+  motorcycle: Array<ComponentProps<typeof MotorcycleCard>>;
   bgImage: string;
   url: string;
 };
 
-function MotorcycleCarouselSection(props: PropsType) {
+const MotorcycleCarouselSection = (props: PropsType) => {
   const { title, description, motorcycle, bgImage, url } = props;
   const breakpoints = {
     0: {
@@ -61,6 +59,7 @@ function MotorcycleCarouselSection(props: PropsType) {
       className=" relative h-full flex flex-col items-center space-y-5"
       bgImage={bgImage}
       blur={true}
+      width={"wide"}
     >
       <aside className=" w-11/12 max-w-[60rem] text-center text-white">
         <Heading type="h4">{title}</Heading>
@@ -93,6 +92,6 @@ function MotorcycleCarouselSection(props: PropsType) {
       </Button>
     </SectionContainer>
   );
-}
+};
 
 export default MotorcycleCarouselSection;

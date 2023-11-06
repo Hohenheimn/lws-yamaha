@@ -5,7 +5,7 @@ import Link from "next/link";
 import Button from "@/components/shared/Button";
 import Heading from "@/components/shared/Heading";
 
-export type MotorcycleCardType = {
+type MotorcycleCardType = {
   imageSrc: string;
   description: {
     engine_type: string;
@@ -16,12 +16,8 @@ export type MotorcycleCardType = {
   inheritWidth?: boolean;
 };
 
-function MotorcycleCard({
-  imageSrc,
-  description,
-  url,
-  inheritWidth,
-}: MotorcycleCardType) {
+const MotorcycleCard = (props: MotorcycleCardType) => {
+  const { imageSrc, description, url, inheritWidth } = props;
   return (
     <ul className={` relative flex flex-col ${!inheritWidth && "w-[300px]"}`}>
       <li className="w-full flex justify-center relative after:content-[''] after:absolute after:w-full after:bottom-0 after:left-0 after:h-[40%] after:bg-white after:rounded-tl-xl  after:rounded-tr-xl">
@@ -53,13 +49,13 @@ function MotorcycleCard({
           </ul>
         </aside>
         <aside className="flex w-full justify-center">
-          <Button appearance={"primary"} size={"medium"}>
+          <Button appearance={"primary"} url={url} size={"medium"}>
             View Model
           </Button>
         </aside>
       </li>
     </ul>
   );
-}
+};
 
 export default MotorcycleCard;

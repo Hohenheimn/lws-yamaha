@@ -1,15 +1,13 @@
-import React from "react";
+import React, { ComponentProps } from "react";
 
-import MotorcycleCard, {
-  MotorcycleCardType,
-} from "@/components/motorcycle/MotorcycleCard";
+import MotorcycleCard from "@/components/motorcycle/MotorcycleCard";
 
 type PropsType = {
-  motorcycles: MotorcycleCardType[];
+  motorcycles: Array<ComponentProps<typeof MotorcycleCard>>;
   nowrap: boolean;
 };
 
-function MotorcycleCardList(props: PropsType) {
+const MotorcycleCardList = (props: PropsType) => {
   const { motorcycles, nowrap } = props;
   return (
     <ul
@@ -29,6 +27,6 @@ function MotorcycleCardList(props: PropsType) {
       ))}
     </ul>
   );
-}
+};
 
 export default MotorcycleCardList;

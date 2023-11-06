@@ -2,7 +2,10 @@
 
 import React, { useState } from "react";
 
+import AccessoriesSection from "@/components/sections/AccessoriesSection";
+import CcuMyRideLinkSection from "@/components/sections/CcuMyRideLinkSection";
 import Hero from "@/components/sections/Hero";
+import LifeWithMotorcycleSection from "@/components/sections/LifeWithMotorcyleSection";
 import MotorcycleCarouselSection from "@/components/sections/MotorcycleCarouselSection";
 import MotorcycleColorAndPriceSection from "@/components/sections/MotorcycleColorAndPriceSection";
 import Heading from "@/components/shared/Heading";
@@ -51,6 +54,52 @@ const HomePage = () => {
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo minima repellat id nihil nisi officia sequi delectus natus, facere exercitationem voluptatibus culpa porro necessitatibus, tempora velit a ratione dolores quidem."
         }
         price={124000}
+      />
+      <LifeWithMotorcycleSection
+        imageTitle={"/assets/images/samples/sample-be-one-with-speed.png"}
+        backgroundImage={"/assets/images/placeholder.png"}
+        description={
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo minima repellat id nihil nisi officia sequi delectus natus, facere exercitationem voluptatibus culpa porro necessitatibus, tempora velit a ratione dolores quidem."
+        }
+      />
+      <AccessoriesSection
+        accessories={[
+          {
+            accessoryImage: "/assets/images/placeholder.png",
+            title: "Crank Case Cover Carbon",
+            url: "#",
+          },
+          {
+            accessoryImage: "/assets/images/placeholder.png",
+            title: "Crank Case Cover Carbon",
+            url: "#",
+          },
+          {
+            accessoryImage: "/assets/images/placeholder.png",
+            title: "Crank Case Cover Carbon",
+            url: "#",
+          },
+          {
+            accessoryImage: "/assets/images/placeholder.png",
+            title: "Crank Case Cover Carbon",
+            url: "#",
+          },
+        ]}
+      />
+      <CcuMyRideLinkSection
+        list={[
+          "Launch MyRide-Link App",
+          "Tap [Settings] in the bottom menu",
+          'Check "App Version" in "Settings"',
+        ]}
+        title={"How to check MyRide-Link App Version"}
+        first_description={
+          "Before updating CCU software, check MyRide-Link app version by following procedure"
+        }
+        second_description={
+          "Check that App version is the latest 2.30. If App version is before 2.30, update MyRide-Link App in App Store / Google Store"
+        }
+        image={"/assets/images/samples/sample-mobile.png"}
       />
     </div>
   );

@@ -1,6 +1,8 @@
-import { MotorcycleCardType } from "@/components/motorcycle/MotorcycleCard";
+import { ComponentProps } from "react";
 
-export const motocycleCarousel: MotorcycleCardType[] = [
+import MotorcycleCard from "@/components/motorcycle/MotorcycleCard";
+
+export const motocycleCarousel: Array<ComponentProps<typeof MotorcycleCard>> = [
   {
     imageSrc: "/assets/images/placeholder.png",
     description: {

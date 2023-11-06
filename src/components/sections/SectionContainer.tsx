@@ -5,16 +5,16 @@ type PropsType = {
   bgImage?: string;
   blur?: boolean;
   bgColor?: string;
-  fullWidth?: boolean;
+  width: "narrow" | "wide" | "widest";
   children: React.ReactNode;
   className?: string;
 };
 
 const SectionContainer = (props: PropsType) => {
-  const { bgImage, bgColor, blur, fullWidth, children, className } = props;
+  const { bgImage, bgColor, blur, width, children, className } = props;
   return (
     <section
-      className={`relative w-full flex justify-center py-14 bg-center bg-cover bg-no-repeat`}
+      className={`relative w-full flex justify-center py-8 md:py-14 bg-center bg-cover bg-no-repeat`}
       style={{ backgroundColor: bgColor }}
     >
       {bgImage && (
@@ -26,7 +26,11 @@ const SectionContainer = (props: PropsType) => {
         />
       )}
 
-      <div className={`z-10 ${fullWidth ? "w-full" : "w-11/12"} ${className}`}>
+      <div
+        className={`z-10 ${width === "widest" && "w-full"} ${
+          width === "wide" && "w-11/12"
+        } ${width === "narrow" && "w-10/12 md:w-9/12 lg:w-8/12"} ${className}`}
+      >
         {children}
       </div>
     </section>

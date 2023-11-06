@@ -5,6 +5,8 @@ import Image from "next/image";
 import ArrowTitle from "@/components/shared/ArrowTitle";
 import Heading from "@/components/shared/Heading";
 
+import { numberSeparator } from "@/utils/helpers";
+
 import SectionContainer from "../SectionContainer";
 
 type PropsType = {
@@ -17,24 +19,18 @@ type PropsType = {
   price: number;
 };
 
-const MotorcycleColorAndPriceSection = ({
-  colors,
-  motorcycleImage,
-  motorcycleName,
-  titleImage,
-  backgroundImage,
-  description,
-  price,
-}: PropsType) => {
-  const numberSeparator = (currency: string | number, decimal?: number) => {
-    return parseFloat(currency?.toString())
-      .toFixed(decimal ?? 2)
-      .toString()
-      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
-
+const MotorcycleColorAndPriceSection = (props: PropsType) => {
+  const {
+    colors,
+    motorcycleImage,
+    motorcycleName,
+    titleImage,
+    backgroundImage,
+    description,
+    price,
+  } = props;
   return (
-    <SectionContainer className=" flex items-end flex-col" fullWidth={true}>
+    <SectionContainer className=" flex items-end flex-col" width="widest">
       <div className=" w-full mb-8">
         <ArrowTitle title={"Color & Price"} />
       </div>

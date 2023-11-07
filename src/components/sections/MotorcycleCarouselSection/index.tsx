@@ -26,12 +26,14 @@ type PropsType = {
   title: string;
   description: string;
   motorcycle: Array<ComponentProps<typeof MotorcycleCard>>;
-  bgImage: string;
+  desktopBgImage: string;
+  mobileBgImage?: string;
   url: string;
 };
 
 const MotorcycleCarouselSection = (props: PropsType) => {
-  const { title, description, motorcycle, bgImage, url } = props;
+  const { title, description, motorcycle, desktopBgImage, url, mobileBgImage } =
+    props;
   const breakpoints = {
     0: {
       slidesPerView: 1,
@@ -57,7 +59,8 @@ const MotorcycleCarouselSection = (props: PropsType) => {
   return (
     <SectionContainer
       className=" relative h-full flex flex-col items-center space-y-5"
-      bgImage={bgImage}
+      bgImage={desktopBgImage}
+      mobileBgImage={mobileBgImage}
       blur={true}
       width={"wide"}
     >

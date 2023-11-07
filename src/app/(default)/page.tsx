@@ -18,7 +18,8 @@ const HomePage = () => {
       <AnnouncementModal imageUrl="/assets/images/samples/sample-screen-banner.png" />
       <Hero
         fullHeight={true}
-        imageSrc={"/assets/images/samples/sample-banner.jpg"}
+        desktopBgImage={"/assets/images/samples/sample-banner.jpg"}
+        mobileBgImage={"/assets/images/samples/sample-banner.jpg"}
         title={<Heading type="h2">{"DESIGNED USING\nPURE TMAX DNA."}</Heading>}
         description={"Lorem ipsum dolor sit amet consectetur adipisicing elit."}
         textPosition={"center"}
@@ -31,7 +32,7 @@ const HomePage = () => {
             " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti aliquam voluptate molestiae fuga architecto obcaecati dolorem blanditiis dolores, dolorum eveniet? Perferendis minima ullam ipsum sapiente veniam dolores facere quod dolorem."
           }
           motorcycle={motocycleCarousel}
-          bgImage={"/assets/images/samples/sample-banner.jpg"}
+          desktopBgImage={"/assets/images/samples/sample-banner.jpg"}
           url={"#"}
         />
       </div>
@@ -41,7 +42,7 @@ const HomePage = () => {
           " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti aliquam voluptate molestiae fuga architecto obcaecati dolorem blanditiis dolores, dolorum eveniet? Perferendis minima ullam ipsum sapiente veniam dolores facere quod dolorem."
         }
         motorcycle={motocycleCarousel}
-        bgImage={"/assets/images/samples/sample-banner.jpg"}
+        desktopBgImage={"/assets/images/samples/sample-banner.jpg"}
         url={"#"}
       />
       <MotorcycleColorAndPriceSection
@@ -83,7 +84,7 @@ const HomePage = () => {
       />
       <LifeWithMotorcycleSection
         imageTitle={"/assets/images/samples/sample-be-one-with-speed.png"}
-        backgroundImage={"/assets/images/placeholder.png"}
+        desktopBgImage={"/assets/images/placeholder.png"}
         description={
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo minima repellat id nihil nisi officia sequi delectus natus, facere exercitationem voluptatibus culpa porro necessitatibus, tempora velit a ratione dolores quidem."
         }

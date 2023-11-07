@@ -5,22 +5,31 @@ import SectionContainer from "../SectionContainer";
 
 type PropsType = {
   imageTitle: string;
-  backgroundImage: string;
+  desktopBgImage: string;
+  mobileBgImage?: string;
   description: string;
 };
 
 const LifeWithMotorcycleSection = (props: PropsType) => {
-  const { imageTitle, backgroundImage, description } = props;
+  const { imageTitle, desktopBgImage, mobileBgImage, description } = props;
   return (
     <SectionContainer className=" flex items-end flex-col" width="widest">
       <section className=" min-h-[80vh] flex items-center relative w-[95.83%]">
         <aside className=" absolute right-0 top-0 w-[85%] h-full">
           <Image
-            src={backgroundImage}
+            src={desktopBgImage}
             alt={"background"}
             fill
-            className=" object-cover"
+            className={` object-cover ${mobileBgImage && "hidden md:inline"}`}
           />
+          {mobileBgImage && (
+            <Image
+              src={mobileBgImage}
+              alt="banner"
+              fill
+              className={` object-cover ${mobileBgImage && "inline md:hidden"}`}
+            />
+          )}
         </aside>
         <aside className=" relative z-10 space-y-10">
           <Image

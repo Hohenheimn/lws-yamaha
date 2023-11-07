@@ -3,6 +3,7 @@ import Image from "next/image";
 
 type PropsType = {
   bgImage?: string;
+  mobileBgImage?: string;
   blur?: boolean;
   bgColor?: string;
   width: "narrow" | "wide" | "widest";
@@ -11,7 +12,8 @@ type PropsType = {
 };
 
 const SectionContainer = (props: PropsType) => {
-  const { bgImage, bgColor, blur, width, children, className } = props;
+  const { bgImage, bgColor, blur, width, children, className, mobileBgImage } =
+    props;
   return (
     <section
       className={`relative w-full flex justify-center py-8 md:py-14 bg-center bg-cover bg-no-repeat`}
@@ -22,7 +24,20 @@ const SectionContainer = (props: PropsType) => {
           src={bgImage}
           fill
           alt="background"
-          className={` object-cover ${blur && "blur-sm"} `}
+          className={` object-cover ${blur && "blur-sm"} ${
+            mobileBgImage && "hidden md:inline"
+          }`}
+        />
+      )}
+
+      {mobileBgImage && (
+        <Image
+          src={mobileBgImage}
+          alt="background"
+          fill
+          className={` object-cover ${blur && "blur-sm"} ${
+            mobileBgImage && "inline md:hidden"
+          }`}
         />
       )}
 

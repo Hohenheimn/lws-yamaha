@@ -145,147 +145,144 @@ const ComponentsPage = () => {
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3315&mode=design&t=h209WHt5nneJ1fa7-0",
         })}
 
-        {/* {renderSideMenu} */}
-        <div className="flex flex-col gap-4 p-4 flex-1 h-screen overflow-y-auto scroll-smooth scroll-pt-4 scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
-          {/* Product Card */}
-          {renderComponent({
-            title: "Product Card",
-            component: <ProductCardComponent />,
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3477&mode=design&t=k72RwsE1mNhfW6Bi-1",
-          })}
-          {/* Product Card List */}
-          {renderComponent({
-            title: "Product Card List",
-            component: <ProductListsComponent />,
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3628&mode=design&t=k72RwsE1mNhfW6Bi-1",
-          })}
-          {/* Product Filter */}
-          {renderComponent({
-            title: "Product Filter",
-            component: <ProductFilterComponent />,
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3477&mode=design&t=k72RwsE1mNhfW6Bi-1",
-          })}
-          {/* Product Filter */}
-          {renderComponent({
-            title: "Breadcrumps",
-            component: <BreadcrumpsComponent />,
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3545&mode=design&t=k72RwsE1mNhfW6Bi-1",
-          })}
-          {/* Embed Social */}
-          {renderComponent({
-            title: "Embed Socials",
-            component: <EmbedSocialSection />,
-            note: "Embed social card height depends on its contents",
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3&mode=design&t=k72RwsE1mNhfW6Bi-1",
-          })}
-          {/* Grid Embed Socials */}
-          {renderComponent({
-            title: "Grid Embed Socials",
-            component: <GridEmbedSocialSection />,
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A1848&mode=design&t=k72RwsE1mNhfW6Bi-1",
-          })}
-          {/* News Card */}
-          {renderComponent({
-            title: "News Card",
-            component: <NewsCardComponent />,
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3046&mode=design&t=k72RwsE1mNhfW6Bi-1",
-          })}
+        {/* Product Card */}
+        {renderComponent({
+          title: "Product Card",
+          component: <ProductCardComponent />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3477&mode=design&t=k72RwsE1mNhfW6Bi-1",
+        })}
+        {/* Product Card List */}
+        {renderComponent({
+          title: "Product Card List",
+          component: <ProductListsComponent />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3628&mode=design&t=k72RwsE1mNhfW6Bi-1",
+        })}
+        {/* Product Filter */}
+        {renderComponent({
+          title: "Product Filter",
+          component: <ProductFilterComponent />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3477&mode=design&t=k72RwsE1mNhfW6Bi-1",
+        })}
+        {/* Product Filter */}
+        {renderComponent({
+          title: "Breadcrumps",
+          component: <BreadcrumpsComponent />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3545&mode=design&t=k72RwsE1mNhfW6Bi-1",
+        })}
+        {/* Embed Social */}
+        {renderComponent({
+          title: "Embed Socials",
+          component: <EmbedSocialSection />,
+          note: "Embed social card height depends on its contents",
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3&mode=design&t=k72RwsE1mNhfW6Bi-1",
+        })}
+        {/* Grid Embed Socials */}
+        {renderComponent({
+          title: "Grid Embed Socials",
+          component: <GridEmbedSocialSection />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A1848&mode=design&t=k72RwsE1mNhfW6Bi-1",
+        })}
+        {/* News Card */}
+        {renderComponent({
+          title: "News Card",
+          component: <NewsCardComponent />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3046&mode=design&t=k72RwsE1mNhfW6Bi-1",
+        })}
 
-          {/* News Card */}
-          {renderComponent({
-            title: "News Card List",
-            component: <NewsCardListComponent />,
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3046&mode=design&t=k72RwsE1mNhfW6Bi-1",
-          })}
-          {/* Arrow Title */}
-          {renderComponent({
-            title: "Arrow Titles",
-            component: <ArrowTitles />,
-            note: "Adjusted the font size and arrow size as it is too big",
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=k72RwsE1mNhfW6Bi-1",
-          })}
-          {/* Footer */}
-          {renderComponent({
-            title: "Footer",
-            note: " It's a full screen component but because there is spacing on this page for the presentation, it doesn't seem like it is",
-            component: <Footer />,
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
-          })}
-          {/* News Grid Section */}
-          {renderComponent({
-            title: "News Grid Section",
-            component: (
-              <NewsGridSection
-                news={news.map((data) => ({
-                  ...data,
-                  onClick: () => console.log(data),
-                }))}
-              />
-            ),
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=0%3A3&mode=design&t=LvTWo9pHIn3MiGhO-1",
-          })}
-          {/* Yamaha Lifestyle Studio Section */}
-          {renderComponent({
-            title: "Yamaha Lifestyle Studio Section",
-            component: <YamahaLifeStyleStudioSection />,
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3&mode=design&t=LvTWo9pHIn3MiGhO-1",
-          })}
-          {/* Blog Section */}
-          {renderComponent({
-            title: "Blog Section",
-            component: <BlogSection blog={blogs[0]} />,
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A2630&mode=design&t=LvTWo9pHIn3MiGhO-1",
-          })}
-          {/* Yamaha History Card */}
-          {renderComponent({
-            title: "Yamaha History Card",
-            component: <YamahaHistoryCardComponent />,
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A1781&mode=design&t=LvTWo9pHIn3MiGhO-1",
-          })}
-          {/* Other News Section */}
-          {renderComponent({
-            title: "Other News Section",
-            component: <OtherNewsSection />,
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A2281&mode=design&t=LvTWo9pHIn3MiGhO-1",
-          })}
-          {/* Motorcycle Detail Tabs */}
-          {renderComponent({
-            title: "Motorcycle Detail Tabs ",
-            component: <DetailTabsComponent />,
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A761&mode=design&t=LzzcopnZE6Ecsm8S-1",
-          })}
-          {/* Motorcycle Features Section */}
-          {renderComponent({
-            title: "Motorcycle Features Section ",
-            component: <MotorcycleFeaturesSection />,
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=LzzcopnZE6Ecsm8S-1",
-          })}
-          {/* Specification Section */}
-          {renderComponent({
-            title: "Specification Section",
-            component: <SpecificationSection />,
-            wireframeLink:
-              "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=LzzcopnZE6Ecsm8S-1",
-          })}
-          {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "title" property, add note if there's needed to expound the component */}
-        </div>
+        {/* News Card */}
+        {renderComponent({
+          title: "News Card List",
+          component: <NewsCardListComponent />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3046&mode=design&t=k72RwsE1mNhfW6Bi-1",
+        })}
+        {/* Arrow Title */}
+        {renderComponent({
+          title: "Arrow Titles",
+          component: <ArrowTitles />,
+          note: "Adjusted the font size and arrow size as it is too big",
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=k72RwsE1mNhfW6Bi-1",
+        })}
+        {/* Footer */}
+        {renderComponent({
+          title: "Footer",
+          note: " It's a full screen component but because there is spacing on this page for the presentation, it doesn't seem like it is",
+          component: <Footer />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
+        })}
+        {/* News Grid Section */}
+        {renderComponent({
+          title: "News Grid Section",
+          component: (
+            <NewsGridSection
+              news={news.map((data) => ({
+                ...data,
+                onClick: () => console.log(data),
+              }))}
+            />
+          ),
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=0%3A3&mode=design&t=LvTWo9pHIn3MiGhO-1",
+        })}
+        {/* Yamaha Lifestyle Studio Section */}
+        {renderComponent({
+          title: "Yamaha Lifestyle Studio Section",
+          component: <YamahaLifeStyleStudioSection />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3&mode=design&t=LvTWo9pHIn3MiGhO-1",
+        })}
+        {/* Blog Section */}
+        {renderComponent({
+          title: "Blog Section",
+          component: <BlogSection blog={blogs[0]} />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A2630&mode=design&t=LvTWo9pHIn3MiGhO-1",
+        })}
+        {/* Yamaha History Card */}
+        {renderComponent({
+          title: "Yamaha History Card",
+          component: <YamahaHistoryCardComponent />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A1781&mode=design&t=LvTWo9pHIn3MiGhO-1",
+        })}
+        {/* Other News Section */}
+        {renderComponent({
+          title: "Other News Section",
+          component: <OtherNewsSection />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A2281&mode=design&t=LvTWo9pHIn3MiGhO-1",
+        })}
+        {/* Motorcycle Detail Tabs */}
+        {renderComponent({
+          title: "Motorcycle Detail Tabs ",
+          component: <DetailTabsComponent />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A761&mode=design&t=LzzcopnZE6Ecsm8S-1",
+        })}
+        {/* Motorcycle Features Section */}
+        {renderComponent({
+          title: "Motorcycle Features Section ",
+          component: <MotorcycleFeaturesSection />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=LzzcopnZE6Ecsm8S-1",
+        })}
+        {/* Specification Section */}
+        {renderComponent({
+          title: "Specification Section",
+          component: <SpecificationSection />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=LzzcopnZE6Ecsm8S-1",
+        })}
+        {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "title" property, add note if there's needed to expound the component */}
       </div>
     </div>
   );

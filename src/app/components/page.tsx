@@ -35,6 +35,12 @@ import ProductFilterComponent from "./_components/ProductFilterComponent";
 import ProductListsComponent from "./_components/ProductListsComponent";
 import SpecificationSection from "./_components/SpecificationSection";
 import YamahaHistoryCardComponent from "./_components/YamahaHistoryCardComponent";
+import WhyChooseUsSectoin from "@/components/sections/WhyChooseUsSection";
+import whyChooseUsFeatures from "@/data/whyChooseUs";
+import ServicesSection from "@/components/sections/ServicesSection";
+import services from "@/data/services/services";
+import VideoSection from "@/components/sections/VideoSection";
+import SquareCard from "@/components/service/SquareCard";
 
 const ComponentsPage = () => {
   const renderComponent = (args: {
@@ -281,6 +287,35 @@ const ComponentsPage = () => {
           component: <SpecificationSection />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=LzzcopnZE6Ecsm8S-1",
+        })}
+        {/* Service Square Card */}
+        {renderComponent({
+          title: "Service Square Card",
+          component: <SquareCard {...whyChooseUsFeatures[0]} />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A4803&mode=design&t=fCNMskUhjGLQZCxi-1",
+        })}
+        {/* Why Choose Us Section */}
+        {renderComponent({
+          title: "Why Choose Us Section",
+          component: <WhyChooseUsSectoin features={whyChooseUsFeatures} />,
+          note: 'This data is static as the "Why choose us?" section might not be change over time',
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A4803&mode=design&t=fCNMskUhjGLQZCxi-1",
+        })}
+        {/* Our Services Section */}
+        {renderComponent({
+          title: "Our Services Section",
+          component: <ServicesSection data={services} />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A4803&mode=design&t=fCNMskUhjGLQZCxi-1",
+        })}
+        {/* Serbilis Video Section */}
+        {renderComponent({
+          title: "Serbilis Video Section",
+          component: <VideoSection />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A4803&mode=design&t=fCNMskUhjGLQZCxi-1",
         })}
         {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "title" property, add note if there's needed to expound the component */}
       </div>

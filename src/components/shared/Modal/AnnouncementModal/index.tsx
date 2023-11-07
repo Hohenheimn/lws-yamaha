@@ -12,7 +12,7 @@ const AnnouncementModal = (props: PropsType) => {
   return (
     <>
       {show && (
-        <section className=" fixed top-0 left-0 w-screen h-screen flex justify-center items-center bg-[#00000043] z-50">
+        <section className=" fixed top-0 left-0 w-screen h-screen flex justify-center items-center bg-[#00000043] z-50 px-10">
           <aside className=" relative">
             <div className=" flex justify-end w-full">
               <AiOutlineCloseCircle

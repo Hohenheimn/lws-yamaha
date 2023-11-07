@@ -12,7 +12,7 @@ const MotorcycleCardList = (props: PropsType) => {
   return (
     <ul
       className={` w-full ${
-        nowrap ? "grid grid-cols-4" : "flex flex-wrap"
+        nowrap ? "grid grid-cols-4" : "flex flex-wrap justify-center gap-10"
       } gap-5`}
     >
       {motorcycles?.map((item, indx) => (

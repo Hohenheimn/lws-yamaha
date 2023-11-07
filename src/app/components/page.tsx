@@ -107,13 +107,10 @@ const ComponentsPage = () => {
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-1231&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
         })}
         {/* Motorcycle Carousel */}
-        {renderComponent({
-          title: "Motorcycle Model Section",
-          component: <MotorcycleCarouselComponent />,
-
-          wireframeLink:
-            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
-        })}
+        <div className=" p-5 border rounded-lg text-white space-y-5">
+          <h3>Motorcycle Model Section</h3>
+          <MotorcycleCarouselComponent />
+        </div>
 
         {renderComponent({
           title: "Motorcycle Color And Price Section",

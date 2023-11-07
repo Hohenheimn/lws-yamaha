@@ -10,10 +10,10 @@ import { numberSeparator } from "@/utils/helpers";
 import SectionContainer from "../SectionContainer";
 
 type PropsType = {
-  motorcycle_detail: motorcycle_detail[];
+  motorcycle_detail: MotorcycleDetailType[];
 };
 
-type motorcycle_detail = {
+type MotorcycleDetailType = {
   color: string;
   motorcycleImage: string;
   motorcycleName: string;
@@ -27,7 +27,7 @@ type motorcycle_detail = {
 const MotorcycleColorAndPriceSection = (props: PropsType) => {
   const { motorcycle_detail } = props;
 
-  const [activeColor, setActiveColor] = useState<motorcycle_detail>(
+  const [activeColor, setActiveColor] = useState<MotorcycleDetailType>(
     motorcycle_detail[0]
   );
 
@@ -46,7 +46,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
             src={activeColor.desktopBgImage}
             fill
             alt="background"
-            className={` object-cover ${
+            className={` object-cover object-right ${
               activeColor.mobileBgImage && "hidden md:inline"
             }`}
           />
@@ -59,7 +59,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
             />
           )}
 
-          <div className=" absolute w-full md:w-6/12 h-[70%] md:h-full left-0 top-0 bg-gradient-to-b md:bg-gradient-to-r from-[#131313] from-70% to-[#13131300]"></div>
+          <div className=" absolute w-full md:w-6/12 h-[70%] md:h-full left-0 top-0 bg-gradient-to-b md:bg-gradient-to-r from-[#131313] from-50% to-[#13131300]"></div>
         </li>
         <li className=" w-full md:w-[50%] 2xl:w-[60%] relative md:absolute left-0 bottom-0 flex flex-col items-center justify-end z-10">
           <aside className="relative w-full flex flex-col items-center md:items-start justify-center">

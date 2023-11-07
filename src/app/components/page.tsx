@@ -6,9 +6,11 @@ import Link from "next/link";
 import BlogSection from "@/components/sections/BlogSection";
 import NewsGridSection from "@/components/sections/NewsGridSection";
 import YamahaLifeStyleStudioSection from "@/components/sections/YamahaLifeStyleStudioSection";
+import YConnectSection from "@/components/sections/YConnectSection";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import AnnouncementModal from "@/components/shared/Modal/AnnouncementModal";
+
 import blogs from "@/data/blogs";
 
 import news from "@/data/news";
@@ -36,6 +38,7 @@ import ProductFilterComponent from "./_components/ProductFilterComponent";
 import ProductListsComponent from "./_components/ProductListsComponent";
 import SpecificationSection from "./_components/SpecificationSection";
 import YamahaHistoryCardComponent from "./_components/YamahaHistoryCardComponent";
+import YConnectSectionComponent from "./_components/YConnectSectionComponent";
 
 const ComponentsPage = () => {
   const renderComponent = (args: {
@@ -210,6 +213,7 @@ const ComponentsPage = () => {
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=k72RwsE1mNhfW6Bi-1",
         })}
+
         {/* Footer */}
         {renderComponent({
           title: "Footer",
@@ -279,6 +283,14 @@ const ComponentsPage = () => {
           component: <SpecificationSection />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=LzzcopnZE6Ecsm8S-1",
+        })}
+        {/* Y-Connect Section */}
+        {renderComponent({
+          title: "Y-Connect Section",
+          component: <YConnectSectionComponent />,
+
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3253&mode=design&t=dDeaNup35WSL2pcH-0",
         })}
         {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "title" property, add note if there's needed to expound the component */}
       </div>

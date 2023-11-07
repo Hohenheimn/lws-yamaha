@@ -23,7 +23,7 @@ const Hero = (props: PropsType) => {
     textPosition,
     scrollTo,
   } = props;
-  console.log(mobileBgImage);
+
   return (
     <section
       className={` w-full relative ${!fullHeight && "h-[60vh]"} ${

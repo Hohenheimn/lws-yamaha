@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import NewsCardGrid from '../NewsCardGrid'
 
 export type NewsCardType = {
     id: number,
@@ -13,9 +14,9 @@ type PropsType = NewsCardType
 
 const NewsCard = (props: PropsType) => {
     return (
-        <figure className='bg-[#323232] min-w-[300px] max-w-[500px] rounded-lg overflow-hidden'>
+        <figure className='bg-[#323232] min-w-[300px] max-w-[450px] rounded-lg overflow-hidden'>
             <div className='relative w-full h-[300px] bg-[#464646]'>
-                <Image fill src={props.image} alt={props.title} />
+                <Image fill src={props.image} alt={props.title} className='object-cover' />
             </div>
             <figcaption className='p-5 flex flex-col gap-2'>
                 <p className='text-[#f1f1f1]'>{props.date}</p>

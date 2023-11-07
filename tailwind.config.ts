@@ -27,6 +27,9 @@ const config: Config = {
         "hover-tertiary": "#d04d43",
         quarternary: "#2f58cd",
         "hover-quarternary": "#4d77ea",
+        background: "#131313",
+        red: "#D52B1E",
+        white: "#f1f1f1",
       },
       fontFamily: {
         "montserrat-regular": "montserrat-regular",
@@ -35,7 +38,7 @@ const config: Config = {
         "montserrat-extrabold": "montserrat-extrabold",
       },
     },
+    plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
   },
-  plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
 };
 export default config;

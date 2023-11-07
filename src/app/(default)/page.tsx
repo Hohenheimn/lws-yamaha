@@ -2,8 +2,11 @@
 
 import React, { useState } from "react";
 
+import Image from "next/image";
+
 import AccessoriesSection from "@/components/sections/AccessoriesSection";
 import CcuMyRideLinkSection from "@/components/sections/CcuMyRideLinkSection";
+import CcuUpdatingProcedureSection from "@/components/sections/CcuUpdatingProcedureSection";
 import Hero from "@/components/sections/Hero";
 import LifeWithMotorcycleSection from "@/components/sections/LifeWithMotorcyleSection";
 import MotorcycleCarouselSection from "@/components/sections/MotorcycleCarouselSection";
@@ -11,6 +14,7 @@ import MotorcycleColorAndPriceSection from "@/components/sections/MotorcycleColo
 import YConnectSection from "@/components/sections/YConnectSection";
 import Heading from "@/components/shared/Heading";
 import AnnouncementModal from "@/components/shared/Modal/AnnouncementModal";
+import { ccuUpdateProcedure } from "@/data/ccuUpdateProcedure";
 import { motocycleCarousel } from "@/data/motorcycle/motorcycleCarousel";
 
 const HomePage = () => {
@@ -198,6 +202,14 @@ const HomePage = () => {
               },
             ],
           },
+        ]}
+      />
+      <CcuUpdatingProcedureSection
+        instructions={ccuUpdateProcedure}
+        notes={[
+          "It takes 10 to 15 minutes to update the software.",
+          "To avoid draining the battery, please keep a charger connected to the battery while the software is updating.",
+          " If you don't have a battery charger, please ask a Yamaha dealer, or run the engine while the software is updating.",
         ]}
       />
     </div>

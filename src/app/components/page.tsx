@@ -19,6 +19,7 @@ import AccessoriesSectionComponent from "./_components/AccessoriesSectionCompone
 import ArrowTitles from "./_components/ArrowTitles";
 import BreadcrumpsComponent from "./_components/BreadcrumpsComponent";
 import CcuMyRideLinkSectionComponent from "./_components/CcuMyRideLinkSectionComponent";
+import CcuUpdatingProcedureSectionComponenet from "./_components/CcuUpdatingProcedureSectionComponenet";
 import DetailTabsComponent from "./_components/DetailTabsComponent";
 import EmbedSocialSection from "./_components/EmbedSocialSection";
 import GridEmbedSocialSection from "./_components/GridEmbedSocialSection";
@@ -291,6 +292,14 @@ const ComponentsPage = () => {
 
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3253&mode=design&t=dDeaNup35WSL2pcH-0",
+        })}
+        {/* CCU Updating Procedure Section */}
+        {renderComponent({
+          title: "CCU Updating Procedure Section",
+          component: <CcuUpdatingProcedureSectionComponenet />,
+          note: "It looks messy if the numbers are not aligned ",
+          wireframeLink:
+            "https://www.figma.com/proto/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3315&t=dDeaNup35WSL2pcH-0&scaling=min-zoom&page-id=507%3A2&starting-point-node-id=508%3A252",
         })}
         {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "title" property, add note if there's needed to expound the component */}
       </div>

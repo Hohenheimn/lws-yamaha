@@ -34,6 +34,7 @@ import MotorcycleFeaturesSection from "./_components/MotorcycleFeaturesSection";
 import NewsCardComponent from "./_components/NewsCardComponent";
 import NewsCardListComponent from "./_components/NewsCardListComponent";
 import OtherNewsSection from "./_components/OtherNewsSection";
+import PolicyAndGuidedbookSectionComponent from "./_components/PolicyAndGuidedbookSectionComponent";
 import ProductCardComponent from "./_components/ProductCardComponent";
 import ProductFilterComponent from "./_components/ProductFilterComponent";
 import ProductListsComponent from "./_components/ProductListsComponent";
@@ -297,6 +298,14 @@ const ComponentsPage = () => {
         {renderComponent({
           title: "CCU Updating Procedure Section",
           component: <CcuUpdatingProcedureSectionComponenet />,
+          note: "It looks messy if the numbers are not aligned ",
+          wireframeLink:
+            "https://www.figma.com/proto/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3315&t=dDeaNup35WSL2pcH-0&scaling=min-zoom&page-id=507%3A2&starting-point-node-id=508%3A252",
+        })}
+        {/* Policy And Guidedbook Section */}
+        {renderComponent({
+          title: "Policy And Guidedbook Section",
+          component: <PolicyAndGuidedbookSectionComponent />,
           note: "It looks messy if the numbers are not aligned ",
           wireframeLink:
             "https://www.figma.com/proto/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3315&t=dDeaNup35WSL2pcH-0&scaling=min-zoom&page-id=507%3A2&starting-point-node-id=508%3A252",

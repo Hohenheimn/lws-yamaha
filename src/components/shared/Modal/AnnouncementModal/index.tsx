@@ -25,6 +25,7 @@ const AnnouncementModal = (props: PropsType) => {
               alt="Banner"
               width={1100}
               height={500}
+              sizes="(max-width: 768px) 1100px, (max-width: 1200px) 1100px, 500px"
               className=" object-contain"
             />
           </aside>

@@ -44,7 +44,7 @@ const SectionContainer = (props: PropsType) => {
       <div
         className={`z-10 ${width === "widest" && "w-full"} ${
           width === "wide" && "w-11/12"
-        } ${width === "narrow" && "w-10/12 md:w-9/12 lg:w-8/12"} ${className}`}
+        } ${width === "narrow" && "w-10/12 lg:w-9/12 2xl:w-8/12"} ${className}`}
       >
         {children}
       </div>

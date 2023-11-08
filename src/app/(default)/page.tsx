@@ -12,6 +12,7 @@ import LifeWithMotorcycleSection from "@/components/sections/LifeWithMotorcyleSe
 import MotorcycleCarouselSection from "@/components/sections/MotorcycleCarouselSection";
 import MotorcycleColorAndPriceSection from "@/components/sections/MotorcycleColorAndPriceSection";
 import PolicyAndGuidedbookSection from "@/components/sections/PolicyAndGuidedbookSection";
+import ServiceDetailSection from "@/components/sections/ServiceDetailSection";
 import YConnectSection from "@/components/sections/YConnectSection";
 import Heading from "@/components/shared/Heading";
 import AnnouncementModal from "@/components/shared/Modal/AnnouncementModal";
@@ -229,6 +230,101 @@ const HomePage = () => {
             title: "Sports Machines Warranty Guide Book",
           },
         ]}
+      />
+      <ServiceDetailSection
+        image={"/assets/images/samples/sample-service-1.png"}
+        imagePosition={"right"}
+        title="Owner's Manual & Warranty Guidebook"
+        content={
+          <aside>
+            <p>
+              Checkout details regarding your motorcycle of information about
+              its warranty.
+            </p>
+          </aside>
+        }
+        url={"#"}
+        urlTitle={"Grab a Copy"}
+      />
+      <ServiceDetailSection
+        image={"/assets/images/samples/sample-service-2.png"}
+        imagePosition={"left"}
+        title="Experience service with Yamaha Advance Technology"
+        content={
+          <aside>
+            <p>
+              Lorem ipsum dolor sit amet consectetur. Sem eget in congue nisi
+              sed lacinia viverra urna urna. Nec venenatis turpis massa
+              vulputate egestas ultrices proin ac. Tempor gravida mattis nec
+              tellus id sit mauris. Sit gravida massa et nisl habitant. Egestas
+              aliquam diam mi faucibus maecenas volutpat. Velit tortor risus
+              turpis sed pharetra aliquam morbi morbi. Tortor est varius diam
+              tellus adipiscing.
+            </p>
+          </aside>
+        }
+        url={"#"}
+        urlTitle={"Learn More"}
+      />
+      <ServiceDetailSection
+        image={"/assets/images/samples/sample-service-2.png"}
+        imagePosition={"left"}
+        title="Choose only Original"
+        content={
+          <aside className=" space-y-5">
+            <p>
+              The one and only choice for maintaining the performance of Yamaha
+              products. Genuine Yamaha parts must meet strict standards in all
+              processes, from design to quality testing and manufacturing. They
+              are the one and only choice for reaching and keeping 100%
+              performance of Yamaha products.
+            </p>
+            <ul className=" flex gap-5 flex-wrap justify-center">
+              <li className=" flex flex-col items-center justify-center">
+                <aside className=" w-20 aspect-square relative">
+                  <Image
+                    src={"/assets/images/samples/reliability.png"}
+                    alt="icon"
+                    fill
+                    sizes="(max-width: 768px) 5rem, (max-width: 1200px) 5rem, 5rem"
+                    className=" object-contain"
+                  />
+                </aside>
+                High Reliability
+              </li>
+              <li className=" flex flex-col items-center justify-center">
+                <aside className=" w-20 aspect-square relative">
+                  <Image
+                    src={"/assets/images/samples/optimized.png"}
+                    alt="icon"
+                    fill
+                    sizes="(max-width: 768px) 5rem, (max-width: 1200px) 5rem, 5rem"
+                    className=" object-contain"
+                  />
+                </aside>
+                Optimized Performance
+              </li>
+              <li className=" flex flex-col items-center justify-center">
+                <aside className=" w-20 aspect-square relative">
+                  <Image
+                    src={"/assets/images/samples/quality.png"}
+                    alt="icon"
+                    fill
+                    sizes="(max-width: 768px) 5rem, (max-width: 1200px) 5rem, 5rem"
+                    className=" object-contain"
+                  />
+                </aside>
+                Worldwide High Quality
+              </li>
+            </ul>
+            <p>
+              Only genuine Yamaha parts can bring out 100% performance in Yamaha
+              products.
+            </p>
+          </aside>
+        }
+        url={"#"}
+        urlTitle={"See Products"}
       />
     </div>
   );

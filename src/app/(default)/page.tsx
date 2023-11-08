@@ -16,6 +16,7 @@ import ServiceDetailSection from "@/components/sections/ServiceDetailSection";
 import YamahalubeCharacteristicSection from "@/components/sections/YamahalubeCharacteristicSection";
 import YamahaTechnicalAcademySection from "@/components/sections/YamahaTechnicalAcademySection";
 import YConnectSection from "@/components/sections/YConnectSection";
+import YdtSection from "@/components/sections/YdtSection";
 import Heading from "@/components/shared/Heading";
 import AnnouncementModal from "@/components/shared/Modal/AnnouncementModal";
 import { ccuUpdateProcedure } from "@/data/ccuUpdateProcedure";
@@ -377,6 +378,17 @@ const HomePage = () => {
             description:
               "YTA Silver is a more comprehensive training course which focuses on advance system diagnosis and troubleshooting, providing hands-on learning using the latest products, tools and troubleshooting techniques.",
           },
+        ]}
+      />
+      <YdtSection
+        icon={"/assets/images/samples/sample-ydt-icon.png"}
+        title={"Top 4 Benefits of Yamaha Diagnostic Tool 3"}
+        image={"/assets/images/samples/sample-ydt-image.png"}
+        content={[
+          "Revitalized motorcycle after receiving preventive maintenance service and check-up with YDT3",
+          "Reduced service waiting time",
+          "Avoid incorrect parts replacement with accurate troubleshooting​",
+          "Availability of digital view of MC inspection and repair ",
         ]}
       />
     </div>

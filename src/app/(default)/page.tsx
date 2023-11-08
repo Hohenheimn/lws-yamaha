@@ -11,6 +11,7 @@ import Hero from "@/components/sections/Hero";
 import LifeWithMotorcycleSection from "@/components/sections/LifeWithMotorcyleSection";
 import MotorcycleCarouselSection from "@/components/sections/MotorcycleCarouselSection";
 import MotorcycleColorAndPriceSection from "@/components/sections/MotorcycleColorAndPriceSection";
+import PolicyAndGuidedbookSection from "@/components/sections/PolicyAndGuidedbookSection";
 import YConnectSection from "@/components/sections/YConnectSection";
 import Heading from "@/components/shared/Heading";
 import AnnouncementModal from "@/components/shared/Modal/AnnouncementModal";
@@ -210,6 +211,23 @@ const HomePage = () => {
           "It takes 10 to 15 minutes to update the software.",
           "To avoid draining the battery, please keep a charger connected to the battery while the software is updating.",
           " If you don't have a battery charger, please ask a Yamaha dealer, or run the engine while the software is updating.",
+        ]}
+      />
+      <PolicyAndGuidedbookSection
+        image={"/assets/images/samples/sample-warranty.png"}
+        warrantyList={[
+          {
+            downloadUrl: "#",
+            title: "Fi Warranty Guide Book",
+          },
+          {
+            downloadUrl: "#",
+            title: "Carburetor Warranty Guide Book",
+          },
+          {
+            downloadUrl: "#",
+            title: "Sports Machines Warranty Guide Book",
+          },
         ]}
       />
     </div>

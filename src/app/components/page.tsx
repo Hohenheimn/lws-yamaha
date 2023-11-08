@@ -38,6 +38,7 @@ import PolicyAndGuidedbookSectionComponent from "./_components/PolicyAndGuidedbo
 import ProductCardComponent from "./_components/ProductCardComponent";
 import ProductFilterComponent from "./_components/ProductFilterComponent";
 import ProductListsComponent from "./_components/ProductListsComponent";
+import ServiceDetailSectionComponent from "./_components/ServiceDetailSectionComponent";
 import SpecificationSection from "./_components/SpecificationSection";
 import YamahaHistoryCardComponent from "./_components/YamahaHistoryCardComponent";
 import YConnectSectionComponent from "./_components/YConnectSectionComponent";
@@ -306,9 +307,17 @@ const ComponentsPage = () => {
         {renderComponent({
           title: "Policy And Guidedbook Section",
           component: <PolicyAndGuidedbookSectionComponent />,
-          note: "It looks messy if the numbers are not aligned ",
+
           wireframeLink:
-            "https://www.figma.com/proto/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3315&t=dDeaNup35WSL2pcH-0&scaling=min-zoom&page-id=507%3A2&starting-point-node-id=508%3A252",
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-2045&mode=design",
+        })}
+        {/* Service Detail Section */}
+        {renderComponent({
+          title: "Service Detail Section",
+          component: <ServiceDetailSectionComponent />,
+
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3387&mode=design ",
         })}
         {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "title" property, add note if there's needed to expound the component */}
       </div>

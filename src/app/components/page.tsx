@@ -41,6 +41,7 @@ import ProductListsComponent from "./_components/ProductListsComponent";
 import ServiceDetailSectionComponent from "./_components/ServiceDetailSectionComponent";
 import SpecificationSection from "./_components/SpecificationSection";
 import YamahaHistoryCardComponent from "./_components/YamahaHistoryCardComponent";
+import YamahalubeCharacteristicSectionComponent from "./_components/YamahalubeCharacteristicSectionComponent";
 import YConnectSectionComponent from "./_components/YConnectSectionComponent";
 
 const ComponentsPage = () => {
@@ -315,7 +316,13 @@ const ComponentsPage = () => {
         {renderComponent({
           title: "Service Detail Section",
           component: <ServiceDetailSectionComponent />,
-
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3387&mode=design ",
+        })}
+        {/* Yamahalube Characteristic Section */}
+        {renderComponent({
+          title: "Yamahalube Characteristic Section ",
+          component: <YamahalubeCharacteristicSectionComponent />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3387&mode=design ",
         })}

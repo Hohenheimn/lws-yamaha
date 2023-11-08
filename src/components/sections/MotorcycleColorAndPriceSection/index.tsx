@@ -36,7 +36,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
   }, []);
   return (
     <SectionContainer className=" flex items-end flex-col" width="widest">
-      <div className=" w-full mb-10 md:mb-20">
+      <div className=" w-full mb-10 md:mb-16 lg:mb-28">
         <ArrowTitle title={"Color & Price"} />
       </div>
 

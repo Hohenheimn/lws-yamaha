@@ -42,6 +42,7 @@ import ServiceDetailSectionComponent from "./_components/ServiceDetailSectionCom
 import SpecificationSection from "./_components/SpecificationSection";
 import YamahaHistoryCardComponent from "./_components/YamahaHistoryCardComponent";
 import YamahalubeCharacteristicSectionComponent from "./_components/YamahalubeCharacteristicSectionComponent";
+import YamahaTechnicalAcademySectionComponent from "./_components/YamahaTechnicalAcademySectionComponent";
 import YConnectSectionComponent from "./_components/YConnectSectionComponent";
 
 const ComponentsPage = () => {
@@ -325,6 +326,13 @@ const ComponentsPage = () => {
           component: <YamahalubeCharacteristicSectionComponent />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3387&mode=design ",
+        })}
+        {/* Yamaha Technical Academy Section */}
+        {renderComponent({
+          title: "Yamaha Technical Academy Section ",
+          component: <YamahaTechnicalAcademySectionComponent />,
+          wireframeLink:
+            "https://www.figma.com/proto/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-2131&scaling=min-zoom&page-id=507%3A2&starting-point-node-id=508%3A252",
         })}
         {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "title" property, add note if there's needed to expound the component */}
       </div>

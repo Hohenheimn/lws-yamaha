@@ -32,7 +32,7 @@ const YamahalubeCharacteristicSection = (props: PropsType) => {
                 <p className=" font-medium">
                   {indx + 1}. {item.title}
                 </p>
-                <p className=" text-[#A3A3A3]">{item.description}</p>
+                <p className=" text-textGray">{item.description}</p>
                 {item?.highlighted_footer && (
                   <p className=" font-medium">{item?.highlighted_footer}</p>
                 )}

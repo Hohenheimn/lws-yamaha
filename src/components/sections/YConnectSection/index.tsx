@@ -30,7 +30,7 @@ const YConnectSection = (props: PropsType) => {
   return (
     <SectionContainer
       bgColor="#131313"
-      width="narrow"
+      width="narrowest"
       className="flex flex-col items-center text-center text-white space-y-10"
     >
       <Heading type="h5" className=" w-10/12 font-medium">
@@ -68,7 +68,7 @@ const YConnectSection = (props: PropsType) => {
               <Heading type={"h5"} className=" mb-3">
                 {item.title}
               </Heading>
-              <p className=" text-[#A3A3A3]">{item.description}</p>
+              <p className=" text-textGray">{item.description}</p>
             </li>
           ))}
         </ul>

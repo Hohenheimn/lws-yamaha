@@ -14,6 +14,7 @@ import MotorcycleColorAndPriceSection from "@/components/sections/MotorcycleColo
 import PolicyAndGuidedbookSection from "@/components/sections/PolicyAndGuidedbookSection";
 import ServiceDetailSection from "@/components/sections/ServiceDetailSection";
 import YamahalubeCharacteristicSection from "@/components/sections/YamahalubeCharacteristicSection";
+import YamahaTechnicalAcademySection from "@/components/sections/YamahaTechnicalAcademySection";
 import YConnectSection from "@/components/sections/YConnectSection";
 import Heading from "@/components/shared/Heading";
 import AnnouncementModal from "@/components/shared/Modal/AnnouncementModal";
@@ -238,7 +239,7 @@ const HomePage = () => {
         title="Owner's Manual & Warranty Guidebook"
         content={
           <aside>
-            <p>
+            <p className=" text-textGray">
               Checkout details regarding your motorcycle of information about
               its warranty.
             </p>
@@ -253,7 +254,7 @@ const HomePage = () => {
         title="Experience service with Yamaha Advance Technology"
         content={
           <aside>
-            <p>
+            <p className=" text-textGray">
               Lorem ipsum dolor sit amet consectetur. Sem eget in congue nisi
               sed lacinia viverra urna urna. Nec venenatis turpis massa
               vulputate egestas ultrices proin ac. Tempor gravida mattis nec
@@ -273,7 +274,7 @@ const HomePage = () => {
         title="Choose only Original"
         content={
           <aside className=" space-y-5">
-            <p>
+            <p className=" text-textGray">
               The one and only choice for maintaining the performance of Yamaha
               products. Genuine Yamaha parts must meet strict standards in all
               processes, from design to quality testing and manufacturing. They
@@ -318,7 +319,7 @@ const HomePage = () => {
                 Worldwide High Quality
               </li>
             </ul>
-            <p>
+            <p className=" text-textGray">
               Only genuine Yamaha parts can bring out 100% performance in Yamaha
               products.
             </p>
@@ -354,6 +355,27 @@ const HomePage = () => {
               "The JASO MB locomotive oil specification was formulated in 1998, and was revised in 2006 as a special oil test specification for locomotives. Based on the standard test of four-stroke engine oil,coupled with the friction performance test and high shear stability test standard specifically for the needs of locomotives, to ensure the quality of the manufacturer. In addition to meeting the JASO specifications, YAMALUBE has passed Yamaha’s internal standards that are stricter than the JASO specifications, so consumers can use it with peace of mind.",
             highlighted_footer:
               "(JASO = Japanese Automotive Standards Organization, Japanese Automotive Standards Organization specifications).",
+          },
+        ]}
+      />
+      <YamahaTechnicalAcademySection
+        icon={"/assets/images/samples/sample-academy-star.png"}
+        title={"Two Level"}
+        description={
+          "The YTA training program is split in two levels: YTA Bronze and Silver."
+        }
+        boxes={[
+          {
+            icon: "/assets/images/samples/sample-academy-star-bronze.png",
+            title: "YTA Bronze",
+            description:
+              "YTA Bronze is a self-paced, correspondence training course designed to be completed by the candidate technician. To successfully complete this course, he must pass a wide-ranging test that covers the engine, drive-train, electrical and chassis systems and service procedures on Yamaha motorcycles.",
+          },
+          {
+            icon: "/assets/images/samples/sample-academy-star-silver.png",
+            title: "YTA Silver",
+            description:
+              "YTA Silver is a more comprehensive training course which focuses on advance system diagnosis and troubleshooting, providing hands-on learning using the latest products, tools and troubleshooting techniques.",
           },
         ]}
       />

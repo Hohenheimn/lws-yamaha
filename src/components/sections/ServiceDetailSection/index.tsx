@@ -21,10 +21,10 @@ const ServiceDetailSection = (props: PropsType) => {
   return (
     <SectionContainer
       width="narrow"
-      className="flex items-center flex-wrap md:flex-nowrap gap-10 text-white"
+      className="flex items-center flex-wrap lg:flex-nowrap gap-10 text-white"
     >
       <aside
-        className={` w-full md:w-6/12 ${
+        className={` w-full lg:w-6/12 ${
           imagePosition === "right" && "order-2 "
         } ${imagePosition === "left" && "order-1"}`}
       >
@@ -37,7 +37,7 @@ const ServiceDetailSection = (props: PropsType) => {
         />
       </aside>
       <article
-        className={` w-full md:w-6/12 space-y-5 ${
+        className={` w-full lg:w-6/12 space-y-5 ${
           imagePosition === "right" && "order-1 "
         } ${imagePosition === "left" && "order-2 "}`}
       >

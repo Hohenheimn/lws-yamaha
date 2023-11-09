@@ -7,9 +7,9 @@ const ButtonElement = (props: ButtonPropsType) => {
   const { url, size, appearance, children, onClick } = props;
   return (
     <button
-      className={` whitespace-nowrap inline-block duration-150 text-white rounded-3xl font-medium ${
-        size === "medium" && "px-5 py-2  text-base rounded-3xl"
-      } ${size === "large" && " px-16 py-3  text-xl rounded-lg"}
+      className={` whitespace-nowrap inline-block duration-150 text-white rounded-lg font-medium ${
+        size === "medium" && "px-5 py-2  text-base"
+      } ${size === "large" && " px-16 py-3  text-xl"}
 ${appearance === "primary" && "bg-tertiary hover:bg-hover-tertiary"} ${
         appearance === "secondary" && " bg-[#2f58cd] hover:bg-hover-quarternary"
       }`}

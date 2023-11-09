@@ -52,8 +52,8 @@ const YConnectSection = (props: PropsType) => {
           ))}
         </ul>
       </aside>
-      <section className=" flex items-center gap-5">
-        <aside>
+      <section className=" flex flex-wrap md:flex-nowrap items-center justify-center gap-5">
+        <aside className=" w-[50%] md:w-auto">
           <Image src={activeTab.image} alt="phone" width={500} height={500} />
         </aside>
         <ul className=" text-start space-y-10">

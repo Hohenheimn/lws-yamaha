@@ -1,12 +1,24 @@
 import React, { ReactNode } from "react";
 
+import Image from "next/image";
+
 import Heading from "@/components/shared/Heading";
 
 import SectionContainer from "../SectionContainer";
 
 type PropsType = {
-  instructions: ReactNode[];
+  instructions: instructions;
   notes: string[];
+};
+export type instructions = {
+  content: content;
+}[];
+
+type content = stepProcedure[];
+
+type stepProcedure = {
+  value: string;
+  type: "highlight" | "image" | "text";
 };
 
 const CcuUpdatingProcedureSection = (props: PropsType) => {
@@ -24,7 +36,25 @@ const CcuUpdatingProcedureSection = (props: PropsType) => {
         <ul className=" grid grid-cols-1 md:grid-cols-2 gap-5">
           {instructions.map((instruction, indx) => (
             <li key={indx} className="  flex gap-2">
-              {indx + 1}. {instruction}
+              {indx + 1}.
+              <aside className=" space-y-2">
+                {instruction.content.map((cont, indx) => (
+                  <div key={indx}>
+                    {cont.type === "text" && <p>{cont.value}</p>}
+                    {cont.type === "highlight" && (
+                      <p className=" font-bold">&quot;{cont.value}&quot;</p>
+                    )}
+                    {cont.type === "image" && (
+                      <Image
+                        src={cont.value}
+                        alt="image"
+                        width={250}
+                        height={250}
+                      />
+                    )}
+                  </div>
+                ))}
+              </aside>
             </li>
           ))}
         </ul>

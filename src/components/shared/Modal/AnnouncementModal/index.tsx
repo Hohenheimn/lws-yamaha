@@ -3,12 +3,13 @@ import Image from "next/image";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
 type PropsType = {
-  imageUrl: string;
+  desktopImage: string;
+  mobileBgImage?: string;
 };
 
 const AnnouncementModal = (props: PropsType) => {
   const [show, setShow] = useState(true);
-  const { imageUrl } = props;
+  const { desktopImage, mobileBgImage } = props;
   return (
     <>
       {show && (
@@ -21,13 +22,25 @@ const AnnouncementModal = (props: PropsType) => {
               />
             </div>
 
-            <Image
-              src={imageUrl}
-              alt="Banner"
-              width={1000}
-              height={500}
-              className=" object-contain h-auto"
-            />
+            {desktopImage && (
+              <Image
+                src={desktopImage}
+                alt="Banner"
+                width={1000}
+                height={500}
+                className={`${mobileBgImage && "hidden md:inline"}`}
+              />
+            )}
+
+            {mobileBgImage && (
+              <Image
+                src={mobileBgImage}
+                alt="Banner"
+                width={1000}
+                height={500}
+                className={` ${mobileBgImage && "inline md:hidden"}`}
+              />
+            )}
           </aside>
         </section>
       )}

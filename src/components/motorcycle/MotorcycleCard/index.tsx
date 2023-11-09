@@ -49,9 +49,12 @@ const MotorcycleCard = (props: MotorcycleCardType) => {
           </ul>
         </aside>
         <aside className="flex w-full justify-center">
-          <Button appearance={"primary"} url={url} size={"medium"}>
+          <Link
+            href={url}
+            className="whitespace-nowrap inline-block duration-150 text-white rounded-3xl font-medium px-5 py-2 bg-tertiary hover:bg-hover-tertiary"
+          >
             View Model
-          </Button>
+          </Link>
         </aside>
       </li>
     </ul>

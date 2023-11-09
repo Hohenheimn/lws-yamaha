@@ -75,7 +75,7 @@ const ComponentsPage = () => {
 
   return (
     <div className="flex">
-      <AnnouncementModal imageUrl="/assets/images/samples/sample-screen-banner.png" />
+      <AnnouncementModal desktopImage="/assets/images/samples/sample-screen-banner.png" />
       <div className="flex flex-col gap-4 p-4 flex-1 h-screen overflow-y-auto scroll-smooth scroll-pt-4 scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
         {/* Header */}
         {renderComponent({

@@ -32,7 +32,7 @@ import news from "@/data/news";
 const HomePage = () => {
   return (
     <div>
-      <AnnouncementModal imageUrl="/assets/images/samples/sample-screen-banner.png" />
+      <AnnouncementModal desktopImage="/assets/images/samples/sample-screen-banner.png" />
       <Hero
         fullHeight={true}
         desktopBgImage={"/assets/images/samples/sample-banner.jpg"}

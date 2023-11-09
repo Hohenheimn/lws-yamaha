@@ -1,7 +1,7 @@
 import React from "react";
 
 import FacebookEmbedCard from "@/components/shared/EmbedSocials/FacebookEmbedCard";
-import InstagramEmbedCard from "@/components/shared/EmbedSocials/InstagramEmbedCard";
+// import InstagramEmbedCard from "@/components/shared/EmbedSocials/InstagramEmbedCard";
 
 const facebookUrls = [
   "https://www.facebook.com/ph.yamaha/posts/pfbid02dqcMenHYcyiLzgyGjASbM8j7zGnMRbuprKjenHKESmFQT2gf3GstmeoxcyfcqWcml",
@@ -20,9 +20,9 @@ const EmbedSocialSection = () => {
   const renderInstagramEmbedCardList = () => {
     return (
       <div className="flex flex-wrap gap-4 justify-center">
-        {instagramUrls.map((instagramUrl, index) => (
-          <InstagramEmbedCard key={index} instagramUrl={instagramUrl} />
-        ))}
+        {/* {instagramUrls.map((instagramUrl, index) => (
+          <InstagramEmbedCard key={index + 1} instagramUrl={instagramUrl} />
+        ))} */}
       </div>
     );
   };
@@ -31,7 +31,7 @@ const EmbedSocialSection = () => {
     return (
       <div className="flex flex-wrap gap-4 justify-center">
         {facebookUrls.map((facebookUrl, index) => (
-          <FacebookEmbedCard key={index} facebookUrl={facebookUrl} />
+          <FacebookEmbedCard key={index + 1} facebookUrl={facebookUrl} />
         ))}
       </div>
     );

@@ -41,6 +41,9 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import services from "@/data/services/services";
 import VideoSection from "@/components/sections/VideoSection";
 import SquareCard from "@/components/service/SquareCard";
+import FeaturedNewsSection from "@/components/sections/FeaturedNewsSection";
+import { featuredNews, raceYourFlagNews } from "@/data/news/featuredNews";
+import PartsAndAccessoriesDetailsSection from "@/components/sections/PartsAndAccessoriesDetailsSection";
 
 const ComponentsPage = () => {
   const renderComponent = (args: {
@@ -72,6 +75,39 @@ const ComponentsPage = () => {
   return (
     <div className="flex">
       <div className="flex flex-col gap-4 p-4 flex-1 h-screen overflow-y-auto scroll-smooth scroll-pt-4 scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
+        {/* Parts and Accessories Details Section */}
+        {renderComponent({
+          title: "Featured News Section",
+          component: <PartsAndAccessoriesDetailsSection />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=1129%3A3379&mode=design&t=cyNBKBl85Ry8eZd0-1",
+        })}
+        {/* Featured News Section */}
+        {renderComponent({
+          title: "Featured News Section",
+          component: (
+            <FeaturedNewsSection
+              title="The World of Yamaha"
+              subTitle="Stay updated with the latest news"
+              news={featuredNews}
+            />
+          ),
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=1129%3A2080&mode=design&t=cyNBKBl85Ry8eZd0-1",
+        })}
+        {/* Race Your Flag Section */}
+        {renderComponent({
+          title: "Race Your Flag Section",
+          component: (
+            <FeaturedNewsSection
+              title="Race Your Flag"
+              subTitle="Feeling lap. Riding beyond bounderies."
+              news={raceYourFlagNews}
+            />
+          ),
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=1129%3A2316&mode=design&t=cyNBKBl85Ry8eZd0-1",
+        })}
         {/* Header */}
         {renderComponent({
           title: "Header",
@@ -313,7 +349,14 @@ const ComponentsPage = () => {
         {/* Serbilis Video Section */}
         {renderComponent({
           title: "Serbilis Video Section",
-          component: <VideoSection />,
+          component: (
+            <VideoSection
+              title="Experience YAMAHA’s High – End Technology"
+              videoUrls={[
+                "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+              ]}
+            />
+          ),
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A4803&mode=design&t=fCNMskUhjGLQZCxi-1",
         })}

@@ -9,7 +9,7 @@ import YamahaLifeStyleStudioSection from "@/components/sections/YamahaLifeStyleS
 import YConnectSection from "@/components/sections/YConnectSection";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
-import AnnouncementModal from "@/components/shared/Modal/AnnouncementModal";
+import AnnouncementModal from "@/components/shared/modal/AnnouncementModal";
 
 import blogs from "@/data/blogs";
 
@@ -74,7 +74,7 @@ const ComponentsPage = () => {
 
   return (
     <div className="flex">
-      <AnnouncementModal imageUrl="/assets/images/placeholder.png" />
+      <AnnouncementModal imageUrl="/assets/images/samples/sample-screen-banner.png" />
       <div className="flex flex-col gap-4 p-4 flex-1 h-screen overflow-y-auto scroll-smooth scroll-pt-4 scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
         {/* Header */}
         {renderComponent({

@@ -7,6 +7,7 @@ import Image from "next/image";
 import AccessoriesSection from "@/components/sections/AccessoriesSection";
 import CcuMyRideLinkSection from "@/components/sections/CcuMyRideLinkSection";
 import CcuUpdatingProcedureSection from "@/components/sections/CcuUpdatingProcedureSection";
+import DealerSection from "@/components/sections/DealerSection";
 import Hero from "@/components/sections/Hero";
 import LifeWithMotorcycleSection from "@/components/sections/LifeWithMotorcyleSection";
 import MotorcycleCarouselSection from "@/components/sections/MotorcycleCarouselSection";
@@ -18,7 +19,7 @@ import YamahaTechnicalAcademySection from "@/components/sections/YamahaTechnical
 import YConnectSection from "@/components/sections/YConnectSection";
 import YdtSection from "@/components/sections/YdtSection";
 import Heading from "@/components/shared/Heading";
-import AnnouncementModal from "@/components/shared/Modal/AnnouncementModal";
+import AnnouncementModal from "@/components/shared/modal/AnnouncementModal";
 import { ccuUpdateProcedure } from "@/data/ccuUpdateProcedure";
 import { motocycleCarousel } from "@/data/motorcycle/motorcycleCarousel";
 
@@ -391,6 +392,7 @@ const HomePage = () => {
           "Availability of digital view of MC inspection and repair ",
         ]}
       />
+      <DealerSection />
     </div>
   );
 };

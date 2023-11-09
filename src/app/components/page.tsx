@@ -44,6 +44,7 @@ import YamahaHistoryCardComponent from "./_components/YamahaHistoryCardComponent
 import YamahalubeCharacteristicSectionComponent from "./_components/YamahalubeCharacteristicSectionComponent";
 import YamahaTechnicalAcademySectionComponent from "./_components/YamahaTechnicalAcademySectionComponent";
 import YConnectSectionComponent from "./_components/YConnectSectionComponent";
+import YdtSectionComponent from "./_components/YdtSectionComponent";
 
 const ComponentsPage = () => {
   const renderComponent = (args: {
@@ -331,6 +332,13 @@ const ComponentsPage = () => {
         {renderComponent({
           title: "Yamaha Technical Academy Section ",
           component: <YamahaTechnicalAcademySectionComponent />,
+          wireframeLink:
+            "https://www.figma.com/proto/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-2131&scaling=min-zoom&page-id=507%3A2&starting-point-node-id=508%3A252",
+        })}
+        {/* YDT Section */}
+        {renderComponent({
+          title: "YDT Section ",
+          component: <YdtSectionComponent />,
           wireframeLink:
             "https://www.figma.com/proto/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-2131&scaling=min-zoom&page-id=507%3A2&starting-point-node-id=508%3A252",
         })}

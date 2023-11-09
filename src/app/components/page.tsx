@@ -44,6 +44,7 @@ import SquareCard from "@/components/service/SquareCard";
 import FeaturedNewsSection from "@/components/sections/FeaturedNewsSection";
 import { featuredNews, raceYourFlagNews } from "@/data/news/featuredNews";
 import PartsAndAccessoriesDetailsSection from "@/components/sections/PartsAndAccessoriesDetailsSection";
+import productData from "@/data/partsAndAccessories/product";
 
 const ComponentsPage = () => {
   const renderComponent = (args: {
@@ -78,7 +79,9 @@ const ComponentsPage = () => {
         {/* Parts and Accessories Details Section */}
         {renderComponent({
           title: "Featured News Section",
-          component: <PartsAndAccessoriesDetailsSection />,
+          component: (
+            <PartsAndAccessoriesDetailsSection product={productData} />
+          ),
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=1129%3A3379&mode=design&t=cyNBKBl85Ry8eZd0-1",
         })}

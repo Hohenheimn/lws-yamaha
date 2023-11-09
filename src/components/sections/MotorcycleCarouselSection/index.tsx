@@ -61,7 +61,6 @@ const MotorcycleCarouselSection = (props: PropsType) => {
       className=" relative h-full flex flex-col items-center space-y-5"
       bgImage={desktopBgImage}
       mobileBgImage={mobileBgImage}
-      blur={true}
       width={"wide"}
     >
       <aside className=" w-11/12 max-w-[60rem] text-center text-white">

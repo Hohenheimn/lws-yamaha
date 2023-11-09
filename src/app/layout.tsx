@@ -17,9 +17,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" className={montserrat.className}>
       <body className="bg-[#131313]">
-        {/* <Header /> */}
+        <Header />
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

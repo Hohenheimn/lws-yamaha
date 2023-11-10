@@ -21,7 +21,7 @@ import YamahaTechnicalAcademySection from "@/components/sections/YamahaTechnical
 import YConnectSection from "@/components/sections/YConnectSection";
 import YdtSection from "@/components/sections/YdtSection";
 import Heading from "@/components/shared/Heading";
-import AnnouncementModal from "@/components/shared/modal/AnnouncementModal";
+import AnnouncementModal from "@/components/shared/modals/AnnouncementModal";
 import { ccuUpdateProcedure } from "@/data/ccuUpdateProcedure";
 import {
   motocycleCarousel,
@@ -68,27 +68,7 @@ const HomePage = () => {
           onClick: () => console.log(data),
         }))}
       />
-      <YamahaTechnicalAcademySection
-        icon={"/assets/images/samples/sample-academy-star.png"}
-        title={"Two Level"}
-        description={
-          "The YTA training program is split in two levels: YTA Bronze and Silver."
-        }
-        boxes={[
-          {
-            icon: "/assets/images/samples/sample-academy-star-bronze.png",
-            title: "YTA Bronze",
-            description:
-              "YTA Bronze is a self-paced, correspondence training course designed to be completed by the candidate technician. To successfully complete this course, he must pass a wide-ranging test that covers the engine, drive-train, electrical and chassis systems and service procedures on Yamaha motorcycles.",
-          },
-          {
-            icon: "/assets/images/samples/sample-academy-star-silver.png",
-            title: "YTA Silver",
-            description:
-              "YTA Silver is a more comprehensive training course which focuses on advance system diagnosis and troubleshooting, providing hands-on learning using the latest products, tools and troubleshooting techniques.",
-          },
-        ]}
-      />
+      <DealerSection />
       <YamahaLifeStyleStudioSection />
     </div>
   );

@@ -10,7 +10,7 @@ type PropsType = {
 const SearchBar = (props: PropsType) => {
   const { search, setSearch, placeholder } = props;
   return (
-    <div className=" flex items-center gap-5 text-white border border-[#898989] h-20 px-5">
+    <div className=" flex items-center gap-5 text-white border border-[#898989] h-16 lg:h-20 px-5">
       <input
         type="text"
         value={search}

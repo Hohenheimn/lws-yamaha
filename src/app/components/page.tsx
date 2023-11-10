@@ -9,10 +9,8 @@ import YamahaLifeStyleStudioSection from "@/components/sections/YamahaLifeStyleS
 import YConnectSection from "@/components/sections/YConnectSection";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
-import AnnouncementModal from "@/components/shared/modal/AnnouncementModal";
-
+import AnnouncementModal from "@/components/shared/modals/AnnouncementModal";
 import blogs from "@/data/blogs";
-
 import news from "@/data/news";
 
 import AccessoriesSectionComponent from "./_components/AccessoriesSectionComponent";

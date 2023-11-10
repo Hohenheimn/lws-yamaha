@@ -1,5 +1,10 @@
 export const sampleDealer = [
   {
+    id: 632,
+    coordinates: {
+      latitude: 14.5995,
+      longitude: 120.9842,
+    },
     title: "Motortrade",
     location: "1497 Tayuman St., Sta.Cruz Manila",
     email: "mnc1214@motortrade.com.ph",
@@ -11,6 +16,10 @@ export const sampleDealer = [
     ],
   },
   {
+    coordinates: {
+      latitude: 16.415079,
+      longitude: 120.586289,
+    },
     title: "Megavia",
     location: "Bldg. 200 Cor Pres Quirino & Jesus St., Pandacan Manila",
     email: "mmci_nagatahan@megaviamotor.com.ph",

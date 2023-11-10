@@ -28,12 +28,12 @@ const YdtSection = (props: PropsType) => {
       </Heading>
       <SectionContainer
         width="narrow"
-        className="flex flex-wrap md:flex-nowrap items-center gap-10 "
+        className="flex flex-wrap md:flex-nowrap gap-10"
       >
         <aside className=" w-full md:w-[40%]">
           <Image src={image} alt="image" width={800} height={800} />
         </aside>
-        <ul className=" w-full flex-1">
+        <ul className=" w-full flex-1 flex flex-col justify-center">
           {content.map((item, indx) => (
             <li key={indx} className={`${indx > 0 && "pt-5"} pb-5 border-b`}>
               <Heading type="h5">

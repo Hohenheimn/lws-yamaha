@@ -23,3 +23,6 @@
 *::-webkit-scrollbar-thumb:hover {
   background: #7a7a7a;
 }
+.hide-scrollBar::-webkit-scrollbar {
+  display: none !important;
+}

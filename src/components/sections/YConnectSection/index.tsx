@@ -36,7 +36,7 @@ const YConnectSection = (props: PropsType) => {
       <Heading type="h5" className=" w-10/12 font-medium">
         {headingText}
       </Heading>
-      <aside className=" w-full overflow-x-auto">
+      <aside className=" w-full overflow-x-auto hide-scrollBar">
         <ul className=" w-auto flex md:border-b-2 border-[#8C8C8C] gap-10 xl:gap-20 text-[#424242]">
           {tabs.map((tab, indx) => (
             <li

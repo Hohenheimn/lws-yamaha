@@ -35,13 +35,33 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
     setActiveColor(motorcycle_detail[0]);
   }, []);
   return (
-    <SectionContainer className=" flex items-end flex-col" width="widest">
-      <div className=" w-full mb-10 md:mb-16 lg:mb-28">
+    <SectionContainer
+      className=" flex items-end flex-col space-y-10"
+      width="widest"
+    >
+      <div className=" w-full">
         <ArrowTitle title={"Color & Price"} />
       </div>
 
-      <ul className=" w-full md:w-[95.83%] flex flex-wrap items-start justify-end md:flex-nowrap  relative">
-        <li>
+      <ul className=" w-[95.83%] flex justify-end flex-wrap lg:flex-nowrap relative">
+        <li className=" w-full lg:w-[50%] mr-0 lg:mr-[-10%] aspect-[2/1] lg:aspect-auto lg:h-auto flex flex-col items-center justify-end z-10 relative">
+          <aside className=" relative w-full h-full">
+            <Image
+              src={activeColor.motorcycleImage}
+              alt="motorcycle"
+              fill
+              className=" object-contain"
+            />
+          </aside>
+          <Heading
+            type={"h4"}
+            className=" text-white z-10 text-center md:absolute bottom-0 right-0 w-full flex justify-center"
+          >
+            {activeColor.motorcycleName}
+          </Heading>
+        </li>
+
+        <li className=" w-full lg:w-[60%] mt-5 lg:mt-16 relative rounded-bl-[3rem] rounded-tl-[3rem] overflow-hidden text-white flex items-center justify-center py-10 md:py-20 ">
           <Image
             src={activeColor.desktopBgImage}
             fill
@@ -58,32 +78,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
               className={` object-bottom object-cover inline md:hidden`}
             />
           )}
-
-          <div className=" absolute w-full md:w-6/12 h-[70%] md:h-full left-0 top-0 bg-gradient-to-b md:bg-gradient-to-r from-[#131313] from-50% to-[#13131300]"></div>
-        </li>
-        <li className=" w-full md:w-[50%] 2xl:w-[60%] relative md:absolute left-0 bottom-0 flex flex-col items-center justify-end z-10">
-          <aside className="relative w-full flex flex-col items-center md:items-start justify-center">
-            <div className=" w-[80%] md:w-auto relative">
-              <Image
-                src={activeColor.motorcycleImage}
-                alt="motorcycle"
-                // fill
-                width={700}
-                height={700}
-                className=" object-contain"
-              />
-              <Heading
-                type={"h4"}
-                className=" text-white z-10 text-center max-w-[50rem] md:absolute md:bottom-0 md:left-[50%] md:translate-x-[-50%]"
-              >
-                {activeColor.motorcycleName}
-              </Heading>
-            </div>
-          </aside>
-        </li>
-
-        <li className="w-full md:w-[50%] 2xl:w-[50%] text-white relative flex items-center justify-center py-10 md:py-20 ">
-          <aside className="relative z-10 space-y-8 max-w-[90%] md:max-w-[70%] 2xl:max-w-[60%] ">
+          <aside className="relative z-10 space-y-8 w-10/12 lg:w-[60%] xl:w-[50%]">
             <Image
               src={activeColor.titleImage}
               alt="title"

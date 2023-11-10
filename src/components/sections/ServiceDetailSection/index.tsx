@@ -21,7 +21,7 @@ const ServiceDetailSection = (props: PropsType) => {
   return (
     <SectionContainer
       width="narrow"
-      className="flex items-center flex-wrap lg:flex-nowrap gap-10 text-white"
+      className="flex flex-wrap lg:flex-nowrap gap-10 text-white"
     >
       <aside
         className={` w-full lg:w-6/12 ${
@@ -37,7 +37,7 @@ const ServiceDetailSection = (props: PropsType) => {
         />
       </aside>
       <article
-        className={` w-full lg:w-6/12 space-y-5 ${
+        className={` w-full lg:w-6/12 space-y-5 flex flex-col justify-center ${
           imagePosition === "right" && "order-1 "
         } ${imagePosition === "left" && "order-2 "}`}
       >

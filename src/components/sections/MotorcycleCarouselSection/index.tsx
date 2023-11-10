@@ -39,7 +39,7 @@ const MotorcycleCarouselSection = (props: PropsType) => {
       slidesPerView: 1,
       spaceBetween: 10,
     },
-    640: {
+    800: {
       slidesPerView: 2,
       spaceBetween: 10,
     },

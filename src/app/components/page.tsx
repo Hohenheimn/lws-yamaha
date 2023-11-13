@@ -4,6 +4,7 @@ import { ReactNode, useMemo } from "react";
 import Link from "next/link";
 
 import BlogSection from "@/components/sections/BlogSection";
+import DealerSection from "@/components/sections/DealerSection";
 import NewsGridSection from "@/components/sections/NewsGridSection";
 import YamahaLifeStyleStudioSection from "@/components/sections/YamahaLifeStyleStudioSection";
 import YConnectSection from "@/components/sections/YConnectSection";
@@ -11,6 +12,7 @@ import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import AnnouncementModal from "@/components/shared/modals/AnnouncementModal";
 import blogs from "@/data/blogs";
+
 import news from "@/data/news";
 
 import AccessoriesSectionComponent from "./_components/AccessoriesSectionComponent";
@@ -337,6 +339,13 @@ const ComponentsPage = () => {
           wireframeLink:
             "https://www.figma.com/proto/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-2131&scaling=min-zoom&page-id=507%3A2&starting-point-node-id=508%3A252",
         })}
+        {/* Dealers */}
+        {/* Y-Connect Section */}
+        <div className=" px-2 lg:p-5 border rounded-lg text-white space-y-5">
+          <h3>Dealers</h3>
+          <DealerSection />
+        </div>
+
         {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "title" property, add note if there's needed to expound the component */}
       </div>
     </div>

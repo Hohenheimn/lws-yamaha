@@ -28,7 +28,7 @@ const PolicyAndGuidedbookSection = (props: PropsType) => {
           {warrantyList.map((warranty, indx) => (
             <li
               key={indx}
-              className={` flex flex-wrap md:flex-nowrap items-center gap-5 justify-center text-center md:text-start md:justify-between ${
+              className={` flex flex-wrap md:flex-nowrap items-center gap-5 justify-between md:text-start ${
                 indx > 0 && "pt-10"
               } ${warrantyList.length !== indx + 1 && "border-b pb-5"}`}
             >

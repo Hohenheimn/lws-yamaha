@@ -7,7 +7,6 @@ import { IoLocationSharp } from "react-icons/io5";
 
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 
-
 import SearchBar from "@/components/shared/SearchBar";
 
 import Select from "@/components/shared/Select";
@@ -16,9 +15,7 @@ import { sampleDealer } from "@/data/dealer";
 
 import config from "@/utils/config";
 
-
 import SectionContainer from "../SectionContainer";
-
 
 const DealerSection = () => {
   const [search, setSearch] = useState("");
@@ -96,7 +93,7 @@ const DealerSection = () => {
           ))}
         </li>
 
-        <li className=" w-full order-1 lg:order-2 lg:w-1/2 xl:w-2/3 aspect-[1/1] lg:aspect-[2/1]">
+        <li className=" w-full order-1 lg:order-2 lg:w-1/2 xl:w-2/3 h-auto aspect-square lg:aspect-auto lg:h-[35rem]">
           {isMapLoaded && (
             <GoogleMap
               mapContainerStyle={{ width: "100%", height: "100%" }}

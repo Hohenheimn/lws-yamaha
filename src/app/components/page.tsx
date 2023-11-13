@@ -289,13 +289,10 @@ const ComponentsPage = () => {
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=LzzcopnZE6Ecsm8S-1",
         })}
         {/* Y-Connect Section */}
-        {renderComponent({
-          title: "Y-Connect Section",
-          component: <YConnectSectionComponent />,
-
-          wireframeLink:
-            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3253&mode=design&t=dDeaNup35WSL2pcH-0",
-        })}
+        <div className=" px-2 lg:p-5 border rounded-lg text-white space-y-5">
+          <h3>Y-Connect Section</h3>
+          <YConnectSectionComponent />
+        </div>
         {/* CCU Updating Procedure Section */}
         {renderComponent({
           title: "CCU Updating Procedure Section",

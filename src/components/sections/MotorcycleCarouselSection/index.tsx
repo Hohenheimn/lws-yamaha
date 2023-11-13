@@ -43,15 +43,11 @@ const MotorcycleCarouselSection = (props: PropsType) => {
       slidesPerView: 2,
       spaceBetween: 10,
     },
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: 10,
-    },
     1280: {
       slidesPerView: 3,
       spaceBetween: 30,
     },
-    1440: {
+    1550: {
       slidesPerView: 4,
       spaceBetween: 30,
     },

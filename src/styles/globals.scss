@@ -4,7 +4,11 @@
 
 .unit-carousel.swiper {
   @apply px-14;
+  // .swiper-slide {
+  //   width: 300px !important;
+  // }
 }
+
 *::-webkit-scrollbar {
   width: 10px;
   height: 10px;

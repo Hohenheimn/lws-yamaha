@@ -11,7 +11,7 @@ const MotorcycleColorAndPriceSectionComponent = () => {
           motorcycleImage: "/assets/images/samples/sample-unit -2.png",
           motorcycleName: "Race Black",
           titleImage: "/assets/images/samples/sample-title.png",
-          desktopBgImage: "/assets/images/samples/sample-banner.jpg",
+          desktopBgImage: "/assets/images/samples/sample-color-price.png",
 
           description:
             "Lorem ipsum dolor sit  facere exercitationem voluptatibus culpa porro necessitatibus, tempora velit a ratione dolores quidem.",
@@ -22,7 +22,7 @@ const MotorcycleColorAndPriceSectionComponent = () => {
           motorcycleImage: "/assets/images/placeholder.png",
           motorcycleName: "Race Blue",
           titleImage: "/assets/images/samples/sample-title.png",
-          desktopBgImage: "/assets/images/samples/sample-banner.jpg",
+          desktopBgImage: "/assets/images/samples/sample-color-price.png",
           mobileBgImage: "/assets/images/samples/sample-screen-banner.png",
           description:
             "Lorem ipsum dolor sit  repellat id nihil nisi officia sequi delectus natus, facere exercitationem voluptatibus culpa porro necessitatibus, tempora velit a ratione dolores quidem.",
@@ -33,7 +33,7 @@ const MotorcycleColorAndPriceSectionComponent = () => {
           motorcycleImage: "/assets/images/placeholder.png",
           motorcycleName: "Race Gray",
           titleImage: "/assets/images/samples/sample-title.png",
-          desktopBgImage: "/assets/images/samples/sample-banner.jpg",
+          desktopBgImage: "/assets/images/samples/sample-color-price.png",
           mobileBgImage: "/assets/images/samples/sample-screen-banner.png",
           description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo minima repellat id nihil nisi officia sequi delectus natus, facere exercitationem voluptatibus culpa porro necessitatibus, tempora velit a ratione dolores quidem.",

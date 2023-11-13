@@ -36,7 +36,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
   }, []);
   return (
     <SectionContainer
-      className=" flex items-end flex-col space-y-10"
+      className=" flex items-end flex-col space-y-5"
       width="widest"
     >
       <div className=" w-full">
@@ -44,21 +44,23 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
       </div>
 
       <ul className=" w-[95.83%] flex justify-end flex-wrap lg:flex-nowrap relative">
-        <li className=" w-full lg:w-[50%] mr-0 lg:mr-[-10%] aspect-[2/1] lg:aspect-auto lg:h-auto flex flex-col items-center justify-end z-10 relative">
-          <aside className=" relative w-full h-full">
+        <li className=" w-full lg:w-[50%] mr-0 lg:mr-[-10%] aspect-[2/1] lg:aspect-auto lg:h-auto flex flex-col items-end justify-end z-10 relative">
+          <aside className=" relative ">
             <Image
               src={activeColor.motorcycleImage}
               alt="motorcycle"
-              fill
+              // fill
+              width={700}
+              height={700}
               className=" object-contain"
             />
+            <Heading
+              type={"h4"}
+              className=" text-white z-10 text-center md:absolute bottom-0 right-0 w-full flex justify-center"
+            >
+              {activeColor.motorcycleName}
+            </Heading>
           </aside>
-          <Heading
-            type={"h4"}
-            className=" text-white z-10 text-center md:absolute bottom-0 right-0 w-full flex justify-center"
-          >
-            {activeColor.motorcycleName}
-          </Heading>
         </li>
 
         <li className=" w-full lg:w-[60%] mt-5 lg:mt-16 relative rounded-bl-[3rem] rounded-tl-[3rem] overflow-hidden text-white flex items-center justify-center py-10 md:py-20 ">
@@ -66,7 +68,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
             src={activeColor.desktopBgImage}
             fill
             alt="background"
-            className={` object-cover object-right ${
+            className={` object-cover object-center ${
               activeColor.mobileBgImage && "hidden md:inline"
             }`}
           />
@@ -78,7 +80,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
               className={` object-bottom object-cover inline md:hidden`}
             />
           )}
-          <aside className="relative z-10 space-y-8 w-10/12 lg:w-[60%] xl:w-[50%]">
+          <aside className="relative z-10 space-y-8 w-10/12 lg:ml-[10%] lg:w-[60%] 2xl:w-[50%]">
             <Image
               src={activeColor.titleImage}
               alt="title"

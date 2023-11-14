@@ -1,28 +1,47 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { useQuery, useMutation } from "react-query";
+import { useQuery, useMutation, UseQueryOptions } from "react-query";
+
+const api = async (
+  url: string,
+  method: "get" | "post" | "put" | "delete" | "patch",
+  config?: AxiosRequestConfig
+) => {
+  const res = await axios(url, { ...config, method });
+  return await res.data;
+};
 
 const useAPI = (url: string) => {
-  const get = useQuery(url, async (config?: AxiosRequestConfig) => {
-    const res = await axios.get(url, config);
-    return await res.data;
-  });
+  const useGet = (
+    key: Array<string> | string,
+    options?: Omit<
+      UseQueryOptions<unknown, unknown, unknown, string | string[]>,
+      "queryKey" | "queryFn"
+    >
+  ) => {
+    return useQuery(
+      key,
+      (config: AxiosRequestConfig) => api(url, "get", config),
+      options
+    );
+  };
 
-  const post = useMutation(async (config: AxiosRequestConfig) => {
-    const res = await axios.post(url, config);
-    return await res.data;
-  });
+  const usePost = useMutation((config: AxiosRequestConfig) =>
+    api(url, "post", config)
+  );
 
-  const remove = useMutation(async (config: AxiosRequestConfig) => {
-    const res = await axios.delete(url, config);
-    return await res.data;
-  });
+  const useDelete = useMutation((config: AxiosRequestConfig) =>
+    api(url, "delete", config)
+  );
 
-  const put = useMutation(async (config: AxiosRequestConfig) => {
-    const res = await axios.put(url, config);
-    return await res.data;
-  });
+  const usePut = useMutation((config: AxiosRequestConfig) =>
+    api(url, "put", config)
+  );
 
-  return { get, post, remove, put };
+  const usePatch = useMutation((config: AxiosRequestConfig) =>
+    api(url, "patch", config)
+  );
+
+  return { useGet, usePost, useDelete, usePut, usePatch };
 };
 
 export default useAPI;

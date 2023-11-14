@@ -1,13 +1,13 @@
 "use client";
 
-import { ReactNode, useMemo } from "react";
+import { ReactNode } from "react";
 import Link from "next/link";
+import { useQuery } from "react-query";
 
 import BlogSection from "@/components/sections/BlogSection";
 import DealerSection from "@/components/sections/DealerSection";
 import NewsGridSection from "@/components/sections/NewsGridSection";
 import YamahaLifeStyleStudioSection from "@/components/sections/YamahaLifeStyleStudioSection";
-import YConnectSection from "@/components/sections/YConnectSection";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import AnnouncementModal from "@/components/shared/modals/AnnouncementModal";
@@ -41,6 +41,16 @@ import ProductListsComponent from "./_components/ProductListsComponent";
 import ServiceDetailSectionComponent from "./_components/ServiceDetailSectionComponent";
 import SpecificationSection from "./_components/SpecificationSection";
 import YamahaHistoryCardComponent from "./_components/YamahaHistoryCardComponent";
+import WhyChooseUsSectoin from "@/components/sections/WhyChooseUsSection";
+import whyChooseUsFeatures from "@/data/whyChooseUs";
+import ServicesSection from "@/components/sections/ServicesSection";
+import services from "@/data/services/services";
+import VideoSection from "@/components/sections/VideoSection";
+import SquareCard from "@/components/service/SquareCard";
+import FeaturedNewsSection from "@/components/sections/FeaturedNewsSection";
+import { featuredNews, raceYourFlagNews } from "@/data/news/featuredNews";
+import PartsAndAccessoriesDetailsSection from "@/components/sections/PartsAndAccessoriesDetailsSection";
+import productData from "@/data/partsAndAccessories/product";
 import YamahalubeCharacteristicSectionComponent from "./_components/YamahalubeCharacteristicSectionComponent";
 import YamahaTechnicalAcademySectionComponent from "./_components/YamahaTechnicalAcademySectionComponent";
 import YConnectSectionComponent from "./_components/YConnectSectionComponent";
@@ -77,6 +87,41 @@ const ComponentsPage = () => {
     <div className="flex">
       <AnnouncementModal desktopImage="/assets/images/samples/sample-screen-banner.png" />
       <div className="flex flex-col gap-4 p-4 flex-1 h-screen overflow-y-auto scroll-smooth scroll-pt-4 scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
+        {/* Parts and Accessories Details Section */}
+        {renderComponent({
+          title: "Featured News Section",
+          component: (
+            <PartsAndAccessoriesDetailsSection product={productData} />
+          ),
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=1129%3A3379&mode=design&t=cyNBKBl85Ry8eZd0-1",
+        })}
+        {/* Featured News Section */}
+        {renderComponent({
+          title: "Featured News Section",
+          component: (
+            <FeaturedNewsSection
+              title="The World of Yamaha"
+              subTitle="Stay updated with the latest news"
+              news={featuredNews}
+            />
+          ),
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=1129%3A2080&mode=design&t=cyNBKBl85Ry8eZd0-1",
+        })}
+        {/* Race Your Flag Section */}
+        {renderComponent({
+          title: "Race Your Flag Section",
+          component: (
+            <FeaturedNewsSection
+              title="Race Your Flag"
+              subTitle="Feeling lap. Riding beyond bounderies."
+              news={raceYourFlagNews}
+            />
+          ),
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=1129%3A2316&mode=design&t=cyNBKBl85Ry8eZd0-1",
+        })}
         {/* Header */}
         {renderComponent({
           title: "Header",
@@ -236,6 +281,7 @@ const ComponentsPage = () => {
                 ...data,
                 onClick: () => console.log(data),
               }))}
+              onViewAll={() => {}}
             />
           ),
           wireframeLink:
@@ -289,6 +335,42 @@ const ComponentsPage = () => {
           component: <SpecificationSection />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=LzzcopnZE6Ecsm8S-1",
+        })}
+        {/* Service Square Card */}
+        {renderComponent({
+          title: "Service Square Card",
+          component: <SquareCard {...whyChooseUsFeatures[0]} />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A4803&mode=design&t=fCNMskUhjGLQZCxi-1",
+        })}
+        {/* Why Choose Us Section */}
+        {renderComponent({
+          title: "Why Choose Us Section",
+          component: <WhyChooseUsSectoin features={whyChooseUsFeatures} />,
+          note: 'This data is static as the "Why choose us?" section might not be change over time',
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A4803&mode=design&t=fCNMskUhjGLQZCxi-1",
+        })}
+        {/* Our Services Section */}
+        {renderComponent({
+          title: "Our Services Section",
+          component: <ServicesSection data={services} />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A4803&mode=design&t=fCNMskUhjGLQZCxi-1",
+        })}
+        {/* Serbilis Video Section */}
+        {renderComponent({
+          title: "Serbilis Video Section",
+          component: (
+            <VideoSection
+              title="Experience YAMAHA’s High – End Technology"
+              videoUrls={[
+                "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+              ]}
+            />
+          ),
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A4803&mode=design&t=fCNMskUhjGLQZCxi-1",
         })}
         {/* Y-Connect Section */}
         <div className=" px-2 lg:p-5 border rounded-lg text-white space-y-5">

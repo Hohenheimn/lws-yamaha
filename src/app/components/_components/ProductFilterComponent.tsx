@@ -1,26 +1,26 @@
-import ProductFilter from '@/components/partsAndAccessories/ProductFilter'
-import productsFilterData from '@/data/partsAndAccessories/productsFilter'
-import React, { useState } from 'react'
+import ProductFilter from "@/components/partsAndAccessories/ProductFilter";
+import productsFilterData from "@/data/partsAndAccessories/productsFilter";
+import React, { useState } from "react";
 
 const ProductFilterComponent = () => {
-    const [categoryActiveId, setCategoryActiveId] = useState<number>()
+  const [categoryActiveId, setCategoryActiveId] = useState<number>();
 
-    const handleOnClickCategory = (categoryId: number) => {
-        setCategoryActiveId(categoryId)
-    }
+  const handleOnClickCategory = (categoryId: number) => {
+    setCategoryActiveId(categoryId);
+  };
 
-    const handleOnChangeFilter = (subCategoryIds: number[]) => {
-        console.log(subCategoryIds)
-    }
+  const handleOnChangeFilter = (subCategoryIds: number[]) => {
+    //console.log(subCategoryIds)
+  };
 
-    return (
-        <ProductFilter
-            activeCategoryId={categoryActiveId}
-            onClickCategory={handleOnClickCategory}
-            categories={productsFilterData}
-            onChangeFilter={handleOnChangeFilter}
-        />
-    )
-}
+  return (
+    <ProductFilter
+      activeCategoryId={categoryActiveId}
+      onClickCategory={handleOnClickCategory}
+      categories={productsFilterData}
+      onChangeFilter={handleOnChangeFilter}
+    />
+  );
+};
 
-export default ProductFilterComponent
+export default ProductFilterComponent;

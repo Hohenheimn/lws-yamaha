@@ -1,13 +1,7 @@
 import React, { ComponentProps } from "react";
-
-import Link from "next/link";
-
 import AccessoryCard from "@/components/shared/AccessoryCard";
-
 import Button from "@/components/shared/Button";
-
 import Heading from "@/components/shared/Heading";
-
 import SectionContainer from "../SectionContainer";
 
 type PropsType = {
@@ -36,7 +30,7 @@ const AccessoriesSection = (props: PropsType) => {
           </li>
         ))}
       </ul>
-      <Button appearance={"primary"} size={"large"}>
+      <Button appearance={"primary"} size={"large"} onClick={() => {}}>
         Other Accessories
       </Button>
     </SectionContainer>

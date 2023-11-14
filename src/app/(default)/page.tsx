@@ -16,8 +16,9 @@ import news from "@/data/news";
 import useAPI from "@/hooks/useAPI";
 
 const HomePage = () => {
-  const { get, post } = useAPI("/api/vehicles");
-  const { data, isLoading, isError } = get;
+  const { useGet, usePost } = useAPI("/api/vehicles");
+  const { data: vehicles, isLoading: vehiclesLoading } = useGet("vehicles");
+
   return (
     <div>
       <AnnouncementModal desktopImage="/assets/images/samples/sample-screen-banner.png" />
@@ -55,6 +56,7 @@ const HomePage = () => {
           ...data,
           onClick: () => console.log(data),
         }))}
+        onViewAll={() => {}}
       />
       <YamahaLifeStyleStudioSection />
     </div>

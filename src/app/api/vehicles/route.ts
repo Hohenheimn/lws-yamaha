@@ -1,14 +1,13 @@
-import { NextApiRequest } from "next";
-
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
 import api from "@/utils/api";
 
-export const GET = async (req: NextApiRequest) => {
-  const type = req.query.type;
-  const res = await api.get(`/vehicles`, {
+export const GET = async (req: NextRequest) => {
+  const url = new URL(req.url);
+  const type = url.searchParams.get("type");
+  const res = await api.get("/vehicles", {
     params: {
-      type: type,
+      ...(type && { type }),
     },
   });
   const data = await res.data;

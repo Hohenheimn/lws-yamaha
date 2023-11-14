@@ -10,18 +10,19 @@
 }
 
 *::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  // height: 10px;
 }
 *::-webkit-scrollbar-track {
-  border-radius: 100vh;
-  background: #545454;
+  // border-radius: 100vh;
+  background: transparent;
+  // border: 5px solid #131313;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #131313;
+  background: #545454;
   border-radius: 100vh;
-  border: 2px solid #545454;
+  border: 6px solid #131313;
 }
 
 *::-webkit-scrollbar-thumb:hover {

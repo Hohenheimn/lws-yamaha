@@ -16,9 +16,10 @@ import news from "@/data/news";
 import useAPI from "@/hooks/useAPI";
 
 const HomePage = () => {
-  const { get, post } = useAPI("/api/vehicles");
-  const { data, isLoading, isError } = get;
-  const { mutate, isLoading: isMutating } = post;
+  const { useGet, usePost } = useAPI("/api/vehicles");
+  const { data } = useGet("vehicles");
+
+  console.log(data);
   return (
     <div>
       <AnnouncementModal desktopImage="/assets/images/samples/sample-screen-banner.png" />

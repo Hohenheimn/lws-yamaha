@@ -1,10 +1,8 @@
-import { NextApiRequest } from "next";
-
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
 import api from "@/utils/api";
 
-export const GET = async (req: NextApiRequest) => {
+export const GET = async (req: NextRequest) => {
   const res = await api.get("/vehicles");
   const data = await res.data;
   return NextResponse.json(data);

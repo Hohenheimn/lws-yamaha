@@ -6,7 +6,10 @@ import Link from "next/link";
 import { BiSearch } from "react-icons/bi";
 import { FaBars } from "react-icons/fa";
 
+import { GrMenu } from "react-icons/gr";
 import { IoIosArrowDown } from "react-icons/io";
+
+import { IoMenuSharp } from "react-icons/io5";
 
 import { navUrls, navUrlsType } from "@/data/navigationUrl";
 
@@ -99,7 +102,10 @@ const Header = () => {
                   })
                 }
               >
-                More <IoIosArrowDown />
+                <div className=" hidden xl:flex items-center gap-2">
+                  More <IoIosArrowDown />
+                </div>
+                <IoMenuSharp className=" inline-block xl:hidden text-2xl" />
               </div>
               {/* <FaBars
                 onClick={() =>

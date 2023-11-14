@@ -44,19 +44,19 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
       </div>
 
       <ul className=" w-[95.83%] flex justify-end flex-wrap lg:flex-nowrap relative">
-        <li className=" w-full lg:w-[50%] mr-0 lg:mr-[-10%] aspect-[2/1] lg:aspect-auto lg:h-auto flex flex-col items-end justify-end z-10 relative">
-          <aside className=" relative ">
+        <li className=" w-full lg:w-[50%] mr-0 lg:mr-[-10%] aspect-[1.2/1] md:aspect-[2/1] lg:aspect-auto lg:h-auto flex flex-col items-end justify-end z-10 relative">
+          <aside className=" relative w-full h-full lg:max-w-[700px] lg:max-h-[700px]">
             <Image
               src={activeColor.motorcycleImage}
               alt="motorcycle"
-              // fill
-              width={700}
-              height={700}
+              fill
+              // width={700}
+              // height={700}
               className=" object-contain"
             />
             <Heading
               type={"h4"}
-              className=" text-white z-10 text-center md:absolute bottom-0 right-0 w-full flex justify-center"
+              className=" text-white z-10 text-center absolute bottom-0 right-0 w-full flex justify-center"
             >
               {activeColor.motorcycleName}
             </Heading>

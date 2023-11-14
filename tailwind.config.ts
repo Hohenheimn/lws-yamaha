@@ -30,6 +30,7 @@ const config: Config = {
         background: "#131313",
         red: "#D52B1E",
         white: "#f1f1f1",
+        textGray: "#A3A3A3",
       },
       fontFamily: {
         "montserrat-regular": "montserrat-regular",

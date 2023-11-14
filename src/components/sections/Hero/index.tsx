@@ -1,10 +1,13 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowDown } from "react-icons/io";
 
 type PropsType = {
-  imageSrc: string;
+  desktopBgImage: string;
+  mobileBgImage?: string;
   title: React.ReactNode;
   description: string;
   textPosition: "center" | "bottom-left" | "bottom-right" | "bottom-center";
@@ -13,15 +16,36 @@ type PropsType = {
 };
 
 const Hero = (props: PropsType) => {
-  const { imageSrc, title, description, fullHeight, textPosition, scrollTo } =
-    props;
+  const {
+    desktopBgImage,
+    mobileBgImage,
+    title,
+    description,
+    fullHeight,
+    textPosition,
+    scrollTo,
+  } = props;
+
   return (
     <section
       className={` w-full relative ${!fullHeight && "h-[60vh]"} ${
-        fullHeight && "h-screen"
+        fullHeight && "h-[85vh]"
       } flex justify-center`}
     >
-      <Image src={imageSrc} alt="banner" fill className=" object-cover" />
+      <Image
+        src={desktopBgImage}
+        alt="banner"
+        fill
+        className={` object-cover ${mobileBgImage && "hidden md:inline"}`}
+      />
+      {mobileBgImage && (
+        <Image
+          src={mobileBgImage}
+          alt="banner"
+          fill
+          className={` object-cover ${mobileBgImage && "inline md:hidden"}`}
+        />
+      )}
       {scrollTo && (
         <div className=" absolute bottom-5">
           <Link href={scrollTo}>

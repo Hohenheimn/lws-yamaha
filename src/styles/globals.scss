@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.unit-carousel.swiper {
+  @apply px-14;
+  // .swiper-slide {
+  //   width: 300px !important;
+  // }
+}
+
+*::-webkit-scrollbar {
+  width: 20px;
+  // height: 10px;
+}
+*::-webkit-scrollbar-track {
+  // border-radius: 100vh;
+  background: transparent;
+  // border: 5px solid #131313;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #545454;
+  border-radius: 100vh;
+  border: 6px solid #131313;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #7a7a7a;
+}
+.hide-scrollBar::-webkit-scrollbar {
+  display: none !important;
+}

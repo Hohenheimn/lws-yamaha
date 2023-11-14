@@ -23,11 +23,7 @@ const MobileMenu = ({ setClickedMenu }: PropsType) => {
         <ul className="w-11/12 space-y-3">
           {navUrls.map((item, indx) => (
             <li key={indx} className=" flex w-full justify-between">
-              {item?.url ? (
-                <Link href={item?.url} className=" text-2xl">
-                  {item.title}
-                </Link>
-              ) : (
+              {item?.tabs || item?.menus ? (
                 <>
                   <div
                     className=" cursor-pointer  text-2xl w-full flex items-center justify-between"
@@ -40,6 +36,10 @@ const MobileMenu = ({ setClickedMenu }: PropsType) => {
                     <MdOutlineKeyboardArrowRight className=" text-3xl" />
                   </div>
                 </>
+              ) : (
+                <Link href={`${item?.url}`} className=" text-2xl">
+                  {item.title}
+                </Link>
               )}
             </li>
           ))}

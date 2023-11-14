@@ -1,6 +1,6 @@
 const newsCardData = {
   id: 1,
-  image: "/assets/images/placeholder.png",
+  image: "/assets/images/samples/sample-news.png",
   date: "January 12, 2023",
   title: "Yamaha Returns to Rough with Off-Road Experience",
   description:

@@ -1,21 +1,25 @@
 "use client";
 
-import { ReactNode, useMemo } from "react";
+import { ReactNode } from "react";
 import Link from "next/link";
+import { useQuery } from "react-query";
 
 import BlogSection from "@/components/sections/BlogSection";
+import DealerSection from "@/components/sections/DealerSection";
 import NewsGridSection from "@/components/sections/NewsGridSection";
 import YamahaLifeStyleStudioSection from "@/components/sections/YamahaLifeStyleStudioSection";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
+import AnnouncementModal from "@/components/shared/modals/AnnouncementModal";
 import blogs from "@/data/blogs";
+
 import news from "@/data/news";
 
 import AccessoriesSectionComponent from "./_components/AccessoriesSectionComponent";
-
 import ArrowTitles from "./_components/ArrowTitles";
 import BreadcrumpsComponent from "./_components/BreadcrumpsComponent";
 import CcuMyRideLinkSectionComponent from "./_components/CcuMyRideLinkSectionComponent";
+import CcuUpdatingProcedureSectionComponenet from "./_components/CcuUpdatingProcedureSectionComponenet";
 import DetailTabsComponent from "./_components/DetailTabsComponent";
 import EmbedSocialSection from "./_components/EmbedSocialSection";
 import GridEmbedSocialSection from "./_components/GridEmbedSocialSection";
@@ -30,9 +34,11 @@ import MotorcycleFeaturesSection from "./_components/MotorcycleFeaturesSection";
 import NewsCardComponent from "./_components/NewsCardComponent";
 import NewsCardListComponent from "./_components/NewsCardListComponent";
 import OtherNewsSection from "./_components/OtherNewsSection";
+import PolicyAndGuidedbookSectionComponent from "./_components/PolicyAndGuidedbookSectionComponent";
 import ProductCardComponent from "./_components/ProductCardComponent";
 import ProductFilterComponent from "./_components/ProductFilterComponent";
 import ProductListsComponent from "./_components/ProductListsComponent";
+import ServiceDetailSectionComponent from "./_components/ServiceDetailSectionComponent";
 import SpecificationSection from "./_components/SpecificationSection";
 import YamahaHistoryCardComponent from "./_components/YamahaHistoryCardComponent";
 import WhyChooseUsSectoin from "@/components/sections/WhyChooseUsSection";
@@ -45,6 +51,10 @@ import FeaturedNewsSection from "@/components/sections/FeaturedNewsSection";
 import { featuredNews, raceYourFlagNews } from "@/data/news/featuredNews";
 import PartsAndAccessoriesDetailsSection from "@/components/sections/PartsAndAccessoriesDetailsSection";
 import productData from "@/data/partsAndAccessories/product";
+import YamahalubeCharacteristicSectionComponent from "./_components/YamahalubeCharacteristicSectionComponent";
+import YamahaTechnicalAcademySectionComponent from "./_components/YamahaTechnicalAcademySectionComponent";
+import YConnectSectionComponent from "./_components/YConnectSectionComponent";
+import YdtSectionComponent from "./_components/YdtSectionComponent";
 
 const ComponentsPage = () => {
   const renderComponent = (args: {
@@ -75,6 +85,7 @@ const ComponentsPage = () => {
 
   return (
     <div className="flex">
+      <AnnouncementModal desktopImage="/assets/images/samples/sample-screen-banner.png" />
       <div className="flex flex-col gap-4 p-4 flex-1 h-screen overflow-y-auto scroll-smooth scroll-pt-4 scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
         {/* Parts and Accessories Details Section */}
         {renderComponent({
@@ -150,13 +161,10 @@ const ComponentsPage = () => {
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-1231&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
         })}
         {/* Motorcycle Carousel */}
-        {renderComponent({
-          title: "Motorcycle Model Section",
-          component: <MotorcycleCarouselComponent />,
-
-          wireframeLink:
-            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
-        })}
+        <div className=" p-5 border rounded-lg text-white space-y-5">
+          <h3>Motorcycle Model Section</h3>
+          <MotorcycleCarouselComponent />
+        </div>
 
         {renderComponent({
           title: "Motorcycle Color And Price Section",
@@ -256,10 +264,10 @@ const ComponentsPage = () => {
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=k72RwsE1mNhfW6Bi-1",
         })}
+
         {/* Footer */}
         {renderComponent({
           title: "Footer",
-          note: " It's a full screen component but because there is spacing on this page for the presentation, it doesn't seem like it is",
           component: <Footer />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
@@ -273,6 +281,7 @@ const ComponentsPage = () => {
                 ...data,
                 onClick: () => console.log(data),
               }))}
+              onViewAll={() => {}}
             />
           ),
           wireframeLink:
@@ -363,6 +372,62 @@ const ComponentsPage = () => {
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A4803&mode=design&t=fCNMskUhjGLQZCxi-1",
         })}
+        {/* Y-Connect Section */}
+        <div className=" px-2 lg:p-5 border rounded-lg text-white space-y-5">
+          <h3>Y-Connect Section</h3>
+          <YConnectSectionComponent />
+        </div>
+        {/* CCU Updating Procedure Section */}
+        {renderComponent({
+          title: "CCU Updating Procedure Section",
+          component: <CcuUpdatingProcedureSectionComponenet />,
+          note: "It looks messy if the numbers are not aligned ",
+          wireframeLink:
+            "https://www.figma.com/proto/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3315&t=dDeaNup35WSL2pcH-0&scaling=min-zoom&page-id=507%3A2&starting-point-node-id=508%3A252",
+        })}
+        {/* Policy And Guidedbook Section */}
+        {renderComponent({
+          title: "Policy And Guidedbook Section",
+          component: <PolicyAndGuidedbookSectionComponent />,
+
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-2045&mode=design",
+        })}
+        {/* Service Detail Section */}
+        {renderComponent({
+          title: "Service Detail Section",
+          component: <ServiceDetailSectionComponent />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3387&mode=design ",
+        })}
+        {/* Yamahalube Characteristic Section */}
+        {renderComponent({
+          title: "Yamahalube Characteristic Section ",
+          component: <YamahalubeCharacteristicSectionComponent />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3387&mode=design ",
+        })}
+        {/* Yamaha Technical Academy Section */}
+        {renderComponent({
+          title: "Yamaha Technical Academy Section ",
+          component: <YamahaTechnicalAcademySectionComponent />,
+          wireframeLink:
+            "https://www.figma.com/proto/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-2131&scaling=min-zoom&page-id=507%3A2&starting-point-node-id=508%3A252",
+        })}
+        {/* YDT Section */}
+        {renderComponent({
+          title: "YDT Section ",
+          component: <YdtSectionComponent />,
+          wireframeLink:
+            "https://www.figma.com/proto/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-2131&scaling=min-zoom&page-id=507%3A2&starting-point-node-id=508%3A252",
+        })}
+        {/* Dealers */}
+        {/* Y-Connect Section */}
+        <div className=" px-2 lg:p-5 border rounded-lg text-white space-y-5">
+          <h3>Dealers</h3>
+          <DealerSection />
+        </div>
+
         {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "title" property, add note if there's needed to expound the component */}
       </div>
     </div>

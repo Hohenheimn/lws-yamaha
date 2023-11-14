@@ -17,45 +17,45 @@ export type navUrlsType = {
 
 const sampleSubmenuUnit = [
   {
-    name: "Mio Aerox",
+    name: "Mio Sporty",
     url: "#",
   },
   {
-    name: "Mio Aerox",
+    name: "Mio i125",
     url: "#",
   },
   {
-    name: "Mio Aerox",
+    name: "Mio Soul i125",
     url: "#",
   },
   {
-    name: "Mio Aerox",
-    url: "#",
-  },
-
-  {
-    name: "Mio Aerox",
-    url: "#",
-  },
-  {
-    name: "Mio Aerox",
-    url: "#",
-  },
-  {
-    name: "Mio Aerox",
-    url: "#",
-  },
-  {
-    name: "Mio Aerox",
+    name: "Mio Gear",
     url: "#",
   },
 
   {
-    name: "Mio Aerox",
+    name: "Mio Fazio",
+    url: "#",
+  },
+  {
+    name: "Mio Gravis",
     url: "#",
   },
   {
     name: "Mio Aerox",
+    url: "#",
+  },
+  {
+    name: "NMAX",
+    url: "#",
+  },
+
+  {
+    name: "XMAX",
+    url: "#",
+  },
+  {
+    name: "MT-15",
     url: "#",
   },
 ];
@@ -63,13 +63,14 @@ const sampleSubmenuUnit = [
 export const navUrls: navUrlsType[] = [
   {
     title: "Motorcycle",
+    url: "motorcycle",
     tabs: [
       {
         tab_title: "Personal Commuter",
         menus: sampleSubmenuUnit,
       },
       {
-        tab_title: "Big Bike",
+        tab_title: "Sports Machine",
         menus: sampleSubmenuUnit,
       },
       {
@@ -80,6 +81,7 @@ export const navUrls: navUrlsType[] = [
   },
   {
     title: "Parts & Accessories",
+    url: "parts-&-accessories",
     menus: sampleSubmenuUnit,
   },
   {

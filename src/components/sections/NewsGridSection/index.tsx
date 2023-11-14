@@ -1,10 +1,10 @@
-import NewsCardGrid, { NewsCardGridType } from "@/components/news/NewsCardGrid";
+import NewsCardGrid from "@/components/news/NewsCardGrid";
 import Button from "@/components/shared/Button";
-import React from "react";
+import React, { ComponentProps } from "react";
 
 type PropsType = {
   onViewAll(): void;
-  news: NewsCardGridType[];
+  news: ComponentProps<typeof NewsCardGrid>[];
 };
 
 const NewsGridSection = (props: PropsType) => {

@@ -5,12 +5,8 @@ import { NextResponse } from "next/server";
 import api from "@/utils/api";
 
 export const GET = async (req: NextApiRequest) => {
-  const type = req.query.type;
-  const res = await api.get(`/vehicles`, {
-    params: {
-      type: type,
-    },
-  });
+  const id = req.query.id;
+  const res = await api.get(`/vehicles/${id}`);
   const data = await res.data;
   return NextResponse.json(data);
 };

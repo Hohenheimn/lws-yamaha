@@ -18,7 +18,6 @@ import useAPI from "@/hooks/useAPI";
 const HomePage = () => {
   const { get, post } = useAPI("/api/vehicles");
   const { data, isLoading, isError } = get;
-  const { mutate, isLoading: isMutating } = post;
   return (
     <div>
       <AnnouncementModal desktopImage="/assets/images/samples/sample-screen-banner.png" />
@@ -51,12 +50,12 @@ const HomePage = () => {
         desktopBgImage={"/assets/images/samples/homepage/bg-bb.png"}
         url={"#"}
       />
-      {/* <NewsGridSection
+      <NewsGridSection
         news={news.map((data) => ({
           ...data,
           onClick: () => console.log(data),
         }))}
-      /> */}
+      />
       <YamahaLifeStyleStudioSection />
     </div>
   );

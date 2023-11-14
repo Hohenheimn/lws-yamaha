@@ -7,22 +7,22 @@ const AccessoriesSectionComponent = () => {
     <AccessoriesSection
       accessories={[
         {
-          accessoryImage: "/assets/images/placeholder.png",
+          accessoryImage: "/assets/images/samples/sample-accessory.png",
           title: "Crank Case Cover Carbon",
           url: "#",
         },
         {
-          accessoryImage: "/assets/images/placeholder.png",
+          accessoryImage: "/assets/images/samples/sample-accessory.png",
           title: "Crank Case Cover Carbon",
           url: "#",
         },
         {
-          accessoryImage: "/assets/images/placeholder.png",
+          accessoryImage: "/assets/images/samples/sample-accessory.png",
           title: "Crank Case Cover Carbon",
           url: "#",
         },
         {
-          accessoryImage: "/assets/images/placeholder.png",
+          accessoryImage: "/assets/images/samples/sample-accessory.png",
           title: "Crank Case Cover Carbon",
           url: "#",
         },

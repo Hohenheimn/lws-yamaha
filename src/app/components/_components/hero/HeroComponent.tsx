@@ -8,8 +8,8 @@ const HeroComponent = () => {
     <div>
       <Hero
         fullHeight={false}
-        desktopBgImage={"/assets/images/placeholder.png"}
-        mobileBgImage={"/assets/images/samples/sample-banner.jpg"}
+        desktopBgImage={"/assets/images/samples/sample-banner-inside.jpg"}
+        mobileBgImage={"/assets/images/samples/sample-banner-inside.jpg"}
         title={<Heading type="h2">{"INSIDE PAGES\nHERO BANNER."}</Heading>}
         description={"Lorem ipsum dolor sit amet consectetur adipisicing elit."}
         textPosition={"bottom-left"}

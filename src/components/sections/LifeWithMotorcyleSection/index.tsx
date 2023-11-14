@@ -16,6 +16,7 @@ const LifeWithMotorcycleSection = (props: PropsType) => {
     <SectionContainer className=" flex items-end flex-col" width="widest">
       <section className=" min-h-[80vh] flex items-center relative w-[95.83%]">
         <aside className=" absolute right-0 top-0 w-[85%] h-full">
+          <div className=" absolute top-0 left-0 h-full w-[20%] bg-gradient-to-r from-[#131313] via-[#13131399] to-[#13131300] z-10"></div>
           <Image
             src={desktopBgImage}
             alt={"background"}

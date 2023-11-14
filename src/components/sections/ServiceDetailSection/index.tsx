@@ -45,9 +45,11 @@ const ServiceDetailSection = (props: PropsType) => {
           {title}
         </Heading>
         {content}
-        <Button appearance="primary" url={url} size={"medium"}>
-          {urlTitle}
-        </Button>
+        <div className="flex justify-start">
+          <Button appearance="primary" url={url} size={"medium"}>
+            {urlTitle}
+          </Button>
+        </div>
       </article>
     </SectionContainer>
   );

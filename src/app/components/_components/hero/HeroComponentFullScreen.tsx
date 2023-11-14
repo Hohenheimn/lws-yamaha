@@ -8,7 +8,7 @@ const HeroComponentFullScreen = () => {
     <div>
       <Hero
         fullHeight={true}
-        desktopBgImage={"/assets/images/placeholder.png"}
+        desktopBgImage={"/assets/images/samples/sample-banner.jpg"}
         mobileBgImage={"/assets/images/samples/sample-banner.jpg"}
         title={<Heading type="h2">{`HOMEPAGE \n HERO BANNER`}</Heading>}
         description={"Lorem ipsum dolor sit amet consectetur adipisicing elit."}

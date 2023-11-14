@@ -1,4 +1,5 @@
 import React, { ComponentProps } from "react";
+
 import FeaturesSection from "@/components/sections/MotorcycleFeaturesSection";
 
 const MotorcycleFeaturesSection = () => {
@@ -9,7 +10,7 @@ const MotorcycleFeaturesSection = () => {
     title: "Refined 155CC Blue Core Engine",
     description:
       "A liquid-cooled, 4-stroke SOHC, 155cc, single-cylinder, 4-valve, fuel-injected engine with CVT is adopted. By the continuous development of technology, the upgraded engine makes use of a new cylinder head and a compact combustion chamber to achieve a higher compression ratio.",
-    image: "/assets/images/placeholder.png",
+    image: "/assets/images/samples/sample-service-2.png",
   }));
 
   return <FeaturesSection features={features} />;

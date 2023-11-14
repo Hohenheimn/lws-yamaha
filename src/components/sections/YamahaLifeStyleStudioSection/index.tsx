@@ -1,3 +1,4 @@
+import Button from "@/components/shared/Button";
 import FacebookEmbedCard from "@/components/shared/EmbedSocials/FacebookEmbedCard";
 import InstagramEmbedCard from "@/components/shared/EmbedSocials/InstagramEmbedCard";
 import React from "react";
@@ -38,7 +39,7 @@ const YamahaLifeStyleStudioSection = () => {
 
   return (
     <div className="flex flex-col gap-10 bg-[#323232] p-5 md:p-10">
-      <div className="flex items-end justify-between border-b border-[#f1f1f1] pb-4">
+      <div className="flex flex-wrap items-end justify-between border-b border-[#f1f1f1] pb-4">
         <div>
           <h2 className="font-bold text-[#f1f1f1] text-3xl">
             Yamaha Lifestyle Studio
@@ -47,9 +48,9 @@ const YamahaLifeStyleStudioSection = () => {
             Lorem ipsum dolor sit amet consectetur. Vel nisl tellus nec diam.
           </p>
         </div>
-        <button className="text-[#f1f1f1] text-lg bg-[#D52B1E] py-2 font-medium px-5 rounded-lg">
+        <Button appearance={"primary"} size={"large"} onClick={() => {}}>
           View All
-        </button>
+        </Button>
       </div>
       <div className="flex flex-col gap-10 items-center">
         <div className="text-[#f1f1f1] text-xl flex gap-4">

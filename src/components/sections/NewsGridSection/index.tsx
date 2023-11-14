@@ -1,7 +1,9 @@
 import NewsCardGrid, { NewsCardGridType } from "@/components/news/NewsCardGrid";
+import Button from "@/components/shared/Button";
 import React from "react";
 
 type PropsType = {
+  onViewAll(): void;
   news: NewsCardGridType[];
 };
 
@@ -9,7 +11,7 @@ const NewsGridSection = (props: PropsType) => {
   return (
     <div className="flex flex-col gap-10 bg-[#323232] p-5 md:p-10">
       <div className="flex items-end justify-between border-b border-[#f1f1f1] pb-4">
-        <div className="hidden md:block"></div>
+        <div className="hidden md:block w-12"></div>
         <div>
           <h2 className="font-bold text-[#f1f1f1] text-3xl md:text-center">
             News
@@ -20,9 +22,9 @@ const NewsGridSection = (props: PropsType) => {
             <hr className="border-[#f1f1f1] border-1 w-12 hidden md:block" />
           </div>
         </div>
-        <button className="text-[#f1f1f1] text-lg bg-[#D52B1E] py-2 font-medium px-5 rounded-lg">
+        <Button appearance={"primary"} size={"large"} onClick={props.onViewAll}>
           View All
-        </button>
+        </Button>
       </div>
       <div className="flex flex-col-reverse lg:flex-row gap-4">
         <div className="flex flex-col gap-4 h-full">

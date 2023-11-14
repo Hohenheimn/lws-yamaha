@@ -1,5 +1,6 @@
 import FeatureCard from "@/components/motorcycle/FeatureCard";
 import ArrowTitle from "@/components/shared/ArrowTitle";
+import Button from "@/components/shared/Button";
 import React, { ComponentProps } from "react";
 
 type PropsType = {
@@ -15,7 +16,7 @@ const MotorcycleFeaturesSection = (props: PropsType) => {
   };
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-5">
       <ArrowTitle title="Features" />
       <div className="flex flex-wrap w-full">
         {features
@@ -24,12 +25,15 @@ const MotorcycleFeaturesSection = (props: PropsType) => {
             <FeatureCard key={feature.id} {...feature} />
           ))}
       </div>
-      <button
-        onClick={handleShowAllFeatures}
-        className="bg-red p-2 self-center w-full rounded-xl text-white font-semibold max-w-sm"
-      >
-        See more
-      </button>
+      <div className="self-center ">
+        <Button
+          appearance={"primary"}
+          size={"large"}
+          onClick={handleShowAllFeatures}
+        >
+          See more
+        </Button>
+      </div>
     </div>
   );
 };

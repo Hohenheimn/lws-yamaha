@@ -82,7 +82,7 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
 
   return (
     <div className="flex justify-center">
-      <div className="w-full text-white max-w-7xl flex flex-col gap-10">
+      <div className="w-full text-white max-w-[1400px] flex flex-col gap-10">
         <div className="flex gap-10 flex-wrap">
           <div className="relative h-[300px] w-full sm:h-[500px] sm:w-[500px] bg-[#323232] rounded-lg cursor-pointer">
             {currentSize?.image && (

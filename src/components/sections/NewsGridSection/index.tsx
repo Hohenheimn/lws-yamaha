@@ -1,5 +1,8 @@
-import NewsCardGrid, { NewsCardGridType } from "@/components/news/NewsCardGrid";
+"use client";
+
 import React from "react";
+
+import NewsCardGrid, { NewsCardGridType } from "@/components/news/NewsCardGrid";
 
 type PropsType = {
   news: NewsCardGridType[];

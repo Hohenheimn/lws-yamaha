@@ -1,35 +1,24 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 
-import Image from "next/image";
-
-import AccessoriesSection from "@/components/sections/AccessoriesSection";
-import CcuMyRideLinkSection from "@/components/sections/CcuMyRideLinkSection";
-import CcuUpdatingProcedureSection from "@/components/sections/CcuUpdatingProcedureSection";
-import DealerSection from "@/components/sections/DealerSection";
 import Hero from "@/components/sections/Hero";
-import LifeWithMotorcycleSection from "@/components/sections/LifeWithMotorcyleSection";
 import MotorcycleCarouselSection from "@/components/sections/MotorcycleCarouselSection";
-import MotorcycleColorAndPriceSection from "@/components/sections/MotorcycleColorAndPriceSection";
 import NewsGridSection from "@/components/sections/NewsGridSection";
-import PolicyAndGuidedbookSection from "@/components/sections/PolicyAndGuidedbookSection";
-import ServiceDetailSection from "@/components/sections/ServiceDetailSection";
 import YamahaLifeStyleStudioSection from "@/components/sections/YamahaLifeStyleStudioSection";
-import YamahalubeCharacteristicSection from "@/components/sections/YamahalubeCharacteristicSection";
-import YamahaTechnicalAcademySection from "@/components/sections/YamahaTechnicalAcademySection";
-import YConnectSection from "@/components/sections/YConnectSection";
-import YdtSection from "@/components/sections/YdtSection";
 import Heading from "@/components/shared/Heading";
 import AnnouncementModal from "@/components/shared/modals/AnnouncementModal";
-import { ccuUpdateProcedure } from "@/data/ccuUpdateProcedure";
 import {
   motocycleCarousel,
   motocycleCarouselBB,
 } from "@/data/motorcycle/motorcycleCarousel";
 import news from "@/data/news";
+import useAPI from "@/hooks/useAPI";
 
 const HomePage = () => {
+  const { get, post } = useAPI("/api/vehicles");
+  const { data, isLoading, isError } = get;
+  const { mutate, isLoading: isMutating } = post;
   return (
     <div>
       <AnnouncementModal desktopImage="/assets/images/samples/sample-screen-banner.png" />
@@ -62,13 +51,12 @@ const HomePage = () => {
         desktopBgImage={"/assets/images/samples/homepage/bg-bb.png"}
         url={"#"}
       />
-      <NewsGridSection
+      {/* <NewsGridSection
         news={news.map((data) => ({
           ...data,
           onClick: () => console.log(data),
         }))}
-      />
-      <DealerSection />
+      /> */}
       <YamahaLifeStyleStudioSection />
     </div>
   );

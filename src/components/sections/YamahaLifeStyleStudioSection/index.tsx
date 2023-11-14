@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 import FacebookEmbedCard from "@/components/shared/EmbedSocials/FacebookEmbedCard";

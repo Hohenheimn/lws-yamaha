@@ -16,7 +16,6 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
 import MotorcycleCard from "@/components/motorcycle/MotorcycleCard";
 import Button from "@/components/shared/Button";
-
 import Heading from "@/components/shared/Heading";
 
 import SectionContainer from "../SectionContainer";
@@ -26,30 +25,28 @@ type PropsType = {
   title: string;
   description: string;
   motorcycle: Array<ComponentProps<typeof MotorcycleCard>>;
-  bgImage: string;
+  desktopBgImage: string;
+  mobileBgImage?: string;
   url: string;
 };
 
 const MotorcycleCarouselSection = (props: PropsType) => {
-  const { title, description, motorcycle, bgImage, url } = props;
+  const { title, description, motorcycle, desktopBgImage, url, mobileBgImage } =
+    props;
   const breakpoints = {
     0: {
       slidesPerView: 1,
       spaceBetween: 10,
     },
-    640: {
+    800: {
       slidesPerView: 2,
-      spaceBetween: 10,
-    },
-    1024: {
-      slidesPerView: 3,
       spaceBetween: 10,
     },
     1280: {
       slidesPerView: 3,
       spaceBetween: 30,
     },
-    1440: {
+    1550: {
       slidesPerView: 4,
       spaceBetween: 30,
     },
@@ -57,8 +54,8 @@ const MotorcycleCarouselSection = (props: PropsType) => {
   return (
     <SectionContainer
       className=" relative h-full flex flex-col items-center space-y-5"
-      bgImage={bgImage}
-      blur={true}
+      bgImage={desktopBgImage}
+      mobileBgImage={mobileBgImage}
       width={"wide"}
     >
       <aside className=" w-11/12 max-w-[60rem] text-center text-white">

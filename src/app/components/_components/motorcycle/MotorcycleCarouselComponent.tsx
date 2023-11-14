@@ -12,7 +12,8 @@ const MotorcycleCarouselComponent = () => {
           " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti aliquam voluptate molestiae fuga architecto obcaecati dolorem blanditiis dolores, dolorum eveniet? Perferendis minima ullam ipsum sapiente veniam dolores facere quod dolorem."
         }
         motorcycle={motocycleCarousel}
-        bgImage={"/assets/images/placeholder.png"}
+        desktopBgImage={"/assets/images/placeholder.png"}
+        mobileBgImage={"/assets/images/samples/sample-banner.jpg"}
         url={"#"}
       />
     </div>

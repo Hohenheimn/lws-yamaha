@@ -30,7 +30,7 @@ const MotorcycleCard = (props: MotorcycleCardType) => {
           />
         </aside>
       </li>
-      <li className=" h-[325px] flex flex-col justify-between rounded-br-md rounded-bl-md px-3 py-6 bg-secondary text-white">
+      <li className=" h-[18rem] flex flex-col justify-between rounded-br-md rounded-bl-md px-3 py-6 bg-secondary text-white">
         <aside className="space-y-5">
           <Heading type="h5">Mio Gravis</Heading>
           <ul className=" grid gap-2 grid-cols-5">
@@ -49,9 +49,12 @@ const MotorcycleCard = (props: MotorcycleCardType) => {
           </ul>
         </aside>
         <aside className="flex w-full justify-center">
-          <Button appearance={"primary"} url={url} size={"medium"}>
+          <Link
+            href={url}
+            className="whitespace-nowrap inline-block duration-150 text-white rounded-3xl font-medium px-5 py-2 bg-tertiary hover:bg-hover-tertiary"
+          >
             View Model
-          </Button>
+          </Link>
         </aside>
       </li>
     </ul>

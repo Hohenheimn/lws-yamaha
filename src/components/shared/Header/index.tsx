@@ -6,6 +6,11 @@ import Link from "next/link";
 import { BiSearch } from "react-icons/bi";
 import { FaBars } from "react-icons/fa";
 
+import { GrMenu } from "react-icons/gr";
+import { IoIosArrowDown } from "react-icons/io";
+
+import { IoMenuSharp } from "react-icons/io5";
+
 import { navUrls, navUrlsType } from "@/data/navigationUrl";
 
 import MobileMenu from "./MobileMenu";
@@ -42,33 +47,67 @@ const Header = () => {
             height={100}
           />
         </aside>
-        <aside className=" flex items-center gap-5">
-          <ul className="hidden xl:flex gap-5 items-center text-center">
+        <aside className=" flex items-center gap-5 text-textGray">
+          <ul className="hidden xl:flex gap-10 items-center text-center ">
             {navUrls.map((item, indx) => (
               <li key={indx}>
-                {item?.url ? (
-                  <Link href={item?.url} className=" text-base">
-                    {item.title}
-                  </Link>
-                ) : (
+                {item?.menus || item?.tabs ? (
                   <div
-                    className=" cursor-pointer text-base"
+                    className={` hover:text-white duration-150 cursor-pointer text-base flex items-center gap-2 ${
+                      clickedMenu?.title === item.title && "text-white"
+                    }`}
                     onClick={() => {
                       setClickedMenu(item);
                     }}
                   >
-                    {item.title}
+                    {item.title} <IoIosArrowDown />
                   </div>
+                ) : (
+                  <Link
+                    href={`${item?.url}`}
+                    className=" text-base hover:text-white duration-150"
+                  >
+                    {item.title}
+                  </Link>
                 )}
               </li>
             ))}
           </ul>
           <ul className="flex gap-5 items-center text-center">
             <li>
-              <BiSearch className=" text-base cursor-pointer" />
+              <BiSearch className=" text-2xl cursor-pointer" />
             </li>
             <li>
-              <FaBars
+              <div
+                className={` hover:text-white duration-150 cursor-pointer text-base flex items-center gap-2 ${
+                  clickedMenu?.title === "menu-bar" && "text-white"
+                }`}
+                onClick={() =>
+                  setClickedMenu({
+                    title: "menu-bar",
+                    menus: [
+                      {
+                        name: "About Us",
+                        url: "",
+                      },
+                      {
+                        name: "Contact & Inquiry",
+                        url: "",
+                      },
+                      {
+                        name: "Privacy Policy",
+                        url: "",
+                      },
+                    ],
+                  })
+                }
+              >
+                <div className=" hidden xl:flex items-center gap-2">
+                  More <IoIosArrowDown />
+                </div>
+                <IoMenuSharp className=" inline-block xl:hidden text-2xl" />
+              </div>
+              {/* <FaBars
                 onClick={() =>
                   setClickedMenu({
                     title: "menu-bar",
@@ -89,7 +128,7 @@ const Header = () => {
                   })
                 }
                 className=" text-base cursor-pointer"
-              />
+              /> */}
             </li>
           </ul>
         </aside>

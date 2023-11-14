@@ -25,15 +25,14 @@ const NavSubTab = ({ tabs, onClose }: PropsType) => {
         <MdOutlineKeyboardArrowLeft className=" text-3xl" />
         Back
       </button>
-      <ul className=" flex flex-col md:flex-row gap-5 items-center text-gray-300 tracking-wider mb-10">
+      <ul className=" flex flex-col md:flex-row gap-16 items-center text-textGray tracking-wider mb-10">
         {tabs.map((item, indx: number) => (
           <li
             key={indx}
             className={`${
-              activeTab === item.tab_title
-                ? " text-2xl after:content-[''] text-white after:absolute after:w-full after:bottom-0 after:left-0 after:h-[2px] after:bg-white"
-                : "text-lg"
-            } cursor-pointer relative`}
+              activeTab === item.tab_title &&
+              " after:content-[''] text-white after:absolute after:w-full after:bottom-0 after:left-0 after:h-[2px] after:bg-white"
+            } text-lg cursor-pointer relative`}
             onClick={() => setActiveTab(item.tab_title)}
           >
             {item.tab_title}
@@ -44,7 +43,7 @@ const NavSubTab = ({ tabs, onClose }: PropsType) => {
         {tabs.map((item, indx) => (
           <div key={indx}>
             {item.tab_title === activeTab && (
-              <ul className="grid md:grid-rows-6 grid-cols-1 md:grid-cols-none md:grid-flow-col gap-7 overflow-auto">
+              <ul className="grid md:grid-rows-6 grid-cols-1 md:grid-cols-none md:grid-flow-col gap-x-20 gap-y-7 overflow-auto">
                 {item.menus.map((menu, menuIndx) => (
                   <li key={menuIndx} className=" min-w-[7rem]">
                     <Link href={menu.url} className=" text-lg md:text-base">

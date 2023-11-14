@@ -13,27 +13,27 @@ const Footer = () => {
     <footer className=" flex flex-col items-center space-y-16 py-16">
       <ul className="  w-11/12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <Link href={"#"}>
-          <li className=" relative rounded-3xl overflow-hidden aspect-[2.3/1] flex justify-center items-center text-white">
+          <li className=" relative rounded-3xl overflow-hidden aspect-[2.8/1] flex justify-center items-center text-white">
             <Image
               src={"/assets/images/samples/sample-banner.jpg"}
               fill
               alt="background"
               className={` object-cover blur-sm`}
             />
-            <Heading type="h3" className="text-center z-10">
+            <Heading type="h4" className="text-center z-10">
               Parts & Accessories
             </Heading>
           </li>
         </Link>
         <Link href={"#"}>
-          <li className=" relative rounded-3xl overflow-hidden aspect-[2.3/1] flex justify-center items-center text-white">
+          <li className=" relative rounded-3xl overflow-hidden aspect-[2.8/1] flex justify-center items-center text-white">
             <Image
               src={"/assets/images/samples/sample-banner.jpg"}
               fill
               alt="background"
               className={` object-cover blur-sm`}
             />
-            <Heading type="h3" className="text-center z-10">
+            <Heading type="h4" className="text-center z-10">
               Services
             </Heading>
           </li>

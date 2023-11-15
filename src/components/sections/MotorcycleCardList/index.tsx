@@ -19,7 +19,7 @@ const MotorcycleCardList = (props: PropsType) => {
         <li key={indx}>
           <MotorcycleCard
             imageSrc={item.imageSrc}
-            description={item.description}
+            features={item.features}
             url={item.url}
             inheritWidth={nowrap ? true : false}
           />

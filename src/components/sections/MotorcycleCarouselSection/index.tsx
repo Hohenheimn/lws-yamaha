@@ -78,7 +78,7 @@ const MotorcycleCarouselSection = (props: PropsType) => {
             <SwiperSlide key={indx}>
               <MotorcycleCard
                 imageSrc={item.imageSrc}
-                description={item.description}
+                features={item.features}
                 url={item.url}
                 inheritWidth={true}
               />

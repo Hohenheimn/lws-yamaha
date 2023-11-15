@@ -5,6 +5,8 @@ import { AiFillInstagram, AiFillYoutube } from "react-icons/ai";
 import { FaFacebookF, FaTiktok } from "react-icons/fa";
 import { PiShareBold } from "react-icons/pi";
 
+import { personalCommuter } from "@/data/headerPersonalCommuter/personalCommuter";
+
 import Button from "../Button";
 import Heading from "../Heading";
 
@@ -20,7 +22,7 @@ const Footer = () => {
               alt="background"
               className={` object-cover blur-sm`}
             />
-            <Heading type="h4" className="text-center z-10">
+            <Heading type="h4" className="text-center z-10 font-medium">
               Parts & Accessories
             </Heading>
           </li>
@@ -33,7 +35,7 @@ const Footer = () => {
               alt="background"
               className={` object-cover blur-sm`}
             />
-            <Heading type="h4" className="text-center z-10">
+            <Heading type="h4" className="text-center z-10 font-medium">
               Services
             </Heading>
           </li>
@@ -51,7 +53,7 @@ const Footer = () => {
           </Button>
         </li>
       </ul>
-      <section className=" w-full flex justify-center items-center flex-col bg-primary text-white space-y-20">
+      <section className=" w-full flex justify-center items-center flex-col bg-primary text-white space-y-10 md:space-y-16">
         <ul className=" flex items-center w-full gap-5">
           <li className=" border border-white flex-1"></li>
           <li>
@@ -64,6 +66,20 @@ const Footer = () => {
           </li>
           <li className=" border border-white flex-1"></li>
         </ul>
+        <aside className=" pb-5 space-y-10 flex flex-col w-full items-center overflow-auto hide-scrollbar">
+          <p className=" font-bold">Personal Commuter</p>
+          <aside className=" w-full max-w-[50rem]">
+            <ul className="grid grid-rows-6 grid-flow-col gap-x-10 lg:gap-x-20 gap-y-5 md:gap-y-7 overflow-auto">
+              {personalCommuter.map((item, indx) => (
+                <li key={indx} className=" min-w-[7rem]">
+                  <Link href={""} className=" text-base text-textGray">
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        </aside>
         <ul className=" flex flex-col sm:flex-row items-center gap-10 sm:gap-14">
           <li>
             <Link href="#">About Us</Link>
@@ -80,21 +96,23 @@ const Footer = () => {
             </Link>
           </li>
         </ul>
-        <p>Copyright {"©"} 2023 Yamaha Motors Philippines Inc.</p>
-        <ul className=" flex gap-10 items-center">
-          <Link href={""}>
-            <AiFillInstagram className=" text-3xl" />
-          </Link>
-          <Link href={""}>
-            <AiFillYoutube className=" text-3xl" />
-          </Link>
-          <Link href={""}>
-            <FaFacebookF className=" text-3xl" />
-          </Link>
-          <Link href={""}>
-            <FaTiktok className=" text-3xl" />
-          </Link>
-        </ul>
+        <div className=" flex flex-col items-center gap-5">
+          <p>Copyright {"©"} 2023 Yamaha Motors Philippines Inc.</p>
+          <ul className=" flex gap-10 items-center">
+            <Link href={""}>
+              <AiFillInstagram className=" text-3xl" />
+            </Link>
+            <Link href={""}>
+              <AiFillYoutube className=" text-3xl" />
+            </Link>
+            <Link href={""}>
+              <FaFacebookF className=" text-3xl" />
+            </Link>
+            <Link href={""}>
+              <FaTiktok className=" text-3xl" />
+            </Link>
+          </ul>
+        </div>
       </section>
     </footer>
   );

@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowDown } from "react-icons/io";
 
+import Button from "@/components/shared/Button";
+
 type PropsType = {
   desktopBgImage: string;
   mobileBgImage?: string;
@@ -13,6 +15,8 @@ type PropsType = {
   textPosition: "center" | "bottom-left" | "bottom-right" | "bottom-center";
   fullHeight: boolean;
   scrollTo?: string;
+  imageTitle?: string;
+  readMore?: string;
 };
 
 const Hero = (props: PropsType) => {
@@ -24,6 +28,8 @@ const Hero = (props: PropsType) => {
     fullHeight,
     textPosition,
     scrollTo,
+    imageTitle,
+    readMore,
   } = props;
 
   return (
@@ -66,8 +72,18 @@ const Hero = (props: PropsType) => {
       ${textPosition === "bottom-center" && "justify-center items-end"}`}
       >
         <aside className={` relative z-10 text-white `}>
+          {imageTitle && (
+            <Image src={imageTitle} alt="title" width={300} height={300} />
+          )}
           {title}
           <p>{description}</p>
+          {readMore && (
+            <div className=" mt-5">
+              <Button appearance={"primary"} size={"medium"} url={readMore}>
+                Read More
+              </Button>
+            </div>
+          )}
         </aside>
       </div>
     </section>

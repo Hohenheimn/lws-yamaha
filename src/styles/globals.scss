@@ -31,3 +31,12 @@
 .hide-scrollBar::-webkit-scrollbar {
   display: none !important;
 }
+
+.two-col-paragraph {
+  -webkit-columns: 350px 2;
+  -moz-columns: 350px 2;
+  columns: 350px 2;
+  -webkit-column-gap: 40px;
+  -moz-column-gap: 40px;
+  column-gap: 40px;
+}

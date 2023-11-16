@@ -41,7 +41,10 @@ const Footer = () => {
   };
 
   useEffect(() => {
-    if (pathname === "/personal-commuter") {
+    if (
+      pathname.includes("/personal-commuter") ||
+      pathname.includes("/sports-machine")
+    ) {
       updateBreadCrump();
       return;
     }

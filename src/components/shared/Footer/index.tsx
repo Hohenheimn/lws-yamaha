@@ -49,50 +49,7 @@ const Footer = () => {
   }, [pathname]);
 
   return (
-    <footer className=" flex flex-col items-center space-y-16 py-16 bg-transparent">
-      {pathname === "/" && (
-        <ul className="  w-11/12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <Link href={"#"}>
-            <li className=" relative rounded-3xl overflow-hidden aspect-[2.8/1] flex justify-center items-center text-white">
-              <Image
-                src={"/assets/images/samples/sample-banner.jpg"}
-                fill
-                alt="background"
-                className={` object-cover blur-sm`}
-              />
-              <Heading type="h4" className="text-center z-10 font-medium">
-                Parts & Accessories
-              </Heading>
-            </li>
-          </Link>
-          <Link href={"#"}>
-            <li className=" relative rounded-3xl overflow-hidden aspect-[2.8/1] flex justify-center items-center text-white">
-              <Image
-                src={"/assets/images/samples/sample-banner.jpg"}
-                fill
-                alt="background"
-                className={` object-cover blur-sm`}
-              />
-              <Heading type="h4" className="text-center z-10 font-medium">
-                Services
-              </Heading>
-            </li>
-          </Link>
-        </ul>
-      )}
-
-      <ul className=" flex flex-wrap items-center justify-center gap-5">
-        <li>
-          <Button url="#" appearance="secondary" size={"large"}>
-            Inquiry
-          </Button>
-        </li>
-        <li>
-          <Button url="#" appearance="secondary" size={"large"}>
-            Find Dealer
-          </Button>
-        </li>
-      </ul>
+    <footer className=" flex flex-col items-center space-y-16 pt-6 pb-16 bg-transparent">
       <section className=" w-full flex justify-center items-center flex-col bg-primary text-white space-y-10 md:space-y-16">
         <aside className=" w-full flex flex-col items-center">
           {isBreadCrump.length > 0 && (

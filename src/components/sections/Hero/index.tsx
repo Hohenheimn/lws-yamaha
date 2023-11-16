@@ -6,11 +6,12 @@ import Link from "next/link";
 import { IoIosArrowDown } from "react-icons/io";
 
 import Button from "@/components/shared/Button";
+import Heading from "@/components/shared/Heading";
 
 type PropsType = {
   desktopBgImage: string;
   mobileBgImage?: string;
-  title: React.ReactNode;
+  title: string;
   description: string;
   textPosition: "center" | "bottom-left" | "bottom-right" | "bottom-center";
   fullHeight: boolean;
@@ -76,7 +77,8 @@ const Hero = (props: PropsType) => {
           {imageTitle && (
             <Image src={imageTitle} alt="title" width={300} height={300} />
           )}
-          {title}
+          <Heading type="h2">{title}</Heading>
+
           <p>{description}</p>
           {readMore && (
             <div className=" mt-5">

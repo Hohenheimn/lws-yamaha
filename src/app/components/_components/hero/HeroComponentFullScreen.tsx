@@ -10,7 +10,7 @@ const HeroComponentFullScreen = () => {
         fullHeight={true}
         desktopBgImage={"/assets/images/samples/sample-banner.jpg"}
         mobileBgImage={"/assets/images/samples/sample-banner.jpg"}
-        title={<Heading type="h2">{`HOMEPAGE \n HERO BANNER`}</Heading>}
+        title={`HOMEPAGE \n HERO BANNER`}
         description={"Lorem ipsum dolor sit amet consectetur adipisicing elit."}
         textPosition={"center"}
         scrollTo="#personal-commuter"

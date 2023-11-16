@@ -7,6 +7,8 @@ import MotorcycleCarouselSection from "@/components/sections/MotorcycleCarouselS
 import NewsGridSection from "@/components/sections/NewsGridSection";
 import YamahaLifeStyleStudioSection from "@/components/sections/YamahaLifeStyleStudioSection";
 import Heading from "@/components/shared/Heading";
+import ImageLinks from "@/components/shared/ImageLinks";
+import InquieryAndFindDealerButtons from "@/components/shared/InquieryAndFindDealerButtons";
 import AnnouncementModal from "@/components/shared/modals/AnnouncementModal";
 import {
   motocycleCarousel,
@@ -20,13 +22,13 @@ const HomePage = () => {
   const { data: vehicles, isLoading: vehiclesLoading } = useGet("vehicles");
 
   return (
-    <div>
+    <>
       <AnnouncementModal desktopImage="/assets/images/samples/sample-screen-banner.png" />
       <Hero
         fullHeight={true}
         desktopBgImage={"/assets/images/samples/sample-banner.jpg"}
         mobileBgImage={"/assets/images/samples/sample-banner.jpg"}
-        title={<Heading type="h2">{"DESIGNED USING\nPURE TMAX DNA."}</Heading>}
+        title={"DESIGNED USING\nPURE TMAX DNA."}
         description={"Lorem ipsum dolor sit amet consectetur adipisicing elit."}
         textPosition={"center"}
         scrollTo="#personal-commuter"
@@ -59,7 +61,11 @@ const HomePage = () => {
         onViewAll={() => {}}
       />
       <YamahaLifeStyleStudioSection />
-    </div>
+      <div className="mt-16">
+        <ImageLinks />
+      </div>
+      <InquieryAndFindDealerButtons />
+    </>
   );
 };
 

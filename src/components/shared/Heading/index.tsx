@@ -12,14 +12,14 @@ const Heading = (props: PropsType) => {
     <>
       {type === "h1" && (
         <h1
-          className={`whitespace-pre-wrap text-cs-[3.5rem] xl:text-cs-[4rem] font-bold ${className}`}
+          className={`whitespace-pre-wrap text-[3.5rem] xl:text-[4rem] font-bold ${className}`}
         >
           {children}
         </h1>
       )}
       {type === "h2" && (
         <h2
-          className={` whitespace-pre-wrap text-[2.5rem] xl:text-cs-[3.5rem] font-bold ${className}`}
+          className={` whitespace-pre-wrap text-[2.5rem] xl:text-[3.5rem] font-bold ${className}`}
         >
           {children}
         </h2>

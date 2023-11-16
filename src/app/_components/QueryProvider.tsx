@@ -2,6 +2,7 @@
 
 import { ReactNode } from "react";
 import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 const client = new QueryClient({
   defaultOptions: {
@@ -13,7 +14,10 @@ const client = new QueryClient({
 
 const QueryProvider = (props: { children: ReactNode }) => {
   return (
-    <QueryClientProvider client={client}>{props.children}</QueryClientProvider>
+    <QueryClientProvider client={client}>
+      {props.children}
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   );
 };
 

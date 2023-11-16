@@ -65,13 +65,14 @@ const Hero = (props: PropsType) => {
 
       <div
         className={` h-full w-11/12 py-[5%] flex ${
-          textPosition === "center" && "justify-center items-center text-center"
+          textPosition === "center" &&
+          "justify-center items-center text-center max-w-[50rem]"
         }
       ${textPosition === "bottom-left" && "justify-start items-end"}
       ${textPosition === "bottom-right" && "justify-end items-end"}
       ${textPosition === "bottom-center" && "justify-center items-end"}`}
       >
-        <aside className={` relative z-10 text-white `}>
+        <aside className={` relative z-10 text-white w-11/12`}>
           {imageTitle && (
             <Image src={imageTitle} alt="title" width={300} height={300} />
           )}

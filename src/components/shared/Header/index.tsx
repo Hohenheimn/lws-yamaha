@@ -37,7 +37,7 @@ const Header = () => {
   });
 
   return (
-    <nav className="w-full relative top-0 flex h-[8vh] md:h-auto justify-center bg-primary-2 text-white py-5 z-40">
+    <nav className="w-full sticky top-0 flex h-[8vh] md:h-auto justify-center bg-primary-2 text-white py-5 z-40">
       <div className=" w-11/12 flex items-center justify-between gap-5">
         <aside>
           <Image

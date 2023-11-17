@@ -129,7 +129,7 @@ const ComponentsPage = () => {
         {renderComponent({
           title: "Header",
 
-          component: <Header />,
+          component: <Header menu={[]} />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
         })}

@@ -6,39 +6,41 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 import { navTabType, navUrls, navUrlsType } from "@/data/navigationUrl";
 
+import { MenuType } from "..";
 import NavSubMenus from "../SubMenu/NavMenus";
 import NavSubTab from "../SubMenu/NavSubTab";
 
 type PropsType = {
-  setClickedMenu: Function;
+  setMobileMenu: Function;
+  menu: MenuType[];
 };
 
-const MobileMenu = ({ setClickedMenu }: PropsType) => {
-  const [selectedMenu, setSelectedMenu] = useState<undefined | navUrlsType>(
+const MobileMenu = ({ setMobileMenu, menu }: PropsType) => {
+  console.log(menu);
+  const [selectedMenu, setSelectedMenu] = useState<undefined | MenuType>(
     undefined
   );
   return (
     <nav className=" flex flex-col max-h-[92vh] overflow-auto md:px-0 justify-start items-center w-full absolute top-full left-0 py-10 bg-[#6a6a6a58] backdrop-blur-lg space-y-5">
       {!selectedMenu && (
         <ul className="w-11/12 space-y-3">
-          {navUrls.map((item, indx) => (
+          {menu.map((item, indx) => (
             <li key={indx} className=" flex w-full justify-between">
-              {item?.tabs || item?.menus ? (
+              {item?.children ? (
                 <>
                   <div
                     className=" cursor-pointer  text-2xl w-full flex items-center justify-between"
                     onClick={() => {
-                      setClickedMenu(item);
                       setSelectedMenu(item);
                     }}
                   >
-                    {item.title}
+                    {item.label}
                     <MdOutlineKeyboardArrowRight className=" text-3xl" />
                   </div>
                 </>
               ) : (
                 <Link href={`${item?.url}`} className=" text-2xl">
-                  {item.title}
+                  {item.label}
                 </Link>
               )}
             </li>
@@ -46,22 +48,22 @@ const MobileMenu = ({ setClickedMenu }: PropsType) => {
         </ul>
       )}
 
-      {selectedMenu?.tabs && (
+      {selectedMenu?.children[0].children && (
         <NavSubTab
-          tabs={selectedMenu.tabs}
+          tabs={selectedMenu.children}
           onClose={() => setSelectedMenu(undefined)}
         />
       )}
-      {selectedMenu?.menus && (
+      {!selectedMenu?.children[0].children && (
         <NavSubMenus
-          menus={selectedMenu.menus}
+          menus={selectedMenu?.children}
           onClose={() => setSelectedMenu(undefined)}
         />
       )}
 
       <aside
         className=" cursor-pointer group group-hover flex items-center justify-center gap-2"
-        onClick={() => setClickedMenu(null)}
+        onClick={() => setMobileMenu(false)}
       >
         <p>Close</p>
         <IoMdCloseCircle className=" text-cs-lg text-gray-300 duration-150 group-hover:text-secondary" />

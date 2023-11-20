@@ -6,12 +6,12 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 
 type PropsType = {
   desktopImage: string;
-  mobileBgImage?: string;
+  mobileImage?: string;
 };
 
 const AnnouncementModal = (props: PropsType) => {
   const [show, setShow] = useState(true);
-  const { desktopImage, mobileBgImage } = props;
+  const { desktopImage, mobileImage } = props;
   return (
     <>
       {show && (
@@ -30,17 +30,17 @@ const AnnouncementModal = (props: PropsType) => {
                 alt="Banner"
                 width={1000}
                 height={500}
-                className={`${mobileBgImage && "hidden md:inline"}`}
+                className={`${mobileImage && "hidden md:inline"}`}
               />
             )}
 
-            {mobileBgImage && (
+            {mobileImage && (
               <Image
-                src={mobileBgImage}
+                src={mobileImage}
                 alt="Banner"
                 width={1000}
                 height={500}
-                className={` ${mobileBgImage && "inline md:hidden"}`}
+                className={` ${mobileImage && "inline md:hidden"}`}
               />
             )}
           </aside>

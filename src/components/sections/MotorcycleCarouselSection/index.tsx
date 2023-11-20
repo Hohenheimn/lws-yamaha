@@ -18,6 +18,8 @@ import MotorcycleCard from "@/components/motorcycle/MotorcycleCard";
 import Button from "@/components/shared/Button";
 import Heading from "@/components/shared/Heading";
 
+import useAPI from "@/hooks/useAPI";
+
 import SectionContainer from "../SectionContainer";
 import { MotorcycleNavigationButton } from "./MotorcycleNavigationButton";
 
@@ -51,6 +53,7 @@ const MotorcycleCarouselSection = (props: PropsType) => {
       spaceBetween: 30,
     },
   };
+
   return (
     <SectionContainer
       className=" relative h-full flex flex-col items-center space-y-5"
@@ -75,7 +78,7 @@ const MotorcycleCarouselSection = (props: PropsType) => {
             <SwiperSlide key={indx}>
               <MotorcycleCard
                 imageSrc={item.imageSrc}
-                description={item.description}
+                features={item.features}
                 url={item.url}
                 inheritWidth={true}
               />

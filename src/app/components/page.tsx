@@ -4,16 +4,29 @@ import { ReactNode } from "react";
 import Link from "next/link";
 import { useQuery } from "react-query";
 
+import AssuranceAndConfidenceSection from "@/components/sections/AssuranceAndConfidenceSection";
 import BlogSection from "@/components/sections/BlogSection";
 import DealerSection from "@/components/sections/DealerSection";
+import FeaturedNewsSection from "@/components/sections/FeaturedNewsSection";
 import NewsGridSection from "@/components/sections/NewsGridSection";
+import PartsAndAccessoriesDetailsSection from "@/components/sections/PartsAndAccessoriesDetailsSection";
+import ServicesSection from "@/components/sections/ServicesSection";
+import VideoSection from "@/components/sections/VideoSection";
+
+import WhyChooseUsSectoin from "@/components/sections/WhyChooseUsSection";
+
 import YamahaLifeStyleStudioSection from "@/components/sections/YamahaLifeStyleStudioSection";
+import SquareCard from "@/components/service/SquareCard";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import AnnouncementModal from "@/components/shared/modals/AnnouncementModal";
 import blogs from "@/data/blogs";
-
 import news from "@/data/news";
+import { featuredNews, raceYourFlagNews } from "@/data/news/featuredNews";
+import productData from "@/data/partsAndAccessories/product";
+import services from "@/data/services/services";
+
+import whyChooseUsFeatures from "@/data/whyChooseUs";
 
 import AccessoriesSectionComponent from "./_components/AccessoriesSectionComponent";
 import ArrowTitles from "./_components/ArrowTitles";
@@ -41,16 +54,6 @@ import ProductListsComponent from "./_components/ProductListsComponent";
 import ServiceDetailSectionComponent from "./_components/ServiceDetailSectionComponent";
 import SpecificationSection from "./_components/SpecificationSection";
 import YamahaHistoryCardComponent from "./_components/YamahaHistoryCardComponent";
-import WhyChooseUsSectoin from "@/components/sections/WhyChooseUsSection";
-import whyChooseUsFeatures from "@/data/whyChooseUs";
-import ServicesSection from "@/components/sections/ServicesSection";
-import services from "@/data/services/services";
-import VideoSection from "@/components/sections/VideoSection";
-import SquareCard from "@/components/service/SquareCard";
-import FeaturedNewsSection from "@/components/sections/FeaturedNewsSection";
-import { featuredNews, raceYourFlagNews } from "@/data/news/featuredNews";
-import PartsAndAccessoriesDetailsSection from "@/components/sections/PartsAndAccessoriesDetailsSection";
-import productData from "@/data/partsAndAccessories/product";
 import YamahalubeCharacteristicSectionComponent from "./_components/YamahalubeCharacteristicSectionComponent";
 import YamahaTechnicalAcademySectionComponent from "./_components/YamahaTechnicalAcademySectionComponent";
 import YConnectSectionComponent from "./_components/YConnectSectionComponent";
@@ -126,7 +129,7 @@ const ComponentsPage = () => {
         {renderComponent({
           title: "Header",
 
-          component: <Header />,
+          component: <Header menu={[]} />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
         })}
@@ -189,7 +192,6 @@ const ComponentsPage = () => {
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
         })}
-        {/* Motorcycle Carousel */}
         {renderComponent({
           title: "Ccu MyRide Link Section",
           component: <CcuMyRideLinkSectionComponent />,
@@ -266,12 +268,11 @@ const ComponentsPage = () => {
         })}
 
         {/* Footer */}
-        {renderComponent({
-          title: "Footer",
-          component: <Footer />,
-          wireframeLink:
-            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
-        })}
+        <div className=" px-2 lg:p-5 border rounded-lg text-white space-y-5">
+          <h3>Footer</h3>
+          <Footer />
+        </div>
+
         {/* News Grid Section */}
         {renderComponent({
           title: "News Grid Section",

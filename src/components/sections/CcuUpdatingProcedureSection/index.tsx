@@ -6,13 +6,14 @@ import Heading from "@/components/shared/Heading";
 
 import SectionContainer from "../SectionContainer";
 
+export type instructions = {
+  content: content;
+}[];
+
 type PropsType = {
   instructions: instructions;
   notes: string[];
 };
-export type instructions = {
-  content: content;
-}[];
 
 type content = stepProcedure[];
 

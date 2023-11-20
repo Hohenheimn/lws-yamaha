@@ -10,9 +10,11 @@ const HeroComponent = () => {
         fullHeight={false}
         desktopBgImage={"/assets/images/samples/sample-banner-inside.jpg"}
         mobileBgImage={"/assets/images/samples/sample-banner-inside.jpg"}
-        title={<Heading type="h2">{"INSIDE PAGES\nHERO BANNER."}</Heading>}
+        title={"INSIDE PAGES\nHERO BANNER."}
         description={"Lorem ipsum dolor sit amet consectetur adipisicing elit."}
         textPosition={"bottom-left"}
+        imageTitle="/assets/images/samples/sample-yamahalube-icon.png"
+        readMore="#"
       />
     </div>
   );

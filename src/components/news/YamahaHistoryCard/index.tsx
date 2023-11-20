@@ -1,7 +1,8 @@
-import Button from "@/components/shared/Button";
 import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineExternalLink } from "react-icons/hi";
+
+import Button from "@/components/shared/Button";
 
 export type YamahaHistoryType = {
   id: number;
@@ -36,12 +37,13 @@ const YamahaHistoryCard = (props: PropsType) => {
             appearance={"primary"}
             size={"medium"}
             onClick={props.onClick}
+            url={props.externalLink}
           >
             Read More
           </Button>
-          <Link href={props.externalLink}>
+          {/* <Link href={props.externalLink}>
             <HiOutlineExternalLink className="text-[#f1f1f1] cursor-pointer text-3xl h-fit" />
-          </Link>
+          </Link> */}
         </div>
       </figcaption>
     </figure>

@@ -390,7 +390,6 @@ const ComponentsPage = () => {
         {renderComponent({
           title: "Policy And Guidedbook Section",
           component: <PolicyAndGuidedbookSectionComponent />,
-
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-2045&mode=design",
         })}

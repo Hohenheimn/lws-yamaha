@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import Heading from "@/components/shared/Heading";
 
-import ImageAndParagraph from "@/components/shared/ImageAndParagraph";
+import ImageAndParagraph from "@/components/sections/ImageAndParagraph";
 
 import SectionContainer from "../SectionContainer";
 

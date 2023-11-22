@@ -2,15 +2,8 @@
 
 import React from "react";
 
-import EmbedSocialSection from "@/app/components/_components/EmbedSocialSection";
-import Hero from "@/components/sections/Hero";
-import MotorcycleCarouselSection from "@/components/sections/MotorcycleCarouselSection";
-import NewsGridSection from "@/components/sections/NewsGridSection";
-import YamahaLifeStyleStudioSection from "@/components/sections/YamahaLifeStyleStudioSection";
-import ImageLinks from "@/components/shared/ImageLinks";
-import InquieryAndFindDealerButtons from "@/components/shared/InquieryAndFindDealerButtons";
-import Loading from "@/components/shared/Loading";
-import AnnouncementModal from "@/components/shared/modals/AnnouncementModal";
+import dynamic from "next/dynamic";
+
 import {
   motocycleCarousel,
   motocycleCarouselBB,
@@ -18,6 +11,31 @@ import {
 import news from "@/data/news";
 import useAPI from "@/hooks/useAPI";
 import config from "@/utils/config";
+
+import MotorcycleCarouselSectionComponent from "../MotorcycleCarouselSectionComponent";
+import NewsGridSectionComponent from "../NewsGridSectionComponent";
+
+const EmbedSocialSection = dynamic(
+  () => import("@/app/components/_components/EmbedSocialSection")
+);
+const Hero = dynamic(() => import("@/components/sections/Hero"));
+const MotorcycleCarouselSection = dynamic(
+  () => import("@/components/sections/MotorcycleCarouselSection")
+);
+const NewsGridSection = dynamic(
+  () => import("@/components/sections/NewsGridSection")
+);
+const YamahaLifeStyleStudioSection = dynamic(
+  () => import("@/components/sections/YamahaLifeStyleStudioSection")
+);
+const ImageLinks = dynamic(() => import("@/components/sections/ImageLinks"));
+const InquieryAndFindDealerButtons = dynamic(
+  () => import("@/components/sections/InquieryAndFindDealerButtons")
+);
+const Loading = dynamic(() => import("@/components/shared/Loading"));
+const AnnouncementModal = dynamic(
+  () => import("@/components/shared/modals/AnnouncementModal")
+);
 
 type PropsType = {
   endpoint: string;
@@ -36,18 +54,19 @@ const DisplaySection = (props: PropsType) => {
   }
   return (
     <>
+      {/* <ServicesSection data={services} /> */}
       {pageSections?.map((section: any) => (
         <section key={section?.id}>
           {section?.sectionType === "hero-section" && (
             <Hero
               fullHeight={true}
               desktopBgImage={
-                section?.backgroundImage.includes("http")
+                section?.backgroundImage?.includes("http") && section
                   ? section?.backgroundImage
                   : `${imageBaseUrl}${section?.backgroundImage}`
               }
               mobileBgImage={
-                section?.backgroundImage.includes("http")
+                section?.backgroundImage?.includes("http")
                   ? section?.backgroundImage
                   : `${imageBaseUrl}${section?.backgroundImage}`
               }
@@ -58,30 +77,24 @@ const DisplaySection = (props: PropsType) => {
             />
           )}
           {section?.sectionType === "vehicle-section" && (
-            <MotorcycleCarouselSection
+            <MotorcycleCarouselSectionComponent
+              vehicleIds={section.vehicleIds.join(",")}
               title={"Personal Commuter"}
               description={
                 " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti aliquam voluptate molestiae fuga architecto obcaecati dolorem blanditiis dolores, dolorum eveniet? Perferendis minima ullam ipsum sapiente veniam dolores facere quod dolorem."
               }
-              motorcycle={motocycleCarousel}
-              desktopBgImage={"/assets/images/samples/homepage/bg-pc.png"}
+              image={"/assets/images/samples/homepage/bg-pc.png"}
               url={"#"}
             />
           )}
           {section?.sectionType === "news-section" && (
-            <NewsGridSection
-              news={news.map((data) => ({
-                ...data,
-                onClick: () => console.log(data),
-              }))}
-              onViewAll={() => {}}
+            <NewsGridSectionComponent
+              newsIds={section?.newsArticleIds?.join(",")}
             />
           )}
           {section?.sectionType === "embed-social" && <EmbedSocialSection />}
           {section?.sectionType === "button-cards-section" && (
-            <div className="mt-16">
-              <ImageLinks />
-            </div>
+            <ImageLinks imageLinks={section?.buttonCards} />
           )}
         </section>
       ))}

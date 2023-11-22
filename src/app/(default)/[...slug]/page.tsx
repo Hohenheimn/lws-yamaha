@@ -1,7 +1,13 @@
 import React from "react";
 import axios from "axios";
 
+import ParagraphAndDownloadSection from "@/components/sections/ParagraphAndDownloadSection";
+
+import TitleAndParagraphSection from "@/components/sections/TitleAndParagraphSection";
+
 import Heading from "@/components/shared/Heading";
+
+import config from "@/utils/config";
 
 import DisplaySection from "../_components/DisplaySection";
 
@@ -29,7 +35,9 @@ type PropsType = {
 
 export const generateMetadata = async (props: PropsType) => {
   const { params } = props;
-  const slug = params.slug.join("/");
+  const slug: string = params.slug.filter(
+    (item, indx) => params.slug.length === indx + 1
+  )[0];
   let error = false;
   let meta: Meta = {
     name: "",
@@ -40,18 +48,19 @@ export const generateMetadata = async (props: PropsType) => {
     metaCanonical: "",
     metaImage: "",
   };
+  const imageBaseUrl = config.imageBaseUrl;
   await axios
     .get(`http://localhost:3000/api/pages/${slug}`)
     .then((res) => {
       meta = res.data.data;
+      res.data.data ? (error = false) : (error = true);
     })
     .catch((err) => {
       error = true;
     });
-
   return {
-    title: meta?.metaTitle,
-    description: meta?.metaDescription,
+    title: meta ? meta?.metaTitle : "404 Page",
+    description: meta ? meta?.metaDescription : "This page does not exist",
     error: error,
     slug: slug,
     metaId: meta?.id,
@@ -73,10 +82,12 @@ const SlugPage = async (props: PropsType) => {
     );
   }
   return (
-    <DisplaySection
-      endpoint={`/api/page-sections?pageId=${metaId}`}
-      queryName={slug}
-    />
+    <>
+      <DisplaySection
+        endpoint={`/api/page-sections?pageId=${metaId}`}
+        queryName={slug}
+      />
+    </>
   );
 };
 

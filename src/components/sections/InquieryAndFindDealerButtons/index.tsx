@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import SectionContainer from "@/components/sections/SectionContainer";
 
-import Button from "../Button";
+import Button from "../../shared/Button";
 
 const InquieryAndFindDealerButtons = () => {
   return (

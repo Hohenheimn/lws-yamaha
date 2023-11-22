@@ -58,12 +58,14 @@ const Header = (props: PropsType) => {
     <nav className="w-full sticky top-0 flex h-[8vh] md:h-auto justify-center bg-primary-2 text-white py-5 z-40">
       <div className=" w-11/12 flex items-center justify-between gap-5">
         <aside>
-          <Image
-            src="/assets/images/logo/logo.png"
-            alt="logo"
-            width={120}
-            height={100}
-          />
+          <Link href={"/"}>
+            <Image
+              src="/assets/images/logo/logo.png"
+              alt="logo"
+              width={120}
+              height={100}
+            />
+          </Link>
         </aside>
         <aside className=" flex items-center gap-5 text-textGray">
           <ul className="hidden xl:flex gap-10 items-center text-center ">

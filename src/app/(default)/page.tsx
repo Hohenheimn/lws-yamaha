@@ -1,72 +1,8 @@
-"use client";
-
 import React from "react";
-
-import Hero from "@/components/sections/Hero";
-import MotorcycleCarouselSection from "@/components/sections/MotorcycleCarouselSection";
-import NewsGridSection from "@/components/sections/NewsGridSection";
-import YamahaLifeStyleStudioSection from "@/components/sections/YamahaLifeStyleStudioSection";
-import Heading from "@/components/shared/Heading";
-import ImageLinks from "@/components/shared/ImageLinks";
-import InquieryAndFindDealerButtons from "@/components/shared/InquieryAndFindDealerButtons";
-import AnnouncementModal from "@/components/shared/modals/AnnouncementModal";
-import {
-  motocycleCarousel,
-  motocycleCarouselBB,
-} from "@/data/motorcycle/motorcycleCarousel";
-import news from "@/data/news";
-import useAPI from "@/hooks/useAPI";
+import { redirect } from "next/navigation";
 
 const HomePage = () => {
-  const { useGet, usePost } = useAPI("/api/vehicles");
-  const { data: vehicles, isLoading: vehiclesLoading } = useGet("vehicles");
-
-  return (
-    <>
-      <AnnouncementModal desktopImage="/assets/images/samples/sample-screen-banner.png" />
-      <Hero
-        fullHeight={true}
-        desktopBgImage={"/assets/images/samples/sample-banner.jpg"}
-        mobileBgImage={"/assets/images/samples/sample-banner.jpg"}
-        title={"DESIGNED USING\nPURE TMAX DNA."}
-        description={"Lorem ipsum dolor sit amet consectetur adipisicing elit."}
-        textPosition={"center"}
-        scrollTo="#personal-commuter"
-      />
-      <div id="personal-commuter">
-        <MotorcycleCarouselSection
-          title={"Personal Commuter"}
-          description={
-            " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti aliquam voluptate molestiae fuga architecto obcaecati dolorem blanditiis dolores, dolorum eveniet? Perferendis minima ullam ipsum sapiente veniam dolores facere quod dolorem."
-          }
-          motorcycle={motocycleCarousel}
-          desktopBgImage={"/assets/images/samples/homepage/bg-pc.png"}
-          url={"#"}
-        />
-      </div>
-      <MotorcycleCarouselSection
-        title={"Big Bikes"}
-        description={
-          " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti aliquam voluptate molestiae fuga architecto obcaecati dolorem blanditiis dolores, dolorum eveniet? Perferendis minima ullam ipsum sapiente veniam dolores facere quod dolorem."
-        }
-        motorcycle={motocycleCarouselBB}
-        desktopBgImage={"/assets/images/samples/homepage/bg-bb.png"}
-        url={"#"}
-      />
-      <NewsGridSection
-        news={news.map((data) => ({
-          ...data,
-          onClick: () => console.log(data),
-        }))}
-        onViewAll={() => {}}
-      />
-      <YamahaLifeStyleStudioSection />
-      <div className="mt-16">
-        <ImageLinks />
-      </div>
-      <InquieryAndFindDealerButtons />
-    </>
-  );
+  redirect("/home");
 };
 
 export default HomePage;

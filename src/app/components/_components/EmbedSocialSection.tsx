@@ -1,6 +1,8 @@
 import React from "react";
 
+import SectionContainer from "@/components/sections/SectionContainer";
 import FacebookEmbedCard from "@/components/shared/EmbedSocials/FacebookEmbedCard";
+
 // import InstagramEmbedCard from "@/components/shared/EmbedSocials/InstagramEmbedCard";
 
 const facebookUrls = [
@@ -38,25 +40,27 @@ const EmbedSocialSection = () => {
   };
 
   return (
-    <div className="flex flex-col gap-10 items-center">
-      <div className="text-[#f1f1f1] text-xl flex gap-4">
-        <button
-          onClick={() => setActiveEmbedId(1)}
-          className={`${activeEmbedId === 1 && "font-bold underline"}`}
-        >
-          Instagram
-        </button>
-        <button
-          onClick={() => setActiveEmbedId(2)}
-          className={`${activeEmbedId === 2 && "font-bold underline"}`}
-        >
-          Facebook
-        </button>
+    <SectionContainer width={"wide"}>
+      <div className="flex flex-col gap-10 items-center">
+        <div className="text-[#f1f1f1] text-xl flex gap-4">
+          <button
+            onClick={() => setActiveEmbedId(1)}
+            className={`${activeEmbedId === 1 && "font-bold underline"}`}
+          >
+            Instagram
+          </button>
+          <button
+            onClick={() => setActiveEmbedId(2)}
+            className={`${activeEmbedId === 2 && "font-bold underline"}`}
+          >
+            Facebook
+          </button>
+        </div>
+        {activeEmbedId === 1
+          ? renderInstagramEmbedCardList()
+          : renderFacebookEmbedCardList()}
       </div>
-      {activeEmbedId === 1
-        ? renderInstagramEmbedCardList()
-        : renderFacebookEmbedCardList()}
-    </div>
+    </SectionContainer>
   );
 };
 

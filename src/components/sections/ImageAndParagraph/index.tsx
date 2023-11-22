@@ -5,7 +5,7 @@ import Image from "next/image";
 import SectionContainer from "@/components/sections/SectionContainer";
 import Heading from "@/components/shared/Heading";
 
-import Button from "../Button";
+import Button from "../../shared/Button";
 
 type PropsType = {
   title: string;

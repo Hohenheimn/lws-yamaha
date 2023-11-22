@@ -12,7 +12,7 @@ import LifeWithMotorcycleSection from "@/components/sections/LifeWithMotorcyleSe
 import MotorcycleColorAndPriceSection from "@/components/sections/MotorcycleColorAndPriceSection";
 import MotorcycleFeaturesSection from "@/components/sections/MotorcycleFeaturesSection";
 import SpecificationSection from "@/components/sections/SpecificationSection";
-import InquieryAndFindDealerButtons from "@/components/shared/InquieryAndFindDealerButtons";
+import InquieryAndFindDealerButtons from "@/components/sections/InquieryAndFindDealerButtons";
 
 type PropsType = {
   params: {

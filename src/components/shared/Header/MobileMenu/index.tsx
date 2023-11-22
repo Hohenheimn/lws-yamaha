@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 import { IoMdCloseCircle } from "react-icons/io";
 
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
@@ -16,20 +18,22 @@ type PropsType = {
 };
 
 const MobileMenu = ({ setMobileMenu, menu }: PropsType) => {
-  console.log(menu);
+  const pathname = usePathname();
   const [selectedMenu, setSelectedMenu] = useState<undefined | MenuType>(
     undefined
   );
   return (
     <nav className=" flex flex-col max-h-[92vh] overflow-auto md:px-0 justify-start items-center w-full absolute top-full left-0 py-10 bg-[#6a6a6a58] backdrop-blur-lg space-y-5">
       {!selectedMenu && (
-        <ul className="w-11/12 space-y-3">
+        <ul className="w-11/12 space-y-3 text-gray-300">
           {menu.map((item, indx) => (
             <li key={indx} className=" flex w-full justify-between">
               {item?.children ? (
                 <>
                   <div
-                    className=" cursor-pointer  text-2xl w-full flex items-center justify-between"
+                    className={`cursor-pointer text-2xl w-full flex items-center justify-between  ${
+                      pathname.includes(item.url) && "text-white font-medium"
+                    }`}
                     onClick={() => {
                       setSelectedMenu(item);
                     }}

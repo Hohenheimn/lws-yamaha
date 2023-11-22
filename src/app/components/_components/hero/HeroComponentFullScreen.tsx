@@ -13,7 +13,7 @@ const HeroComponentFullScreen = () => {
         title={`HOMEPAGE \n HERO BANNER`}
         description={"Lorem ipsum dolor sit amet consectetur adipisicing elit."}
         textPosition={"center"}
-        scrollTo="#personal-commuter"
+        scrollDown
       />
     </div>
   );

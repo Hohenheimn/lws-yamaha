@@ -8,10 +8,10 @@ import SectionContainer from "../SectionContainer";
 type PropsType = {
   image: string;
   title: string;
-  paragraphs: string[];
+  paragraphs: string;
 };
 
-const AssuranceAndConfidenceSection = (props: PropsType) => {
+const ImageAndParagraphTwoColumn = (props: PropsType) => {
   const { image, title, paragraphs } = props;
   return (
     <SectionContainer width={"wide"} className=" space-y-10">
@@ -23,13 +23,11 @@ const AssuranceAndConfidenceSection = (props: PropsType) => {
           {title}
         </Heading>
         <div className="space-y-5 two-col-paragraph">
-          {paragraphs.map((paragraph, indx) => (
-            <p key={indx}>{paragraph}</p>
-          ))}
+          <p className=" whitespace-pre-wrap">{paragraphs}</p>
         </div>
       </article>
     </SectionContainer>
   );
 };
 
-export default AssuranceAndConfidenceSection;
+export default ImageAndParagraphTwoColumn;

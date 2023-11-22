@@ -4,10 +4,10 @@ import api from "@/utils/api";
 
 export const GET = async (req: NextRequest) => {
   const url = new URL(req.url);
-  const vehicleIds = url.searchParams.get("vehicleIds");
-  const res = await api.get("/vehicles", {
+  const pageId = url.searchParams.get("pageId");
+  const res = await api.get("/page-sections", {
     params: {
-      ...(vehicleIds && { vehicleIds }),
+      ...(pageId && { pageId }),
     },
   });
   const data = await res.data;

@@ -24,7 +24,7 @@ const NavSubTab = ({ tabs, onClose }: PropsType) => {
   return (
     <section className=" w-11/12">
       <button
-        className=" text-base flex xl:hidden items-center mb-10"
+        className=" text-base flex xl:hidden items-center mb-5"
         onClick={() => {
           onClose && onClose();
         }}
@@ -32,7 +32,7 @@ const NavSubTab = ({ tabs, onClose }: PropsType) => {
         <MdOutlineKeyboardArrowLeft className=" text-3xl" />
         Back
       </button>
-      <ul className=" flex flex-col md:flex-row gap-16 items-center text-textGray tracking-wider mb-5">
+      <ul className=" flex flex-col md:flex-row gap-16 items-center text-gray-300 tracking-wider mb-5">
         {tabs.map((item, indx: number) => (
           <li
             key={indx}
@@ -46,7 +46,7 @@ const NavSubTab = ({ tabs, onClose }: PropsType) => {
           </li>
         ))}
       </ul>
-      <aside className=" text-textGray pb-5 space-y-5 flex bo overflow-auto scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
+      <aside className=" text-gray-300 pb-5 space-y-5 flex bo overflow-auto scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
         {tabs.map((item, indx) => (
           <div key={indx}>
             {activeTab.includes(item.url) && (
@@ -56,7 +56,7 @@ const NavSubTab = ({ tabs, onClose }: PropsType) => {
                     <Link
                       href={menu.url}
                       className={`${
-                        menu.url === pathname && "text-white"
+                        menu.url === pathname && "text-white font-bold"
                       } text-lg md:text-base`}
                     >
                       {menu.label}

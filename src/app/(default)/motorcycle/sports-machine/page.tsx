@@ -5,7 +5,7 @@ import React from "react";
 import Hero from "@/components/sections/Hero";
 import MotorcycleCardList from "@/components/sections/MotorcycleCardList";
 import Heading from "@/components/shared/Heading";
-import InquieryAndFindDealerButtons from "@/components/shared/InquieryAndFindDealerButtons";
+import InquieryAndFindDealerButtons from "@/components/sections/InquieryAndFindDealerButtons";
 import {
   motocycleCarousel,
   motocycleCarouselBB,

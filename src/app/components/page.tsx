@@ -4,7 +4,6 @@ import { ReactNode } from "react";
 import Link from "next/link";
 import { useQuery } from "react-query";
 
-import AssuranceAndConfidenceSection from "@/components/sections/AssuranceAndConfidenceSection";
 import BlogSection from "@/components/sections/BlogSection";
 import DealerSection from "@/components/sections/DealerSection";
 import FeaturedNewsSection from "@/components/sections/FeaturedNewsSection";
@@ -31,6 +30,7 @@ import whyChooseUsFeatures from "@/data/whyChooseUs";
 import AccessoriesSectionComponent from "./_components/AccessoriesSectionComponent";
 import ArrowTitles from "./_components/ArrowTitles";
 import BreadcrumpsComponent from "./_components/BreadcrumpsComponent";
+import ButtonCardSection from "./_components/ButtonCardSection";
 import CcuMyRideLinkSectionComponent from "./_components/CcuMyRideLinkSectionComponent";
 import CcuUpdatingProcedureSectionComponenet from "./_components/CcuUpdatingProcedureSectionComponenet";
 import DetailTabsComponent from "./_components/DetailTabsComponent";
@@ -38,6 +38,7 @@ import EmbedSocialSection from "./_components/EmbedSocialSection";
 import GridEmbedSocialSection from "./_components/GridEmbedSocialSection";
 import HeroComponent from "./_components/hero/HeroComponent";
 import HeroComponentFullScreen from "./_components/hero/HeroComponentFullScreen";
+import ImageAndParagraphTwoColumnComponent from "./_components/ImageAndParagraphTwoColumnComponent";
 import LifeWithMotorcycleSectionComponent from "./_components/LifeWithMotorcycleSectionComponent";
 import MotorcycleCardComponent from "./_components/motorcycle/MotorcycleCardComponent";
 import MotorcycleCardListComponent from "./_components/motorcycle/MotorcycleCardListComponent";
@@ -47,12 +48,14 @@ import MotorcycleFeaturesSection from "./_components/MotorcycleFeaturesSection";
 import NewsCardComponent from "./_components/NewsCardComponent";
 import NewsCardListComponent from "./_components/NewsCardListComponent";
 import OtherNewsSection from "./_components/OtherNewsSection";
+import ParagraphAndDownloadSectionComponent from "./_components/ParagraphAndDownloadSectionComponent";
 import PolicyAndGuidedbookSectionComponent from "./_components/PolicyAndGuidedbookSectionComponent";
 import ProductCardComponent from "./_components/ProductCardComponent";
 import ProductFilterComponent from "./_components/ProductFilterComponent";
 import ProductListsComponent from "./_components/ProductListsComponent";
 import ServiceDetailSectionComponent from "./_components/ServiceDetailSectionComponent";
 import SpecificationSection from "./_components/SpecificationSection";
+import TitleAndParagraphSectionComponent from "./_components/TitleAndParagraphSectionComponent";
 import YamahaHistoryCardComponent from "./_components/YamahaHistoryCardComponent";
 import YamahalubeCharacteristicSectionComponent from "./_components/YamahalubeCharacteristicSectionComponent";
 import YamahaTechnicalAcademySectionComponent from "./_components/YamahaTechnicalAcademySectionComponent";
@@ -90,6 +93,34 @@ const ComponentsPage = () => {
     <div className="flex">
       <AnnouncementModal desktopImage="/assets/images/samples/sample-screen-banner.png" />
       <div className="flex flex-col gap-4 p-4 flex-1 h-screen overflow-y-auto scroll-smooth scroll-pt-4 scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
+        {renderComponent({
+          title: "Image and Paragraph Two Column ",
+          component: <ImageAndParagraphTwoColumnComponent />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=1129-2510&mode=design&t=FG2Ofqrm6Tlskpwc-0",
+        })}
+
+        {renderComponent({
+          title: "Button Card Section ",
+          component: <ButtonCardSection />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=1129-2510&mode=design&t=FG2Ofqrm6Tlskpwc-0",
+        })}
+
+        {renderComponent({
+          title: "Title and Paragraph Section ",
+          component: <TitleAndParagraphSectionComponent />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=1129-2652&mode=design&t=FG2Ofqrm6Tlskpwc-0",
+        })}
+
+        {renderComponent({
+          title: "Paragraph And Download ",
+          component: <ParagraphAndDownloadSectionComponent />,
+          wireframeLink:
+            "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=1129-2510&mode=design&t=FG2Ofqrm6Tlskpwc-0",
+        })}
+
         {/* Parts and Accessories Details Section */}
         {renderComponent({
           title: "Featured News Section",
@@ -390,7 +421,6 @@ const ComponentsPage = () => {
         {renderComponent({
           title: "Policy And Guidedbook Section",
           component: <PolicyAndGuidedbookSectionComponent />,
-
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-2045&mode=design",
         })}

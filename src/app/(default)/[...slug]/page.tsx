@@ -9,6 +9,8 @@ import Heading from "@/components/shared/Heading";
 
 import config from "@/utils/config";
 
+import nextApi from "@/utils/nextApi";
+
 import DisplaySection from "../_components/DisplaySection";
 
 type Meta = {
@@ -49,7 +51,7 @@ export const generateMetadata = async (props: PropsType) => {
     metaImage: "",
   };
   const imageBaseUrl = config.imageBaseUrl;
-  await axios
+  await nextApi
     .get(`http://localhost:3000/api/pages/${slug}`)
     .then((res) => {
       meta = res.data.data;

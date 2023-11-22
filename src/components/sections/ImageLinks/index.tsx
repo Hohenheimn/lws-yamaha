@@ -9,7 +9,7 @@ import config from "@/utils/config";
 import Heading from "../../shared/Heading";
 
 type PropsType = {
-  imageLinks: {
+  imageLinks?: {
     url: string;
     name: string;
     backgroundImage: string;
@@ -22,7 +22,7 @@ const ImageLinks = (props: PropsType) => {
   return (
     <SectionContainer className=" w-full flex justify-center" width={"wide"}>
       <ul className="  w-11/12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        {imageLinks.map((item, indx) => (
+        {imageLinks?.map((item, indx) => (
           <Link href={item.url} key={indx}>
             <li className=" relative rounded-3xl overflow-hidden aspect-[2.8/1] flex justify-center items-center text-white">
               <Image

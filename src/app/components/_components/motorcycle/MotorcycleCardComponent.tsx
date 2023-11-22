@@ -10,6 +10,7 @@ const MotorcycleCardComponent = () => {
         features={["Tough Design", "Electric Power Socket", "Blue Core Engine"]}
         url={"#"}
         inheritWidth={false}
+        title={""}
       />
     </div>
   );

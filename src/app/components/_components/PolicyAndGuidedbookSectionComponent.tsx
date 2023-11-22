@@ -8,16 +8,22 @@ const PolicyAndGuidedbookSectionComponent = () => {
       image={"/assets/images/samples/sample-warranty.png"}
       warrantyList={[
         {
-          downloadUrl: "#",
           title: "Fi Warranty Guide Book",
+          url: "#",
+          urlLabel: "Download",
+          isUrlDownload: true,
         },
         {
-          downloadUrl: "#",
-          title: "Carburetor Warranty Guide Book",
+          title: "Fi Warranty Guide Book",
+          url: "#",
+          urlLabel: "Download",
+          isUrlDownload: true,
         },
         {
-          downloadUrl: "#",
-          title: "Sports Machines Warranty Guide Book",
+          title: "Fi Warranty Guide Book",
+          url: "#",
+          urlLabel: "Download",
+          isUrlDownload: true,
         },
       ]}
     />

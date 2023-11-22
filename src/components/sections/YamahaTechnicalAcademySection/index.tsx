@@ -3,6 +3,8 @@ import Image from "next/image";
 
 import Heading from "@/components/shared/Heading";
 
+import config from "@/utils/config";
+
 import SectionContainer from "../SectionContainer";
 
 type PropsType = {
@@ -10,13 +12,14 @@ type PropsType = {
   title: string;
   description: string;
   boxes: {
-    icon: string;
+    url: string;
     title: string;
     description: string;
   }[];
 };
 
 const YamahaTechnicalAcademySection = (props: PropsType) => {
+  const imageBaseUrl = config.imageBaseUrl;
   const { icon, title, description, boxes } = props;
   return (
     <SectionContainer
@@ -37,7 +40,11 @@ const YamahaTechnicalAcademySection = (props: PropsType) => {
             className=" flex flex-col items-center gap-5 bg-secondary p-10 rounded-lg shadow-md shadow-secondary"
           >
             <Image
-              src={item.icon}
+              src={
+                item?.url?.includes("http") && item?.url
+                  ? item?.url
+                  : `${imageBaseUrl}${item?.url}`
+              }
               alt="Academy Star"
               width={150}
               height={150}

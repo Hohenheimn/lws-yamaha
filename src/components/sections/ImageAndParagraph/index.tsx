@@ -5,6 +5,8 @@ import Image from "next/image";
 import SectionContainer from "@/components/sections/SectionContainer";
 import Heading from "@/components/shared/Heading";
 
+import config from "@/utils/config";
+
 import Button from "../../shared/Button";
 
 type PropsType = {
@@ -29,14 +31,28 @@ type PropsType = {
 
 const ImageAndParagraph = (props: PropsType) => {
   const { title, content, image, imagePosition, button } = props;
+  const imageBaseUrl = config.imageBaseUrl;
   return (
-    <ul className="  flex items-center flex-wrap md:flex-nowrap gap-20">
+    <ul className="  w-full flex items-center flex-wrap md:flex-nowrap gap-20">
       <li
-        className={` w-full md:w-1/2 flex justify-center items-center p-0 lg:p-10 ${
+        className={` w-full md:w-1/2 flex justify-center items-center p-0  ${
           imagePosition === "right" && "order-2 "
         } ${imagePosition === "left" && "order-1"}`}
       >
-        <Image src={image} width={1000} height={1000} alt="Image" />
+        <aside className="relative w-full aspect-[1.5/1]">
+          <Image
+            src={
+              image?.includes("http") && image
+                ? image
+                : `${imageBaseUrl}${image}`
+            }
+            // width={1000}
+            // height={1000}
+            fill
+            alt="Image"
+            className=" object-cover"
+          />
+        </aside>
       </li>
       <li
         className={` w-full md:w-1/2 text-white  space-y-5 ${

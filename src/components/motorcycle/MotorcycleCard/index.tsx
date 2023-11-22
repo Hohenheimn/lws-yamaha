@@ -9,10 +9,11 @@ type MotorcycleCardType = {
   features: string[];
   url: string;
   inheritWidth?: boolean;
+  title: string;
 };
 
 const MotorcycleCard = (props: MotorcycleCardType) => {
-  const { imageSrc, features, url, inheritWidth } = props;
+  const { imageSrc, features, url, inheritWidth, title } = props;
   return (
     <ul className={` relative flex flex-col ${!inheritWidth && "w-[300px]"}`}>
       <li className="w-full flex justify-center relative after:content-[''] after:absolute after:w-full after:bottom-0 after:left-0 after:h-[40%] after:bg-white after:rounded-tl-xl  after:rounded-tr-xl">
@@ -27,7 +28,7 @@ const MotorcycleCard = (props: MotorcycleCardType) => {
       </li>
       <li className=" h-[18rem] flex flex-col justify-between rounded-br-md rounded-bl-md px-3 py-6 bg-secondary text-white">
         <aside className="space-y-2">
-          <Heading type="h5">Mio Gravis</Heading>
+          <Heading type="h5">{title}</Heading>
           <p className=" font-medium">Product Feature:</p>
           <ul className=" space-y-2">
             {features?.map((feature, indx) => (

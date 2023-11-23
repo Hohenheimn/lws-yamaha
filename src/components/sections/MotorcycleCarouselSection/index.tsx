@@ -74,13 +74,14 @@ const MotorcycleCarouselSection = (props: PropsType) => {
           breakpoints={breakpoints}
         >
           <MotorcycleNavigationButton />
-          {motorcycle.map((item, indx) => (
+          {motorcycle?.map((item, indx) => (
             <SwiperSlide key={indx}>
               <MotorcycleCard
                 imageSrc={item.imageSrc}
                 features={item.features}
                 url={item.url}
                 inheritWidth={true}
+                title={item.title}
               />
             </SwiperSlide>
           ))}

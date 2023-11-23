@@ -10,6 +10,7 @@ export type ButtonPropsType = {
   size: "medium" | "large";
   url?: string;
   onClick?: () => void;
+  download?: boolean;
 };
 
 const Button = ({
@@ -18,11 +19,17 @@ const Button = ({
   size,
   url,
   onClick,
+  download,
 }: ButtonPropsType) => {
   return (
     <>
       {url ? (
-        <LinkElement appearance={appearance} size={size} url={url}>
+        <LinkElement
+          appearance={appearance}
+          size={size}
+          url={url}
+          download={download}
+        >
           {children}
         </LinkElement>
       ) : (

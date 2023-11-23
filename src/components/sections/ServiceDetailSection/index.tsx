@@ -1,19 +1,19 @@
 import React from "react";
 import Image from "next/image";
 
+import ImageAndParagraph from "@/components/sections/ImageAndParagraph";
+
 import Button from "@/components/shared/Button";
 
 import Heading from "@/components/shared/Heading";
 
-import ImageAndParagraph from "@/components/sections/ImageAndParagraph";
-
 import SectionContainer from "../SectionContainer";
 
 type PropsType = {
-  image: string;
+  image?: string;
   imagePosition: "left" | "right";
-  title: string;
-  content: {
+  title?: string;
+  content?: {
     type: "text" | "icons";
     value:
       | string
@@ -22,8 +22,8 @@ type PropsType = {
           title: string;
         }[];
   }[];
-  url: string;
-  urlTitle: string;
+  url?: string;
+  urlTitle?: string;
 };
 
 const ServiceDetailSection = (props: PropsType) => {
@@ -34,11 +34,11 @@ const ServiceDetailSection = (props: PropsType) => {
       className="flex flex-wrap lg:flex-nowrap gap-10 text-white"
     >
       <ImageAndParagraph
-        title={title}
-        image={image}
-        button={{ title: urlTitle, url: url }}
+        title={title ?? ""}
+        image={image ?? ""}
+        button={{ title: urlTitle ?? "", url: url ?? "" }}
         imagePosition={imagePosition}
-        content={content}
+        content={content ?? []}
       />
     </SectionContainer>
   );

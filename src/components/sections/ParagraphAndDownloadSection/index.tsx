@@ -9,27 +9,33 @@ import Heading from "@/components/shared/Heading";
 import SectionContainer from "../SectionContainer";
 
 type PropsType = {
-  paragraph: string;
-  downloadLink: string;
+  paragraph?: string;
+  downloadLink?: string;
+  labelUrl?: string;
+  textAlignment?: "left" | "center" | "right";
 };
 
 const ParagraphAndDownloadSection = (props: PropsType) => {
-  const { paragraph, downloadLink } = props;
+  const { paragraph, downloadLink, labelUrl, textAlignment } = props;
   return (
     <SectionContainer
       width={"narrow"}
-      className=" text-white text-center space-y-5"
+      className={` text-white space-y-5 ${
+        textAlignment === "left" && "text-start"
+      } ${textAlignment === "center" && "text-center"} ${
+        textAlignment === "right" && "text-end"
+      }`}
     >
       <Heading type="h5" className=" text-white font-medium">
         {paragraph}
       </Heading>
       <Link
-        href={downloadLink}
+        href={downloadLink ? downloadLink : ""}
         download={true}
         target="_blank"
         className="whitespace-nowrap inline-block duration-150 text-white font-medium rounded-lg px-16 py-3  text-xl bg-tertiary hover:bg-hover-tertiary"
       >
-        Download Yamaha Warranty Policy
+        {labelUrl}
       </Link>
     </SectionContainer>
   );

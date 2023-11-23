@@ -13,7 +13,7 @@ const HeroComponent = () => {
         title={"INSIDE PAGES\nHERO BANNER."}
         description={"Lorem ipsum dolor sit amet consectetur adipisicing elit."}
         textPosition={"bottom-left"}
-        imageTitle="/assets/images/samples/sample-yamahalube-icon.png"
+        imageTitleUrl="/assets/images/samples/sample-yamahalube-icon.png"
         readMore="#"
       />
     </div>

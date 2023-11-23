@@ -1,6 +1,8 @@
 import axios from "axios";
 
+import config from "./config";
+
 const api = axios.create({
-  baseURL: "https://yamaha-revamp-api.lws.codes",
+  baseURL: config.apiBaseUrl,
 });
 export default api;

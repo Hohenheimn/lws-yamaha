@@ -5,7 +5,7 @@ import news from "@/data/news";
 import useAPI from "@/hooks/useAPI";
 
 type PropsType = {
-  newsIds: string;
+  newsIds?: string;
 };
 
 const NewsGridSectionComponent = (props: PropsType) => {

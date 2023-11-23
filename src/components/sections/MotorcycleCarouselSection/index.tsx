@@ -56,16 +56,16 @@ const MotorcycleCarouselSection = (props: PropsType) => {
 
   return (
     <SectionContainer
-      className=" relative h-full flex flex-col items-center space-y-5"
+      className=" relative h-full flex flex-col items-center justify-center min-h-screen"
       bgImage={desktopBgImage}
       mobileBgImage={mobileBgImage}
       width={"wide"}
     >
-      <aside className=" w-11/12 max-w-[60rem] text-center text-white">
+      <aside className=" w-11/12 max-w-[60rem] text-center text-white space-y-4">
         <Heading type="h4">{title}</Heading>
         <p>{description}</p>
       </aside>
-      <div className=" w-full relative">
+      <div className=" w-full relative mb-16">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={30}

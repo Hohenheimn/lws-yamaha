@@ -26,7 +26,7 @@ const MotorcycleCard = (props: MotorcycleCardType) => {
           />
         </aside>
       </li>
-      <li className=" h-[18rem] flex flex-col justify-between rounded-br-md rounded-bl-md px-3 py-6 bg-secondary text-white">
+      <li className=" h-[18rem] flex flex-col justify-between rounded-br-md rounded-bl-md px-5 lg:px-8 py-6 bg-secondary text-white">
         <aside className="space-y-2">
           <Heading type="h5">{title}</Heading>
           <p className=" font-medium">Product Feature:</p>

@@ -55,7 +55,7 @@ const MotorcycleCarouselSectionComponent = (props: PropsType) => {
             ? motorcycle?.desktopImage
             : `${imageBaseUrl}${motorcycle?.desktopImage}`,
           features: motorcycle?.vehicleFeatures.map((item) => item?.title),
-          url: "#",
+          url: `${url}/${motorcycle?.slug}`,
         };
       })}
       desktopBgImage={image}

@@ -13,10 +13,18 @@ import PolicyAndGuidedbookSection from "@/components/sections/PolicyAndGuidedboo
 
 import ServiceDetailSection from "@/components/sections/ServiceDetailSection";
 
+import VideoSection from "@/components/sections/VideoSection";
+
+import YamahalubeCharacteristicSection from "@/components/sections/YamahalubeCharacteristicSection";
 import YamahaTechnicalAcademySection from "@/components/sections/YamahaTechnicalAcademySection";
 
+import YdtSection from "@/components/sections/YdtSection";
+
 import useAPI from "@/hooks/useAPI";
+
 import config from "@/utils/config";
+
+import validateImageUrl from "@/utils/validateImageUrl";
 
 import { SectionTypes } from "./sectionTypes";
 
@@ -60,7 +68,6 @@ const DisplaySection = (props: PropsType) => {
   const { useGet } = useAPI(endpoint);
   const { data: page, isLoading: pageLoading }: any = useGet(queryName);
   const pageSections: any = page?.data;
-  const imageBaseUrl = config.imageBaseUrl;
 
   if (pageLoading) {
     return <Loading />;
@@ -72,16 +79,8 @@ const DisplaySection = (props: PropsType) => {
           {section?.sectionType === "hero-section" && (
             <Hero
               fullHeight={section?.fullScreen}
-              desktopBgImage={
-                section?.backgroundImage?.includes("http") && section
-                  ? section?.backgroundImage
-                  : `${imageBaseUrl}${section?.backgroundImage}`
-              }
-              mobileBgImage={
-                section?.backgroundImage?.includes("http")
-                  ? section?.backgroundImage
-                  : `${imageBaseUrl}${section?.backgroundImage}`
-              }
+              desktopBgImage={validateImageUrl(section?.backgroundImage)}
+              mobileBgImage={validateImageUrl(section?.backgroundImage)}
               title={section?.title}
               description={section?.description}
               textPosition={
@@ -96,12 +95,10 @@ const DisplaySection = (props: PropsType) => {
           {section?.sectionType === "vehicle-section" && (
             <MotorcycleCarouselSectionComponent
               vehicleIds={section?.vehicleIds?.join(",")}
-              title={"Personal Commuter"}
-              description={
-                " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti aliquam voluptate molestiae fuga architecto obcaecati dolorem blanditiis dolores, dolorum eveniet? Perferendis minima ullam ipsum sapiente veniam dolores facere quod dolorem."
-              }
-              image={"/assets/images/samples/homepage/bg-pc.png"}
-              url={"#"}
+              title={section?.title}
+              description={section?.description}
+              image={validateImageUrl(section?.backgroundImage)}
+              url={section?.url}
             />
           )}
           {section?.sectionType === "news-section" && (
@@ -123,22 +120,14 @@ const DisplaySection = (props: PropsType) => {
           )}
           {section?.sectionType === "warranty-guide-book-section" && (
             <PolicyAndGuidedbookSection
-              image={
-                section?.image?.includes("http") && section
-                  ? section?.image
-                  : `${imageBaseUrl}${section?.image}`
-              }
+              image={validateImageUrl(section?.image)}
               warrantyList={section?.contents}
             />
           )}
           {section?.sectionType === "service-detail-section" && (
             <ServiceDetailSection
-              image={
-                section?.image?.includes("http") && section
-                  ? section?.image
-                  : `${imageBaseUrl}${section?.image}`
-              }
-              imagePosition={"left"}
+              image={validateImageUrl(section?.image)}
+              contentAlignment={section?.alignContentHorizontal}
               title={section?.title}
               content={[
                 {
@@ -159,6 +148,37 @@ const DisplaySection = (props: PropsType) => {
               boxes={section?.contents}
             />
           )}
+          {section?.sectionType === "yamalube-characteristic-section" && (
+            <YamahalubeCharacteristicSection
+              title={section?.title}
+              image={validateImageUrl(section?.image)}
+              characteristics={section?.contents}
+              url={section?.url}
+            />
+          )}
+          {section?.sectionType === "video-section" && (
+            <VideoSection
+              videoUrls={[section?.video]}
+              description={section?.description}
+              title={section?.title}
+            />
+          )}
+          {section?.sectionType === "ydt-section" && (
+            <YdtSection
+              icon={"/assets/images/ydt/ydt-icon.png"}
+              title={section?.title}
+              image={section?.image}
+              content={section?.contents}
+            />
+          )}
+          {/* {section?.sectionType === "about-yamaha-section" && (
+            <YdtSection
+              icon={"/assets/images/ydt/ydt-icon.png"}
+              title={section?.title}
+              image={validateImageUrl(section?.image)}
+              content={section?.contents}
+            />
+          )} */}
         </section>
       ))}
 

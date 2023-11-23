@@ -14,7 +14,7 @@ type PropsType = {
   characteristics: {
     title: string;
     description: string;
-    highlighted_footer?: string;
+    note?: string;
   }[];
   url: string;
 };
@@ -24,18 +24,14 @@ const YamahalubeCharacteristicSection = (props: PropsType) => {
   return (
     <section className=" flex justify-end">
       <section className="  w-[95.83%] gap-0 md:gap-20 flex flex-wrap md:flex-nowrap relative">
-        <article className=" w-full md:w-6/12 space-y-5 text-white py-8 md:py-14  order-2 md:order-1">
+        <article className=" w-full md:w-6/12 space-y-5 text-white py-10 md:py-20  order-2 md:order-1">
           <Heading type={"h5"}>{title}</Heading>
           <ul className=" space-y-5">
             {characteristics.map((item, indx) => (
               <li key={indx} className=" pb-5 space-y-3 border-b">
-                <p className=" font-medium">
-                  {indx + 1}. {item.title}
-                </p>
+                <p className=" font-medium">{item.title}</p>
                 <p className=" text-textGray">{item.description}</p>
-                {item?.highlighted_footer && (
-                  <p className=" font-medium">{item?.highlighted_footer}</p>
-                )}
+                {item?.note && <p className=" font-medium">{item?.note}</p>}
               </li>
             ))}
           </ul>

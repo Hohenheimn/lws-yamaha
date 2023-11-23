@@ -74,7 +74,7 @@ const Footer = () => {
     <footer className=" flex flex-col items-center space-y-16 pt-6 pb-16 bg-transparent">
       <section className=" w-full flex justify-center items-center flex-col bg-primary text-white space-y-10 md:space-y-16">
         <aside className=" w-full flex flex-col items-center">
-          {isBreadCrump.length > 0 && (
+          {/* {isBreadCrump.length > 0 && (
             <ul className=" flex items-center gap-3 w-11/12 flex-wrap text-textGray">
               {isBreadCrump.map((item, indx) => (
                 <li key={indx} className=" flex items-center">
@@ -92,7 +92,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          )}
+          )} */}
           <ul className=" flex items-center w-full gap-5">
             <li className=" border border-white flex-1"></li>
             <li>
@@ -106,7 +106,7 @@ const Footer = () => {
             <li className=" border border-white flex-1"></li>
           </ul>
         </aside>
-        {pathname.includes("/personal-commuter") && (
+        {/* {pathname.includes("/personal-commuter") && (
           <aside className=" pb-5 space-y-10 flex flex-col w-full items-center overflow-auto hide-scrollbar">
             <p className=" font-bold">Personal Commuter</p>
             <aside className=" w-full max-w-[50rem]">
@@ -124,7 +124,7 @@ const Footer = () => {
               </ul>
             </aside>
           </aside>
-        )}
+        )} */}
 
         <ul className=" flex flex-col sm:flex-row items-center gap-10 sm:gap-14">
           {footerMenu?.data?.map(

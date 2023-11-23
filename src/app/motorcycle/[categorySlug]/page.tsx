@@ -11,6 +11,8 @@ import config from "@/utils/config";
 import { redirect } from "next/navigation";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
+import HeroSection from "./_components/HeroSection";
+import Head from "next/head";
 
 const VehicleListSection = dynamic(
   () => import("./_components/VehicleListSection")
@@ -22,35 +24,40 @@ type PropsType = {
   };
 };
 
-const generateMetaData = async (categorySlug: string) => {
+const getCategoryData = async (categorySlug: string) => {
   try {
     const res = await nextApi.get(`/api/categories/${categorySlug}`);
     const data = await res.data.data;
 
-    return {
-      ...data,
-      title: data?.metaTitle,
-      openGraph: {
-        title: data?.metaTitle,
-        description: data?.metaDescription,
-        images: [`${config.imageBaseUrl}${data?.metaImage}`],
-      },
-    };
+    return data;
   } catch (error) {
-    return redirect("404");
+    redirect("/404");
   }
 };
 
+// export async function generateMetaData({
+//   params: { categorySlug },
+// }: PropsType): Promise<Metadata> {
+//   try {
+//     const data = await getCategoryData(categorySlug);
+
+//     return {
+//       title: data.metaTitle,
+//     };
+//   } catch (error) {
+//     return {
+//       title: "Page not found",
+//     };
+//   }
+// }
 const MotorcycleCategoryPage = async ({ params }: PropsType) => {
-  const category = await generateMetaData(params.categorySlug);
+  const category = await getCategoryData(params.categorySlug);
 
   return (
     <div>
-      <Hero
+      <HeroSection
+        {...category}
         desktopBgImage={`${config.imageBaseUrl}${category?.image.slice(1)}`}
-        title={`${category?.title}`}
-        description={`${category?.description}`}
-        textPosition={"bottom-left"}
       />
       {!!category?.id && (
         <VehicleListSection vehicleCategoryId={category?.id} />
@@ -59,6 +66,8 @@ const MotorcycleCategoryPage = async ({ params }: PropsType) => {
     </div>
   );
 };
+
+export default MotorcycleCategoryPage;
 
 // const MotorcycleCategoryPage = (props: PropsType) => {
 //   const features: any = [...Array(6)].map((_, index) => ({
@@ -177,5 +186,3 @@ const MotorcycleCategoryPage = async ({ params }: PropsType) => {
 //     </div>
 //   );
 // };
-
-export default MotorcycleCategoryPage;

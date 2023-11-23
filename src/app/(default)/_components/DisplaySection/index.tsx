@@ -67,7 +67,6 @@ const DisplaySection = (props: PropsType) => {
   }
   return (
     <>
-      {/* <ServicesSection data={services} /> */}
       {pageSections?.map((section: SectionTypes) => (
         <section key={section?.id}>
           {section?.sectionType === "hero-section" && (

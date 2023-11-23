@@ -20,10 +20,9 @@ type PropsType = {
   params: {
     categorySlug: string;
   };
-  searchParms: {};
 };
 
-export const generateMetaData = async (categorySlug: string) => {
+const generateMetaData = async (categorySlug: string) => {
   try {
     const res = await nextApi.get(`/api/categories/${categorySlug}`);
     const data = await res.data.data;

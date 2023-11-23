@@ -19,6 +19,7 @@ import useAPI from "@/hooks/useAPI";
 import config from "@/utils/config";
 
 import { SectionTypes } from "./sectionTypes";
+import PageSectionType from "../PageSectionType";
 
 const NewsGridSectionComponent = dynamic(
   () => import("../NewsGridSectionComponent")
@@ -47,8 +48,8 @@ const MotorcycleCarouselSection = dynamic(
 const NewsGridSection = dynamic(
   () => import("@/components/sections/NewsGridSection")
 );
-const YamahaLifeStyleStudioSection = dynamic(
-  () => import("@/components/sections/YamahaLifeStyleStudioSection")
+const YamahaLifestyleStudioPageSection = dynamic(
+  () => import("../YamahaLifestyleStudioPageSection")
 );
 type PropsType = {
   endpoint: string;
@@ -57,7 +58,7 @@ type PropsType = {
 
 const DisplaySection = (props: PropsType) => {
   const { endpoint, queryName } = props;
-  const { useGet } = useAPI(endpoint);
+  const { useGet }: any = useAPI(endpoint);
   const { data: page, isLoading: pageLoading }: any = useGet(queryName);
   const pageSections: any = page?.data;
   const imageBaseUrl = config.imageBaseUrl;
@@ -65,6 +66,16 @@ const DisplaySection = (props: PropsType) => {
   if (pageLoading) {
     return <Loading />;
   }
+
+  const renderSection = (section: any) => {
+    switch (section.sectionType) {
+      case PageSectionType.lifestyleStudio:
+        return (
+          <YamahaLifestyleStudioPageSection {...section} key={section.id} />
+        );
+    }
+  };
+
   return (
     <>
       {pageSections?.map((section: SectionTypes) => (
@@ -109,7 +120,7 @@ const DisplaySection = (props: PropsType) => {
               newsIds={section?.newsArticleIds?.join(",")}
             />
           )}
-          {section?.sectionType === "embed-social" && <EmbedSocialSection />}
+
           {section?.sectionType === "button-cards-section" && (
             <ImageLinks imageLinks={section?.buttonCards} />
           )}
@@ -159,6 +170,8 @@ const DisplaySection = (props: PropsType) => {
               boxes={section?.contents}
             />
           )}
+
+          {renderSection(section)}
         </section>
       ))}
 

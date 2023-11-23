@@ -10,9 +10,11 @@ import SectionContainer from "../SectionContainer";
 
 type PropsType = {
   image: string;
-  warrantyList: {
-    downloadUrl: string;
+  warrantyList?: {
+    url: string;
     title: string;
+    urlLabel: string;
+    isUrlDownload: true;
   }[];
 };
 
@@ -25,19 +27,26 @@ const PolicyAndGuidedbookSection = (props: PropsType) => {
           <Image src={image} alt="image-warranty" width={350} height={350} />
         </aside>
         <ul className=" w-full md:w-10/12">
-          {warrantyList.map((warranty, indx) => (
+          {warrantyList?.map((warranty, indx) => (
             <li
               key={indx}
               className={` flex flex-wrap md:flex-nowrap items-center gap-5 justify-between md:text-start ${
                 indx > 0 && "pt-10"
-              } ${warrantyList.length !== indx + 1 && "border-b pb-5"}`}
+              } ${warrantyList?.length !== indx + 1 && "border-b pb-5"}`}
             >
               <Heading type={"h5"} className=" font-medium">
-                {warranty.title}
+                {warranty?.title}
               </Heading>
-              <Button appearance="primary" size={"medium"}>
-                Download Copy
-              </Button>
+              {warranty?.isUrlDownload && (
+                <Button
+                  appearance="primary"
+                  size={"medium"}
+                  url={warranty?.url}
+                  download={true}
+                >
+                  {warranty?.urlLabel}
+                </Button>
+              )}
             </li>
           ))}
         </ul>

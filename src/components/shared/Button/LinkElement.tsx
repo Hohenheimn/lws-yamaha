@@ -4,9 +4,10 @@ import Link from "next/link";
 import { ButtonPropsType } from ".";
 
 const LinkElement = (props: ButtonPropsType) => {
-  const { url, size, appearance, children } = props;
+  const { url, size, appearance, children, download } = props;
   return (
     <Link
+      target={download ? "_blank" : "_self"}
       href={url ? url : ""}
       className={` whitespace-nowrap inline-block duration-150 text-white font-medium rounded-lg ${
         size === "medium" && "px-5 py-2  text-base"

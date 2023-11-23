@@ -4,21 +4,43 @@ import React from "react";
 
 import dynamic from "next/dynamic";
 
-import {
-  motocycleCarousel,
-  motocycleCarouselBB,
-} from "@/data/motorcycle/motorcycleCarousel";
-import news from "@/data/news";
+import PolicyAndGuidedbookSectionComponent from "@/app/components/_components/PolicyAndGuidedbookSectionComponent";
+import YamahaTechnicalAcademySectionComponent from "@/app/components/_components/YamahaTechnicalAcademySectionComponent";
+
+import ParagraphAndDownloadSection from "@/components/sections/ParagraphAndDownloadSection";
+
+import PolicyAndGuidedbookSection from "@/components/sections/PolicyAndGuidedbookSection";
+
+import ServiceDetailSection from "@/components/sections/ServiceDetailSection";
+
+import YamahaTechnicalAcademySection from "@/components/sections/YamahaTechnicalAcademySection";
+
 import useAPI from "@/hooks/useAPI";
 import config from "@/utils/config";
 
-import MotorcycleCarouselSectionComponent from "../MotorcycleCarouselSectionComponent";
-import NewsGridSectionComponent from "../NewsGridSectionComponent";
+import { SectionTypes } from "./sectionTypes";
+
+const NewsGridSectionComponent = dynamic(
+  () => import("../NewsGridSectionComponent")
+);
+
+const MotorcycleCarouselSectionComponent = dynamic(
+  () => import("../MotorcycleCarouselSectionComponent")
+);
 
 const EmbedSocialSection = dynamic(
   () => import("@/app/components/_components/EmbedSocialSection")
 );
 const Hero = dynamic(() => import("@/components/sections/Hero"));
+const ImageLinks = dynamic(() => import("@/components/sections/ImageLinks"));
+const InquieryAndFindDealerButtons = dynamic(
+  () => import("@/components/sections/InquieryAndFindDealerButtons")
+);
+const Loading = dynamic(() => import("@/components/shared/Loading"));
+
+const AnnouncementModal = dynamic(
+  () => import("@/components/shared/modals/AnnouncementModal")
+);
 const MotorcycleCarouselSection = dynamic(
   () => import("@/components/sections/MotorcycleCarouselSection")
 );
@@ -28,15 +50,6 @@ const NewsGridSection = dynamic(
 const YamahaLifeStyleStudioSection = dynamic(
   () => import("@/components/sections/YamahaLifeStyleStudioSection")
 );
-const ImageLinks = dynamic(() => import("@/components/sections/ImageLinks"));
-const InquieryAndFindDealerButtons = dynamic(
-  () => import("@/components/sections/InquieryAndFindDealerButtons")
-);
-const Loading = dynamic(() => import("@/components/shared/Loading"));
-const AnnouncementModal = dynamic(
-  () => import("@/components/shared/modals/AnnouncementModal")
-);
-
 type PropsType = {
   endpoint: string;
   queryName: string;
@@ -54,12 +67,11 @@ const DisplaySection = (props: PropsType) => {
   }
   return (
     <>
-      {/* <ServicesSection data={services} /> */}
-      {pageSections?.map((section: any) => (
+      {pageSections?.map((section: SectionTypes) => (
         <section key={section?.id}>
           {section?.sectionType === "hero-section" && (
             <Hero
-              fullHeight={true}
+              fullHeight={section?.fullScreen}
               desktopBgImage={
                 section?.backgroundImage?.includes("http") && section
                   ? section?.backgroundImage
@@ -72,13 +84,18 @@ const DisplaySection = (props: PropsType) => {
               }
               title={section?.title}
               description={section?.description}
-              textPosition={"center"}
-              scrollDown
+              textPosition={
+                section?.alignContentHorizontal && section?.alignContentVertical
+                  ? `${section?.alignContentVertical}-${section?.alignContentHorizontal}`
+                  : "center-center"
+              }
+              imageTitleUrl={section?.image}
+              scrollDown={section?.scrollDown}
             />
           )}
           {section?.sectionType === "vehicle-section" && (
             <MotorcycleCarouselSectionComponent
-              vehicleIds={section.vehicleIds.join(",")}
+              vehicleIds={section?.vehicleIds?.join(",")}
               title={"Personal Commuter"}
               description={
                 " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti aliquam voluptate molestiae fuga architecto obcaecati dolorem blanditiis dolores, dolorum eveniet? Perferendis minima ullam ipsum sapiente veniam dolores facere quod dolorem."
@@ -96,8 +113,55 @@ const DisplaySection = (props: PropsType) => {
           {section?.sectionType === "button-cards-section" && (
             <ImageLinks imageLinks={section?.buttonCards} />
           )}
+          {section?.sectionType === "text-section" && (
+            <ParagraphAndDownloadSection
+              paragraph={section?.description}
+              textAlignment={section?.alignContentHorizontal}
+              downloadLink={section?.url}
+              labelUrl={section?.urlLabel}
+            />
+          )}
+          {section?.sectionType === "warranty-guide-book-section" && (
+            <PolicyAndGuidedbookSection
+              image={
+                section?.image?.includes("http") && section
+                  ? section?.image
+                  : `${imageBaseUrl}${section?.image}`
+              }
+              warrantyList={section?.contents}
+            />
+          )}
+          {section?.sectionType === "service-detail-section" && (
+            <ServiceDetailSection
+              image={
+                section?.image?.includes("http") && section
+                  ? section?.image
+                  : `${imageBaseUrl}${section?.image}`
+              }
+              imagePosition={"left"}
+              title={section?.title}
+              content={[
+                {
+                  type: "text",
+                  value: section?.description,
+                },
+                ...section?.contents,
+              ]}
+              url={section?.url}
+              urlTitle={section?.urlLabel}
+            />
+          )}
+          {section?.sectionType === "yamaha-technical-academy-section" && (
+            <YamahaTechnicalAcademySection
+              icon={"/assets/images/samples/sample-academy-star.png"}
+              title={section?.title}
+              description={section?.description}
+              boxes={section?.contents}
+            />
+          )}
         </section>
       ))}
+
       <InquieryAndFindDealerButtons />
     </>
   );

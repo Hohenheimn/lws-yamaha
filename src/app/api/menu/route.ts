@@ -4,10 +4,10 @@ import api from "@/utils/api";
 
 export const GET = async (req: NextRequest) => {
   const url = new URL(req.url);
-  const type = url.searchParams.get("type");
+  const subCategoryId = url.searchParams.get("subCategoryId");
   const res = await api.get("/menu", {
     params: {
-      ...(type && { type }),
+      ...(subCategoryId && { subCategoryId }),
     },
   });
   const data = await res.data;

@@ -25,6 +25,7 @@ const MotorcycleCardList = (props: PropsType) => {
               features={item.features}
               url={item.url}
               inheritWidth={nowrap ? true : false}
+              title={item.title}
             />
           </li>
         ))}

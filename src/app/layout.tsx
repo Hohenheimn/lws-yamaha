@@ -18,12 +18,12 @@ const montserrat = Montserrat({
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   let menu: ComponentProps<typeof Header>["menu"] = [];
   await api
-    .get("/menu")
+    .get("/menu?subCategoryId=3")
     .then((response) => {
       menu = response.data.data;
     })
     .catch((error) => {
-      console.error("Error fetching data: ", error);
+      console.error("Error fetching Header Menu: ", error);
     });
 
   return (

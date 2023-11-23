@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AiFillInstagram, AiFillYoutube } from "react-icons/ai";
-import { FaFacebookF, FaTiktok } from "react-icons/fa";
+import { FaFacebookF, FaTiktok, FaTwitter } from "react-icons/fa";
 
 import { MdKeyboardArrowRight } from "react-icons/md";
 
@@ -15,6 +15,8 @@ import Breadcrumps from "@/components/partsAndAccessories/Breadcrumps";
 
 import { personalCommuter } from "@/data/headerPersonalCommuter/personalCommuter";
 
+import useAPI from "@/hooks/useAPI";
+
 import Button from "../Button";
 import Heading from "../Heading";
 
@@ -23,10 +25,27 @@ type footerBreadCrumbs = {
   url: string;
 }[];
 
+type settingsType = {
+  id: number;
+  facebookUrl: string;
+  instagramUrl: string;
+  twitterUrl: string;
+  youtubeUrl: string;
+};
+
 const Footer = () => {
   const pathname = usePathname();
   const pathnameSplit = pathname.split("/");
   const [isBreadCrump, setBreadCrump] = useState<footerBreadCrumbs>([]);
+
+  const { useGet: useGetFooterMenu } = useAPI("/api/menu?subCategoryId=4");
+  const { data: footerMenu, isLoading: footerMenuLoading }: any =
+    useGetFooterMenu("footerMenu");
+
+  const { useGet: useGetSettings } = useAPI("/api/settings");
+  const { data: settings, isLoading: settingsLoading }: any =
+    useGetSettings("settings");
+  const settingsSocial: settingsType = settings?.data;
 
   const updateBreadCrump = () => {
     const pathnameArray: footerBreadCrumbs = pathnameSplit.map(
@@ -108,36 +127,58 @@ const Footer = () => {
         )}
 
         <ul className=" flex flex-col sm:flex-row items-center gap-10 sm:gap-14">
-          <li>
-            <Link href="#">About Us</Link>
-          </li>
-          <li>
-            <Link href="#">Contact Us</Link>
-          </li>
-          <li>
-            <Link href="#">Privacy Policy</Link>
-          </li>
-          <li>
-            <Link href="#" className=" flex gap-2 items-center">
-              Yamaha Motor Global <PiShareBold className=" text-1-2rem" />
-            </Link>
-          </li>
+          {footerMenu?.data?.map(
+            (item: { id: number; url: string; label: string }) => (
+              <li key={item?.id}>
+                <Link
+                  href={item?.url}
+                  className={` ${
+                    item?.label === "Yamaha Motor Global" &&
+                    "flex gap-2 items-center"
+                  }`}
+                >
+                  {item?.label}{" "}
+                  {item?.label === "Yamaha Motor Global" && (
+                    <PiShareBold className=" text-1-2rem" />
+                  )}
+                </Link>
+              </li>
+            )
+          )}
         </ul>
         <div className=" flex flex-col items-center gap-5">
           <p>Copyright {"©"} 2023 Yamaha Motors Philippines Inc.</p>
+
           <ul className=" flex gap-10 items-center">
-            <Link href={""}>
-              <AiFillInstagram className=" text-3xl" />
-            </Link>
-            <Link href={""}>
-              <AiFillYoutube className=" text-3xl" />
-            </Link>
-            <Link href={""}>
-              <FaFacebookF className=" text-3xl" />
-            </Link>
-            <Link href={""}>
-              <FaTiktok className=" text-3xl" />
-            </Link>
+            {settingsSocial?.instagramUrl && (
+              <li>
+                <Link href={settingsSocial?.instagramUrl}>
+                  <AiFillInstagram className=" text-3xl" />
+                </Link>
+              </li>
+            )}
+            {settingsSocial?.youtubeUrl && (
+              <li>
+                <Link href={settingsSocial?.youtubeUrl}>
+                  <AiFillYoutube className=" text-3xl" />
+                </Link>
+              </li>
+            )}
+
+            {settingsSocial?.facebookUrl && (
+              <li>
+                <Link href={settingsSocial?.facebookUrl}>
+                  <FaFacebookF className=" text-3xl" />
+                </Link>
+              </li>
+            )}
+            {settingsSocial?.twitterUrl && (
+              <li>
+                <Link href={settingsSocial?.twitterUrl}>
+                  <FaTwitter className=" text-3xl" />
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </section>

@@ -52,12 +52,13 @@ export const generateMetadata = async (props: PropsType) => {
   };
   const imageBaseUrl = config.imageBaseUrl;
   await nextApi
-    .get(`http://localhost:3000/api/pages/${slug}`)
+    .get(`/api/pages/${slug}`)
     .then((res) => {
       meta = res.data.data;
       res.data.data ? (error = false) : (error = true);
     })
     .catch((err) => {
+      console.log(err);
       error = true;
     });
   return {

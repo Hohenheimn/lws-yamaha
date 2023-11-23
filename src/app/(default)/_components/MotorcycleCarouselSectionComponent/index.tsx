@@ -26,6 +26,15 @@ type motorcycleApi = {
   status: number;
   title: string;
   verticalAlignment: "left";
+  vehicleFeatures: vehicleFeatureType[];
+};
+
+type vehicleFeatureType = {
+  id: number;
+  vehicleId: number;
+  title: string;
+  description: string;
+  backgroundImage: string;
 };
 
 const MotorcycleCarouselSectionComponent = (props: PropsType) => {
@@ -45,11 +54,7 @@ const MotorcycleCarouselSectionComponent = (props: PropsType) => {
           imageSrc: motorcycle?.desktopImage?.includes("http")
             ? motorcycle?.desktopImage
             : `${imageBaseUrl}${motorcycle?.desktopImage}`,
-          features: [
-            "Intelligent Front Face",
-            "Front Fuel Lid",
-            "Electric Power Socket",
-          ],
+          features: motorcycle?.vehicleFeatures.map((item) => item?.title),
           url: "#",
         };
       })}

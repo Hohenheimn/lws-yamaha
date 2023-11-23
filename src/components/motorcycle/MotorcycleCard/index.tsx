@@ -31,12 +31,24 @@ const MotorcycleCard = (props: MotorcycleCardType) => {
           <Heading type="h5">{title}</Heading>
           <p className=" font-medium">Product Feature:</p>
           <ul className=" space-y-2">
-            {features?.map((feature, indx) => (
-              <li key={indx} className=" text-[#FFFFFF] flex gap-2">
+            {features[0] && (
+              <li className=" text-[#FFFFFF] flex gap-2">
                 <div className=" h-1 aspect-square bg-white rounded-full mt-2"></div>
-                <p className="line-clamp-2 text-sm">{feature}</p>
+                <p className="line-clamp-2 text-sm">{features[0]}</p>
               </li>
-            ))}
+            )}
+            {features[1] && (
+              <li className=" text-[#FFFFFF] flex gap-2">
+                <div className=" h-1 aspect-square bg-white rounded-full mt-2"></div>
+                <p className="line-clamp-2 text-sm">{features[1]}</p>
+              </li>
+            )}
+            {features[2] && (
+              <li className=" text-[#FFFFFF] flex gap-2">
+                <div className=" h-1 aspect-square bg-white rounded-full mt-2"></div>
+                <p className="line-clamp-2 text-sm">{features[2]}</p>
+              </li>
+            )}
           </ul>
         </aside>
         <aside className="flex w-full justify-center">

@@ -4,6 +4,7 @@ import MotorcycleCarouselSection from "@/components/sections/MotorcycleCarouselS
 import { motocycleCarousel } from "@/data/motorcycle/motorcycleCarousel";
 import useAPI from "@/hooks/useAPI";
 import config from "@/utils/config";
+import validateImageUrl from "@/utils/validateImageUrl";
 
 type PropsType = {
   vehicleIds?: string;
@@ -27,6 +28,9 @@ type motorcycleApi = {
   title: string;
   verticalAlignment: "left";
   vehicleFeatures: vehicleFeatureType[];
+  vehicleVariants: {
+    image: string;
+  }[];
 };
 
 type vehicleFeatureType = {
@@ -51,9 +55,7 @@ const MotorcycleCarouselSectionComponent = (props: PropsType) => {
       motorcycle={vehicles?.data.map((motorcycle: motorcycleApi) => {
         return {
           title: motorcycle?.title,
-          imageSrc: motorcycle?.desktopImage?.includes("http")
-            ? motorcycle?.desktopImage
-            : `${imageBaseUrl}${motorcycle?.desktopImage}`,
+          imageSrc: validateImageUrl(motorcycle?.vehicleVariants[0]?.image),
           features: motorcycle?.vehicleFeatures.map((item) => item?.title),
           url: `${url}/${motorcycle?.slug}`,
         };

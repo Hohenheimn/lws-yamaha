@@ -4,7 +4,6 @@ import nextApi from "@/utils/nextApi";
 import config from "@/utils/config";
 import { redirect } from "next/navigation";
 import { Metadata } from "next";
-import HeroSection from "../_components/HeroSection";
 
 type PropsType = {
   params: {

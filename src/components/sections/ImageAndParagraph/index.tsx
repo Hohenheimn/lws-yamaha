@@ -12,7 +12,7 @@ import Button from "../../shared/Button";
 type PropsType = {
   title: string;
   image: string;
-  imagePosition: "left" | "right";
+  contentAlignment: "left" | "right" | "center";
   content: {
     type: "text" | "list" | "icons";
     value:
@@ -30,14 +30,14 @@ type PropsType = {
 };
 
 const ImageAndParagraph = (props: PropsType) => {
-  const { title, content, image, imagePosition, button } = props;
+  const { title, content, image, contentAlignment, button } = props;
   const imageBaseUrl = config.imageBaseUrl;
   return (
     <ul className="  w-full flex items-center flex-wrap md:flex-nowrap gap-20">
       <li
         className={` w-full md:w-1/2 flex justify-center items-center p-0  ${
-          imagePosition === "right" && "order-2 "
-        } ${imagePosition === "left" && "order-1"}`}
+          contentAlignment === "right" && "order-1 "
+        } ${contentAlignment === "left" && "order-2"}`}
       >
         <aside className="relative w-full aspect-[1.5/1]">
           <Image
@@ -56,8 +56,8 @@ const ImageAndParagraph = (props: PropsType) => {
       </li>
       <li
         className={` w-full md:w-1/2 text-white  space-y-5 ${
-          imagePosition === "right" && "order-1 "
-        } ${imagePosition === "left" && "order-2 "}`}
+          contentAlignment === "right" && "order-2 "
+        } ${contentAlignment === "left" && "order-1 "}`}
       >
         <Heading type="h5">{title}</Heading>
         {content.map((item, indx) => (

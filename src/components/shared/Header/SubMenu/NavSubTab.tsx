@@ -14,9 +14,10 @@ import { MenuType } from "..";
 type PropsType = {
   tabs: MenuType[];
   onClose?: () => void;
+  setClickedMenu?: Function;
 };
 
-const NavSubTab = ({ tabs, onClose }: PropsType) => {
+const NavSubTab = ({ tabs, onClose, setClickedMenu }: PropsType) => {
   const pathname = usePathname();
   const [activeTab, setActiveTab] = useState(
     tabs.some((item) => pathname.includes(item.url)) ? pathname : tabs[0].url
@@ -58,6 +59,9 @@ const NavSubTab = ({ tabs, onClose }: PropsType) => {
                       className={`${
                         menu.url === pathname && "text-white font-bold"
                       } text-lg md:text-base`}
+                      onClick={() => {
+                        setClickedMenu && setClickedMenu(null);
+                      }}
                     >
                       {menu.label}
                     </Link>

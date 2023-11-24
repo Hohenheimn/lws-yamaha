@@ -1,8 +1,11 @@
-import Heading from "@/components/shared/Heading";
 import React from "react";
 
+import Heading from "@/components/shared/Heading";
+
+import SectionContainer from "../SectionContainer";
+
 type PropsType = {
-  data: Array<{
+  data?: Array<{
     category: string;
     id: number;
     services: Array<{
@@ -22,7 +25,7 @@ const ServicesSection = (props: PropsType) => {
         <p>Note: Applicable for selected models only.</p>
       </div>
       <div className="flex flex-col items-center gap-5">
-        {data.map((_) => (
+        {data?.map((_) => (
           <div
             key={_.id}
             className="flex flex-col items-center gap-4 p-6 lg:py-10 lg:px-[100px] border rounded-2xl max-w-6xl w-full"
@@ -33,7 +36,7 @@ const ServicesSection = (props: PropsType) => {
                 <div className="flex-[2] md:flex-[10]">Service Type</div>
                 <div className="flex-1 md:flex-[2]">Labor Time</div>
               </div>
-              {_.services.map((service) => (
+              {_?.services?.map((service) => (
                 <div
                   key={service.id}
                   className="border-b-[2px] border-gray-400 py-2 text-gray-400 flex"

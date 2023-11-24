@@ -28,13 +28,13 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
 
   return (
     <html lang="en" className={montserrat.className}>
-      <QueryProvider>
-        <body className="bg-[#131313]">
+      <body className="bg-[#131313]">
+        <QueryProvider>
           <Header menu={menu} />
           {children}
           <Footer />
-        </body>
-      </QueryProvider>
+        </QueryProvider>
+      </body>
     </html>
   );
 };

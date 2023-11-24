@@ -39,7 +39,7 @@ export const generateMetadata = async (props: PropsType) => {
     metaCanonical: "",
     metaImage: "",
   };
-  const imageBaseUrl = config.imageBaseUrl;
+
   await nextApi
     .get(`/api/pages/${slug === "homepage" ? "home" : slug}`)
     .then((res) => {
@@ -78,7 +78,7 @@ const SlugPage = async (props: PropsType) => {
     <>
       <DisplaySection
         endpoint={`/api/page-sections?pageId=${metaId}`}
-        queryName={slug}
+        queryName={`${slug}-${metaId}`}
       />
     </>
   );

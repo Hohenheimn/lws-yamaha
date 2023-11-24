@@ -26,6 +26,7 @@ import config from "@/utils/config";
 
 import validateImageUrl from "@/utils/validateImageUrl";
 
+import OurServicesComponent from "../OurServicesComponent";
 import PageSectionType from "../PageSectionType";
 import { SectionTypes } from "./sectionTypes";
 
@@ -181,6 +182,9 @@ const DisplaySection = (props: PropsType) => {
               image={section?.image}
               content={section?.contents}
             />
+          )}
+          {section?.sectionType === "our-service-section" && (
+            <OurServicesComponent />
           )}
           {/* {section?.sectionType === "about-yamaha-section" && (
             <YdtSection

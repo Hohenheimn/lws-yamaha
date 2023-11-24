@@ -3,6 +3,7 @@
 import MotorcycleCardList from "@/components/sections/MotorcycleCardList";
 import useAPI from "@/hooks/useAPI";
 import config from "@/utils/config";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 type PropsType = {
@@ -10,6 +11,7 @@ type PropsType = {
 };
 
 const VehicleListSection = (props: PropsType) => {
+  const router = useRouter();
   const { useGet } = useAPI(
     `${config.apiNextBaseUrl}/api/categories/${props.vehicleCategoryId}/vehicles`
   );
@@ -27,7 +29,7 @@ const VehicleListSection = (props: PropsType) => {
         title: `${vehicle?.model}`,
         imageSrc: `${config.imageBaseUrl}${vehicle?.desktopImage}`,
         id: vehicle?.id,
-        url: `motorcycle/${category?.data?.slug}/${vehicle?.slug}`,
+        url: `/motorcycle/${category?.data?.slug}/${vehicle?.slug}`,
         features: vehicle?.vehicleFeatures
           ?.slice(0, 3)
           .map((feature: any) => feature?.title),

@@ -13,7 +13,7 @@ const HeroSection = (props: PropsType) => {
       desktopBgImage={props.desktopBgImage}
       title={props.name}
       description={props.description}
-      textPosition={"bottom-left"}
+      textPosition={"center-center"}
     />
   );
 };

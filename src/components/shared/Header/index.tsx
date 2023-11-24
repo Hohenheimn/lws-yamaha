@@ -81,7 +81,9 @@ const Header = (props: PropsType) => {
                         "text-white"
                       }`}
                       onClick={() => {
-                        setClickedMenu(item);
+                        item.url === clickedMenu?.url
+                          ? setClickedMenu(null)
+                          : setClickedMenu(item);
                       }}
                     >
                       {item.label} <IoIosArrowDown />

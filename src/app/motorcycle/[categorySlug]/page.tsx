@@ -12,7 +12,7 @@ import { redirect } from "next/navigation";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import HeroSection from "./_components/HeroSection";
-import Head from "next/head";
+import axios from "axios";
 
 const VehicleListSection = dynamic(
   () => import("./_components/VehicleListSection")
@@ -27,29 +27,38 @@ type PropsType = {
 const getCategoryData = async (categorySlug: string) => {
   try {
     const res = await nextApi.get(`/api/categories/${categorySlug}`);
-    const data = await res.data.data;
 
-    return data;
+    return await res.data.data;
   } catch (error) {
+    console.error(error);
     redirect("/404");
   }
 };
 
-// export async function generateMetaData({
-//   params: { categorySlug },
-// }: PropsType): Promise<Metadata> {
-//   try {
-//     const data = await getCategoryData(categorySlug);
+export const generateMetadata = async ({
+  params: { categorySlug },
+}: PropsType): Promise<Metadata> => {
+  const data = await getCategoryData(categorySlug);
 
-//     return {
-//       title: data.metaTitle,
-//     };
-//   } catch (error) {
-//     return {
-//       title: "Page not found",
-//     };
-//   }
-// }
+  return {
+    title: data.metaTitle,
+    description: data.metaDescription,
+    keywords: data.metaKeywords,
+    openGraph: {
+      title: data.metaTitle,
+      description: data.metaDescription,
+      url: data.metaCanonical,
+      images: [
+        {
+          url: `${config.imageBaseUrl}${data.image.slice(1)}`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  };
+};
+
 const MotorcycleCategoryPage = async ({ params }: PropsType) => {
   const category = await getCategoryData(params.categorySlug);
 

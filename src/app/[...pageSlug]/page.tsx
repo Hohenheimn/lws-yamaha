@@ -22,13 +22,6 @@ type PropsType = {
   params: { pageSlug: string[] };
 };
 
-// export async function generateMetadata() {
-//   return {
-//     title: "Yamaha Jomari",
-//     description: "adasdasd",
-//   };
-// }
-
 export const generateMetadata = async (props: PropsType) => {
   const { params } = props;
   const slug: string = params.pageSlug.filter(

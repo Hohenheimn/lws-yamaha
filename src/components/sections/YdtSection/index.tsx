@@ -9,11 +9,12 @@ type PropsType = {
   icon: string;
   title: string;
   image: string;
-  content: string[];
+  content: { title: string; description: string }[];
 };
 
 const YdtSection = (props: PropsType) => {
   const { icon, title, image, content } = props;
+
   return (
     <section className=" text-white pt-8 md:pt-14 flex flex-col items-center">
       <ul className=" flex w-full items-center gap-10 md:gap-20 mb-5">
@@ -34,12 +35,10 @@ const YdtSection = (props: PropsType) => {
           <Image src={image} alt="image" width={800} height={800} />
         </aside>
         <ul className=" w-full flex-1 flex flex-col justify-center">
-          {content.map((item, indx) => (
-            <li key={indx} className={`${indx > 0 && "pt-5"} pb-5 border-b`}>
-              <Heading type="h5">
-                {(indx + 1).toString().padStart(2, "0")}{" "}
-              </Heading>
-              <p className=" text-textGray">{item}</p>
+          {content?.map((item, indx) => (
+            <li key={indx} className={`${indx > 0 && "pt-5"} border-b`}>
+              <Heading type="h5">{item?.title}</Heading>
+              <p className=" text-textGray">{item?.description}</p>
             </li>
           ))}
         </ul>

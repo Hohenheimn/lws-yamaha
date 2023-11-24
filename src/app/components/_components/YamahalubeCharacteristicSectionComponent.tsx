@@ -29,8 +29,7 @@ const YamahalubeCharacteristicSectionComponent = () => {
           title: "Meets JASO MB specifications",
           description:
             "The JASO MB locomotive oil specification was formulated in 1998, and was revised in 2006 as a special oil test specification for locomotives. Based on the standard test of four-stroke engine oil,coupled with the friction performance test and high shear stability test standard specifically for the needs of locomotives, to ensure the quality of the manufacturer. In addition to meeting the JASO specifications, YAMALUBE has passed Yamaha’s internal standards that are stricter than the JASO specifications, so consumers can use it with peace of mind.",
-          highlighted_footer:
-            "(JASO = Japanese Automotive Standards Organization, Japanese Automotive Standards Organization specifications).",
+          note: "(JASO = Japanese Automotive Standards Organization, Japanese Automotive Standards Organization specifications).",
         },
       ]}
     />

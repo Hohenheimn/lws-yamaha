@@ -106,7 +106,7 @@ const Footer = () => {
             <li className=" border border-white flex-1"></li>
           </ul>
         </aside>
-        {pathname.includes("/personal-commuter") && (
+        {/* {pathname.includes("/personal-commuter") && (
           <aside className=" pb-5 space-y-10 flex flex-col w-full items-center overflow-auto hide-scrollbar">
             <p className=" font-bold">Personal Commuter</p>
             <aside className=" w-full max-w-[50rem]">
@@ -124,7 +124,7 @@ const Footer = () => {
               </ul>
             </aside>
           </aside>
-        )}
+        )} */}
 
         <ul className=" flex flex-col sm:flex-row items-center gap-10 sm:gap-14">
           {footerMenu?.data?.map(

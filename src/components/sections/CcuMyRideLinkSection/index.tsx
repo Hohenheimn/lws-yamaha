@@ -2,9 +2,9 @@ import React from "react";
 
 import Image from "next/image";
 
-import Heading from "@/components/shared/Heading";
-
 import ImageAndParagraph from "@/components/sections/ImageAndParagraph";
+
+import Heading from "@/components/shared/Heading";
 
 import SectionContainer from "../SectionContainer";
 
@@ -29,7 +29,7 @@ const CcuMyRideLinkSection = (props: PropsType) => {
         title={title}
         image={image}
         content={content}
-        imagePosition={"right"}
+        contentAlignment={"left"}
       />
     </SectionContainer>
   );

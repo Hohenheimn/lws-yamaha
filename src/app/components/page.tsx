@@ -399,6 +399,7 @@ const ComponentsPage = () => {
               videoUrls={[
                 "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
               ]}
+              description={""}
             />
           ),
           wireframeLink:

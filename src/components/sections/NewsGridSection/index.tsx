@@ -1,6 +1,7 @@
+import React, { ComponentProps } from "react";
+
 import NewsCardGrid from "@/components/news/NewsCardGrid";
 import Button from "@/components/shared/Button";
-import React, { ComponentProps } from "react";
 
 type PropsType = {
   onViewAll(): void;
@@ -22,7 +23,12 @@ const NewsGridSection = (props: PropsType) => {
             <hr className="border-[#f1f1f1] border-1 w-12 hidden md:block" />
           </div>
         </div>
-        <Button appearance={"primary"} size={"large"} onClick={props.onViewAll}>
+        <Button
+          appearance={"primary"}
+          size={"large"}
+          url="/news"
+          onClick={props.onViewAll}
+        >
           View All
         </Button>
       </div>

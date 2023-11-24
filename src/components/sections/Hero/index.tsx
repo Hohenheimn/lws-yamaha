@@ -45,8 +45,8 @@ const Hero = (props: PropsType) => {
   return (
     <>
       <section
-        className={` w-full relative ${!fullHeight && "h-[60vh]"} ${
-          fullHeight && "h-[85vh]"
+        className={` w-full relative ${!fullHeight && "h-[62vh]"} ${
+          fullHeight && "h-[92vh]"
         } flex justify-center ${!desktopBgImage && "bg-black"}`}
       >
         {desktopBgImage && (
@@ -67,8 +67,8 @@ const Hero = (props: PropsType) => {
           />
         )}
         {scrollDown && (
-          <div className=" absolute bottom-5">
-            <Link href={"#hero-next"}>
+          <div className=" absolute bottom-16">
+            <Link href={"#explore"}>
               <aside className=" flex items-center flex-col text-white">
                 <IoIosArrowDown className=" text-[5rem] -mb-16" />
                 <IoIosArrowDown className=" text-[8rem] -mb-10" />
@@ -112,7 +112,7 @@ const Hero = (props: PropsType) => {
           </aside>
         </div>
       </section>
-      <div id="hero-next"></div>
+      <div id="explore"></div>
     </>
   );
 };

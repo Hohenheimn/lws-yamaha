@@ -47,13 +47,14 @@ export const generateMetadata = async ({
     title: data.metaTitle,
     description: data.metaDescription,
     keywords: data.metaKeywords,
+
     openGraph: {
       title: data.metaTitle,
       description: data.metaDescription,
       url: data.metaCanonical,
       images: [
         {
-          url: `${config.imageBaseUrl}${data.image.slice(1)}`,
+          url: `${config.imageBaseUrl}${data.metaImage}`,
           width: 1200,
           height: 630,
         },
@@ -69,7 +70,7 @@ const MotorcycleCategoryPage = async ({ params }: PropsType) => {
     <div>
       <HeroSection
         {...category}
-        desktopBgImage={`${config.imageBaseUrl}${category?.image.slice(1)}`}
+        desktopBgImage={`${config.imageBaseUrl}${category?.image}`}
       />
       {!!category?.id && (
         <VehicleListSection vehicleCategoryId={category?.id} />

@@ -26,6 +26,7 @@ import config from "@/utils/config";
 
 import validateImageUrl from "@/utils/validateImageUrl";
 
+import PageSectionType from "../PageSectionType";
 import { SectionTypes } from "./sectionTypes";
 
 const NewsGridSectionComponent = dynamic(
@@ -55,8 +56,8 @@ const MotorcycleCarouselSection = dynamic(
 const NewsGridSection = dynamic(
   () => import("@/components/sections/NewsGridSection")
 );
-const YamahaLifeStyleStudioSection = dynamic(
-  () => import("@/components/sections/YamahaLifeStyleStudioSection")
+const YamahaLifestyleStudioPageSection = dynamic(
+  () => import("../YamahaLifestyleStudioPageSection")
 );
 type PropsType = {
   endpoint: string;
@@ -65,13 +66,23 @@ type PropsType = {
 
 const DisplaySection = (props: PropsType) => {
   const { endpoint, queryName } = props;
-  const { useGet } = useAPI(endpoint);
+  const { useGet }: any = useAPI(endpoint);
   const { data: page, isLoading: pageLoading }: any = useGet(queryName);
   const pageSections: any = page?.data;
 
   if (pageLoading) {
     return <Loading />;
   }
+
+  const renderSection = (section: any) => {
+    switch (section.sectionType) {
+      case PageSectionType.lifestyleStudio:
+        return (
+          <YamahaLifestyleStudioPageSection {...section} key={section.id} />
+        );
+    }
+  };
+
   return (
     <>
       {pageSections?.map((section: SectionTypes) => (
@@ -106,7 +117,7 @@ const DisplaySection = (props: PropsType) => {
               newsIds={section?.newsArticleIds?.join(",")}
             />
           )}
-          {section?.sectionType === "embed-social" && <EmbedSocialSection />}
+
           {section?.sectionType === "button-cards-section" && (
             <ImageLinks imageLinks={section?.buttonCards} />
           )}
@@ -179,6 +190,8 @@ const DisplaySection = (props: PropsType) => {
               content={section?.contents}
             />
           )} */}
+
+          {renderSection(section)}
         </section>
       ))}
 

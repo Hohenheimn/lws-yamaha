@@ -68,14 +68,14 @@ const Header = (props: PropsType) => {
           </Link>
         </aside>
         <aside className=" flex items-center gap-5 text-textGray">
-          <ul className="hidden xl:flex gap-10 items-center text-center ">
+          <ul className="hidden xl:flex gap-7 3xl:gap-10 items-center text-center ">
             {menu
               .sort((a, b) => a.id - b.id)
               .map((item, indx) => (
-                <li key={indx}>
+                <li key={indx} className=" text-sm 3xl:text-base">
                   {item?.children ? (
                     <div
-                      className={` hover:text-white duration-150 cursor-pointer text-base flex items-center gap-2 ${
+                      className={` hover:text-white duration-150 cursor-pointer flex items-center gap-2 ${
                         (clickedMenu?.label === item.label ||
                           pathname.includes(item.url)) &&
                         "text-white"
@@ -89,7 +89,7 @@ const Header = (props: PropsType) => {
                   ) : (
                     <Link
                       href={`${item?.url}`}
-                      className={` text-base hover:text-white duration-150 ${
+                      className={` hover:text-white duration-150 ${
                         (clickedMenu?.label === item.label ||
                           pathname.includes(item.url)) &&
                         "text-white"

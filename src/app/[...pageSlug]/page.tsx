@@ -37,9 +37,9 @@ export const generateMetadata = async (props: PropsType) => {
     metaCanonical: "",
     metaImage: "",
   };
-  const imageBaseUrl = config.imageBaseUrl;
+
   await nextApi
-    .get(`http://localhost:3000/api/pages/${slug}`)
+    .get(`/api/pages/${slug}`)
     .then((res) => {
       meta = res.data.data;
       res.data.data ? (error = false) : (error = true);

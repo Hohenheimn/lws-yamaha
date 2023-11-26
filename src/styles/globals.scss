@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 .unit-carousel.swiper {
   @apply px-14;
   // .swiper-slide {

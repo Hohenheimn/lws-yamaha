@@ -1,10 +1,12 @@
 import React from "react";
 import axios from "axios";
+
 import ParagraphAndDownloadSection from "@/components/sections/ParagraphAndDownloadSection";
 import TitleAndParagraphSection from "@/components/sections/TitleAndParagraphSection";
 import Heading from "@/components/shared/Heading";
 import config from "@/utils/config";
 import nextApi from "@/utils/nextApi";
+
 import DisplaySection from "./_components/DisplaySection";
 
 type Meta = {
@@ -39,12 +41,13 @@ export const generateMetadata = async (props: PropsType) => {
   };
 
   await nextApi
-    .get(`/api/pages/${slug}`)
+    .get(`/api/pages/${slug === "homepage" ? "home" : slug}`)
     .then((res) => {
       meta = res.data.data;
       res.data.data ? (error = false) : (error = true);
     })
     .catch((err) => {
+      console.log(err);
       error = true;
     });
   return {
@@ -75,7 +78,7 @@ const SlugPage = async (props: PropsType) => {
     <>
       <DisplaySection
         endpoint={`/api/page-sections?pageId=${metaId}`}
-        queryName={slug}
+        queryName={`${slug}-${metaId}`}
       />
     </>
   );

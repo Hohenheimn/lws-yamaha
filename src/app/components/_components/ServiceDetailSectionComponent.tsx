@@ -7,7 +7,7 @@ const ServiceDetailSectionComponent = () => {
   return (
     <ServiceDetailSection
       image={"/assets/images/samples/sample-service-2.png"}
-      imagePosition={"left"}
+      contentAlignment={"left"}
       title="Choose only Original"
       content={[
         {
@@ -40,6 +40,7 @@ const ServiceDetailSectionComponent = () => {
       ]}
       url={"#"}
       urlTitle={"See Products"}
+      description={""}
     />
   );
 };

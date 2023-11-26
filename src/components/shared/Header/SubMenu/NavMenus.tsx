@@ -14,9 +14,10 @@ import { MenuType } from "..";
 type PropsType = {
   menus: MenuType[] | undefined;
   onClose?: () => void;
+  setClickedMenu?: Function;
 };
 
-const NavSubMenus = ({ menus, onClose }: PropsType) => {
+const NavSubMenus = ({ menus, onClose, setClickedMenu }: PropsType) => {
   const pathname = usePathname();
   return (
     <section className="w-11/12">
@@ -41,6 +42,9 @@ const NavSubMenus = ({ menus, onClose }: PropsType) => {
                 className={`${
                   menu.url === pathname && "text-white font-bold"
                 } text-lg md:text-base`}
+                onClick={() => {
+                  setClickedMenu && setClickedMenu(null);
+                }}
               >
                 {menu.label}
               </Link>

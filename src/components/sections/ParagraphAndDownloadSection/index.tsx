@@ -9,6 +9,7 @@ import Heading from "@/components/shared/Heading";
 import SectionContainer from "../SectionContainer";
 
 type PropsType = {
+  title?: string;
   paragraph?: string;
   downloadLink?: string;
   labelUrl?: string;
@@ -16,7 +17,7 @@ type PropsType = {
 };
 
 const ParagraphAndDownloadSection = (props: PropsType) => {
-  const { paragraph, downloadLink, labelUrl, textAlignment } = props;
+  const { title, paragraph, downloadLink, labelUrl, textAlignment } = props;
   return (
     <SectionContainer
       width={"narrow"}
@@ -26,17 +27,26 @@ const ParagraphAndDownloadSection = (props: PropsType) => {
         textAlignment === "right" && "text-end"
       }`}
     >
-      <Heading type="h5" className=" text-white font-medium">
-        {paragraph}
-      </Heading>
-      <Link
-        href={downloadLink ? downloadLink : ""}
-        download={true}
-        target="_blank"
-        className="whitespace-nowrap inline-block duration-150 text-white font-medium rounded-lg px-16 py-3  text-xl bg-tertiary hover:bg-hover-tertiary"
-      >
-        {labelUrl}
-      </Link>
+      {title && (
+        <Heading type="h5" className=" text-white font-medium">
+          {title}
+        </Heading>
+      )}
+
+      {paragraph && (
+        <p className=" text-textGray whitespace-pre-wrap">{paragraph}</p>
+      )}
+
+      {labelUrl && (
+        <Link
+          href={downloadLink ? downloadLink : ""}
+          download={true}
+          target="_blank"
+          className="whitespace-nowrap inline-block duration-150 text-white font-medium rounded-lg px-16 py-3  text-xl bg-tertiary hover:bg-hover-tertiary"
+        >
+          {labelUrl}
+        </Link>
+      )}
     </SectionContainer>
   );
 };

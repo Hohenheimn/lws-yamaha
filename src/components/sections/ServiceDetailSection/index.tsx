@@ -11,15 +11,20 @@ import SectionContainer from "../SectionContainer";
 
 type PropsType = {
   image?: string;
-  imagePosition: "left" | "right";
+  contentAlignment: "left" | "right" | "center";
   title?: string;
+  description?: string;
   content?: {
-    type: "text" | "icons";
+    type: "text" | "icons" | "list";
     value:
       | string
       | {
           icon: string;
           title: string;
+        }[]
+      | {
+          title: string;
+          description: string;
         }[];
   }[];
   url?: string;
@@ -27,7 +32,15 @@ type PropsType = {
 };
 
 const ServiceDetailSection = (props: PropsType) => {
-  const { image, imagePosition, title, content, url, urlTitle } = props;
+  const {
+    image,
+    contentAlignment,
+    title,
+    content,
+    url,
+    urlTitle,
+    description,
+  } = props;
   return (
     <SectionContainer
       width="narrow"
@@ -35,9 +48,10 @@ const ServiceDetailSection = (props: PropsType) => {
     >
       <ImageAndParagraph
         title={title ?? ""}
+        description={description ?? ""}
         image={image ?? ""}
         button={{ title: urlTitle ?? "", url: url ?? "" }}
-        imagePosition={imagePosition}
+        contentAlignment={contentAlignment}
         content={content ?? []}
       />
     </SectionContainer>

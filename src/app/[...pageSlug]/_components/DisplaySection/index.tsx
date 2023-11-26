@@ -13,13 +13,25 @@ import PolicyAndGuidedbookSection from "@/components/sections/PolicyAndGuidedboo
 
 import ServiceDetailSection from "@/components/sections/ServiceDetailSection";
 
+import VideoSection from "@/components/sections/VideoSection";
+
+import WhyChooseUsSectoin from "@/components/sections/WhyChooseUsSection";
+import WhyChooseUsSection from "@/components/sections/WhyChooseUsSection";
+
+import YamahalubeCharacteristicSection from "@/components/sections/YamahalubeCharacteristicSection";
+
 import YamahaTechnicalAcademySection from "@/components/sections/YamahaTechnicalAcademySection";
 
-import useAPI from "@/hooks/useAPI";
-import config from "@/utils/config";
+import YdtSection from "@/components/sections/YdtSection";
 
-import { SectionTypes } from "./sectionTypes";
+import useAPI from "@/hooks/useAPI";
+
+import config from "@/utils/config";
+import validateImageUrl from "@/utils/validateImageUrl";
+
+import OurServicesComponent from "../OurServicesComponent";
 import PageSectionType from "../PageSectionType";
+import { SectionTypes } from "./sectionTypes";
 
 const NewsGridSectionComponent = dynamic(
   () => import("../NewsGridSectionComponent")
@@ -61,7 +73,6 @@ const DisplaySection = (props: PropsType) => {
   const { useGet }: any = useAPI(endpoint);
   const { data: page, isLoading: pageLoading }: any = useGet(queryName);
   const pageSections: any = page?.data;
-  const imageBaseUrl = config.imageBaseUrl;
 
   if (pageLoading) {
     return <Loading />;
@@ -84,14 +95,14 @@ const DisplaySection = (props: PropsType) => {
             <Hero
               fullHeight={section?.fullScreen}
               desktopBgImage={
-                section?.backgroundImage?.includes("http") && section
-                  ? section?.backgroundImage
-                  : `${imageBaseUrl}${section?.backgroundImage}`
+                section?.backgroundImage
+                  ? validateImageUrl(section?.backgroundImage)
+                  : undefined
               }
               mobileBgImage={
-                section?.backgroundImage?.includes("http")
-                  ? section?.backgroundImage
-                  : `${imageBaseUrl}${section?.backgroundImage}`
+                section?.backgroundImage
+                  ? validateImageUrl(section?.backgroundImage)
+                  : undefined
               }
               title={section?.title}
               description={section?.description}
@@ -107,12 +118,10 @@ const DisplaySection = (props: PropsType) => {
           {section?.sectionType === "vehicle-section" && (
             <MotorcycleCarouselSectionComponent
               vehicleIds={section?.vehicleIds?.join(",")}
-              title={"Personal Commuter"}
-              description={
-                " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti aliquam voluptate molestiae fuga architecto obcaecati dolorem blanditiis dolores, dolorum eveniet? Perferendis minima ullam ipsum sapiente veniam dolores facere quod dolorem."
-              }
-              image={"/assets/images/samples/homepage/bg-pc.png"}
-              url={"#"}
+              title={section?.title}
+              description={section?.description}
+              image={validateImageUrl(section?.backgroundImage)}
+              url={section?.url}
             />
           )}
           {section?.sectionType === "news-section" && (
@@ -134,29 +143,37 @@ const DisplaySection = (props: PropsType) => {
           )}
           {section?.sectionType === "warranty-guide-book-section" && (
             <PolicyAndGuidedbookSection
-              image={
-                section?.image?.includes("http") && section
-                  ? section?.image
-                  : `${imageBaseUrl}${section?.image}`
-              }
+              image={validateImageUrl(section?.image)}
               warrantyList={section?.contents}
             />
           )}
           {section?.sectionType === "service-detail-section" && (
             <ServiceDetailSection
-              image={
-                section?.image?.includes("http") && section
-                  ? section?.image
-                  : `${imageBaseUrl}${section?.image}`
-              }
-              imagePosition={"left"}
+              image={validateImageUrl(section?.image)}
+              contentAlignment={section?.alignContentHorizontal}
               title={section?.title}
+              description={section?.description}
               content={[
                 {
-                  type: "text",
-                  value: section?.description,
+                  type: "list",
+                  value: section?.contents?.map(
+                    (content: { title: string; description: string }) => {
+                      return {
+                        title: content.title,
+                        description: content.description,
+                      };
+                    }
+                  ),
                 },
-                ...section?.contents,
+                {
+                  type: "icons",
+                  value: section?.contents?.map((content: any) => {
+                    return {
+                      icon: content.image,
+                      title: content.label,
+                    };
+                  }),
+                },
               ]}
               url={section?.url}
               urlTitle={section?.urlLabel}
@@ -170,6 +187,57 @@ const DisplaySection = (props: PropsType) => {
               boxes={section?.contents}
             />
           )}
+          {section?.sectionType === "yamalube-characteristic-section" && (
+            <YamahalubeCharacteristicSection
+              title={section?.title}
+              image={validateImageUrl(section?.image)}
+              characteristics={section?.contents}
+              url={section?.url}
+            />
+          )}
+          {section?.sectionType === "video-section" && (
+            <VideoSection
+              videoUrls={[section?.video]}
+              description={section?.description}
+              title={section?.title}
+            />
+          )}
+          {section?.sectionType === "ydt-section" && (
+            <YdtSection
+              icon={"/assets/images/ydt/ydt-icon.png"}
+              title={section?.title}
+              image={section?.image}
+              content={section?.contents}
+            />
+          )}
+          {section?.sectionType === "our-service-section" && (
+            <OurServicesComponent />
+          )}
+          {section?.sectionType === "why-choose-us-section" && (
+            <WhyChooseUsSection
+              features={section?.contents.map(
+                (
+                  item: { image: string; title: string; description: string },
+                  indx
+                ) => {
+                  return {
+                    id: indx,
+                    image: validateImageUrl(item?.image),
+                    title: item?.title,
+                    description: item?.description,
+                  };
+                }
+              )}
+            />
+          )}
+          {/* {section?.sectionType === "about-yamaha-section" && (
+            <YdtSection
+              icon={"/assets/images/ydt/ydt-icon.png"}
+              title={section?.title}
+              image={validateImageUrl(section?.image)}
+              content={section?.contents}
+            />
+          )} */}
 
           {renderSection(section)}
         </section>
@@ -181,3 +249,23 @@ const DisplaySection = (props: PropsType) => {
 };
 
 export default DisplaySection;
+
+// const content =[
+//   {
+//     type: 'text',
+//     value: "sample value"
+//   },
+//   {
+//     type: 'icons',
+//     value: [{
+//       icon:"/sample/url/of/icon.png",
+//       title: "sample icon"
+//     }]
+//   }, {
+//     type: "list",
+//     value: [{
+//       title: "sample title",
+//       description: "sample description"
+//     }]
+//   }
+// ]

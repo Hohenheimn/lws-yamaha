@@ -1,14 +1,18 @@
-import ArrowTitle from "@/components/shared/ArrowTitle";
 import React, { useEffect, useRef, useState } from "react";
 import { MdPlayCircleFilled } from "react-icons/md";
+
+import ArrowTitle from "@/components/shared/ArrowTitle";
+
+import SectionContainer from "../SectionContainer";
 
 type PropsType = {
   videoUrls: Array<string>;
   title: string;
+  description: string;
 };
 
 const VideoSection = (props: PropsType) => {
-  const { title, videoUrls } = props;
+  const { title, description, videoUrls } = props;
   const [isPlaying, setIsPlaying] = useState<boolean>();
   const video = useRef<HTMLVideoElement>(null);
 
@@ -21,44 +25,46 @@ const VideoSection = (props: PropsType) => {
   const handleOnPause = () => setIsPlaying(false);
 
   return (
-    <div className="flex flex-col gap-5 lg:h-[90vh]">
-      <ArrowTitle title={title} />
-      <div className="relative w-full flex justify-center items-center flex-1 rounded-lg overflow-hidden">
-        <video
-          className=" relative w-full h-full object-cover"
-          ref={video}
-          onClick={handleOnPause}
-        >
-          {videoUrls.map((videoUrl) => {
-            const extension = videoUrl.split(".").pop();
-
-            if (
-              !["mp4", "webm", "ogg", "mov", "mkv", "avi"].includes(
-                `${extension}`
-              )
-            )
-              return null;
-
-            return (
-              <source
-                key={videoUrl}
-                src={videoUrl}
-                type={`video/${extension}`}
-              />
-            );
-          })}
-        </video>
-
-        {!isPlaying && (
-          <button
-            className="absolute text-white cursor-pointer"
-            onClick={handleOnPlay}
+    <SectionContainer width={"widest"}>
+      <div className="flex flex-col gap-10 lg:h-[90vh]">
+        <ArrowTitle title={title} description={description} />
+        <div className="relative w-full flex justify-center items-center flex-1 rounded-lg overflow-hidden">
+          <video
+            className=" relative w-full h-full object-cover"
+            ref={video}
+            onClick={handleOnPause}
           >
-            <MdPlayCircleFilled size={100} />
-          </button>
-        )}
+            {videoUrls.map((videoUrl) => {
+              const extension = videoUrl.split(".").pop();
+
+              if (
+                !["mp4", "webm", "ogg", "mov", "mkv", "avi"].includes(
+                  `${extension}`
+                )
+              )
+                return null;
+
+              return (
+                <source
+                  key={videoUrl}
+                  src={videoUrl}
+                  type={`video/${extension}`}
+                />
+              );
+            })}
+          </video>
+
+          {!isPlaying && (
+            <button
+              className="absolute text-white cursor-pointer"
+              onClick={handleOnPlay}
+            >
+              <MdPlayCircleFilled size={100} />
+            </button>
+          )}
+        </div>
       </div>
-    </div>
+    </SectionContainer>
   );
 };
 

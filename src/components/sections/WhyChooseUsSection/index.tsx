@@ -1,24 +1,29 @@
+import React, { ComponentProps } from "react";
+
 import SquareCard from "@/components/service/SquareCard";
 import Heading from "@/components/shared/Heading";
-import React, { ComponentProps } from "react";
+
+import SectionContainer from "../SectionContainer";
 
 type PropsType = {
   features: Array<ComponentProps<typeof SquareCard>>;
 };
 
-const WhyChooseUsSectoin = (props: PropsType) => {
+const WhyChooseUsSection = (props: PropsType) => {
   return (
-    <div className="flex flex-col text-white gap-5">
-      <Heading type="h4" className="text-center">
-        Why Choose Us?
-      </Heading>
-      <div className="flex gap-4 w-full flex-wrap justify-center">
-        {props.features.map((_) => (
-          <SquareCard key={_.id} {..._} />
-        ))}
+    <SectionContainer width={"widest"}>
+      <div className="flex flex-col text-white gap-5">
+        <Heading type="h4" className="text-center">
+          Why Choose Us?
+        </Heading>
+        <div className="flex gap-4 w-full flex-wrap justify-center">
+          {props.features.map((_) => (
+            <SquareCard key={_.id} {..._} />
+          ))}
+        </div>
       </div>
-    </div>
+    </SectionContainer>
   );
 };
 
-export default WhyChooseUsSectoin;
+export default WhyChooseUsSection;

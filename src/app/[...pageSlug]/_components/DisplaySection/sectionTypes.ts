@@ -1,24 +1,26 @@
-export type SectionTypes = All &
-  vehicleSectionType &
-  heroSectionType &
-  newsSectionType &
-  embedSocialSectionType &
-  buttonCardsSectionType &
-  textSection &
-  warrantyGuideBook &
-  serviceDetailSection &
-  yamahaTechnicalAcademySection;
-
-type All = {
+export type SectionTypes = AllType &
+  VehicleSectionType &
+  HeroSectionType &
+  NewsSectionType &
+  EmbedSocialSectionType &
+  ButtonCardsSectionType &
+  TextSectionType &
+  WarrantyGuideBookType &
+  ServiceDetailSectionType &
+  YamahaTechnicalAcademySectionType &
+  YamahaLubeCharacteristicsType &
+  VideoSectionType &
+  WhyChooseTypeSectionType;
+type AllType = {
   id?: number;
   sectionType: string;
 };
 
-type vehicleSectionType = {
+type VehicleSectionType = {
   vehicleIds?: string[];
 };
 
-type heroSectionType = {
+type HeroSectionType = {
   title?: string;
   description?: string;
   scrollDown?: boolean;
@@ -29,15 +31,15 @@ type heroSectionType = {
   image?: string;
 };
 
-type newsSectionType = {
+type NewsSectionType = {
   newsArticleIds?: number[];
 };
 
-type embedSocialSectionType = {
+type EmbedSocialSectionType = {
   embedSocials?: { name: string; embedSocialId: string }[];
 };
 
-type buttonCardsSectionType = {
+type ButtonCardsSectionType = {
   buttonCards?: {
     url: string;
     name: string;
@@ -45,7 +47,7 @@ type buttonCardsSectionType = {
   }[];
 };
 
-type textSection = {
+type TextSectionType = {
   title?: string;
   description?: string;
   alignContentHorizontal?: string;
@@ -54,7 +56,7 @@ type textSection = {
   isUrlDownload?: true;
 };
 
-type warrantyGuideBook = {
+type WarrantyGuideBookType = {
   image: string;
   contents?: {
     url: string;
@@ -64,7 +66,7 @@ type warrantyGuideBook = {
   }[];
 };
 
-type serviceDetailSection = {
+type ServiceDetailSectionType = {
   title: string;
   description: string;
   image: string;
@@ -73,14 +75,43 @@ type serviceDetailSection = {
   urlLabel: string;
   isUrlDownload: true;
   subTitle: null;
-  contents: [];
+  contents: {
+    title: string;
+    description: string;
+  }[];
 };
 
-type yamahaTechnicalAcademySection = {
+type YamahaTechnicalAcademySectionType = {
   title: "Two Levels";
   description: "The YTA training program is split in two levels: YTA Bronze and Silver.";
   contents: {
     url: string;
+    title: string;
+    description: string;
+  }[];
+};
+
+type YamahaLubeCharacteristicsType = {
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+  contents: {
+    title: string;
+    description: string;
+  };
+};
+
+type VideoSectionType = {
+  video: string;
+  title: string;
+};
+
+type WhyChooseTypeSectionType = {
+  title?: string;
+  description?: string;
+  contents?: {
+    image: string;
     title: string;
     description: string;
   }[];

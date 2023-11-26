@@ -12,6 +12,7 @@ import Button from "../../shared/Button";
 type PropsType = {
   title: string;
   image: string;
+  description?: string;
   contentAlignment: "left" | "right" | "center";
   content: {
     type: "text" | "list" | "icons";
@@ -20,6 +21,10 @@ type PropsType = {
       | string[]
       | {
           icon: string;
+          title: string;
+        }[]
+      | {
+          description: string;
           title: string;
         }[];
   }[];
@@ -30,7 +35,8 @@ type PropsType = {
 };
 
 const ImageAndParagraph = (props: PropsType) => {
-  const { title, content, image, contentAlignment, button } = props;
+  const { title, content, image, contentAlignment, button, description } =
+    props;
   const imageBaseUrl = config.imageBaseUrl;
   return (
     <ul className="  w-full flex items-center flex-wrap md:flex-nowrap gap-20">
@@ -60,6 +66,7 @@ const ImageAndParagraph = (props: PropsType) => {
         } ${contentAlignment === "left" && "order-1 "}`}
       >
         <Heading type="h5">{title}</Heading>
+        {description && <p>{description}</p>}
         {content.map((item, indx) => (
           <aside key={indx}>
             {item.type === "text" && typeof item.value === "string" && (
@@ -71,7 +78,10 @@ const ImageAndParagraph = (props: PropsType) => {
                   <>
                     {item.value.map((item: any, indx) => (
                       <li key={indx} className=" py-5 border-b">
-                        {indx + 1}. {item}
+                        {item.title}
+                        {item?.description && (
+                          <p className=" text-textGray">{item?.description}</p>
+                        )}
                       </li>
                     ))}
                   </>
@@ -105,7 +115,7 @@ const ImageAndParagraph = (props: PropsType) => {
             )}
           </aside>
         ))}
-        {button && (
+        {button?.title && (
           <div className="flex justify-start">
             <Button appearance="primary" url={button?.url} size={"medium"}>
               {button?.title}

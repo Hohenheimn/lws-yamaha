@@ -15,7 +15,11 @@ import ServiceDetailSection from "@/components/sections/ServiceDetailSection";
 
 import VideoSection from "@/components/sections/VideoSection";
 
+import WhyChooseUsSectoin from "@/components/sections/WhyChooseUsSection";
+import WhyChooseUsSection from "@/components/sections/WhyChooseUsSection";
+
 import YamahalubeCharacteristicSection from "@/components/sections/YamahalubeCharacteristicSection";
+
 import YamahaTechnicalAcademySection from "@/components/sections/YamahaTechnicalAcademySection";
 
 import YdtSection from "@/components/sections/YdtSection";
@@ -23,7 +27,6 @@ import YdtSection from "@/components/sections/YdtSection";
 import useAPI from "@/hooks/useAPI";
 
 import config from "@/utils/config";
-
 import validateImageUrl from "@/utils/validateImageUrl";
 
 import OurServicesComponent from "../OurServicesComponent";
@@ -91,8 +94,16 @@ const DisplaySection = (props: PropsType) => {
           {section?.sectionType === "hero-section" && (
             <Hero
               fullHeight={section?.fullScreen}
-              desktopBgImage={validateImageUrl(section?.backgroundImage)}
-              mobileBgImage={validateImageUrl(section?.backgroundImage)}
+              desktopBgImage={
+                section?.backgroundImage
+                  ? validateImageUrl(section?.backgroundImage)
+                  : undefined
+              }
+              mobileBgImage={
+                section?.backgroundImage
+                  ? validateImageUrl(section?.backgroundImage)
+                  : undefined
+              }
               title={section?.title}
               description={section?.description}
               textPosition={
@@ -141,12 +152,28 @@ const DisplaySection = (props: PropsType) => {
               image={validateImageUrl(section?.image)}
               contentAlignment={section?.alignContentHorizontal}
               title={section?.title}
+              description={section?.description}
               content={[
                 {
-                  type: "text",
-                  value: section?.description,
+                  type: "list",
+                  value: section?.contents?.map(
+                    (content: { title: string; description: string }) => {
+                      return {
+                        title: content.title,
+                        description: content.description,
+                      };
+                    }
+                  ),
                 },
-                ...section?.contents,
+                {
+                  type: "icons",
+                  value: section?.contents?.map((content: any) => {
+                    return {
+                      icon: content.image,
+                      title: content.label,
+                    };
+                  }),
+                },
               ]}
               url={section?.url}
               urlTitle={section?.urlLabel}
@@ -186,6 +213,23 @@ const DisplaySection = (props: PropsType) => {
           {section?.sectionType === "our-service-section" && (
             <OurServicesComponent />
           )}
+          {section?.sectionType === "why-choose-us-section" && (
+            <WhyChooseUsSection
+              features={section?.contents.map(
+                (
+                  item: { image: string; title: string; description: string },
+                  indx
+                ) => {
+                  return {
+                    id: indx,
+                    image: validateImageUrl(item?.image),
+                    title: item?.title,
+                    description: item?.description,
+                  };
+                }
+              )}
+            />
+          )}
           {/* {section?.sectionType === "about-yamaha-section" && (
             <YdtSection
               icon={"/assets/images/ydt/ydt-icon.png"}
@@ -205,3 +249,23 @@ const DisplaySection = (props: PropsType) => {
 };
 
 export default DisplaySection;
+
+// const content =[
+//   {
+//     type: 'text',
+//     value: "sample value"
+//   },
+//   {
+//     type: 'icons',
+//     value: [{
+//       icon:"/sample/url/of/icon.png",
+//       title: "sample icon"
+//     }]
+//   }, {
+//     type: "list",
+//     value: [{
+//       title: "sample title",
+//       description: "sample description"
+//     }]
+//   }
+// ]

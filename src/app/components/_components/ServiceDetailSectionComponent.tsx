@@ -40,6 +40,7 @@ const ServiceDetailSectionComponent = () => {
       ]}
       url={"#"}
       urlTitle={"See Products"}
+      description={""}
     />
   );
 };

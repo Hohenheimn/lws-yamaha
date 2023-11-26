@@ -33,7 +33,8 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
 
   useEffect(() => {
     setActiveColor(motorcycle_detail[0]);
-  }, []);
+  }, [motorcycle_detail]);
+
   return (
     <SectionContainer
       className=" flex items-end flex-col space-y-5"
@@ -47,7 +48,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
         <li className=" w-full lg:w-[50%] mr-0 lg:mr-[-10%] aspect-[1.2/1] md:aspect-[2/1] lg:aspect-auto lg:h-auto flex flex-col items-end justify-end z-10 relative">
           <aside className=" relative w-full h-full lg:max-w-[700px] lg:max-h-[700px]">
             <Image
-              src={activeColor.motorcycleImage}
+              src={activeColor?.motorcycleImage}
               alt="motorcycle"
               fill
               // width={700}
@@ -58,18 +59,18 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
               type={"h4"}
               className=" text-white z-10 text-center absolute bottom-0 right-0 w-full flex justify-center"
             >
-              {activeColor.motorcycleName}
+              {activeColor?.motorcycleName}
             </Heading>
           </aside>
         </li>
 
         <li className=" w-full lg:w-[60%] mt-5 lg:mt-16 relative rounded-bl-[3rem] rounded-tl-[3rem] overflow-hidden text-white flex items-center justify-center py-10 md:py-20 ">
           <Image
-            src={activeColor.desktopBgImage}
+            src={activeColor?.desktopBgImage}
             fill
             alt="background"
             className={` object-cover object-center ${
-              activeColor.mobileBgImage && "hidden md:inline"
+              activeColor?.mobileBgImage && "hidden md:inline"
             }`}
           />
           {activeColor?.mobileBgImage && (
@@ -82,7 +83,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
           )}
           <aside className="relative z-10 space-y-8 w-10/12 lg:ml-[10%] lg:w-[60%] 2xl:w-[50%]">
             <Image
-              src={activeColor.titleImage}
+              src={activeColor?.titleImage}
               alt="title"
               height={100}
               width={600}
@@ -90,12 +91,12 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
             <article className=" w-11/12 space-y-8">
               <aside className=" space-y-5">
                 <Heading type={"h5"}>ONLY THE BEST FOR YOU!</Heading>
-                <p>{activeColor.description}</p>
+                <p>{activeColor?.description}</p>
               </aside>
               <aside>
                 <Heading type={"h5"}>Suggested Retail Price:</Heading>
                 <Heading type={"h4"}>
-                  P{numberSeparator(activeColor.price, 2)}
+                  P{numberSeparator(activeColor?.price || 0, 2)}
                 </Heading>
               </aside>
 
@@ -104,7 +105,8 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
                   <li
                     onClick={() => setActiveColor(item)}
                     className={` w-10 aspect-square cursor-pointer  ${
-                      item.color === activeColor.color && " border-2 border-red"
+                      item.color === activeColor?.color &&
+                      " border-2 border-red"
                     }`}
                     style={{ backgroundColor: item.color }}
                     key={indx}

@@ -31,7 +31,7 @@ const MotorcycleFeaturesSection = (props: PropsType) => {
           size={"large"}
           onClick={handleShowAllFeatures}
         >
-          See more
+          {showAllFeatures ? "Show less" : "Show more"}
         </Button>
       </div>
     </div>

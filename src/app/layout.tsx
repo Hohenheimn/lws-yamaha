@@ -27,7 +27,10 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
     });
 
   return (
-    <html lang="en" className={montserrat.className}>
+    <html
+      lang="en"
+      className={`${montserrat.className} scroll-smooth scroll-pt-[75px]`}
+    >
       <QueryProvider>
         <body className="bg-[#131313]">
           <Header menu={menu} />

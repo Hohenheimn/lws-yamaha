@@ -64,9 +64,6 @@ const SlugPage = async (props: PropsType) => {
   const slug = (await generateMetadata(props)).slug;
   const metaId = (await generateMetadata(props)).metaId;
 
-  console.error("Error" + error);
-  console.log("Params" + props.params);
-
   if (error) {
     return (
       <section className=" h-[90vh] flex justify-center items-center">

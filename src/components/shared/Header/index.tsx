@@ -31,8 +31,6 @@ type PropsType = {
 };
 
 const Header = (props: PropsType) => {
-  const router = useRouter();
-
   const { menu } = props;
 
   const pathname = usePathname();

@@ -41,7 +41,7 @@ export const generateMetadata = async (props: PropsType) => {
   };
 
   await nextApi
-    .get(`/api/pages/${slug}`)
+    .get(`/api/pages/${slug === "homepage" ? "home" : slug}`)
     .then((res) => {
       meta = res.data.data;
       res.data.data ? (error = false) : (error = true);

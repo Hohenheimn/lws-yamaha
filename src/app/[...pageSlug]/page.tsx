@@ -41,7 +41,7 @@ export const generateMetadata = async (props: PropsType) => {
   };
 
   await nextApi
-    .get(`/api/pages/${slug === "homepage" ? "home" : slug}`)
+    .get(`/api/pages/${slug}`)
     .then((res) => {
       meta = res.data.data;
       res.data.data ? (error = false) : (error = true);
@@ -63,6 +63,9 @@ const SlugPage = async (props: PropsType) => {
   const error = (await generateMetadata(props)).error;
   const slug = (await generateMetadata(props)).slug;
   const metaId = (await generateMetadata(props)).metaId;
+
+  console.error("Error" + error);
+  console.log("Params" + props.params);
 
   if (error) {
     return (

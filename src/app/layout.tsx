@@ -31,13 +31,13 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
       lang="en"
       className={`${montserrat.className} scroll-smooth scroll-pt-[75px]`}
     >
-      <QueryProvider>
-        <body className="bg-[#131313]">
+      <body className="bg-[#131313]">
+        <QueryProvider>
           <Header menu={menu} />
           {children}
           <Footer />
-        </body>
-      </QueryProvider>
+        </QueryProvider>
+      </body>
     </html>
   );
 };

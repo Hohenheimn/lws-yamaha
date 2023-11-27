@@ -11,7 +11,7 @@ type PropsType = {
 
 const WhyChooseUsSection = (props: PropsType) => {
   return (
-    <SectionContainer width={"widest"}>
+    <SectionContainer width={"wide"}>
       <div className="flex flex-col text-white gap-5">
         <Heading type="h4" className="text-center">
           Why Choose Us?

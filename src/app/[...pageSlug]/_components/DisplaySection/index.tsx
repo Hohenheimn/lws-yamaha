@@ -197,7 +197,7 @@ const DisplaySection = (props: PropsType) => {
           )}
           {section?.sectionType === "video-section" && (
             <VideoSection
-              videoUrls={[section?.video]}
+              youtubeUrl={section?.video}
               description={section?.description}
               title={section?.title}
             />

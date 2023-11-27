@@ -396,9 +396,9 @@ const ComponentsPage = () => {
           component: (
             <VideoSection
               title="Experience YAMAHA’s High – End Technology"
-              videoUrls={[
-                "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-              ]}
+              youtubeUrl={
+                "https://www.youtube.com/embed/JJ6P6c6bkE0?si=MFgAMDjyz9ovX9h2"
+              }
               description={""}
             />
           ),

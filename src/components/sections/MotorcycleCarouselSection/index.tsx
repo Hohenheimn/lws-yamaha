@@ -60,6 +60,7 @@ const MotorcycleCarouselSection = (props: PropsType) => {
       bgImage={desktopBgImage}
       mobileBgImage={mobileBgImage}
       width={"wide"}
+      blur
     >
       <aside className=" w-11/12 max-w-[60rem] text-center text-white space-y-4">
         <Heading type="h4">{title}</Heading>
@@ -71,6 +72,7 @@ const MotorcycleCarouselSection = (props: PropsType) => {
           spaceBetween={30}
           slidesPerView={4}
           className=" unit-carousel"
+          freeMode
           breakpoints={breakpoints}
         >
           <MotorcycleNavigationButton />

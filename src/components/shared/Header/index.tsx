@@ -9,7 +9,7 @@ import { BiSearch } from "react-icons/bi";
 import { FaBars } from "react-icons/fa";
 import { GrMenu } from "react-icons/gr";
 
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowDropdown } from "react-icons/io";
 
 import { IoMenuSharp } from "react-icons/io5";
 
@@ -58,7 +58,12 @@ const Header = (props: PropsType) => {
     <nav className="w-full sticky top-0 flex h-[8vh] md:h-auto justify-center bg-primary-2 text-white py-5 z-40">
       <div className=" w-11/12 flex items-center justify-between gap-5">
         <aside>
-          <Link href={"/"}>
+          <Link
+            href={"/home"}
+            onClick={() => {
+              setClickedMenu(null);
+            }}
+          >
             <Image
               src="/assets/images/logo/logo.png"
               alt="logo"
@@ -86,7 +91,13 @@ const Header = (props: PropsType) => {
                           : setClickedMenu(item);
                       }}
                     >
-                      {item.label} <IoIosArrowDown />
+                      {item.label === "More" ? (
+                        <IoIosArrowDropdown className="text-2xl" />
+                      ) : (
+                        <>
+                          {item.label} <IoIosArrowDown />
+                        </>
+                      )}
                     </div>
                   ) : (
                     <Link

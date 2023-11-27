@@ -1,6 +1,7 @@
+import Button from "@/components/shared/Button";
 import classNames from "classnames";
-import React, { useState } from "react";
-import { LuPlus } from "react-icons/lu";
+import React, { useEffect, useState } from "react";
+import { LuMinus, LuPlus } from "react-icons/lu";
 
 type PropsType = {
   onClickBrochure?(): void;
@@ -17,14 +18,22 @@ type PropsType = {
 
 const SpecificationSection = (props: PropsType) => {
   const specs = props.specifications;
-  const [activeCategoryId, setActiveCategoryId] = useState(specs?.[0]?.id);
+  const [activeCategoryId, setActiveCategoryId] = useState<number>();
+
+  useEffect(() => {
+    if (props.specifications?.length) {
+      setActiveCategoryId(specs?.[0]?.id);
+    }
+  }, [props.specifications]);
 
   const handleActiveCategoryId = (id: number) => {
-    setActiveCategoryId(id);
+    if (id !== activeCategoryId) return setActiveCategoryId(id);
+
+    setActiveCategoryId(undefined);
   };
 
   return (
-    <div className="text-white flex flex-col items-center gap-5">
+    <div className="text-white flex flex-col items-center gap-10">
       <h3 className="font-bold text-3xl">Specifications</h3>
       <div className="flex flex-col w-full max-w-5xl">
         {specs.map((spec) => (
@@ -37,7 +46,8 @@ const SpecificationSection = (props: PropsType) => {
                 }
               )}`}
             >
-              {spec.category} {activeCategoryId !== spec.id && <LuPlus />}
+              {spec.category}{" "}
+              {activeCategoryId !== spec.id ? <LuPlus /> : <LuMinus />}
             </button>
             <table
               className={`w-full ${classNames({
@@ -61,9 +71,13 @@ const SpecificationSection = (props: PropsType) => {
         ))}
       </div>
       {!!props.onClickBrochure && (
-        <button className="bg-red p-2 self-center w-full rounded-xl text-white font-semibold max-w-sm mt-5">
+        <Button
+          appearance={"primary"}
+          size={"large"}
+          onClick={props.onClickBrochure}
+        >
           Brochure
-        </button>
+        </Button>
       )}
     </div>
   );

@@ -35,9 +35,10 @@ const LifeWithMotorcycleSection = (props: PropsType) => {
         <aside className=" relative z-10 space-y-10">
           <Image
             src={imageTitle}
-            width={550}
-            height={550}
+            width={400}
+            height={300}
             alt="Be One With Speed"
+            className="object-contain"
           />
           <p className=" text-xl text-white w-full md:w-[50%] lg:w-[40%] xl:w-[25%] ">
             {description}

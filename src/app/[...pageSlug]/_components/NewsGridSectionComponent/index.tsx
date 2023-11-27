@@ -32,7 +32,7 @@ const NewsGridSectionComponent = (props: PropsType) => {
     <NewsGridSection
       news={data?.data.map((data: NewsType) => ({
         id: data?.id,
-        image: validateImageUrl(data?.banner),
+        image: validateImageUrl(data?.banner.split(",")[0]),
         date: data?.datePublished,
         title: data?.title,
         description: data.newsArticleContents[0].value,

@@ -54,7 +54,7 @@ export const generateMetadata = async (props: PropsType) => {
     title: meta ? meta?.metaTitle : "404 Page",
     description: meta ? meta?.metaDescription : "This page does not exist",
     error: error,
-    slug: slug,
+    slug: slug === "homepage" ? "home" : slug,
     metaId: meta?.id,
   };
 };

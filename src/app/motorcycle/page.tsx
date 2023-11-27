@@ -1,7 +1,8 @@
 import React from "react";
+import { redirect } from "next/navigation";
 
 const MotorcyclePage = () => {
-  return <div>MotorcyclePage</div>;
+  redirect("/home");
 };
 
 export default MotorcyclePage;

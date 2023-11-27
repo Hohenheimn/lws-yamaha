@@ -47,7 +47,6 @@ const MotorcycleCarouselSectionComponent = (props: PropsType) => {
   const { data: vehicles, isLoading: vehicleLoading }: any = useGet(
     `motorcycle-carousel-${vehicleIds}`
   );
-  const imageBaseUrl = config.imageBaseUrl;
   return (
     <MotorcycleCarouselSection
       title={title}

@@ -3,11 +3,11 @@ import { NextResponse, NextRequest } from "next/server";
 import api from "@/utils/api";
 
 export const GET = async (req: NextRequest) => {
-  const categorySlug = req.nextUrl.searchParams.get("categorySlug");
+  const vehicleIds = req.nextUrl.searchParams.get("vehicleIds");
 
   const res = await api.get("/vehicles", {
     params: {
-      ...(categorySlug && { categorySlug }),
+      ...(vehicleIds && { vehicleIds }),
     },
   });
   const data = await res.data;

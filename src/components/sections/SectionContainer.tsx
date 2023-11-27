@@ -16,16 +16,19 @@ const SectionContainer = (props: PropsType) => {
     props;
   return (
     <section
-      className={`relative w-full flex justify-center py-8 md:py-14 bg-center bg-cover bg-no-repeat`}
+      className={`relative w-full flex justify-center py-8 md:py-14 bg-center bg-cover overflow-hidden bg-no-repeat`}
       style={{ backgroundColor: bgColor }}
     >
+      {blur && (
+        <aside className="bg-carousel w-full h-full absolute top-0 left-0 z-10"></aside>
+      )}
       {bgImage && (
         <Image
           src={bgImage}
           fill
           alt="background"
-          className={` object-cover ${blur && "blur-sm"} ${
-            mobileBgImage && "hidden md:inline"
+          className={` object-cover ${mobileBgImage && "hidden md:inline"} ${
+            blur && "blur-sm"
           }`}
         />
       )}
@@ -35,8 +38,8 @@ const SectionContainer = (props: PropsType) => {
           src={mobileBgImage}
           alt="background"
           fill
-          className={` object-cover ${blur && "blur-sm"} ${
-            mobileBgImage && "inline md:hidden"
+          className={` object-cover ${mobileBgImage && "inline md:hidden"} ${
+            blur && "blur-sm"
           }`}
         />
       )}

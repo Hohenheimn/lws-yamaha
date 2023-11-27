@@ -18,6 +18,10 @@ type NewsType = {
   subCategoryId: number;
   title: string;
   viewCount: number;
+  newsArticleContents: {
+    value: string;
+    type: "text";
+  }[];
 };
 
 const NewsGridSectionComponent = (props: PropsType) => {
@@ -31,7 +35,7 @@ const NewsGridSectionComponent = (props: PropsType) => {
         image: validateImageUrl(data?.banner),
         date: data?.datePublished,
         title: data?.title,
-        description: "sample",
+        description: data.newsArticleContents[0].value,
         onClick: () => {},
       }))}
       onViewAll={() => {}}

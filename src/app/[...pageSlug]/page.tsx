@@ -42,7 +42,7 @@ export const generateMetadata = async (props: PropsType) => {
   };
 
   await nextApi
-    .get(`/api/pages/${slug === "favicon.ico" ? "home" : slug}`)
+    .get(`/api/pages/${slug}`)
     .then((res) => {
       meta = res.data.data;
       res.data.data ? (error = false) : (error = true);
@@ -55,7 +55,7 @@ export const generateMetadata = async (props: PropsType) => {
     title: meta ? meta?.metaTitle : "404 Page",
     description: meta ? meta?.metaDescription : "This page does not exist",
     error: error,
-    slug: slug === "favicon.ico" ? "home" : slug,
+    slug: slug,
     metaId: meta?.id,
   };
 };

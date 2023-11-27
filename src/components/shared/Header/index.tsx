@@ -31,6 +31,8 @@ type PropsType = {
 };
 
 const Header = (props: PropsType) => {
+  const router = useRouter();
+
   const { menu } = props;
 
   const pathname = usePathname();
@@ -57,20 +59,19 @@ const Header = (props: PropsType) => {
   return (
     <nav className="w-full sticky top-0 flex h-[8vh] md:h-auto justify-center bg-primary-2 text-white py-3 z-40">
       <div className=" w-11/12 flex items-center justify-between gap-5">
-        <aside className=" cursor-pointer">
-          <Link
-            href={"/homepage"}
-            onClick={() => {
-              setClickedMenu(null);
-            }}
-          >
-            <Image
-              src="/assets/images/logo/logo.png"
-              alt="logo"
-              width={200}
-              height={180}
-            />
-          </Link>
+        <aside
+          className=" cursor-pointer"
+          onClick={() => {
+            router.push("/home");
+            setClickedMenu(null);
+          }}
+        >
+          <Image
+            src="/assets/images/logo/logo.png"
+            alt="logo"
+            width={200}
+            height={180}
+          />
         </aside>
         <aside className=" flex items-center gap-5 text-textGray">
           <ul className="hidden xl:flex gap-7 3xl:gap-10 items-center text-center ">

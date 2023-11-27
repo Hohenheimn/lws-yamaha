@@ -41,20 +41,20 @@ const Header = (props: PropsType) => {
 
   const [mobileMenu, setMobileMenu] = useState(false);
 
-  useEffect(() => {
-    const HandlerResize = () => {
-      if (window.innerWidth <= 1280) {
-        setClickedMenu(null);
-      } else {
-        setMobileMenu(false);
-      }
-    };
-    window.addEventListener("resize", HandlerResize);
-    HandlerResize();
-    return () => {
-      window.removeEventListener("resize", HandlerResize);
-    };
-  });
+  // useEffect(() => {
+  //   const HandlerResize = () => {
+  //     if (window.innerWidth <= 1280) {
+  //       setClickedMenu(null);
+  //     } else {
+  //       setMobileMenu(false);
+  //     }
+  //   };
+  //   window.addEventListener("resize", HandlerResize);
+  //   HandlerResize();
+  //   return () => {
+  //     window.removeEventListener("resize", HandlerResize);
+  //   };
+  // }, [window?.innerWidth]);
 
   return (
     <nav className="w-full sticky top-0 flex h-[8vh] md:h-auto justify-center bg-primary-2 text-white py-3 z-40">

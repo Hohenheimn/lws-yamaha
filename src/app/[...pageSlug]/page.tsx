@@ -22,10 +22,11 @@ type Meta = {
 
 type PropsType = {
   params: { pageSlug: string[] };
+  searchParams: any;
 };
 
 export const generateMetadata = async (props: PropsType) => {
-  const { params } = props;
+  const { params, searchParams } = props;
   const slug: string = params.pageSlug.filter(
     (item, indx) => params.pageSlug.length === indx + 1
   )[0];
@@ -63,10 +64,6 @@ const SlugPage = async (props: PropsType) => {
   const error = (await generateMetadata(props)).error;
   const slug = (await generateMetadata(props)).slug;
   const metaId = (await generateMetadata(props)).metaId;
-
-  console.error("Error" + error);
-  console.log("Params" + props.params);
-
   if (error) {
     return (
       <section className=" h-[90vh] flex justify-center items-center">

@@ -128,7 +128,12 @@ const Footer = () => {
 
         <ul className=" flex flex-col sm:flex-row items-center gap-10 sm:gap-14">
           {footerMenu?.data?.map(
-            (item: { id: number; url: string; label: string }) => (
+            (item: {
+              id: number;
+              url: string;
+              label: string;
+              withLinkIcon: boolean;
+            }) => (
               <li key={item?.id}>
                 <Link
                   href={item?.url}
@@ -138,7 +143,7 @@ const Footer = () => {
                   }`}
                 >
                   {item?.label}{" "}
-                  {item?.label === "Yamaha Motor Global" && (
+                  {item?.withLinkIcon && (
                     <PiShareBold className=" text-1-2rem" />
                   )}
                 </Link>

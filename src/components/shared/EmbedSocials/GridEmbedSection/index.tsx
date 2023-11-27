@@ -9,7 +9,7 @@ type PropsType = {
 
 const GridEmbedSection = (props: PropsType) => {
   return (
-    <div className="w-full" key={`${Math.random() + 1}`}>
+    <div className="w-full" key={props?.embedId}>
       <Script
         id={props?.embedId}
         src="https://embedsocial.com/cdn/ht.js"

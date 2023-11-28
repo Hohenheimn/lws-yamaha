@@ -21,10 +21,10 @@ const tabs: Array<{ id: string; title: string }> = [
     id: "vehicleSpecs",
     title: "Specification",
   },
-  //   {
-  //     id: "vehicleAccessories",
-  //     title: "Accessories",
-  //   },
+  {
+    id: "vehicleAccessories",
+    title: "Accessories",
+  },
 ];
 
 const DetailTabSection = (props: PropsType) => {

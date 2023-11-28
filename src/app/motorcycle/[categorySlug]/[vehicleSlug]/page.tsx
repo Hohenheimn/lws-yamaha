@@ -12,6 +12,7 @@ import FeaturesSection from "./_components/FeturesSection";
 import DetailTabSection from "./_components/DetailTabSection";
 import SpecificationSection from "./_components/SpecificationSection";
 import HighlightSection from "./_components/HighlightSection";
+import AccessoriesSection from "./_components/AccessoriesSection";
 
 type PropsType = {
   params: {
@@ -82,6 +83,9 @@ const MotorcycleCategoryPage = async ({ params }: PropsType) => {
           vehicleId={vehicle.id}
           brochure={vehicle.brochure}
         />
+      </div>
+      <div id="vehicleAccessories" className="">
+        <AccessoriesSection vehicleId={vehicle.id} />
       </div>
       <InquieryAndFindDealerButtons />
     </div>

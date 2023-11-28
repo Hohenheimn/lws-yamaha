@@ -13,7 +13,7 @@ const ColorAndPriceSection = (props: PropsType) => {
   const { useGet } = useAPI(
     `${config.apiNextBaseUrl}/api/vehicle-variants?vehicleId=${props.vehicleId}`
   );
-  const { data, isError, isLoading, isSuccess }: any = useGet([
+  const { data, isError, isSuccess }: any = useGet([
     "vehicle-variants",
     `${props.vehicleId}`,
   ]);

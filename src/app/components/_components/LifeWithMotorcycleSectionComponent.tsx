@@ -11,6 +11,7 @@ const LifeWithMotorcycleSectionComponent = () => {
       description={
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo minima repellat id nihil nisi officia sequi delectus natus, facere exercitationem voluptatibus culpa porro necessitatibus, tempora velit a ratione dolores quidem."
       }
+      gallery={[]}
     />
   );
 };

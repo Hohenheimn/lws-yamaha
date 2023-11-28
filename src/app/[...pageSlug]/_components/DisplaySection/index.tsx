@@ -7,6 +7,8 @@ import dynamic from "next/dynamic";
 import PolicyAndGuidedbookSectionComponent from "@/app/components/_components/PolicyAndGuidedbookSectionComponent";
 import YamahaTechnicalAcademySectionComponent from "@/app/components/_components/YamahaTechnicalAcademySectionComponent";
 
+import DealerSection from "@/components/sections/DealerSection";
+
 import ParagraphAndDownloadSection from "@/components/sections/ParagraphAndDownloadSection";
 
 import PolicyAndGuidedbookSection from "@/components/sections/PolicyAndGuidedbookSection";
@@ -14,8 +16,8 @@ import PolicyAndGuidedbookSection from "@/components/sections/PolicyAndGuidedboo
 import ServiceDetailSection from "@/components/sections/ServiceDetailSection";
 
 import VideoSection from "@/components/sections/VideoSection";
-
 import WhyChooseUsSectoin from "@/components/sections/WhyChooseUsSection";
+
 import WhyChooseUsSection from "@/components/sections/WhyChooseUsSection";
 
 import YamahalubeCharacteristicSection from "@/components/sections/YamahalubeCharacteristicSection";
@@ -25,8 +27,8 @@ import YamahaTechnicalAcademySection from "@/components/sections/YamahaTechnical
 import YdtSection from "@/components/sections/YdtSection";
 
 import useAPI from "@/hooks/useAPI";
-
 import config from "@/utils/config";
+
 import validateImageUrl from "@/utils/validateImageUrl";
 
 import OurServicesComponent from "../OurServicesComponent";
@@ -230,19 +232,10 @@ const DisplaySection = (props: PropsType) => {
               )}
             />
           )}
-          {/* {section?.sectionType === "about-yamaha-section" && (
-            <YdtSection
-              icon={"/assets/images/ydt/ydt-icon.png"}
-              title={section?.title}
-              image={validateImageUrl(section?.image)}
-              content={section?.contents}
-            />
-          )} */}
 
           {renderSection(section)}
         </section>
       ))}
-
       <InquieryAndFindDealerButtons />
     </>
   );

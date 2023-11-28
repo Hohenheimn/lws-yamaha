@@ -1,17 +1,19 @@
 import React from "react";
-import InquieryAndFindDealerButtons from "@/components/sections/InquieryAndFindDealerButtons";
-import nextApi from "@/utils/nextApi";
-import config from "@/utils/config";
-import { redirect } from "next/navigation";
 import { Metadata } from "next";
+import { redirect } from "next/navigation";
+
 import Hero from "@/components/sections/Hero";
+import InquieryAndFindDealerButtons from "@/components/sections/InquieryAndFindDealerButtons";
 import MotorcycleColorAndPriceSection from "@/components/sections/MotorcycleColorAndPriceSection";
-import HeroSection from "./_components/HeroSection";
+import config from "@/utils/config";
+import nextApi from "@/utils/nextApi";
+
 import ColorAndPriceSection from "./_components/ColorAndPriceSection";
-import FeaturesSection from "./_components/FeturesSection";
 import DetailTabSection from "./_components/DetailTabSection";
-import SpecificationSection from "./_components/SpecificationSection";
+import FeaturesSection from "./_components/FeturesSection";
+import HeroSection from "./_components/HeroSection";
 import HighlightSection from "./_components/HighlightSection";
+import SpecificationSection from "./_components/SpecificationSection";
 
 type PropsType = {
   params: {
@@ -72,7 +74,10 @@ const MotorcycleCategoryPage = async ({ params }: PropsType) => {
         <ColorAndPriceSection vehicleId={vehicle.id} />
       </div>
       <div id="lifeWithMotorcycle">
-        <HighlightSection {...vehicle.highlight} />
+        <HighlightSection
+          highlight={vehicle.highlight}
+          vehicleGallery={vehicle.vehicleGallery}
+        />
       </div>
       <div id="vehicleFeatures" className="w-full">
         <FeaturesSection vehicleId={vehicle.id} />

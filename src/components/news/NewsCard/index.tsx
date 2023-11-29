@@ -1,6 +1,8 @@
 import Image from "next/image";
-import NewsCardGrid from "../NewsCardGrid";
+
 import Button from "@/components/shared/Button";
+
+import NewsCardGrid from "../NewsCardGrid";
 
 export type NewsCardType = {
   id: number;
@@ -8,7 +10,8 @@ export type NewsCardType = {
   date: string;
   title: string;
   description: string;
-  onClick(): void;
+  url: string;
+  onClick?: () => void;
 };
 
 type PropsType = NewsCardType;
@@ -30,7 +33,12 @@ const NewsCard = (props: PropsType) => {
           {props.title}
         </p>
         <p className="text-[#A3A3A3] line-clamp-4 mb-3">{props.description}</p>
-        <Button appearance={"primary"} size={"large"} onClick={props.onClick}>
+        <Button
+          appearance={"primary"}
+          url={props.url}
+          size={"large"}
+          onClick={props.onClick}
+        >
           Read More
         </Button>
       </figcaption>

@@ -242,34 +242,6 @@ const DisplaySection = (props: PropsType) => {
             />
           )}
 
-          {/* No integration yet */}
-          {section?.sectionType === "featured-news-section" && (
-            <FeaturedNewsSection
-              title="Race Your Flag"
-              subTitle="Feeling lap. Riding beyond bounderies."
-              news={raceYourFlagNews}
-            />
-          )}
-
-          {/* No integration yet */}
-          {section?.sectionType === "other-news-section" && (
-            <NewsSection
-              title="Other News"
-              news={Array(3)
-                .fill("")
-                .map((_, index) => ({
-                  ...newsCardData,
-                  id: index + 1,
-                  onClick: () => console.log(`News Card ${index + 1}`),
-                }))}
-            />
-          )}
-
-          {/* No integration yet */}
-          {section?.sectionType === "grid-embed-socials-section" && (
-            <GridEmbedSocialSection embedId={""} />
-          )}
-
           {renderSection(section)}
         </section>
       ))}
@@ -279,23 +251,3 @@ const DisplaySection = (props: PropsType) => {
 };
 
 export default DisplaySection;
-
-// const content =[
-//   {
-//     type: 'text',
-//     value: "sample value"
-//   },
-//   {
-//     type: 'icons',
-//     value: [{
-//       icon:"/sample/url/of/icon.png",
-//       title: "sample icon"
-//     }]
-//   }, {
-//     type: "list",
-//     value: [{
-//       title: "sample title",
-//       description: "sample description"
-//     }]
-//   }
-// ]

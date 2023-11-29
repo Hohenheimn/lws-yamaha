@@ -1,10 +1,10 @@
-import React from "react";
+import React, { ComponentProps } from "react";
 
 import ProductCard, { ProductCardType } from "../ProductCard";
 
 export type ProductCardListType = {
   title: string;
-  products: ProductCardType[];
+  products: ComponentProps<typeof ProductCard>[];
   noWrap?: boolean;
 };
 
@@ -15,9 +15,6 @@ const ProductCardList = (props: PropsType) => {
     <div className="flex flex-col gap-5">
       <h3 className="text-[#f1f1f1] font-semibold">{props.title}</h3>
       <div className={`flex gap-6 ${!props.noWrap && "flex-wrap"}`}>
-        {props.products.map((product) => (
-          <ProductCard key={product.id} {...product} />
-        ))}
         {props.products.map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}

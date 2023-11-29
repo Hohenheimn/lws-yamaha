@@ -8,9 +8,11 @@ type ParamsType = {
 };
 
 export const GET = async (req: NextRequest, { params }: ParamsType) => {
+  const type = req.nextUrl.searchParams.get("type");
+
   const res = await api.get(`/categories/${params.categorySlug}`, {
     params: {
-      type: "vehicle",
+      type,
     },
   });
   const data = await res.data;

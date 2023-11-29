@@ -26,7 +26,9 @@ type PropsType = {
 
 const getCategoryData = async (categorySlug: string) => {
   try {
-    const res = await nextApi.get(`/api/categories/${categorySlug}`);
+    const res = await nextApi.get(
+      `/api/categories/${categorySlug}?type=vehicle`
+    );
     const data = await res.data.data;
 
     if (!data) redirect("/404");

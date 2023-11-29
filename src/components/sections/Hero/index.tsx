@@ -44,8 +44,6 @@ const Hero = (props: PropsType) => {
     readMore,
   } = props;
 
-  console.log(desktopBgImage);
-
   return (
     <>
       <section
@@ -102,12 +100,14 @@ const Hero = (props: PropsType) => {
               <Image src={imageTitleUrl} alt="title" width={300} height={300} />
             )}
             {title && (
-              <Heading type="h2" className=" uppercase">
+              <Heading type="h2" className=" uppercase whitespace-pre-wrap">
                 {title}
               </Heading>
             )}
 
-            {description && <p className=" text-lg">{description}</p>}
+            {description && (
+              <p className=" text-lg whitespace-pre-wrap">{description}</p>
+            )}
 
             {readMore && (
               <div className=" mt-5">

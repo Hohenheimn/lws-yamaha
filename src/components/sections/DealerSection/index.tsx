@@ -28,7 +28,9 @@ import { DealerType } from "./type";
 
 const DealerSection = () => {
   const [search, setSearch] = useState("");
-  const [select, setSelect] = useState("");
+  const [select, setSelect] = useState("All");
+  const [limit, setLimit] = useState(10);
+
   const { isLoaded: isMapLoaded } = useLoadScript({
     googleMapsApiKey: `${config.google.mapApiKey}`,
   });
@@ -38,11 +40,19 @@ const DealerSection = () => {
     lng: 120.586289,
   }); //coordinated long, lat value dito
 
-  const { useGet } = useAPI(`/api/dealers`);
-  const { data, isLoading: dealerLoading }: any = useGet(
-    `dealers-${search}-${select}`
+  const { useGet } = useAPI(
+    `/api/dealers?q=${search}&province=${select === "All" ? "" : select}${
+      search === "" && select === "All" ? `&limit=${limit}` : ""
+    }`
   );
-
+  const { useGet: useGetProvinces } = useAPI(`/api/dealers/provinces`);
+  const { data, isLoading: dealerLoading }: any = useGet(
+    `dealers-${search}-${select}-${limit}`,
+    {
+      keepPreviousData: true,
+    }
+  );
+  const { data: provinces }: any = useGetProvinces(`provinces`);
   const dealers: DealerType[] = data?.data;
 
   return (
@@ -59,7 +69,7 @@ const DealerSection = () => {
           <Select
             select={select}
             setSelect={setSelect}
-            choices={["Cavite", "Laguna", "Batangas"]}
+            choices={provinces?.data ? provinces?.data : []}
           />
         </li>
       </ul>
@@ -124,6 +134,14 @@ const DealerSection = () => {
               </aside>
             </article>
           ))}
+          <article className=" flex w-full justify-center py-5">
+            <button
+              onClick={() => setLimit(limit + 10)}
+              className=" px-10 py-2 bg-secondary-2 hover:bg-primary duration-150 rounded-md"
+            >
+              Load more
+            </button>
+          </article>
         </li>
 
         <li className=" w-full order-1 lg:order-2 lg:w-1/2 xl:w-2/3 h-auto aspect-square lg:aspect-auto lg:h-[35rem]">

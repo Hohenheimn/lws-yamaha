@@ -4,12 +4,12 @@ import api from "@/utils/api";
 
 export const GET = async (req: NextRequest) => {
   const url = new URL(req.url);
-  const search = url.searchParams.get("search");
+  const q = url.searchParams.get("q");
   const province = url.searchParams.get("province");
   const limit = url.searchParams.get("limit");
   const res = await api.get("/dealers", {
     params: {
-      ...(search && { search }),
+      ...(q && { q }),
       ...(province && { province }),
       ...(limit && { limit }),
     },

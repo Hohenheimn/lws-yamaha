@@ -270,7 +270,7 @@ const ComponentsPage = () => {
         {/* Grid Embed Socials */}
         {renderComponent({
           title: "Grid Embed Socials",
-          component: <GridEmbedSocialSection />,
+          component: <GridEmbedSocialSection embedId={""} />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A1848&mode=design&t=k72RwsE1mNhfW6Bi-1",
         })}

@@ -21,10 +21,10 @@ const tabs: Array<{ id: string; title: string }> = [
     id: "vehicleSpecs",
     title: "Specification",
   },
-  //   {
-  //     id: "vehicleAccessories",
-  //     title: "Accessories",
-  //   },
+  {
+    id: "vehicleAccessories",
+    title: "Accessories",
+  },
 ];
 
 const DetailTabSection = (props: PropsType) => {
@@ -37,7 +37,7 @@ const DetailTabSection = (props: PropsType) => {
         tabs[0],
         {
           id: "lifeWithMotorcycle",
-          title: "Life with" + props.vehicleName,
+          title: `Life with ${props.vehicleName}`,
         },
         ...tabs.slice(1),
       ].map((tab, index) => ({

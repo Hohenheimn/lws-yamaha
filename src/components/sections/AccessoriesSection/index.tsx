@@ -5,6 +5,7 @@ import Heading from "@/components/shared/Heading";
 import SectionContainer from "../SectionContainer";
 
 type PropsType = {
+  onClick?: () => void;
   accessories: Array<ComponentProps<typeof AccessoryCard>>;
 };
 
@@ -19,7 +20,7 @@ const AccessoriesSection = (props: PropsType) => {
       <Heading type={"h3"} className=" text-white">
         Accessories
       </Heading>
-      <ul className=" flex flex-wrap justify-center gap-10">
+      <ul className="flex flex-wrap justify-center gap-10">
         {accessories.map((accessory, indx) => (
           <li key={indx}>
             <AccessoryCard
@@ -30,7 +31,7 @@ const AccessoriesSection = (props: PropsType) => {
           </li>
         ))}
       </ul>
-      <Button appearance={"primary"} size={"large"} onClick={() => {}}>
+      <Button appearance={"primary"} size={"large"} onClick={props.onClick}>
         Other Accessories
       </Button>
     </SectionContainer>

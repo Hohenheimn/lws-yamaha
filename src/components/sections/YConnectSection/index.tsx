@@ -55,10 +55,10 @@ const YConnectSection = (props: PropsType) => {
         </ul>
       </aside>
       <section className=" flex flex-wrap md:flex-nowrap items-center justify-center gap-5">
-        <aside className=" w-[50%] md:w-auto">
+        <aside className=" w-[20%] md:w-auto">
           <Image src={activeTab.image} alt="phone" width={500} height={500} />
         </aside>
-        <ul className=" text-start space-y-10">
+        <ul className=" w-[80%] text-start space-y-10">
           {activeTab.content.map((item, indx) => (
             <li
               key={indx}
@@ -70,7 +70,9 @@ const YConnectSection = (props: PropsType) => {
               <Heading type={"h5"} className=" mb-3">
                 {item.title}
               </Heading>
-              <p className=" text-textGray">{item.description}</p>
+              <p className=" text-textGray whitespace-pre-wrap">
+                {item.description}
+              </p>
             </li>
           ))}
         </ul>

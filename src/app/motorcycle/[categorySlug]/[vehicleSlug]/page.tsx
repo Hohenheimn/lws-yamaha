@@ -2,18 +2,22 @@ import React from "react";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
+
 import Hero from "@/components/sections/Hero";
 import InquieryAndFindDealerButtons from "@/components/sections/InquieryAndFindDealerButtons";
 import MotorcycleColorAndPriceSection from "@/components/sections/MotorcycleColorAndPriceSection";
 import config from "@/utils/config";
 import nextApi from "@/utils/nextApi";
 
+
+import AccessoriesSection from "./_components/AccessoriesSection";
 import ColorAndPriceSection from "./_components/ColorAndPriceSection";
 import DetailTabSection from "./_components/DetailTabSection";
 import FeaturesSection from "./_components/FeturesSection";
 import HeroSection from "./_components/HeroSection";
 import HighlightSection from "./_components/HighlightSection";
 import SpecificationSection from "./_components/SpecificationSection";
+
 
 type PropsType = {
   params: {
@@ -87,6 +91,9 @@ const MotorcycleCategoryPage = async ({ params }: PropsType) => {
           vehicleId={vehicle.id}
           brochure={vehicle.brochure}
         />
+      </div>
+      <div id="vehicleAccessories" className="">
+        <AccessoriesSection vehicleId={vehicle.id} />
       </div>
       <InquieryAndFindDealerButtons />
     </div>

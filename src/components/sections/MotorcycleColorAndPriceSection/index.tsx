@@ -82,12 +82,15 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
             />
           )}
           <aside className="relative z-10 space-y-8 w-10/12 lg:ml-[10%] lg:w-[60%] 2xl:w-[50%]">
-            <Image
-              src={activeColor?.titleImage}
-              alt="title"
-              height={100}
-              width={600}
-            />
+            <div className="w-full max-w-[400px] h-[170px] relative">
+              <Image
+                src={activeColor?.titleImage}
+                alt="title"
+                fill
+                className="object-contain object-left"
+              />
+            </div>
+
             <article className=" w-11/12 space-y-8">
               <aside className=" space-y-5">
                 <Heading type={"h5"}>ONLY THE BEST FOR YOU!</Heading>

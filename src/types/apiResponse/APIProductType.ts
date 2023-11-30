@@ -43,4 +43,5 @@ type APIProductVariantType = {
   stock: 0;
   images: Array<string>;
   vehicleIds: Array<number>;
+  product?: APIProductType;
 };

@@ -33,10 +33,6 @@ const ProductListSection = (props: PropsType) => {
     }
   }, [data]);
 
-  if (isError) return;
-
-  console.log(subCategories);
-
   const filteredCategories = useMemo(() => {
     if (!subCategoryIds.length) return subCategories;
 
@@ -44,6 +40,8 @@ const ProductListSection = (props: PropsType) => {
       subCategoryIds.includes(category.id)
     );
   }, [subCategories, subCategoryIds]);
+
+  if (isError) return;
 
   return (
     <div className="flex gap-10 p-5">

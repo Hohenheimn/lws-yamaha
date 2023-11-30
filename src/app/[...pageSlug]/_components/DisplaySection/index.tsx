@@ -4,9 +4,18 @@ import React from "react";
 
 import dynamic from "next/dynamic";
 
+import GridEmbedSocialSection from "@/app/components/_components/GridEmbedSocialSection";
 import PolicyAndGuidedbookSectionComponent from "@/app/components/_components/PolicyAndGuidedbookSectionComponent";
+
 import YamahaTechnicalAcademySectionComponent from "@/app/components/_components/YamahaTechnicalAcademySectionComponent";
 
+import BlogSection from "@/components/sections/BlogSection";
+
+import DealerSection from "@/components/sections/DealerSection";
+
+import FeaturedNewsSection from "@/components/sections/FeaturedNewsSection";
+
+import NewsSection from "@/components/sections/NewsSection";
 import ParagraphAndDownloadSection from "@/components/sections/ParagraphAndDownloadSection";
 
 import PolicyAndGuidedbookSection from "@/components/sections/PolicyAndGuidedbookSection";
@@ -16,17 +25,23 @@ import ServiceDetailSection from "@/components/sections/ServiceDetailSection";
 import VideoSection from "@/components/sections/VideoSection";
 
 import WhyChooseUsSectoin from "@/components/sections/WhyChooseUsSection";
+
 import WhyChooseUsSection from "@/components/sections/WhyChooseUsSection";
+import YamahaHistorySection from "@/components/sections/YamahaHistorySection";
 
 import YamahalubeCharacteristicSection from "@/components/sections/YamahalubeCharacteristicSection";
 
 import YamahaTechnicalAcademySection from "@/components/sections/YamahaTechnicalAcademySection";
-
 import YdtSection from "@/components/sections/YdtSection";
+
+import news from "@/data/news";
+import { raceYourFlagNews } from "@/data/news/featuredNews";
+import newsCardData from "@/data/news/newsCard";
 
 import useAPI from "@/hooks/useAPI";
 
 import config from "@/utils/config";
+
 import validateImageUrl from "@/utils/validateImageUrl";
 
 import OurServicesComponent from "../OurServicesComponent";
@@ -51,15 +66,6 @@ const InquieryAndFindDealerButtons = dynamic(
 );
 const Loading = dynamic(() => import("@/components/shared/Loading"));
 
-const AnnouncementModal = dynamic(
-  () => import("@/components/shared/modals/AnnouncementModal")
-);
-const MotorcycleCarouselSection = dynamic(
-  () => import("@/components/sections/MotorcycleCarouselSection")
-);
-const NewsGridSection = dynamic(
-  () => import("@/components/sections/NewsGridSection")
-);
 const YamahaLifestyleStudioPageSection = dynamic(
   () => import("../YamahaLifestyleStudioPageSection")
 );
@@ -94,16 +100,8 @@ const DisplaySection = (props: PropsType) => {
           {section?.sectionType === "hero-section" && (
             <Hero
               fullHeight={section?.fullScreen}
-              desktopBgImage={
-                section?.backgroundImage
-                  ? validateImageUrl(section?.backgroundImage)
-                  : undefined
-              }
-              mobileBgImage={
-                section?.backgroundImage
-                  ? validateImageUrl(section?.backgroundImage)
-                  : undefined
-              }
+              desktopBgImage={validateImageUrl(section?.backgroundImage)}
+              mobileBgImage={validateImageUrl(section?.backgroundImage)}
               title={section?.title}
               description={section?.description}
               textPosition={
@@ -169,7 +167,7 @@ const DisplaySection = (props: PropsType) => {
                   type: "icons",
                   value: section?.contents?.map((content: any) => {
                     return {
-                      icon: content.image,
+                      icon: validateImageUrl(content.image),
                       title: content.label,
                     };
                   }),
@@ -206,7 +204,7 @@ const DisplaySection = (props: PropsType) => {
             <YdtSection
               icon={"/assets/images/ydt/ydt-icon.png"}
               title={section?.title}
-              image={section?.image}
+              image={validateImageUrl(section?.image)}
               content={section?.contents}
             />
           )}
@@ -230,42 +228,28 @@ const DisplaySection = (props: PropsType) => {
               )}
             />
           )}
-          {/* {section?.sectionType === "about-yamaha-section" && (
-            <YdtSection
-              icon={"/assets/images/ydt/ydt-icon.png"}
-              title={section?.title}
-              image={validateImageUrl(section?.image)}
-              content={section?.contents}
+
+          {section?.sectionType === "blog-section" && (
+            <BlogSection
+              blog={{
+                id: Number(section?.id),
+                backgroundImage: validateImageUrl(section?.backgroundImage),
+                title: section?.title,
+                description: section?.description,
+              }}
             />
-          )} */}
+          )}
+
+          {section?.sectionType === "yamaha-history-section" && (
+            <YamahaHistorySection newsData={section?.contents} />
+          )}
 
           {renderSection(section)}
         </section>
       ))}
-
       <InquieryAndFindDealerButtons />
     </>
   );
 };
 
 export default DisplaySection;
-
-// const content =[
-//   {
-//     type: 'text',
-//     value: "sample value"
-//   },
-//   {
-//     type: 'icons',
-//     value: [{
-//       icon:"/sample/url/of/icon.png",
-//       title: "sample icon"
-//     }]
-//   }, {
-//     type: "list",
-//     value: [{
-//       title: "sample title",
-//       description: "sample description"
-//     }]
-//   }
-// ]

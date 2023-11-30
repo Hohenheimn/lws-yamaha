@@ -1,8 +1,18 @@
+"use client";
+
+import SectionContainer from "@/components/sections/SectionContainer";
 import GridEmbedSection from "@/components/shared/EmbedSocials/GridEmbedSection";
 
-const GridEmbedSocialSection = () => {
+type PropsType = {
+  embedId: string;
+};
+
+const GridEmbedSocialSection = (props: PropsType) => {
+  const { embedId } = props;
   return (
-    <GridEmbedSection embedId="46528e56967326dd63c84579774f6e7ad836c217" />
+    <SectionContainer width={"wide"}>
+      <GridEmbedSection embedId={embedId} />
+    </SectionContainer>
   );
 };
 

@@ -16,7 +16,7 @@ const AccessoryCard = (props: PropsType) => {
   return (
     <Link href={url}>
       <div
-        className={`w-[20rem] aspect-square bg-[#4b4b4b] rounded-lg p-5 flex flex-col justify-center items-center gap-5`}
+        className={`w-[20rem] min-h-[20rem] h-full bg-[#4b4b4b] rounded-lg p-5 flex flex-col justify-start items-center gap-5`}
       >
         <aside className=" w-full aspect-[1.2/1] relative">
           <Image
@@ -26,7 +26,9 @@ const AccessoryCard = (props: PropsType) => {
             className=" object-contain"
           />
         </aside>
-        <h4 className=" text-white text-xl font-medium text-center">{title}</h4>
+        <h4 className=" text-white text-xl font-medium text-center ">
+          {title}
+        </h4>
       </div>
     </Link>
   );

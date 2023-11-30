@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 
 import SectionContainer from "@/components/sections/SectionContainer";
 import FacebookEmbedCard from "@/components/shared/EmbedSocials/FacebookEmbedCard";
+import InstagramEmbedCard from "@/components/shared/EmbedSocials/InstagramEmbedCard";
 
 // import InstagramEmbedCard from "@/components/shared/EmbedSocials/InstagramEmbedCard";
 
@@ -22,9 +25,9 @@ const EmbedSocialSection = () => {
   const renderInstagramEmbedCardList = () => {
     return (
       <div className="flex flex-wrap gap-4 justify-center">
-        {/* {instagramUrls.map((instagramUrl, index) => (
+        {instagramUrls.map((instagramUrl, index) => (
           <InstagramEmbedCard key={index + 1} instagramUrl={instagramUrl} />
-        ))} */}
+        ))}
       </div>
     );
   };

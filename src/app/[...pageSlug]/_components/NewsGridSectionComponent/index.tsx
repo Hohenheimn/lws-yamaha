@@ -9,7 +9,7 @@ type PropsType = {
   newsIds?: string;
 };
 
-type NewsType = {
+export type NewsType = {
   banner: string;
   categoryId: string;
   datePublished: string;
@@ -36,7 +36,6 @@ const NewsGridSectionComponent = (props: PropsType) => {
         date: data?.datePublished,
         title: data?.title,
         description: data.newsArticleContents[0].value,
-        onClick: () => {},
       }))}
       onViewAll={() => {}}
     />

@@ -13,7 +13,7 @@ type props = {
 
 export default function SubMenu({ clickedMenu, setClickedMenu }: props) {
   return (
-    <nav className=" flex flex-col max-h-[92vh] overflow-auto md:px-0 justify-start items-center w-full absolute top-full left-0 pt-10 pb-3 bg-[#28282878] backdrop-blur-lg space-y-2">
+    <nav className=" flex flex-col max-h-[92vh] overflow-auto md:px-0 justify-start items-center w-full absolute top-full left-0 pt-10 pb-3 bg-[#28282878] backdrop-blur-lg">
       {clickedMenu?.children[0].children && (
         <NavSubTab
           tabs={clickedMenu?.children}

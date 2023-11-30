@@ -47,7 +47,7 @@ const NavSubTab = ({ tabs, onClose, setClickedMenu }: PropsType) => {
           </li>
         ))}
       </ul>
-      <aside className=" text-gray-300 pb-5 space-y-5 flex bo overflow-auto scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
+      <aside className=" text-gray-300 pb-5 flex bo overflow-auto scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
         {tabs.map((item, indx) => (
           <div key={indx}>
             {activeTab.includes(item.url) && (

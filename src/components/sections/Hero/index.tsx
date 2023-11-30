@@ -7,6 +7,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 import Button from "@/components/shared/Button";
 import Heading from "@/components/shared/Heading";
+import validateImageUrl from "@/utils/validateImageUrl";
 
 type PropsType = {
   desktopBgImage?: string;
@@ -53,7 +54,7 @@ const Hero = (props: PropsType) => {
       >
         {desktopBgImage && (
           <Image
-            src={desktopBgImage}
+            src={validateImageUrl(desktopBgImage)}
             alt="banner"
             fill
             className={` object-cover ${mobileBgImage && "hidden md:inline"}`}
@@ -62,7 +63,7 @@ const Hero = (props: PropsType) => {
 
         {mobileBgImage && (
           <Image
-            src={mobileBgImage}
+            src={validateImageUrl(mobileBgImage)}
             alt="banner"
             fill
             className={` object-cover ${mobileBgImage && "inline md:hidden"}`}
@@ -80,10 +81,7 @@ const Hero = (props: PropsType) => {
         )}
 
         <div
-          className={` h-full w-11/12 py-[5%] flex ${
-            textPosition === "center-center" &&
-            "justify-center items-center text-center"
-          }
+          className={` h-full w-11/12 py-[5%] flex 
             ${textPosition === "bottom-left" && "justify-start items-end"}
             ${textPosition === "bottom-right" && "justify-end items-end"}
             ${textPosition === "bottom-center" && "justify-center items-end"}
@@ -92,12 +90,22 @@ const Hero = (props: PropsType) => {
             ${textPosition === "top-center" && "justify-center items-start"}
             ${textPosition === "center-left" && "justify-start items-center"}
             ${textPosition === "center-right" && "justify-end items-center"}
-            ${textPosition === "center-center" && "justify-center items-center"}
+            ${
+              textPosition === "center-center" &&
+              "justify-center items-center text-center"
+            }
             `}
         >
-          <aside className={` relative z-10 text-white w-full`}>
+          <aside
+            className={` relative z-10 text-white w-full max-w-[40rem] 3xl:max-w-[55rem]`}
+          >
             {imageTitleUrl && (
-              <Image src={imageTitleUrl} alt="title" width={300} height={300} />
+              <Image
+                src={validateImageUrl(imageTitleUrl)}
+                alt="title"
+                width={300}
+                height={300}
+              />
             )}
             {title && (
               <Heading type="h2" className=" uppercase whitespace-pre-wrap">

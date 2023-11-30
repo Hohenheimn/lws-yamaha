@@ -14,6 +14,7 @@ import Button from "../../shared/Button";
 type PropsType = {
   title: string;
   image: string;
+  autoImage?: boolean;
   description?: string;
   contentAlignment: "left" | "right" | "center";
   content: {
@@ -37,9 +38,15 @@ type IconsType = {
 };
 
 const ImageAndParagraph = (props: PropsType) => {
-  const { title, content, image, contentAlignment, button, description } =
-    props;
-  const imageBaseUrl = config.imageBaseUrl;
+  const {
+    title,
+    content,
+    image,
+    contentAlignment,
+    button,
+    description,
+    autoImage,
+  } = props;
   return (
     <ul className="  w-full flex items-center flex-wrap md:flex-nowrap gap-20">
       <li
@@ -47,10 +54,19 @@ const ImageAndParagraph = (props: PropsType) => {
           contentAlignment === "right" && "order-1 "
         } ${contentAlignment === "left" && "order-2"}`}
       >
-        {image && (
+        {autoImage && (
+          <Image
+            src={image}
+            width={1000}
+            height={1000}
+            alt="Image"
+            className=" object-cover"
+          />
+        )}
+        {image && !autoImage && (
           <aside className="relative w-full aspect-[1.5/1]">
             <Image
-              src={validateImageUrl(image)}
+              src={image}
               // width={1000}
               // height={1000}
               fill

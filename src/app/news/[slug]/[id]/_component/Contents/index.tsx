@@ -33,20 +33,20 @@ const NewsContents = (props: PropsType) => {
   const { news, banner, title, date } = props;
   const router = useRouter();
   const pathname = usePathname();
-
   const [limit, setLimit] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const { useGet }: any = useAPI(
     `/api/news-article/list?category=${
       pathname.includes("news-and-events") ? "News and Events" : "Yamaha Racing"
-    }&limit=${limit}`
+    }&limit=${limit}&page=${currentPage}`
   );
   const { data: page, isLoading: pageLoading }: any = useGet(
     `${
       pathname.includes("news-and-events") ? "News and Events" : "Yamaha Racing"
-    }-${limit}`
+    }-${limit}-${currentPage}`
   );
-  const otherNews: NewsType[] = page?.data;
+  const otherNews: NewsType[] = page?.data?.newsArticle;
 
   if (pageLoading) {
     return <Loading />;
@@ -96,7 +96,7 @@ const NewsContents = (props: PropsType) => {
       </SectionContainer>
       <ArrowTitle title={"Others"} />
       <SectionContainer width={"wide"}>
-        <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 ">
           {otherNews?.map((item, indx) => (
             <NewsCard
               key={indx}
@@ -115,9 +115,9 @@ const NewsContents = (props: PropsType) => {
         </div>
         <div className=" pt-10 lg:pt-20">
           <Pagination
-            setTablePage={setLimit}
-            tablePage={limit}
-            totalPage={20}
+            setTablePage={setCurrentPage}
+            tablePage={currentPage}
+            totalPage={limit}
           />
         </div>
       </SectionContainer>

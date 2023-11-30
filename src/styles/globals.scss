@@ -53,3 +53,9 @@ html {
   z-index: 99999 !important;
   background-color: #000000c2 !important;
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -23,10 +23,11 @@ const NewsSlugComponents = (props: PropTypes) => {
   const { slug } = props;
   const pathname = usePathname();
   const [limit, setLimit] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
   const { useGet }: any = useAPI(
     `/api/news-article/list?category=${
       slug === "news-and-events" ? "News and Events" : "Yamaha Racing"
-    }&limit=${10}`
+    }&limit=${limit}&page=${currentPage}`
   );
   const {
     data: page,
@@ -35,7 +36,7 @@ const NewsSlugComponents = (props: PropTypes) => {
   }: any = useGet(
     `${
       pathname.includes("news-and-events") ? "News and Events" : "Yamaha Racing"
-    }-${limit}`
+    }-${limit}-${currentPage}`
   );
   const newsData: NewsType[] = page?.data?.newsArticle;
 
@@ -76,7 +77,7 @@ const NewsSlugComponents = (props: PropTypes) => {
 
       <ArrowTitle title={"Others"} />
       <SectionContainer className="" width={"wide"}>
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 ">
           {newsData?.slice(4).map((news, indx) => (
             <NewsCard
               key={indx}
@@ -99,9 +100,9 @@ const NewsSlugComponents = (props: PropTypes) => {
         </div>
         <div className=" pt-10 lg:pt-20">
           <Pagination
-            setTablePage={setLimit}
-            tablePage={limit}
-            totalPage={20}
+            setTablePage={setCurrentPage}
+            tablePage={currentPage}
+            totalPage={Number(page?.data?.totalPage)}
           />
         </div>
       </SectionContainer>

@@ -1,5 +1,6 @@
 import React from "react";
 
+import CcuMyRideLinkSectionComponent from "@/app/components/_components/CcuMyRideLinkSectionComponent";
 import CcuUpdatingProcedureSectionComponenet from "@/app/components/_components/CcuUpdatingProcedureSectionComponenet";
 import Hero from "@/components/sections/Hero";
 
@@ -19,6 +20,7 @@ const page = () => {
         title={`THE NEW CCU\nTECHNOLOGY`}
         description={`Lorem ipsum dolor sit amet consectetur. Malesuada non mauris pellentesque\naugue fermentum tristique nulla et. In vitae donec fringilla elit hendrerit aliquet`}
       />
+      <CcuMyRideLinkSectionComponent />
       <CcuUpdatingProcedureSectionComponenet />
     </>
   );

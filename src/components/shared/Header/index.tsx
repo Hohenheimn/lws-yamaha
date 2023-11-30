@@ -24,6 +24,7 @@ export type MenuType = {
   url: string;
   parentId: string | null;
   children: MenuType[];
+  withLinkIcon: boolean;
 };
 
 type PropsType = {

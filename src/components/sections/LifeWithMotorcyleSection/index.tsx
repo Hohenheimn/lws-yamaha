@@ -38,12 +38,11 @@ const LifeWithMotorcycleSection = (props: PropsType) => {
   };
   return (
     <>
-      1{" "}
       <SectionContainer className=" flex items-end flex-col" width="widest">
         <section className="relative min-h-[80vh] flex items-center justify-end w-[95.83%]">
           <aside className=" w-[85%] h-full">
-            <div className=" absolute top-0 left-0 h-full w-[20%] bg-gradient-to-r from-[#131313] via-[#13131399] to-[#13131300] z-10"></div>
-            <ul className=" w-full h-full columns-1 md:columns-2 lg:columns-4 gap-5">
+            <ul className=" relative w-full h-full columns-1 md:columns-2 lg:columns-4 gap-5">
+              <li className=" absolute top-0 left-0  h-full w-[5rem] z-10 bg-gradient-to-r from-[#131313] via-[#1313136a] to-[#13131300]"></li>
               {gallery?.slice(0, 2).map((gallery, indx) => (
                 <GalleryItem
                   key={indx}

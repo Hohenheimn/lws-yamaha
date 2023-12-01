@@ -9,10 +9,10 @@ const LinkElement = (props: ButtonPropsType) => {
     <Link
       target={download ? "_blank" : "_self"}
       href={url ? url : ""}
-      className={` whitespace-nowrap inline-block duration-150 text-white font-medium rounded-lg ${
+      className={` text-center whitespace-nowrap inline-block duration-150 text-white rounded-lg font-medium ${
         size === "medium" && "px-5 py-2  text-base"
       } ${size === "large" && " px-16 py-3  text-xl"}
- ${appearance === "primary" && "bg-tertiary hover:bg-hover-tertiary"} ${
+${appearance === "primary" && "bg-tertiary hover:bg-hover-tertiary"} ${
         appearance === "secondary" && " bg-[#2f58cd] hover:bg-hover-quarternary"
       }`}
     >

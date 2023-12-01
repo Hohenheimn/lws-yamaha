@@ -1,10 +1,8 @@
+"use client";
+
 import React from "react";
 
-import Image from "next/image";
-
 import ImageAndParagraph from "@/components/sections/ImageAndParagraph";
-
-import Heading from "@/components/shared/Heading";
 
 import SectionContainer from "../SectionContainer";
 
@@ -13,7 +11,7 @@ type PropsType = {
   image: string;
   content: {
     type: "text" | "list";
-    value: string | string[];
+    value: string | { title: string; description: string }[];
   }[];
 };
 
@@ -26,6 +24,7 @@ const CcuMyRideLinkSection = (props: PropsType) => {
       className="flex justify-center"
     >
       <ImageAndParagraph
+        autoImage
         title={title}
         image={image}
         content={content}

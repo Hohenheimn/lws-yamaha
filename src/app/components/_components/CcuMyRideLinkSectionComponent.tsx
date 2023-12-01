@@ -14,9 +14,18 @@ const CcuMyRideLinkSectionComponent = () => {
         {
           type: "list",
           value: [
-            "Launch MyRide-Link App",
-            "Tap [Settings] in the bottom menu",
-            'Check "App Version" in "Settings"',
+            {
+              title: "1. Launch MyRide-Link App",
+              description: "",
+            },
+            {
+              title: "2. Tap [Settings] in the bottom menu",
+              description: "",
+            },
+            {
+              title: `3. Check "App Version" in "Settings`,
+              description: "",
+            },
           ],
         },
         {
@@ -26,7 +35,7 @@ const CcuMyRideLinkSectionComponent = () => {
         },
       ]}
       title={"How to check MyRide-Link App Version"}
-      image={"/assets/images/samples/sample-mobile.png"}
+      image={"/assets/images/ccu-updating-procedure/ccu-phone.png"}
     />
   );
 };

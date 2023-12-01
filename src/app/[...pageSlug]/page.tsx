@@ -52,8 +52,21 @@ export const generateMetadata = async (props: PropsType) => {
       error = true;
     });
   return {
-    title: meta ? meta?.metaTitle : "404 Page",
-    description: meta ? meta?.metaDescription : "This page does not exist",
+    title: meta?.metaTitle,
+    description: meta?.metaDescription,
+    keywords: meta?.metaKeywords,
+    openGraph: {
+      title: meta?.metaTitle,
+      description: meta?.metaDescription,
+      url: meta?.metaCanonical,
+      images: [
+        {
+          url: `${config.imageBaseUrl}${meta?.metaImage}`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
     error: error,
     slug: slug,
     metaId: meta?.id,

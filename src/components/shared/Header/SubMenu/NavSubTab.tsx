@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 
+import { PiShareBold } from "react-icons/pi";
+
 import { navTabType } from "@/data/navigationUrl";
 
 import { MenuType } from "..";
@@ -22,6 +24,10 @@ const NavSubTab = ({ tabs, onClose, setClickedMenu }: PropsType) => {
   const [activeTab, setActiveTab] = useState(
     tabs.some((item) => pathname.includes(item.url)) ? pathname : tabs[0].url
   );
+  console.log(tabs);
+  // {item?.withLinkIcon && (
+  //   <PiShareBold className=" text-1-2rem" />
+  // )}
   return (
     <section className=" w-11/12">
       <button
@@ -40,14 +46,24 @@ const NavSubTab = ({ tabs, onClose, setClickedMenu }: PropsType) => {
             className={`${
               activeTab.includes(item.url) &&
               " after:content-[''] text-white after:absolute after:w-full after:bottom-0 after:left-0 after:h-[2px] after:bg-white"
-            } text-lg cursor-pointer relative`}
-            onClick={() => setActiveTab(item.url)}
+            } text-lg relative  flex gap-2  items-center`}
           >
-            {item.label}
+            <div
+              onClick={() => setActiveTab(item.url)}
+              className=" cursor-pointer"
+            >
+              {item.label}
+            </div>
+
+            {item?.withLinkIcon && (
+              <Link href={item.url}>
+                <PiShareBold className=" text-1-2rem" />
+              </Link>
+            )}
           </li>
         ))}
       </ul>
-      <aside className=" text-gray-300 pb-5 space-y-5 flex bo overflow-auto scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
+      <aside className=" text-gray-300 pb-5 flex bo overflow-auto scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
         {tabs.map((item, indx) => (
           <div key={indx}>
             {activeTab.includes(item.url) && (

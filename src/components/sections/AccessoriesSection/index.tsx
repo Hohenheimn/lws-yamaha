@@ -1,7 +1,9 @@
 import React, { ComponentProps } from "react";
+
 import AccessoryCard from "@/components/shared/AccessoryCard";
 import Button from "@/components/shared/Button";
 import Heading from "@/components/shared/Heading";
+
 import SectionContainer from "../SectionContainer";
 
 type PropsType = {
@@ -22,7 +24,7 @@ const AccessoriesSection = (props: PropsType) => {
       </Heading>
       <ul className="flex flex-wrap justify-center gap-10">
         {accessories.map((accessory, indx) => (
-          <li key={indx}>
+          <li key={indx} className="">
             <AccessoryCard
               accessoryImage={accessory.accessoryImage}
               title={accessory.title}

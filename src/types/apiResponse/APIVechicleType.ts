@@ -18,6 +18,9 @@ type APIVechicleType = {
   metaImage: string;
   status: 1 | 0;
   highlight: APIVechicleHightlightType;
+  vehicleGallery: {
+    image: string;
+  }[];
 };
 
 type APIVechicleHightlightType = {

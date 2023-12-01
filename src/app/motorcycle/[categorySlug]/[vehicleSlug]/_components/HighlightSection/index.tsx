@@ -1,10 +1,17 @@
-import LifeWithMotorcycleSection from "@/components/sections/LifeWithMotorcyleSection";
-import config from "@/utils/config";
 import React from "react";
 
-type PropsType = APIVechicleHightlightType;
+import LifeWithMotorcycleSection from "@/components/sections/LifeWithMotorcyleSection";
+import config from "@/utils/config";
+
+type PropsType = {
+  highlight: APIVechicleHightlightType;
+  vehicleGallery: {
+    image: string;
+  }[];
+};
 
 const HighlightSection = (props: PropsType) => {
+  const { highlight, vehicleGallery } = props;
   const withBaseUrl = (url: string) => {
     if (/^http+/.test(url)) return url;
 
@@ -13,10 +20,16 @@ const HighlightSection = (props: PropsType) => {
 
   return (
     <LifeWithMotorcycleSection
-      imageTitle={withBaseUrl(props.image)}
-      desktopBgImage={withBaseUrl(props.backgroundImage)}
-      mobileBgImage={withBaseUrl(props.backgroundImage)}
-      description={props.description}
+      imageTitle={withBaseUrl(highlight.image)}
+      desktopBgImage={withBaseUrl(highlight.backgroundImage)}
+      mobileBgImage={withBaseUrl(highlight.backgroundImage)}
+      description={highlight.description}
+      gallery={vehicleGallery?.map((item, indx) => {
+        return {
+          src: withBaseUrl(item.image),
+          indx: indx,
+        };
+      })}
     />
   );
 };

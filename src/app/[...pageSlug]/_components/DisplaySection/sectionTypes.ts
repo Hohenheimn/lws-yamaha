@@ -10,7 +10,8 @@ export type SectionTypes = AllType &
   YamahaTechnicalAcademySectionType &
   YamahaLubeCharacteristicsType &
   VideoSectionType &
-  WhyChooseTypeSectionType;
+  WhyChooseTypeSectionType &
+  YamahaHistorySection;
 type AllType = {
   id?: number;
   sectionType: string;
@@ -111,6 +112,15 @@ type WhyChooseTypeSectionType = {
   title?: string;
   description?: string;
   contents?: {
+    image: string;
+    title: string;
+    description: string;
+  }[];
+};
+
+type YamahaHistorySection = {
+  contents?: {
+    url: string;
     image: string;
     title: string;
     description: string;

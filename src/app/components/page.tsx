@@ -99,37 +99,33 @@ const ComponentsPage = () => {
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=1129-2510&mode=design&t=FG2Ofqrm6Tlskpwc-0",
         })}
-
         {renderComponent({
           title: "Button Card Section ",
           component: <ButtonCardSection />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=1129-2510&mode=design&t=FG2Ofqrm6Tlskpwc-0",
         })}
-
         {renderComponent({
           title: "Title and Paragraph Section ",
           component: <TitleAndParagraphSectionComponent />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=1129-2652&mode=design&t=FG2Ofqrm6Tlskpwc-0",
         })}
-
         {renderComponent({
           title: "Paragraph And Download ",
           component: <ParagraphAndDownloadSectionComponent />,
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=1129-2510&mode=design&t=FG2Ofqrm6Tlskpwc-0",
         })}
-
         {/* Parts and Accessories Details Section */}
-        {renderComponent({
-          title: "Featured News Section",
+        {/* {renderComponent({
+          title: "Product Details Section",
           component: (
             <PartsAndAccessoriesDetailsSection product={productData} />
           ),
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=1129%3A3379&mode=design&t=cyNBKBl85Ry8eZd0-1",
-        })}
+        })} */}
         {/* Featured News Section */}
         {renderComponent({
           title: "Featured News Section",
@@ -164,7 +160,6 @@ const ComponentsPage = () => {
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3&mode=design&t=Kd8GAXZ5PgsrYdPD-0",
         })}
-
         {/* Hero Homepage */}
         {renderComponent({
           title: "Hero Homepage",
@@ -199,7 +194,6 @@ const ComponentsPage = () => {
           <h3>Motorcycle Model Section</h3>
           <MotorcycleCarouselComponent />
         </div>
-
         {renderComponent({
           title: "Motorcycle Color And Price Section",
           component: <MotorcycleColorAndPriceSectionComponent />,
@@ -230,7 +224,6 @@ const ComponentsPage = () => {
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508-3315&mode=design&t=h209WHt5nneJ1fa7-0",
         })}
-
         {/* Product Card */}
         {renderComponent({
           title: "Product Card",
@@ -281,7 +274,6 @@ const ComponentsPage = () => {
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A3046&mode=design&t=k72RwsE1mNhfW6Bi-1",
         })}
-
         {/* News Card */}
         {renderComponent({
           title: "News Card List",
@@ -297,13 +289,11 @@ const ComponentsPage = () => {
           wireframeLink:
             "https://www.figma.com/file/vnsSmPekSbpyocHalLTpDr/Yamaha-Revamp-v2?type=design&node-id=508%3A505&mode=design&t=k72RwsE1mNhfW6Bi-1",
         })}
-
         {/* Footer */}
         <div className=" px-2 lg:p-5 border rounded-lg text-white space-y-5">
           <h3>Footer</h3>
           <Footer />
         </div>
-
         {/* News Grid Section */}
         {renderComponent({
           title: "News Grid Section",
@@ -459,7 +449,6 @@ const ComponentsPage = () => {
           <h3>Dealers</h3>
           <DealerSection />
         </div>
-
         {/* Use the "renderComponent" when you want to add more components, don't forget to add the same title to the "title" property, add note if there's needed to expound the component */}
       </div>
     </div>

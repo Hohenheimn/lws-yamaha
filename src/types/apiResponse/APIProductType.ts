@@ -44,4 +44,17 @@ type APIProductVariantType = {
   images: Array<string>;
   vehicleIds: Array<number>;
   product?: APIProductType;
+  productVariantAttributes?: Array<APIProductVariantAttribute>;
+};
+
+type APIProductVariantAttribute = {
+  attributeId: number;
+  id: number;
+  productVariantId: number;
+  value: string;
+  attributes: Array<{
+    description: string; //Description of the attribute e.g. name: UOM, description: Unit of Measurement
+    id: number;
+    name: string;
+  }>;
 };

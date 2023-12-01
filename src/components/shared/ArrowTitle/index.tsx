@@ -1,3 +1,5 @@
+import { BsTriangleFill } from "react-icons/bs";
+
 type PropsType = {
   title: string;
   description?: string;
@@ -5,10 +7,10 @@ type PropsType = {
 
 const ArrowTitle = (props: PropsType) => {
   return (
-    <div className="flex gap-12 overflow-hidden items-center w-fit">
-      <div className="flex relative items-center bg-[#D52B1E]">
-        <div className="h-[40px] w-[40px] rotate-45 bg-[#D52B1E] absolute left-[70%]"></div>
-        <div className="h-[40px] -ml-5 w-[80px] z-0 relative bg-gradient-to-r overflow-x-hidden from-[#000000] to-[#D52B1E] "></div>
+    <div className="flex gap-7 items-center w-fit">
+      <div className="flex items-center h-[40px] overflow-y-hidden">
+        <div className="from-[#000000] to-[#D52B1E] via-[#D52B1E]  bg-gradient-to-r h-[40px] w-[80px]"></div>
+        <BsTriangleFill className="h-full text-[40px] rotate-90 -translate-x-[5px] text-[#D52B1E]" />
       </div>
       <aside className=" space-y-2">
         <p className="text-[#f1f1f1] font-bold text-3xl">{props.title}</p>

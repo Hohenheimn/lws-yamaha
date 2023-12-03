@@ -52,9 +52,9 @@ type APIProductVariantAttribute = {
   id: number;
   productVariantId: number;
   value: string;
-  attributes: Array<{
+  attribute: {
     description: string; //Description of the attribute e.g. name: UOM, description: Unit of Measurement
     id: number;
     name: string;
-  }>;
+  };
 };

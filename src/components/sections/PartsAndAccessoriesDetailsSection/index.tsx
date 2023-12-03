@@ -5,6 +5,7 @@ import Image from "next/image";
 import classNames from "classnames";
 import config from "@/utils/config";
 import useAPI from "@/hooks/useAPI";
+import { groupBy } from "lodash";
 
 type PropsType = {
   product: APIProductType;
@@ -23,7 +24,9 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
   const { product } = props;
   const [currentVariant, setCurrentVariant] = useState<APIProductVariantType>();
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string>();
-  // const [currentSize, setCurrentSize] = useState<SizeType>();
+  const [attributes, setAttributes] =
+    useState<APIProductVariantAttribute[][]>();
+  const [currentAttribute, setCurrentAttribute] = useState<any>();
 
   //Set all the variants
   useEffect(() => {
@@ -33,71 +36,27 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
   // sett eh vehicle IDs once everytime the current variant changes
   useEffect(() => {
     setVehicleIds(currentVariant?.vehicleIds || []);
+    setImagePreviewUrl(`${config.imageBaseUrl}${currentVariant?.images?.[0]}`);
+
+    //Group the attributes
+    setAttributes(
+      Object.entries(
+        groupBy(
+          currentVariant?.productVariantAttributes,
+          (attr) => attr.attribute.id
+        )
+      ).map(([, attr]) => attr)
+    );
   }, [currentVariant]);
 
   useEffect(() => {
-    setImagePreviewUrl(`${config.imageBaseUrl}${currentVariant?.images?.[0]}`);
-  }, [currentVariant]);
-
-  console.log(currentVariant);
-
-  // const renderVariants = () => {
-  //   return (
-  //     <div className="flex gap-3 items-center">
-  //       <span className="font-semibold w-[55px] text-right">Colors:</span>
-  //       <div className="flex gap-2 flex-wrap">
-  //         {product.productVariants?.map((variant) => (
-  //           <button
-  //             key={variant.id}
-  //             onClick={() => setCurrentVariant(variant)}
-  //             className={`border-[2px] border-[#535353] py-2 px-7 ${classNames({
-  //               "bg-[#535353]": currentVariant?.id === variant.id,
-  //             })}`}
-  //           >
-  //             {variant.color}
-  //           </button>
-  //         ))}
-  //       </div>
-  //     </div>
-  //   );
-  // };
-
-  // const renderSizes = () => {
-  //   return (
-  //     <div className="flex gap-3 items-center">
-  //       <span className="font-semibold w-[55px] text-right">Sizes:</span>
-  //       <div className="flex gap-2">
-  //         {currentVariant?.sizes?.map((_) => (
-  //           <button
-  //             key={_.id}
-  //             onClick={() => setCurrentSize(_)}
-  //             className={`border-[2px] border-[#535353] py-2 px-7`}
-  //           >
-  //             {_.size}
-  //           </button>
-  //         ))}
-  //       </div>
-  //     </div>
-  //   );
-  // };
-
-  // const renderAttributes = () => {
-  //   return (
-  //     <div className="flex gap-3 items-center">
-  //       <span className="font-semibold w-[55px] text-right">Attributes:</span>
-  //       <div className="flex gap-2">
-  //         {currentVariant?.attributes?.map((_) => (
-  //           <div
-  //             key={_.id}
-  //             className={`border-[2px] border-[#535353] py-2 px-7`}
-  //           >
-  //             {_.attribute}
-  //           </div>
-  //         ))}
-  //       </div>
-  //     </div>
-  //   );
-  // }
+    attributes?.map((val) => {
+      setCurrentAttribute((prevState: any) => ({
+        ...prevState,
+        [val[0].attribute.name]: val[0].value,
+      }));
+    });
+  }, [attributes]);
 
   const renderImagePreview = () => {
     return (
@@ -136,7 +95,7 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
 
   const renderVariants = useMemo(() => {
     return (
-      <div className="flex gap-5 flex-wrap py-10">
+      <div className="flex gap-5 flex-wrap pt-5">
         {product.productVariants?.map((variant) => (
           <div
             onClick={() => setCurrentVariant(variant)}
@@ -178,37 +137,48 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
     );
   };
 
+  const renderAttributes = () => {
+    return attributes?.map((val, index) => (
+      <div key={index} className="flex gap-3 items-center pt-5">
+        <span className="font-semibold w-[55px] text-right">
+          {val?.[0].attribute.name}:
+        </span>
+        <div className="flex gap-2 flex-wrap">
+          {val?.map((_, index) => (
+            <button
+              key={_.id}
+              onClick={() =>
+                setCurrentAttribute((prevState: any) => ({
+                  ...prevState,
+                  [val[0].attribute.name]: _.value,
+                }))
+              }
+              className={`border-[2px] border-[#535353] py-2 px-7 ${classNames({
+                "bg-[#535353]":
+                  currentAttribute?.[val[0].attribute.name] === _.value,
+              })}`}
+            >
+              {_.value}
+            </button>
+          ))}
+        </div>
+      </div>
+    ));
+  };
+
   return (
     <div className="flex justify-center">
       <div className="w-full text-white max-w-[1400px] flex flex-col gap-10">
         <div className="flex gap-10 flex-wrap">
           {renderImagePreview()}
-          <div className="flex flex-col justify-center gap-10">
+          <div className="flex flex-col justify-center gap-10 h-fit">
             <div className="flex flex-col gap-2">
               <p className="font-semibold text-2xl">{product.name}</p>
               <p className="text-white/70">{currentVariant?.code}</p>
               {renderModelsUsed()}
               {renderPrice()}
+              {renderAttributes()}
               {renderVariants}
-
-              <div className="flex gap-3 items-center">
-                <span className="font-semibold w-[55px] text-right">
-                  Colors:
-                </span>
-                <div className="flex gap-2 flex-wrap">
-                  {currentVariant?.productVariantAttributes?.map((_) => (
-                    <button
-                      key={_.id}
-                      onClick={() => {}}
-                      // className={`border-[2px] border-[#535353] py-2 px-7 ${classNames({
-                      //   "bg-[#535353]": currentVariant?.id === variant.id,
-                      // })}`}
-                    >
-                      {_.value}
-                    </button>
-                  ))}
-                </div>
-              </div>
               <p className="text-white/70">{currentVariant?.note}</p>
             </div>
           </div>

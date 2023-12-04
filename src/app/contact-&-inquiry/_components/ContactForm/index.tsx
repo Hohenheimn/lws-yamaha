@@ -258,7 +258,12 @@ const ContactForm = () => {
                   }}
                   render={({ field }) => (
                     <>
-                      <ReCaptcha onChange={(data) => field.onChange(data)} />
+                      <ReCaptcha
+                        onChange={(data) => {
+                          console.log(data);
+                          field.onChange(data);
+                        }}
+                      />
                       {errors?.recaptchaKey?.message && (
                         <span className=" text-[.9rem] text-[#dd0000]">
                           {errors?.recaptchaKey?.message}

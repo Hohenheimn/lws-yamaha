@@ -274,7 +274,7 @@ const ContactForm = () => {
                 />
 
                 <button className="bg-tertiary mt-5 w-full py-3 hover:bg-hover-tertiary whitespace-nowrap inline-block duration-150 text-white rounded-lg font-medium">
-                  {mutateLoading ? " Sending..." : "Submit"}
+                  {mutateLoading ? "Sending..." : "Submit"}
                 </button>
               </li>
             </ul>

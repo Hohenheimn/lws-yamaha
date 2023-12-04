@@ -53,7 +53,7 @@ const ContactForm = () => {
     return <div dangerouslySetInnerHTML={{ __html: htmlString }} />;
   };
 
-  const { usePost } = useAPI(`/api/contact`);
+  const { usePost } = useAPI(`/api/contacts`);
 
   const { mutate, isLoading: mutateLoading } = usePost;
 

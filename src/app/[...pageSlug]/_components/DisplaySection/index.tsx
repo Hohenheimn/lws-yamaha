@@ -100,8 +100,16 @@ const DisplaySection = (props: PropsType) => {
           {section?.sectionType === "hero-section" && (
             <Hero
               fullHeight={section?.fullScreen}
-              desktopBgImage={validateImageUrl(section?.backgroundImage)}
-              mobileBgImage={validateImageUrl(section?.backgroundImage)}
+              desktopBgImage={
+                section?.backgroundImage
+                  ? validateImageUrl(section?.backgroundImage)
+                  : ""
+              }
+              mobileBgImage={
+                section?.backgroundImage
+                  ? validateImageUrl(section?.backgroundImage)
+                  : ""
+              }
               title={section?.title}
               description={section?.description}
               textPosition={
@@ -111,6 +119,11 @@ const DisplaySection = (props: PropsType) => {
               }
               imageTitleUrl={section?.image}
               scrollDown={section?.scrollDown}
+              imageContent={
+                section?.imageContent
+                  ? validateImageUrl(section?.imageContent)
+                  : ""
+              }
             />
           )}
           {section?.sectionType === "vehicle-section" && (

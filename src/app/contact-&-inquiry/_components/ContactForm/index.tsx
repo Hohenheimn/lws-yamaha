@@ -33,7 +33,7 @@ const ContactForm = () => {
   const { mutate, isLoading } = usePost;
 
   const SubmitHandler = (data: FormType) => {
-    // mutate(data);
+    mutate({ data });
   };
 
   return (

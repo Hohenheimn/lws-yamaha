@@ -61,7 +61,7 @@ const NewsSlugComponents = (props: PropTypes) => {
         news={newsData?.slice(0, 4).map((news, indx) => {
           return {
             id: Number(indx + 1),
-            image: `${validateImageUrl(news.banner)}`,
+            image: `${validateImageUrl(news.banner.split(",")[0])}`,
             title: `${news.title}`,
             date: `${news.datePublished}`,
             url: `/news/${slug}/${news.id}`,
@@ -82,7 +82,7 @@ const NewsSlugComponents = (props: PropTypes) => {
             <NewsCard
               key={indx}
               id={news?.id}
-              image={validateImageUrl(news?.banner)}
+              image={`${validateImageUrl(news.banner.split(",")[0])}`}
               date={news?.datePublished}
               title={news?.title}
               description={news?.newsArticleContents[0].value}

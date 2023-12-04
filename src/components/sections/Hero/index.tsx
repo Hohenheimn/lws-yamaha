@@ -54,7 +54,11 @@ const Hero = (props: PropsType) => {
       >
         {desktopBgImage && (
           <Image
-            src={validateImageUrl(desktopBgImage)}
+            src={
+              desktopBgImage.includes("/assets")
+                ? desktopBgImage
+                : validateImageUrl(desktopBgImage)
+            }
             alt="banner"
             fill
             className={` object-cover ${mobileBgImage && "hidden md:inline"}`}
@@ -63,7 +67,11 @@ const Hero = (props: PropsType) => {
 
         {mobileBgImage && (
           <Image
-            src={validateImageUrl(mobileBgImage)}
+            src={
+              mobileBgImage.includes("/assets")
+                ? mobileBgImage
+                : validateImageUrl(mobileBgImage)
+            }
             alt="banner"
             fill
             className={` object-cover ${mobileBgImage && "inline md:hidden"}`}

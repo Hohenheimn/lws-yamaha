@@ -12,6 +12,7 @@ const YConnectSectionComponent = () => {
         {
           tab_name: "Stay Updated",
           image: "/assets/images/samples/sample-y-phone.png",
+          contentType: "content",
           content: [
             {
               title: "Convenience",
@@ -28,6 +29,7 @@ const YConnectSectionComponent = () => {
         {
           tab_name: "Convenience",
           image: "/assets/images/yconnect/phone-convinience.webp",
+          contentType: "content",
           content: [
             {
               title: "Malfunction Notification",
@@ -48,6 +50,7 @@ const YConnectSectionComponent = () => {
         {
           tab_name: "Connected",
           image: "/assets/images/yconnect/phone-connected.webp",
+          contentType: "content",
           content: [
             {
               title: "Phone, Email, Message Notifications",
@@ -63,11 +66,27 @@ const YConnectSectionComponent = () => {
         {
           tab_name: "Y-Connect Features",
           image: "/assets/images/samples/sample-y-phone.png",
+          contentType: "slider",
           content: [
             {
-              title: "Convenience",
-              description:
-                "Provides everything you need to maximize your riding experience (RPM, economical driving acceleration, intake manifold temp & radiator water temp and more)",
+              title: "Revs Dashboard",
+              image: "/assets/images/yconnect/revstore.webp",
+            },
+            {
+              title: "Fuel Consumption Tracker",
+              image: "/assets/images/yconnect/fuel_consumption.webp",
+            },
+            {
+              title: "Malfunction Notification",
+              image: "/assets/images/yconnect/malfunction_notification.webp",
+            },
+            {
+              title: "Treatment Recommendations",
+              image: "/assets/images/yconnect/treatment_recommendation.webp",
+            },
+            {
+              title: "Parking Location",
+              image: "/assets/images/yconnect/parking_location.webp",
             },
           ],
         },

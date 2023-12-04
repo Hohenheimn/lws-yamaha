@@ -2,9 +2,12 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 import { AiFillInstagram, AiFillYoutube } from "react-icons/ai";
+
 import { FaFacebookF, FaTiktok, FaTwitter } from "react-icons/fa";
 
 import { MdKeyboardArrowRight } from "react-icons/md";
@@ -14,7 +17,6 @@ import { PiShareBold } from "react-icons/pi";
 import Breadcrumps from "@/components/partsAndAccessories/Breadcrumps";
 
 import { personalCommuter } from "@/data/headerPersonalCommuter/personalCommuter";
-
 import useAPI from "@/hooks/useAPI";
 
 import Button from "../Button";
@@ -44,7 +46,8 @@ const Footer = () => {
 
   const { useGet: useGetSettings } = useAPI("/api/settings");
   const { data: settings, isLoading: settingsLoading }: any =
-    useGetSettings("settings");
+    useGetSettings("settings-footer");
+
   const settingsSocial: settingsType = settings?.data;
 
   const updateBreadCrump = () => {

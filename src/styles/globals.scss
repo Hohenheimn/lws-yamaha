@@ -8,9 +8,6 @@ html {
 
 .unit-carousel.swiper {
   @apply px-14;
-  // .swiper-slide {
-  //   width: 300px !important;
-  // }
 }
 
 *::-webkit-scrollbar {
@@ -58,4 +55,17 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.y-connect-carousel {
+  .swiper-slide {
+    img {
+      filter: grayscale(100%);
+    }
+  }
+  .swiper-slide.swiper-slide-active {
+    img {
+      filter: grayscale(0%);
+    }
+  }
 }

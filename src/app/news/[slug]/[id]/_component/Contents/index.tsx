@@ -78,14 +78,34 @@ const NewsContents = (props: PropsType) => {
           {news?.map((item, indx) => (
             <div key={indx} className=" w-full">
               {item.type === "images" && (
-                <aside className=" w-full relative aspect-[3/1]">
-                  <Image
-                    src={validateImageUrl(item.value)}
-                    fill
-                    alt="image"
-                    className=" object-cover"
-                  />
-                </aside>
+                <>
+                  {item.value.split(",").length > 1 ? (
+                    <div className=" grid grid-cols-1 md:grid-cols-2 gap-5">
+                      {item.value.split(",").map((img, indx) => (
+                        <aside
+                          className=" w-full relative aspect-[2/1]"
+                          key={indx}
+                        >
+                          <Image
+                            src={validateImageUrl(img)}
+                            fill
+                            alt="image"
+                            className=" object-cover"
+                          />
+                        </aside>
+                      ))}
+                    </div>
+                  ) : (
+                    <aside className=" w-full relative aspect-[3/1]">
+                      <Image
+                        src={validateImageUrl(item.value.split(",")[0])}
+                        fill
+                        alt="image"
+                        className=" object-cover"
+                      />
+                    </aside>
+                  )}
+                </>
               )}
               {item.type === "text" && (
                 <p className=" text-textGray">{item.value}</p>
@@ -101,7 +121,7 @@ const NewsContents = (props: PropsType) => {
             <NewsCard
               key={indx}
               id={item.id}
-              image={validateImageUrl(item.banner)}
+              image={validateImageUrl(item.banner.split(",")[0])}
               date={item.datePublished}
               title={item.title}
               description={item.newsArticleContents[0].value}

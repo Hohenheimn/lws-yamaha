@@ -4,7 +4,7 @@ import NewsSlugComponents from "../_components/NewsSlugComponents";
 
 export const generateMetadata = () => {
   return {
-    title: "News and Events",
+    title: "News",
     description: "",
   };
 };

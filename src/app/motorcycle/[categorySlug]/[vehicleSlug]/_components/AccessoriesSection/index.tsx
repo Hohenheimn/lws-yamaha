@@ -25,8 +25,6 @@ const AccessoriesSection = (props: PropsType) => {
     Array<APIProductVariantType>
   >([]);
 
-  console.log(data);
-
   useEffect(() => {
     if (data?.data && isSuccess) setProductVariants(data.data);
 

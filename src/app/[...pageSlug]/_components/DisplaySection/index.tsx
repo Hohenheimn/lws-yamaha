@@ -100,8 +100,16 @@ const DisplaySection = (props: PropsType) => {
           {section?.sectionType === "hero-section" && (
             <Hero
               fullHeight={section?.fullScreen}
-              desktopBgImage={validateImageUrl(section?.backgroundImage)}
-              mobileBgImage={validateImageUrl(section?.backgroundImage)}
+              desktopBgImage={
+                section?.backgroundImage
+                  ? validateImageUrl(section?.backgroundImage)
+                  : ""
+              }
+              mobileBgImage={
+                section?.backgroundImage
+                  ? validateImageUrl(section?.backgroundImage)
+                  : ""
+              }
               title={section?.title}
               description={section?.description}
               textPosition={
@@ -111,6 +119,11 @@ const DisplaySection = (props: PropsType) => {
               }
               imageTitleUrl={section?.image}
               scrollDown={section?.scrollDown}
+              imageContent={
+                section?.imageContent
+                  ? validateImageUrl(section?.imageContent)
+                  : ""
+              }
             />
           )}
           {section?.sectionType === "vehicle-section" && (
@@ -167,7 +180,9 @@ const DisplaySection = (props: PropsType) => {
                   type: "icons",
                   value: section?.contents?.map((content: any) => {
                     return {
-                      icon: validateImageUrl(content.image),
+                      icon: content.image
+                        ? validateImageUrl(content.image)
+                        : "",
                       title: content.label,
                     };
                   }),

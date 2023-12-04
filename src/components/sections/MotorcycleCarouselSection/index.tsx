@@ -1,24 +1,17 @@
 "use client";
 
 import React, { ComponentProps } from "react";
-
-// Import Swiper React components
-import { BiSolidLeftArrow, BiSolidRightArrow } from "react-icons/bi";
 import "swiper/css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-// Import Swiper styles
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
 import MotorcycleCard from "@/components/motorcycle/MotorcycleCard";
 import Button from "@/components/shared/Button";
 import Heading from "@/components/shared/Heading";
-
-import useAPI from "@/hooks/useAPI";
 
 import SectionContainer from "../SectionContainer";
 import { MotorcycleNavigationButton } from "./MotorcycleNavigationButton";

@@ -30,6 +30,7 @@ type HeroSectionType = {
   backgroundImage?: string;
   fullScreen?: boolean;
   image?: string;
+  imageContent?: string;
 };
 
 type NewsSectionType = {

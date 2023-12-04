@@ -25,11 +25,11 @@ type PropsType = {
     | "top-right"
     | "top-center"
     | any;
-
   fullHeight?: boolean;
   scrollDown?: boolean;
   imageTitleUrl?: string;
   readMore?: string;
+  imageContent?: string;
 };
 
 const Hero = (props: PropsType) => {
@@ -43,6 +43,7 @@ const Hero = (props: PropsType) => {
     scrollDown,
     imageTitleUrl,
     readMore,
+    imageContent,
   } = props;
 
   return (
@@ -54,7 +55,11 @@ const Hero = (props: PropsType) => {
       >
         {desktopBgImage && (
           <Image
-            src={validateImageUrl(desktopBgImage)}
+            src={
+              desktopBgImage.includes("/assets")
+                ? desktopBgImage
+                : validateImageUrl(desktopBgImage)
+            }
             alt="banner"
             fill
             className={` object-cover ${mobileBgImage && "hidden md:inline"}`}
@@ -63,7 +68,11 @@ const Hero = (props: PropsType) => {
 
         {mobileBgImage && (
           <Image
-            src={validateImageUrl(mobileBgImage)}
+            src={
+              mobileBgImage.includes("/assets")
+                ? mobileBgImage
+                : validateImageUrl(mobileBgImage)
+            }
             alt="banner"
             fill
             className={` object-cover ${mobileBgImage && "inline md:hidden"}`}
@@ -80,8 +89,9 @@ const Hero = (props: PropsType) => {
           </div>
         )}
 
-        <div
-          className={` h-full w-11/12 py-[5%] flex 
+        {imageContent && (
+          <div
+            className={` h-full w-11/12 py-[5%] flex 
             ${textPosition === "bottom-left" && "justify-start items-end"}
             ${textPosition === "bottom-right" && "justify-end items-end"}
             ${textPosition === "bottom-center" && "justify-center items-end"}
@@ -95,37 +105,63 @@ const Hero = (props: PropsType) => {
               "justify-center items-center text-center"
             }
             `}
-        >
-          <aside
-            className={` relative z-10 text-white w-full max-w-[40rem] 3xl:max-w-[55rem]`}
           >
-            {imageTitleUrl && (
-              <Image
-                src={validateImageUrl(imageTitleUrl)}
-                alt="title"
-                width={300}
-                height={300}
-              />
-            )}
-            {title && (
-              <Heading type="h2" className=" uppercase whitespace-pre-wrap">
-                {title}
-              </Heading>
-            )}
+            <Image
+              src={validateImageUrl(imageContent)}
+              alt="title"
+              width={300}
+              height={300}
+            />
+          </div>
+        )}
+        {!imageContent && (
+          <div
+            className={` h-full w-11/12 py-[5%] flex 
+            ${textPosition === "bottom-left" && "justify-start items-end"}
+            ${textPosition === "bottom-right" && "justify-end items-end"}
+            ${textPosition === "bottom-center" && "justify-center items-end"}
+            ${textPosition === "top-left" && "justify-start items-start"}
+            ${textPosition === "top-right" && "justify-end items-start"}
+            ${textPosition === "top-center" && "justify-center items-start"}
+            ${textPosition === "center-left" && "justify-start items-center"}
+            ${textPosition === "center-right" && "justify-end items-center"}
+            ${
+              textPosition === "center-center" &&
+              "justify-center items-center text-center"
+            }
+            `}
+          >
+            <aside
+              className={` relative z-10 text-white w-full max-w-[40rem] 3xl:max-w-[55rem]`}
+            >
+              {imageTitleUrl && (
+                <Image
+                  src={validateImageUrl(imageTitleUrl)}
+                  alt="title"
+                  width={300}
+                  height={300}
+                />
+              )}
+              {title && (
+                <Heading type="h2" className=" uppercase whitespace-pre-wrap">
+                  {title}
+                </Heading>
+              )}
 
-            {description && (
-              <p className=" text-lg whitespace-pre-wrap">{description}</p>
-            )}
+              {description && (
+                <p className=" text-lg whitespace-pre-wrap">{description}</p>
+              )}
 
-            {readMore && (
-              <div className=" mt-5">
-                <Button appearance={"primary"} size={"medium"} url={readMore}>
-                  Read More
-                </Button>
-              </div>
-            )}
-          </aside>
-        </div>
+              {readMore && (
+                <div className=" mt-5">
+                  <Button appearance={"primary"} size={"medium"} url={readMore}>
+                    Read More
+                  </Button>
+                </div>
+              )}
+            </aside>
+          </div>
+        )}
       </section>
       <div id="explore"></div>
     </>

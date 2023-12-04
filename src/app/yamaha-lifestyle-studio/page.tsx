@@ -20,7 +20,7 @@ const YamahaLifestyleStudioPage = () => {
   return (
     <>
       <Hero
-        desktopBgImage="/assets/images/samples/sample-y-connect-hero.png"
+        desktopBgImage="/assets/images/samples/yamaha-life-style-studio.png"
         textPosition={"center-left"}
         title="Y-CONNECT"
         description={`Be one with your motorcycle. Experience a complete package of advanced features\nthat will redefine your ride.`}

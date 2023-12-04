@@ -24,10 +24,6 @@ const NavSubTab = ({ tabs, onClose, setClickedMenu }: PropsType) => {
   const [activeTab, setActiveTab] = useState(
     tabs.some((item) => pathname.includes(item.url)) ? pathname : tabs[0].url
   );
-  console.log(tabs);
-  // {item?.withLinkIcon && (
-  //   <PiShareBold className=" text-1-2rem" />
-  // )}
   return (
     <section className=" w-11/12">
       <button

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 
 import { FaLocationDot } from "react-icons/fa6";
 
@@ -10,6 +10,15 @@ import Button from "@/components/shared/Button";
 import ControllerField from "@/components/shared/ControllerField";
 import Heading from "@/components/shared/Heading";
 import ReCaptcha from "@/components/shared/Recaptcha";
+import useAPI from "@/hooks/useAPI";
+
+type FormType = {
+  name: string;
+  email: string;
+  type: string;
+  message: string;
+  recaptchaKey: string;
+};
 
 const ContactForm = () => {
   const {
@@ -17,9 +26,15 @@ const ContactForm = () => {
     control,
     setValue,
     formState: { errors },
-  } = useForm();
+  } = useForm<FormType>();
 
-  const SubmitHandler = () => {};
+  const { usePost } = useAPI(`/api/contact`);
+
+  const { mutate, isLoading } = usePost;
+
+  const SubmitHandler = (data: FormType) => {
+    // mutate(data);
+  };
 
   return (
     <SectionContainer
@@ -100,13 +115,13 @@ const ContactForm = () => {
               <ControllerField
                 control={control}
                 errors={errors}
-                name={"full_name"}
+                name={"name"}
                 label={"Full Name"}
                 type={"text"}
                 rules={{
                   required: {
                     value: true,
-                    message: "Please enter your full name",
+                    message: "This is required",
                   },
                 }}
               />
@@ -121,7 +136,7 @@ const ContactForm = () => {
                 rules={{
                   required: {
                     value: true,
-                    message: "Please enter your full name",
+                    message: "This is required",
                   },
                 }}
               />
@@ -130,13 +145,13 @@ const ContactForm = () => {
               <ControllerField
                 control={control}
                 errors={errors}
-                name={"contact_no"}
+                name={"contactNo"}
                 label={"Contact Number"}
                 type={"number"}
                 rules={{
                   required: {
                     value: true,
-                    message: "Please enter your full name",
+                    message: "This is required",
                   },
                 }}
               />
@@ -145,7 +160,7 @@ const ContactForm = () => {
               <ControllerField
                 control={control}
                 errors={errors}
-                name={"inquiry"}
+                name={"type"}
                 label={"Inquiry"}
                 type={"select"}
                 selectOptions={[
@@ -157,7 +172,7 @@ const ContactForm = () => {
                 rules={{
                   required: {
                     value: true,
-                    message: "Please enter your full name",
+                    message: "This is required",
                   },
                 }}
               />
@@ -166,19 +181,39 @@ const ContactForm = () => {
               <ControllerField
                 control={control}
                 errors={errors}
-                name={"your_message"}
+                name={"message"}
                 label={"Your Message"}
                 type={"textarea"}
                 rules={{
                   required: {
                     value: true,
-                    message: "Please enter your full name",
+                    message: "This is required",
                   },
                 }}
               />
             </li>
             <li className=" col-span-2">
-              <ReCaptcha onChange={(data) => {}} />
+              <Controller
+                name={"recaptchaKey"}
+                control={control}
+                rules={{
+                  required: {
+                    value: true,
+                    message: "This is required",
+                  },
+                }}
+                render={({ field }) => (
+                  <>
+                    <ReCaptcha onChange={(data) => field.onChange(data)} />
+                    {errors?.recaptchaKey?.message && (
+                      <span className=" text-[.9rem] text-[#dd0000]">
+                        {errors?.recaptchaKey?.message}
+                      </span>
+                    )}
+                  </>
+                )}
+              />
+
               <button className="bg-tertiary mt-5 w-full py-3 hover:bg-hover-tertiary whitespace-nowrap inline-block duration-150 text-white rounded-lg font-medium">
                 Submit
               </button>

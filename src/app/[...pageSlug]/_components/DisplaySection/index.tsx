@@ -167,7 +167,9 @@ const DisplaySection = (props: PropsType) => {
                   type: "icons",
                   value: section?.contents?.map((content: any) => {
                     return {
-                      icon: validateImageUrl(content.image),
+                      icon: content.image
+                        ? validateImageUrl(content.image)
+                        : "",
                       title: content.label,
                     };
                   }),

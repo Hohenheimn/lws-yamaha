@@ -47,6 +47,7 @@ const ImageAndParagraph = (props: PropsType) => {
     description,
     autoImage,
   } = props;
+  console.log(content);
   return (
     <ul className="  w-full flex items-center flex-wrap md:flex-nowrap gap-20">
       <li

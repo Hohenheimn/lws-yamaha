@@ -37,13 +37,11 @@ const AccessoriesSection = (props: PropsType) => {
 
   return (
     <AccessoriesComponent
-      onClick={() => router.push(`/parts-&-accessories`)}
+      onClick={() => router.push(`/parts-&-accessories/accessories`)}
       accessories={productVariants.map((productVariant) => ({
         accessoryImage: `${config.imageBaseUrl}${productVariant.images?.[0]}`,
         title: `${productVariant?.product?.name}`,
-        url: `/parts-&-accessories/${
-          productVariant?.product?.subCategory?.slug || "sub-category"
-        }/${productVariant?.product?.slug}`,
+        url: `/parts-&-accessories/${productVariant?.product?.subCategory?.slug}/${productVariant?.product?.slug}`,
       }))}
     />
   );

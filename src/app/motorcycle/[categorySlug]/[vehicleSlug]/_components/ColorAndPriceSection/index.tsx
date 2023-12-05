@@ -1,9 +1,10 @@
 "use client";
 
+import React, { useEffect, useState } from "react";
+
 import MotorcycleColorAndPriceSection from "@/components/sections/MotorcycleColorAndPriceSection";
 import useAPI from "@/hooks/useAPI";
 import config from "@/utils/config";
-import React, { useEffect, useState } from "react";
 
 type PropsType = {
   vehicleId: number;
@@ -34,6 +35,7 @@ const ColorAndPriceSection = (props: PropsType) => {
   return (
     <MotorcycleColorAndPriceSection
       motorcycle_detail={vechicleVariants.map((vechicleVariant) => ({
+        id: vechicleVariant?.id,
         price: vechicleVariant.price,
         color: vechicleVariant.vehicleAttributes?.[0].value,
         motorcycleImage: `${config.imageBaseUrl}${vechicleVariant.image}`,

@@ -35,6 +35,7 @@ type PropsType = {
 type tabType = {
   tab_name: string;
   image: string;
+  description?: string;
   contentType: "slider" | "content";
   content:
     | {
@@ -97,41 +98,48 @@ const YConnectSection = (props: PropsType) => {
       </aside>
       <section className="w-full flex flex-wrap md:flex-nowrap items-center justify-center gap-5">
         {activeTab?.contentType === "slider" && (
-          <div className=" w-full y-connect-carousel">
-            <Swiper
-              modules={[
-                Navigation,
-                Pagination,
-                Scrollbar,
-                A11y,
-                Keyboard,
-                Autoplay,
-              ]}
-              spaceBetween={30}
-              freeMode
-              centeredSlides
-              autoplay={{ delay: 2000 }}
-              centeredSlidesBounds
-              breakpoints={breakpoints}
-            >
-              {activeTab?.content?.map((item, indx) => (
-                <SwiperSlide key={indx}>
-                  <aside className=" w-[320px] flex flex-col items-center">
-                    <h5 className=" text-center font-medium text-lg">
-                      {item?.title}
-                    </h5>
+          <aside className=" w-full flex flex-col justify-center items-center">
+            {activeTab?.description && (
+              <p className=" text-center mb-6 w-full max-w-[50rem]">
+                {activeTab?.description}
+              </p>
+            )}
+            <div className=" w-full y-connect-carousel">
+              <Swiper
+                modules={[
+                  Navigation,
+                  Pagination,
+                  Scrollbar,
+                  A11y,
+                  Keyboard,
+                  Autoplay,
+                ]}
+                spaceBetween={30}
+                freeMode
+                centeredSlides
+                autoplay={{ delay: 2000 }}
+                centeredSlidesBounds
+                breakpoints={breakpoints}
+              >
+                {activeTab?.content?.map((item, indx) => (
+                  <SwiperSlide key={indx}>
+                    <aside className=" w-[320px] flex flex-col items-center">
+                      <h5 className=" text-center font-medium text-lg">
+                        {item?.title}
+                      </h5>
 
-                    <Image
-                      src={`${validateImageUrl(item.image)}`}
-                      alt=""
-                      width={300}
-                      height={300}
-                    />
-                  </aside>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+                      <Image
+                        src={`${validateImageUrl(item.image)}`}
+                        alt=""
+                        width={300}
+                        height={300}
+                      />
+                    </aside>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </aside>
         )}
         {activeTab.contentType === "content" && (
           <>

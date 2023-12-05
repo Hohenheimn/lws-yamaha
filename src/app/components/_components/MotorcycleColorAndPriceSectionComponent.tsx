@@ -7,6 +7,7 @@ const MotorcycleColorAndPriceSectionComponent = () => {
     <MotorcycleColorAndPriceSection
       motorcycle_detail={[
         {
+          id: 1,
           color: "#1e1e1e",
           motorcycleImage: "/assets/images/samples/sample-unit -2.png",
           motorcycleName: "Race Black",
@@ -18,6 +19,7 @@ const MotorcycleColorAndPriceSectionComponent = () => {
           price: 155800,
         },
         {
+          id: 2,
           color: "#01b1e9",
           motorcycleImage: "/assets/images/placeholder.png",
           motorcycleName: "Race Blue",
@@ -29,6 +31,7 @@ const MotorcycleColorAndPriceSectionComponent = () => {
           price: 1000000,
         },
         {
+          id: 3,
           color: "#a0afcc",
           motorcycleImage: "/assets/images/placeholder.png",
           motorcycleName: "Race Gray",

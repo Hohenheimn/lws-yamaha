@@ -14,6 +14,7 @@ type PropsType = {
 };
 
 type MotorcycleDetailType = {
+  id: number;
   color: string;
   motorcycleImage: string;
   motorcycleName: string;
@@ -108,8 +109,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
                   <li
                     onClick={() => setActiveColor(item)}
                     className={` w-10 aspect-square cursor-pointer  ${
-                      item.color === activeColor?.color &&
-                      " border-2 border-red"
+                      item.id === activeColor?.id && " border-2 border-red"
                     }`}
                     style={{ backgroundColor: item.color }}
                     key={indx}

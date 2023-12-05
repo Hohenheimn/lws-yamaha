@@ -89,9 +89,8 @@ const Hero = (props: PropsType) => {
           </div>
         )}
 
-        {imageContent && (
-          <div
-            className={` h-full w-11/12 py-[5%] flex 
+        <div
+          className={` h-full w-11/12 py-[5%] flex  z-10
             ${textPosition === "bottom-left" && "justify-start items-end"}
             ${textPosition === "bottom-right" && "justify-end items-end"}
             ${textPosition === "bottom-center" && "justify-center items-end"}
@@ -105,32 +104,15 @@ const Hero = (props: PropsType) => {
               "justify-center items-center text-center"
             }
             `}
-          >
+        >
+          {imageContent ? (
             <Image
               src={validateImageUrl(imageContent)}
               alt="title"
-              width={300}
-              height={300}
+              width={500}
+              height={500}
             />
-          </div>
-        )}
-        {!imageContent && (
-          <div
-            className={` h-full w-11/12 py-[5%] flex 
-            ${textPosition === "bottom-left" && "justify-start items-end"}
-            ${textPosition === "bottom-right" && "justify-end items-end"}
-            ${textPosition === "bottom-center" && "justify-center items-end"}
-            ${textPosition === "top-left" && "justify-start items-start"}
-            ${textPosition === "top-right" && "justify-end items-start"}
-            ${textPosition === "top-center" && "justify-center items-start"}
-            ${textPosition === "center-left" && "justify-start items-center"}
-            ${textPosition === "center-right" && "justify-end items-center"}
-            ${
-              textPosition === "center-center" &&
-              "justify-center items-center text-center"
-            }
-            `}
-          >
+          ) : (
             <aside
               className={` relative z-10 text-white w-full max-w-[40rem] 3xl:max-w-[55rem]`}
             >
@@ -160,8 +142,8 @@ const Hero = (props: PropsType) => {
                 </div>
               )}
             </aside>
-          </div>
-        )}
+          )}
+        </div>
       </section>
       <div id="explore"></div>
     </>

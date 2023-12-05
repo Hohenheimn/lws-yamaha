@@ -260,7 +260,6 @@ const ContactForm = () => {
                     <>
                       <ReCaptcha
                         onChange={(data) => {
-                          console.log(data);
                           field.onChange(data);
                         }}
                       />

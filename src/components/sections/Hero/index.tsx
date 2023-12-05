@@ -49,9 +49,11 @@ const Hero = (props: PropsType) => {
   return (
     <>
       <section
-        className={` w-full relative ${!fullHeight && "h-[52vh]"} ${
-          fullHeight && "h-[92vh]"
-        } flex justify-center ${!desktopBgImage && "bg-black"}`}
+        className={` w-full relative ${
+          !fullHeight && "h-[52vh] min-h-[30rem]"
+        } ${fullHeight && "h-[92vh]"} flex justify-center ${
+          !desktopBgImage && "bg-black"
+        }`}
       >
         {desktopBgImage && (
           <Image

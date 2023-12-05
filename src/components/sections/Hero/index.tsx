@@ -62,7 +62,9 @@ const Hero = (props: PropsType) => {
             }
             alt="banner"
             fill
-            className={` object-cover ${mobileBgImage && "hidden md:inline"}`}
+            className={`brightness-[0.8] object-cover ${
+              mobileBgImage && "hidden md:inline"
+            }`}
           />
         )}
 

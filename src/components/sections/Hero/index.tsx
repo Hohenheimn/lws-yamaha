@@ -49,7 +49,7 @@ const Hero = (props: PropsType) => {
   return (
     <>
       <section
-        className={` w-full relative ${!fullHeight && "h-[52vh]"} ${
+        className={` w-full relative ${!fullHeight && "h-[62vh]"} ${
           fullHeight && "h-[92vh]"
         } flex justify-center ${!desktopBgImage && "bg-black"}`}
       >
@@ -145,13 +145,15 @@ const Hero = (props: PropsType) => {
                 />
               )}
               {title && (
-                <Heading type="h2" className=" uppercase whitespace-pre-wrap">
+                <Heading type="h3" className="uppercase whitespace-pre-wrap">
                   {title}
                 </Heading>
               )}
 
               {description && (
-                <p className=" text-lg whitespace-pre-wrap">{description}</p>
+                <p className="mt-2 text-sm whitespace-pre-wrap">
+                  {description}
+                </p>
               )}
 
               {readMore && (

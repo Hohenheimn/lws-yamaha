@@ -45,10 +45,10 @@ const SpecificationSection = (props: PropsType) => {
               <tbody>
                 {spec.specifications.map((data, index) => (
                   <tr key={index} className="flex">
-                    <td className="border border-gray-400 px-5 py-3 flex-1">
+                    <td className="border border-gray-400 pl-2 py-3 w-full">
                       {data.name}
                     </td>
-                    <td className="border border-gray-400 px-5 py-3 flex-1 text-right">
+                    <td className="border border-gray-400 pr-2 py-3 w-full text-right">
                       {data.value}
                     </td>
                   </tr>

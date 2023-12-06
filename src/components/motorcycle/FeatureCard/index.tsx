@@ -19,8 +19,8 @@ const FeatureCard = (props: PropsType) => {
         className="object-cover"
       />
       <figcaption className="relative p-5 md:p-10 h-full w-full flex flex-col gap-4 justify-end text-white bg-gradient-to-t from-background from-20% to-transparent">
-        <h3 className="text-xl font-semibold">{feature.title}</h3>
-        <p>{feature.description}</p>
+        <h4 className="text-xl font-medium">{feature.title}</h4>
+        <p className="text-xs text-[#dbdbdb]">{feature.description}</p>
       </figcaption>
     </figure>
   );

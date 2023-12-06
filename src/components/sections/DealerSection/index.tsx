@@ -28,7 +28,7 @@ import { DealerType } from "./type";
 
 const DealerSection = () => {
   const [search, setSearch] = useState("");
-  const [select, setSelect] = useState("All");
+  const [select, setSelect] = useState("");
   const [limit, setLimit] = useState(10);
 
   const { isLoaded: isMapLoaded } = useLoadScript({

@@ -1,6 +1,6 @@
 import Button from "@/components/shared/Button";
 import classNames from "classnames";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { LuMinus, LuPlus } from "react-icons/lu";
 
 type PropsType = {
@@ -18,41 +18,29 @@ type PropsType = {
 
 const SpecificationSection = (props: PropsType) => {
   const specs = props.specifications;
-  const [activeCategoryId, setActiveCategoryId] = useState<number>();
-
-  useEffect(() => {
-    if (props.specifications?.length) {
-      setActiveCategoryId(specs?.[0]?.id);
-    }
-  }, [props.specifications]);
-
-  const handleActiveCategoryId = (id: number) => {
-    if (id !== activeCategoryId) return setActiveCategoryId(id);
-
-    setActiveCategoryId(undefined);
-  };
+  const [isActive, setIsActive] = useState<boolean[]>([true]);
 
   return (
     <div className="text-white flex flex-col items-center gap-10">
       <h3 className="font-bold text-3xl">Specifications</h3>
       <div className="flex flex-col w-full max-w-5xl">
-        {specs.map((spec) => (
+        {specs.map((spec, index) => (
           <div key={spec.id}>
             <button
-              onClick={() => handleActiveCategoryId(spec.id)}
-              className={`font-bold border-b-[2px] border-gray-400 text-lg flex justify-between w-full items-center px-5 py-3 ${classNames(
-                {
-                  "border-none": activeCategoryId === spec.id,
-                }
-              )}`}
+              onClick={() => {
+                setIsActive((prevState) => {
+                  const newArray = [...prevState];
+                  newArray[index] = !newArray[index];
+                  return newArray;
+                });
+              }}
+              className={`font-bold border-b-[2px] border-gray-400 text-lg flex justify-between w-full items-center px-5 py-3 `}
             >
-              {spec.category}{" "}
-              {activeCategoryId !== spec.id ? <LuPlus /> : <LuMinus />}
+              {spec.category} {isActive[index] ? <LuMinus /> : <LuPlus />}
             </button>
+
             <table
-              className={`w-full ${classNames({
-                hidden: activeCategoryId !== spec.id,
-              })}`}
+              className={classNames("w-full", !isActive[index] && "hidden")}
             >
               <tbody>
                 {spec.specifications.map((data, index) => (

@@ -66,7 +66,6 @@ const MotorcycleCarouselSection = (props: PropsType) => {
           slidesPerView={4}
           className=" unit-carousel"
           freeMode
-          width={20}
           breakpoints={breakpoints}
         >
           <MotorcycleNavigationButton />

@@ -73,6 +73,8 @@ const Footer = () => {
     setBreadCrump([]);
   }, [pathname]);
 
+  console.log(footerMenu);
+
   return (
     <footer className=" flex flex-col items-center space-y-16 pt-6 pb-16 bg-transparent">
       <section className=" w-full flex justify-center items-center flex-col bg-primary text-white space-y-10 md:space-y-16">
@@ -129,7 +131,7 @@ const Footer = () => {
           </aside>
         )} */}
 
-        <ul className=" flex flex-col sm:flex-row items-center gap-10 sm:gap-14">
+        <ul className=" flex flex-col sm:flex-row items-center gap-2 md:gap-10 sm:gap-14">
           {footerMenu?.data?.map(
             (item: {
               id: number;

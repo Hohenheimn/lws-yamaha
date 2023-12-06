@@ -31,7 +31,7 @@ const YamahaLifeStyleStudioSection = (props: PropsType) => {
         </div>
         <Button
           appearance={"primary"}
-          size={"large"}
+          size={"medium"}
           onClick={props?.button?.onClick}
         >
           {props?.button?.text || "Button"}

@@ -43,7 +43,7 @@ const Header = (props: PropsType) => {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
-    <nav className="w-full sticky top-0 flex h-[8vh] md:h-auto justify-center bg-primary-2 text-white py-3 z-40">
+    <nav className="w-full sticky top-0 flex h-[10vh] md:h-auto justify-center bg-primary-2 text-white py-6 z-40">
       <div className=" w-11/12 flex items-center justify-between gap-5">
         <aside
           className=" cursor-pointer"
@@ -55,8 +55,8 @@ const Header = (props: PropsType) => {
           <Image
             src="/assets/images/logo/logo.png"
             alt="logo"
-            width={200}
-            height={180}
+            width={120}
+            height={50}
           />
         </aside>
         <aside className=" flex items-center gap-5 text-textGray">

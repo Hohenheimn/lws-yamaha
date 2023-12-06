@@ -35,7 +35,7 @@ const NavSubTab = ({ tabs, onClose, setClickedMenu }: PropsType) => {
         <MdOutlineKeyboardArrowLeft className=" text-3xl" />
         Back
       </button>
-      <ul className=" flex flex-col md:flex-row gap-16 items-center text-gray-300 tracking-wider mb-5">
+      <ul className=" flex flex-col md:flex-row gap-3 md:gap-16 items-center text-gray-300 tracking-wider mb-5">
         {tabs.map((item, indx: number) => (
           <li
             key={indx}

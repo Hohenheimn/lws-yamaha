@@ -25,6 +25,7 @@ import validateImageUrl from "@/utils/validateImageUrl";
 
 import SectionContainer from "../SectionContainer";
 import { DealerType } from "./type";
+import DebouncedInput from "@/components/shared/DebounceInput/DebounceInput";
 
 const DealerSection = () => {
   const [search, setSearch] = useState("");
@@ -59,10 +60,9 @@ const DealerSection = () => {
     <SectionContainer width="wide" className="space-y-10">
       <ul className=" flex gap-5 md:gap-10 flex-wrap md:flex-nowrap">
         <li className=" w-full md:w-2/3">
-          <SearchBar
-            search={search}
-            setSearch={setSearch}
-            placeholder="Search Dealer Store Name"
+          <DebouncedInput
+            value={search ?? ""}
+            onChange={(value) => setSearch(String(value))}
           />
         </li>
         <li className=" w-full md:w-1/3">

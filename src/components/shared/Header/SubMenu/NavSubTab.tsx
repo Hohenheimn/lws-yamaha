@@ -67,7 +67,7 @@ const NavSubTab = ({ tabs, onClose, setClickedMenu }: PropsType) => {
         {tabs.map((item, indx) => (
           <div key={indx}>
             {activeTab.includes(item.url) && (
-              <ul className="grid md:grid-rows-6 grid-cols-1 md:grid-cols-none md:grid-flow-col gap-x-10 gap-y-2 ">
+              <ul className="grid grid-cols-2 gap-x-12 md:grid-cols-none md:grid-flow-col md:grid-rows-6 md:gap-x-14 gap-y-2">
                 {item.children.map((menu, menuIndx) => (
                   <li key={menuIndx} className=" min-w-[7rem]">
                     <Link

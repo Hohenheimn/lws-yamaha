@@ -46,8 +46,6 @@ const Hero = (props: PropsType) => {
     imageContent,
   } = props;
 
-  console.log(props);
-
   return (
     <>
       <section
@@ -93,7 +91,7 @@ const Hero = (props: PropsType) => {
           </div>
         )}
 
-        <div className="absolute top-0 left-0 z-10 w-full h-full bg-black/50"></div>
+        <div className="absolute top-0 left-0 z-10 w-full h-full bg-black/30"></div>
         <div
           className={`relative h-full w-11/12 py-[5%] flex  z-10
             ${textPosition === "bottom-left" && "justify-start items-end"}

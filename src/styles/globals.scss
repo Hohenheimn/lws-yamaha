@@ -65,14 +65,14 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .y-connect-carousel {
-  .swiper-slide {
-    img {
-      filter: grayscale(100%);
-    }
-  }
-  .swiper-slide.swiper-slide-active {
-    img {
-      filter: grayscale(0%);
-    }
-  }
+  // .swiper-slide {
+  //   img {
+  //     filter: grayscale(100%);
+  //   }
+  // }
+  // .swiper-slide.swiper-slide-active {
+  //   img {
+  //     filter: grayscale(0%);
+  //   }
+  // }
 }

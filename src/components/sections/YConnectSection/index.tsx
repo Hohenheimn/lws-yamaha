@@ -114,10 +114,11 @@ const YConnectSection = (props: PropsType) => {
                   Keyboard,
                   Autoplay,
                 ]}
-                spaceBetween={30}
+                spaceBetween={200}
                 freeMode
+                // loop={true}
                 centeredSlides
-                autoplay={{ delay: 2000 }}
+                // autoplay={{ delay: 2000 }}
                 centeredSlidesBounds
                 breakpoints={breakpoints}
               >

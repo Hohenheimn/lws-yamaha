@@ -10,6 +10,7 @@ import config from "@/utils/config";
 import validateImageUrl from "@/utils/validateImageUrl";
 
 import Button from "../../shared/Button";
+import classNames from "classnames";
 
 type PropsType = {
   title: string;
@@ -47,12 +48,18 @@ const ImageAndParagraph = (props: PropsType) => {
     description,
     autoImage,
   } = props;
-  console.log(content);
+
   return (
-    <ul className="  w-full flex items-center flex-wrap md:flex-nowrap gap-20">
+    <ul
+      className={`w-full flex items-center flex-col md:flex-row gap-3 ${classNames(
+        {
+          "flex-col-reverse": contentAlignment === "left",
+        }
+      )}`}
+    >
       <li
-        className={` w-full md:w-1/2 flex justify-center items-center p-0  ${
-          contentAlignment === "right" && "order-1 "
+        className={` w-full md:w-1/2 flex justify-center items-center p-0 mb-5 md:mb-0 ${
+          contentAlignment === "right" && "order-1"
         } ${contentAlignment === "left" && "order-2"}`}
       >
         {autoImage && (
@@ -65,7 +72,7 @@ const ImageAndParagraph = (props: PropsType) => {
           />
         )}
         {image && !autoImage && (
-          <aside className="relative w-full aspect-[1.5/1]">
+          <aside className="relative w-full aspect-[1.5/1] rounded-md overflow-hidden">
             <Image
               src={image}
               // width={1000}
@@ -78,9 +85,9 @@ const ImageAndParagraph = (props: PropsType) => {
         )}
       </li>
       <li
-        className={` w-full md:w-1/2 text-white  space-y-5 ${
-          contentAlignment === "right" && "order-2 "
-        } ${contentAlignment === "left" && "order-1 "}`}
+        className={` w-full md:w-1/2 text-white space-y-5 ${
+          contentAlignment === "right" && "order-2 md:pl-10"
+        } ${contentAlignment === "left" && "order-1 md:pr-10"}`}
       >
         <Heading type="h5">{title}</Heading>
         {description && <p>{description}</p>}

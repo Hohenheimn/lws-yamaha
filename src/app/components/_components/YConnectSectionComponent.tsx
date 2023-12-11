@@ -6,7 +6,7 @@ const YConnectSectionComponent = () => {
   return (
     <YConnectSection
       headingText={
-        "Y-Connect is Yamahas latest innovation that connects man and machine digitally. This application is a brand exclusive that links your smart phone directly to your Yamaha motorcycle."
+        "Y-Connect is Yamaha’s latest innovation that connects man and machine digitally. This application is a brand exclusive that links your smart phone directly to your Yamaha motorcycle."
       }
       tabs={[
         {

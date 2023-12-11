@@ -81,7 +81,7 @@ const Hero = (props: PropsType) => {
           />
         )}
         {scrollDown && (
-          <div className=" absolute bottom-16">
+          <div className=" absolute bottom-16 z-20">
             <Link href={"#explore"}>
               <aside className=" flex items-center flex-col text-white">
                 <IoIosArrowDown className=" text-[5rem] -mb-16" />
@@ -91,8 +91,9 @@ const Hero = (props: PropsType) => {
           </div>
         )}
 
+        <div className="absolute top-0 left-0 z-10 w-full h-full bg-black/50"></div>
         <div
-          className={` h-full w-11/12 py-[5%] flex  z-10
+          className={`relative h-full w-11/12 py-[5%] flex  z-10
             ${textPosition === "bottom-left" && "justify-start items-end"}
             ${textPosition === "bottom-right" && "justify-end items-end"}
             ${textPosition === "bottom-center" && "justify-center items-end"}

@@ -48,7 +48,7 @@ const ImageAndParagraph = (props: PropsType) => {
     description,
     autoImage,
   } = props;
-  console.log(content);
+
   return (
     <ul
       className={`w-full flex items-center flex-col md:flex-row gap-3 ${classNames(

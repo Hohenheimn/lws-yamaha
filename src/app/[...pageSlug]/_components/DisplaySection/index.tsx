@@ -146,7 +146,7 @@ const DisplaySection = (props: PropsType) => {
           )}
           {section?.sectionType === "text-section" && (
             <ParagraphAndDownloadSection
-            title={section?.title}
+              title={section?.title}
               paragraph={section?.description}
               textAlignment={section?.alignContentHorizontal}
               downloadLink={section?.url}

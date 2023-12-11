@@ -32,16 +32,20 @@ const ImageTwoColParagraph = (props: PropsType) => {
           {props?.description
             ?.split("\n\n")
             .slice(0, props?.description?.split("\n\n").length / 2 - 1)
-            .map((desc) => (
-              <div className="whitespace-pre-wrap pb-5">{desc}</div>
+            .map((desc, idx) => (
+              <div key={idx} className="whitespace-pre-wrap pb-5">
+                {desc}
+              </div>
             ))}
         </div>
         <div className="flex-col flex-1 gap-5">
           {props?.description
             ?.split("\n\n")
             .slice(props?.description?.split("\n\n").length / 2 - 1)
-            .map((desc) => (
-              <div className="whitespace-pre-wrap pb-5">{desc}</div>
+            .map((desc, idx) => (
+              <div key={idx} className="whitespace-pre-wrap pb-5">
+                {desc}
+              </div>
             ))}
         </div>
       </div>

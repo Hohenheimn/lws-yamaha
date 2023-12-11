@@ -46,6 +46,8 @@ const Hero = (props: PropsType) => {
     imageContent,
   } = props;
 
+  console.log(props);
+
   return (
     <>
       <section

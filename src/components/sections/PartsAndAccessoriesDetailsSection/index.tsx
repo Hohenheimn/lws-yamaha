@@ -60,7 +60,7 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
 
   const renderImagePreview = () => {
     return (
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 w-full">
         <div className="relative h-[300px] w-full sm:h-[500px] sm:w-[500px]  bg-[#323232] rounded-lg cursor-pointer">
           {currentVariant?.images?.length && (
             <Image
@@ -139,8 +139,8 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
 
   const renderAttributes = () => {
     return attributes?.map((val, index) => (
-      <div key={index} className="flex gap-3 items-center pt-5">
-        <span className="font-semibold w-[55px] text-right">
+      <div key={index} className="flex flex-wrap gap-3 items-center pt-5">
+        <span className="font-semibold w-[55px]">
           {val?.[0].attribute.name}:
         </span>
         <div className="flex gap-2 flex-wrap">

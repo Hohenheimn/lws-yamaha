@@ -31,8 +31,6 @@ export const generateMetadata = async ({
 }: PropsType): Promise<Metadata> => {
   const data = await getProductData(productSlug);
 
-  console.log(data);
-
   return {
     title: data.name,
     description: data.description,

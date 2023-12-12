@@ -18,7 +18,7 @@ type Meta = {
   metaKeywords: string;
   metaCanonical: string;
   metaImage: string;
-} & Metadata["icons"];
+};
 
 type PropsType = {
   params: { pageSlug: string[] };

@@ -1,6 +1,5 @@
 import React, { ComponentProps, Suspense } from "react";
 import { Montserrat } from "next/font/google";
-
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import "@/styles/globals.scss";

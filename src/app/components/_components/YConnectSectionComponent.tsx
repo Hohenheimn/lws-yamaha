@@ -6,7 +6,7 @@ const YConnectSectionComponent = () => {
   return (
     <YConnectSection
       headingText={
-        "Y-Connect is Yamahas latest innovation that connects man and machine digitally. This application is a brand exclusive that links your smart phone directly to your Yamaha motorcycle."
+        "Y-Connect is Yamaha’s latest innovation that connects man and machine digitally. This application is a brand exclusive that links your smart phone directly to your Yamaha motorcycle."
       }
       tabs={[
         {
@@ -67,6 +67,8 @@ const YConnectSectionComponent = () => {
           tab_name: "Y-Connect Features",
           image: "/assets/images/samples/sample-y-phone.png",
           contentType: "slider",
+          description:
+            "Y-Connect is Yamaha's latest innovation that connects man and machine digitally. This application is a brand exclusive that links your smart phone directly to your Yamaha motorcycle.",
           content: [
             {
               title: "Revs Dashboard",

@@ -47,6 +47,7 @@ import validateImageUrl from "@/utils/validateImageUrl";
 import OurServicesComponent from "../OurServicesComponent";
 import PageSectionType from "../PageSectionType";
 import { SectionTypes } from "./sectionTypes";
+import ImageTwoColParagraph from "../ImageTwoColParagraphSection";
 
 const NewsGridSectionComponent = dynamic(
   () => import("../NewsGridSectionComponent")
@@ -90,6 +91,8 @@ const DisplaySection = (props: PropsType) => {
         return (
           <YamahaLifestyleStudioPageSection {...section} key={section.id} />
         );
+      case PageSectionType.imageTwoColParagraph:
+        return <ImageTwoColParagraph {...section} key={section.id} />;
     }
   };
 
@@ -146,6 +149,7 @@ const DisplaySection = (props: PropsType) => {
           )}
           {section?.sectionType === "text-section" && (
             <ParagraphAndDownloadSection
+              title={section?.title}
               paragraph={section?.description}
               textAlignment={section?.alignContentHorizontal}
               downloadLink={section?.url}

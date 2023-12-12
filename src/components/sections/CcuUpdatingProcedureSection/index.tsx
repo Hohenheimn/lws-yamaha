@@ -34,11 +34,11 @@ const CcuUpdatingProcedureSection = (props: PropsType) => {
         <p>How to download and install the latest CCU software</p>
       </aside>
       <div>
-        <ul className=" grid grid-cols-1 md:grid-cols-2 gap-5">
+        <ul className="columns columns-1 md:columns-2 gap-5">
           {instructions.map((instruction, indx) => (
-            <li key={indx} className="  flex gap-2">
+            <li key={indx} className="p-5 flex gap-2">
               {indx + 1}.
-              <aside className=" space-y-2">
+              <aside className="space-y-2">
                 {instruction.content.map((cont, indx) => (
                   <div key={indx}>
                     {cont.type === "text" && <p>{cont.value}</p>}

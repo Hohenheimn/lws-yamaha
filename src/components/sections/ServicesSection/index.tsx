@@ -25,7 +25,7 @@ const ServicesSection = (props: PropsType) => {
           <Heading type="h4">Our Services</Heading>
           <p>Note: Applicable for selected models only.</p>
         </div>
-        <div className="flex flex-col items-center gap-5">
+        <div className="mx-3 flex flex-col items-center gap-5">
           {data?.map((_) => (
             <div
               key={_.id}
@@ -37,15 +37,17 @@ const ServicesSection = (props: PropsType) => {
               <div className="flex flex-col w-full">
                 <div className="font-semibold flex py-2">
                   <div className="flex-[2] md:flex-[10]">Service Type</div>
-                  <div className="flex-1 md:flex-[2]">Labor Time</div>
+                  <div className="flex-1 md:flex-[2] text-right md:text-left">
+                    Labor Time
+                  </div>
                 </div>
                 {_?.services?.map((service) => (
                   <div
                     key={service.id}
-                    className="border-b-[2px] border-gray-400 py-2 text-gray-400 flex"
+                    className="border-b-[2px] border-gray-400 py-2 text-gray-400 flex text-sm"
                   >
                     <div className="flex-[2] md:flex-[10]">{service.type}</div>
-                    <div className="flex-1 md:flex-[2]">
+                    <div className="flex-1 md:flex-[2] text-right md:text-left">
                       {service.laborTime}
                     </div>
                   </div>

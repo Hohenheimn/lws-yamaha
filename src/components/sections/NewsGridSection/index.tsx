@@ -12,7 +12,7 @@ const NewsGridSection = (props: PropsType) => {
   return (
     <div className="flex flex-col gap-10 bg-[#323232] p-5 md:p-10">
       <div className=" relative flex flex-col gap-3 lg:flex-row items-center justify-center flex-wrap border-b border-[#f1f1f1] pb-4">
-        <div>
+        <div className="text-center">
           <h2 className="font-bold text-[#f1f1f1] text-3xl md:text-center">
             News
           </h2>

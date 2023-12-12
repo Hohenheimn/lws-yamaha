@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 
 type PropsType = {
-  type: "h1" | "h2" | "h3" | "h4" | "h5";
+  type: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   children: ReactNode;
   className?: string;
 };
@@ -41,6 +41,13 @@ const Heading = (props: PropsType) => {
       {type === "h5" && (
         <h5
           className={`whitespace-pre-wrap text-[1.05rem] xl:text-[1.5rem] font-bold ${className}`}
+        >
+          {children}
+        </h5>
+      )}
+      {type === "h6" && (
+        <h5
+          className={`whitespace-pre-wrap text-lg xl:text-[1.2rem] font-bold ${className}`}
         >
           {children}
         </h5>

@@ -57,7 +57,7 @@ const MotorcycleCarouselSection = (props: PropsType) => {
     >
       <aside className=" w-11/12 max-w-[60rem] text-center text-white space-y-4">
         <Heading type="h4">{title}</Heading>
-        <p>{description}</p>
+        <p className="text-sm">{description}</p>
       </aside>
       <div className=" w-full relative mb-16">
         <Swiper

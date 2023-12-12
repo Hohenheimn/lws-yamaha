@@ -49,11 +49,9 @@ const Hero = (props: PropsType) => {
   return (
     <>
       <section
-        className={` w-full relative ${
-          !fullHeight && "h-[52vh] min-h-[30rem]"
-        } ${fullHeight && "h-[92vh]"} flex justify-center ${
-          !desktopBgImage && "bg-black"
-        }`}
+        className={` w-full relative ${!fullHeight && "h-[62vh]"} ${
+          fullHeight && "h-[92vh]"
+        } flex justify-center ${!desktopBgImage && "bg-black"}`}
       >
         {desktopBgImage && (
           <Image
@@ -64,7 +62,9 @@ const Hero = (props: PropsType) => {
             }
             alt="banner"
             fill
-            className={` object-cover ${mobileBgImage && "hidden md:inline"}`}
+            className={`brightness-[0.7] object-cover ${
+              mobileBgImage && "hidden md:inline"
+            }`}
           />
         )}
 
@@ -77,7 +77,9 @@ const Hero = (props: PropsType) => {
             }
             alt="banner"
             fill
-            className={` object-cover ${mobileBgImage && "inline md:hidden"}`}
+            className={`brightness-[0.7] object-cover ${
+              mobileBgImage && "inline md:hidden"
+            }`}
           />
         )}
         {scrollDown && (
@@ -128,13 +130,15 @@ const Hero = (props: PropsType) => {
                 />
               )}
               {title && (
-                <Heading type="h2" className=" uppercase whitespace-pre-wrap">
+                <Heading type="h3" className="uppercase whitespace-pre-wrap">
                   {title}
                 </Heading>
               )}
 
               {description && (
-                <p className=" text-lg whitespace-pre-wrap">{description}</p>
+                <p className="mt-2 text-sm whitespace-pre-wrap">
+                  {description}
+                </p>
               )}
 
               {readMore && (

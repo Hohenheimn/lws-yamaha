@@ -262,7 +262,7 @@ const DisplaySection = (props: PropsType) => {
           {renderSection(section)}
         </section>
       ))}
-      <InquieryAndFindDealerButtons />
+      {/* <InquieryAndFindDealerButtons /> */}
     </>
   );
 };

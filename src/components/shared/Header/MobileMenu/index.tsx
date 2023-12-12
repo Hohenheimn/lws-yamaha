@@ -21,7 +21,7 @@ const MobileMenu = ({ setMobileMenu, menu }: PropsType) => {
   );
 
   return (
-    <nav className=" flex flex-col max-h-[92vh] overflow-auto md:px-0 justify-start items-center w-full absolute top-full left-0 py-10 bg-[#6a6a6a58] backdrop-blur-lg space-y-5">
+    <nav className=" flex flex-col max-h-[92vh] overflow-auto md:px-0 justify-start items-center w-full absolute top-full left-0 py-10 bg-[#28282890] backdrop-blur-lg space-y-5">
       {!selectedMenu && (
         <ul className="w-11/12 space-y-3 text-gray-300">
           {menu.map((item, indx) => (

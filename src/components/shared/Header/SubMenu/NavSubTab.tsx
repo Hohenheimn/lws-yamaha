@@ -72,9 +72,9 @@ const NavSubTab = ({ tabs, onClose, setClickedMenu }: PropsType) => {
                   <li key={menuIndx} className=" min-w-[7rem]">
                     <Link
                       href={menu.url}
-                      className={`hover:text-white transition-colors ${
+                      className={`hover:text-white md:text-sm transition-colors ${
                         menu.url === pathname && "text-white font-bold"
-                      } md:text-base lg:text-xs`}
+                      }`}
                       onClick={() => {
                         setClickedMenu && setClickedMenu(null);
                       }}

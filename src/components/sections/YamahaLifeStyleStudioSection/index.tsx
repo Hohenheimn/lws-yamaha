@@ -23,7 +23,7 @@ const YamahaLifeStyleStudioSection = (props: PropsType) => {
   const [activeEmbed, setActiveEmbed] = useState<number>(1);
 
   return (
-    <div className="flex flex-col gap-10 bg-[#323232] p-5 md:p-10">
+    <div className="flex flex-col gap-10 p-5 md:p-10">
       <div className="flex flex-wrap items-end justify-between border-b gap-5 border-[#f1f1f1] pb-4">
         <div>
           <h2 className="font-bold text-[#f1f1f1] text-3xl">{props?.title}</h2>

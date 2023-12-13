@@ -18,7 +18,7 @@ export const generateMetadata = () => {
 
 const YamahaLifestyleStudioPage = () => {
   return (
-    <>
+    <div className="bg-primary">
       <Hero
         desktopBgImage="/assets/images/samples/yamaha-life-style-studio.png"
         textPosition={"center-left"}
@@ -39,7 +39,7 @@ const YamahaLifestyleStudioPage = () => {
         />
       </section>
       <InquieryAndFindDealerButtons />
-    </>
+    </div>
   );
 };
 

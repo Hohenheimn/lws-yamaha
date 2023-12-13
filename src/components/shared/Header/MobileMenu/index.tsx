@@ -54,12 +54,14 @@ const MobileMenu = ({ setMobileMenu, menu }: PropsType) => {
         <NavSubTab
           tabs={selectedMenu.children}
           onClose={() => setSelectedMenu(undefined)}
+          setMobileMenu={setMobileMenu}
         />
       )}
       {!selectedMenu?.children[0].children && (
         <NavSubMenus
           menus={selectedMenu?.children}
           onClose={() => setSelectedMenu(undefined)}
+          setMobileMenu={setMobileMenu}
         />
       )}
 

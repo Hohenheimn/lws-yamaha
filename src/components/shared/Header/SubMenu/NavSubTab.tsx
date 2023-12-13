@@ -18,9 +18,15 @@ type PropsType = {
   tabs: MenuType[];
   onClose?: () => void;
   setClickedMenu?: Function;
+  setMobileMenu?: Function;
 };
 
-const NavSubTab = ({ tabs, onClose, setClickedMenu }: PropsType) => {
+const NavSubTab = ({
+  tabs,
+  onClose,
+  setClickedMenu,
+  setMobileMenu,
+}: PropsType) => {
   const pathname = usePathname();
   const [activeTab, setActiveTab] = useState(
     tabs.some((item) => pathname.includes(item.url)) ? pathname : tabs[0].url
@@ -77,6 +83,7 @@ const NavSubTab = ({ tabs, onClose, setClickedMenu }: PropsType) => {
                       }`}
                       onClick={() => {
                         setClickedMenu && setClickedMenu(null);
+                        setMobileMenu && setMobileMenu(false);
                       }}
                     >
                       {menu.label}

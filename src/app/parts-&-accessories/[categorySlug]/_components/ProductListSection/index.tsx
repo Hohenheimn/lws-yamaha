@@ -44,7 +44,7 @@ const ProductListSection = (props: PropsType) => {
   if (isError) return;
 
   return (
-    <div className="flex gap-10 p-5">
+    <div className="flex flex-wrap gap-10 p-5">
       <div className="shrink-0">
         <ProductListFilter
           onChangeFilter={setCategoryIds}

@@ -25,7 +25,7 @@ const VideoSection = (props: PropsType) => {
           <div className="w-full p-5   md:p-10">
             <div className="relative aspect-video w-full bg-white/10 flex rounded-lg overflow-hidden justify-center items-center">
               {!imagePreview ? (
-                <p className="text-white/30">Can't play the video</p>
+                <p className="text-white/30">{"Can't play the video"}</p>
               ) : (
                 <>
                   <Image

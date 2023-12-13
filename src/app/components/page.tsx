@@ -390,6 +390,7 @@ const ComponentsPage = () => {
                 "https://www.youtube.com/embed/JJ6P6c6bkE0?si=MFgAMDjyz9ovX9h2"
               }
               description={""}
+              imagePreview={""}
             />
           ),
           wireframeLink:

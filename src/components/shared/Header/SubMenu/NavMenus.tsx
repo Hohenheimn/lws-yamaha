@@ -15,9 +15,15 @@ type PropsType = {
   menus: MenuType[] | undefined;
   onClose?: () => void;
   setClickedMenu?: Function;
+  setMobileMenu?: Function;
 };
 
-const NavSubMenus = ({ menus, onClose, setClickedMenu }: PropsType) => {
+const NavSubMenus = ({
+  menus,
+  onClose,
+  setClickedMenu,
+  setMobileMenu,
+}: PropsType) => {
   const pathname = usePathname();
   return (
     <section className="w-full px-8">
@@ -44,6 +50,7 @@ const NavSubMenus = ({ menus, onClose, setClickedMenu }: PropsType) => {
                 } text-lg md:text-base`}
                 onClick={() => {
                   setClickedMenu && setClickedMenu(null);
+                  setMobileMenu && setMobileMenu(false);
                 }}
               >
                 {menu.label}

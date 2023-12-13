@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-
 import ButtonElement from "./ButtonElement";
 import LinkElement from "./LinkElement";
 

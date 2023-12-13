@@ -220,6 +220,7 @@ const DisplaySection = (props: PropsType) => {
               youtubeUrl={section?.video}
               description={section?.description}
               title={section?.title}
+              imagePreview={section?.image}
             />
           )}
           {section?.sectionType === "ydt-section" && (

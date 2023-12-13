@@ -62,8 +62,9 @@ const SearchModal = (props: PropsType) => {
 
     return (
       <div className="text-white/50">
-        Sorry, no results found. Please ensure you've entered valid search
-        criteria.
+        {
+          "Sorry, no results found. Please ensure you've entered valid search criteria."
+        }
       </div>
     );
   };

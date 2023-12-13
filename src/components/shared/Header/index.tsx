@@ -103,7 +103,10 @@ const Header = (props: PropsType) => {
           </ul>
           <ul className="flex gap-5 items-center text-center">
             <li>
-              <BiSearch className=" text-2xl cursor-pointer" />
+              <BiSearch
+                className=" text-2xl cursor-pointer"
+                onClick={() => router.push("search")}
+              />
             </li>
             <li>
               <div

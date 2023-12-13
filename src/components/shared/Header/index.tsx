@@ -30,7 +30,7 @@ const Header = (props: PropsType) => {
   const pathname = usePathname();
   const [clickedMenu, setClickedMenu] = useState<MenuType | null>(null);
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [showSearchModal, setShowSearchModal] = useState(true);
+  const [showSearchModal, setShowSearchModal] = useState(false);
 
   return (
     <>

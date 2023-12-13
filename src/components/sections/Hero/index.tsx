@@ -86,8 +86,8 @@ const Hero = (props: PropsType) => {
           <div className=" absolute bottom-16 z-20">
             <Link href={"#explore"}>
               <aside className=" flex items-center flex-col text-white">
-                <IoIosArrowDown className=" text-[5rem] -mb-16" />
-                <IoIosArrowDown className=" text-[8rem] -mb-10" />
+                <IoIosArrowDown className=" text-[4rem] -mb-16" />
+                <IoIosArrowDown className=" text-[7rem] -mb-12" />
               </aside>
             </Link>
           </div>

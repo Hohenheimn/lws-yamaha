@@ -48,23 +48,16 @@ import OurServicesComponent from "../OurServicesComponent";
 import PageSectionType from "../PageSectionType";
 import { SectionTypes } from "./sectionTypes";
 import ImageTwoColParagraph from "../ImageTwoColParagraphSection";
+import AnnouncementModal from "@/components/shared/modals/AnnouncementModal";
 
 const NewsGridSectionComponent = dynamic(
   () => import("../NewsGridSectionComponent")
 );
-
 const MotorcycleCarouselSectionComponent = dynamic(
   () => import("../MotorcycleCarouselSectionComponent")
 );
-
-const EmbedSocialSection = dynamic(
-  () => import("@/app/components/_components/EmbedSocialSection")
-);
 const Hero = dynamic(() => import("@/components/sections/Hero"));
 const ImageLinks = dynamic(() => import("@/components/sections/ImageLinks"));
-const InquieryAndFindDealerButtons = dynamic(
-  () => import("@/components/sections/InquieryAndFindDealerButtons")
-);
 const Loading = dynamic(() => import("@/components/shared/Loading"));
 
 const YamahaLifestyleStudioPageSection = dynamic(
@@ -73,6 +66,7 @@ const YamahaLifestyleStudioPageSection = dynamic(
 type PropsType = {
   endpoint: string;
   queryName: string;
+  slug: string;
 };
 
 const DisplaySection = (props: PropsType) => {
@@ -96,8 +90,17 @@ const DisplaySection = (props: PropsType) => {
     }
   };
 
+  const renderAnnoucementModal = () => {
+    if (!["home", "", "/"].includes(props.slug)) return;
+
+    return (
+      <AnnouncementModal desktopImage={"/assets/images/announcement.jpg"} />
+    );
+  };
+
   return (
     <>
+      {renderAnnoucementModal()}
       {pageSections?.map((section: SectionTypes) => (
         <section key={section?.id}>
           {section?.sectionType === "hero-section" && (

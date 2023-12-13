@@ -155,7 +155,9 @@ const Footer = () => {
           )}
         </ul>
         <div className=" flex flex-col items-center gap-5">
-          <p>Copyright {"©"} 2023 Yamaha Motors Philippines Inc.</p>
+          <p className="text-center">
+            Copyright {"©"} 2023 Yamaha Motors Philippines Inc.
+          </p>
 
           <ul className=" flex gap-10 items-center">
             {settingsSocial?.instagramUrl && (

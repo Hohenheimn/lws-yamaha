@@ -22,13 +22,14 @@ type Meta = {
 
 type PropsType = {
   params: { pageSlug: string[] };
-  searchParams: any;
 };
 
-export const generateMetadata = async (props: PropsType) => {
-  const { params, searchParams } = props;
+export const generateMetadata = async (
+  props: PropsType
+): Promise<Metadata & { error: unknown; slug: unknown; metaId: unknown }> => {
+  const { params } = props;
   const slug: string = params.pageSlug.filter(
-    (item, indx) => params.pageSlug.length === indx + 1
+    (_, indx) => params.pageSlug.length === indx + 1
   )[0];
   let error = false;
   let meta: Meta = {
@@ -48,17 +49,17 @@ export const generateMetadata = async (props: PropsType) => {
       res.data.data ? (error = false) : (error = true);
     })
     .catch((err) => {
-      console.log(err);
+      console.error(err);
       error = true;
     });
   return {
     title: meta?.metaTitle,
     description: meta?.metaDescription,
     keywords: meta?.metaKeywords,
+    alternates: { canonical: meta?.metaCanonical },
     openGraph: {
       title: meta?.metaTitle,
       description: meta?.metaDescription,
-      url: meta?.metaCanonical,
       images: [
         {
           url: `${config.imageBaseUrl}${meta?.metaImage}`,
@@ -92,6 +93,7 @@ const SlugPage = async (props: PropsType) => {
       <DisplaySection
         endpoint={`/api/page-sections?pageId=${metaId}`}
         queryName={`${slug}-${metaId}`}
+        slug={`${slug}`}
       />
     </>
   );

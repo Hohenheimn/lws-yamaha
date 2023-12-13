@@ -169,7 +169,7 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
   return (
     <div className="flex justify-center">
       <div className="w-full text-white max-w-[1400px] flex flex-col gap-10">
-        <div className="flex gap-10 flex-wrap">
+        <div className="flex gap-10 flex-col lg:flex-row">
           {renderImagePreview()}
           <div className="flex flex-col justify-center gap-10 h-fit">
             <div className="flex flex-col gap-2">

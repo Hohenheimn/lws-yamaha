@@ -94,6 +94,10 @@ const Header = (props: PropsType) => {
                           pathname.includes(item.url)) &&
                         "text-white"
                       }`}
+                      onClick={() => {
+                        setClickedMenu(null);
+                        setMobileMenu(false);
+                      }}
                     >
                       {item.label}
                     </Link>

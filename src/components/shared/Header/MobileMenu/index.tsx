@@ -41,7 +41,14 @@ const MobileMenu = ({ setMobileMenu, menu }: PropsType) => {
                   </div>
                 </>
               ) : (
-                <Link href={`${item?.url}`} className=" text-2xl">
+                <Link
+                  href={`${item?.url}`}
+                  className=" text-2xl"
+                  onClick={() => {
+                    setSelectedMenu(undefined);
+                    setMobileMenu(false);
+                  }}
+                >
                   {item.label}
                 </Link>
               )}

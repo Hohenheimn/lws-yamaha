@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Heading from "@/components/shared/Heading";
+import classNames from "classnames";
 
 type MotorcycleCardType = {
   imageSrc: string;
@@ -14,8 +15,14 @@ type MotorcycleCardType = {
 
 const MotorcycleCard = (props: MotorcycleCardType) => {
   const { imageSrc, features, url, inheritWidth, title } = props;
+
   return (
-    <ul className={`relative flex flex-col ${!inheritWidth && "w-[300px]"}`}>
+    <ul
+      className={classNames(
+        "relative flex flex-col h-[70vh]",
+        !inheritWidth && "w-[300px]"
+      )}
+    >
       <li className="w-full flex justify-center relative after:content-[''] after:absolute after:w-full after:bottom-0 after:left-0 after:h-[40%] after:bg-white after:rounded-tl-xl  after:rounded-tr-xl">
         <aside className=" w-[272px] aspect-square relative">
           <Image

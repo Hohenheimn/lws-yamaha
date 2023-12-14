@@ -27,7 +27,6 @@ const NewsGridSection = (props: PropsType) => {
           <Button
             appearance={"primary"}
             size={"large"}
-            url="/news"
             onClick={props.onViewAll}
           >
             View All

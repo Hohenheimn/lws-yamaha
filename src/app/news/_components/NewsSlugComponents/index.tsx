@@ -64,7 +64,7 @@ const NewsSlugComponents = (props: PropTypes) => {
             image: `${validateImageUrl(news.banner.split(",")[0])}`,
             title: `${news.title}`,
             date: `${news.datePublished}`,
-            url: `/news/${slug}/${news.id}`,
+            url: `/news/${slug}/${news.slug}`,
           };
         })}
       />
@@ -86,15 +86,16 @@ const NewsSlugComponents = (props: PropTypes) => {
               date={news?.datePublished}
               title={news?.title}
               description={news?.newsArticleContents[0].value}
-              url={`${
-                news?.subCategoryId === 17
-                  ? `/news/news-and-events/${news?.id}`
-                  : ""
-              }${
-                news?.subCategoryId === 18
-                  ? `/news/yamaha-racing/${news?.id}`
-                  : ""
-              }`}
+              url={`/news/${slug}/${news.slug}`}
+              // url={`${
+              //   news?.subCategoryId === 17
+              //     ? `/news/news-and-events/${news?.slug}`
+              //     : ""
+              // }${
+              //   news?.subCategoryId === 18
+              //     ? `/news/yamaha-racing/${news?.slug}`
+              //     : ""
+              // }`}
             />
           ))}
         </div>

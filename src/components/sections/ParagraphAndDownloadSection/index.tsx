@@ -34,7 +34,9 @@ const ParagraphAndDownloadSection = (props: PropsType) => {
       )}
 
       {paragraph && (
-        <p className="text-white whitespace-pre-wrap">{paragraph}</p>
+        <p className="w-full text-white whitespace-pre-wrap xl:mx-auto max-w-[1300px]">
+          {paragraph}
+        </p>
       )}
 
       {labelUrl && (

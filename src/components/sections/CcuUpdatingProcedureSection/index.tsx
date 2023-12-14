@@ -27,7 +27,8 @@ const CcuUpdatingProcedureSection = (props: PropsType) => {
   return (
     <SectionContainer
       width={"narrow"}
-      className=" text-white flex items-center flex-col space-y-10 lg:space-y-20"
+      bgColor="#131313"
+      className=" text-white flex items-center flex-col space-y-5"
     >
       <aside>
         <Heading type="h4">CCU Updating Procedure</Heading>

@@ -8,6 +8,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import Button from "@/components/shared/Button";
 import Heading from "@/components/shared/Heading";
 import validateImageUrl from "@/utils/validateImageUrl";
+import { useRouter } from "next/navigation";
 
 type PropsType = {
   desktopBgImage?: string;
@@ -30,9 +31,15 @@ type PropsType = {
   imageTitleUrl?: string;
   readMore?: string;
   imageContent?: string;
+  button?: {
+    text: string;
+    url: string;
+    isDownload: boolean;
+  };
 };
 
 const Hero = (props: PropsType) => {
+  const router = useRouter();
   const {
     desktopBgImage,
     mobileBgImage,
@@ -44,6 +51,7 @@ const Hero = (props: PropsType) => {
     imageTitleUrl,
     readMore,
     imageContent,
+    button,
   } = props;
 
   return (
@@ -130,21 +138,36 @@ const Hero = (props: PropsType) => {
                 />
               )}
               {title && (
-                <Heading type="h3" className="uppercase whitespace-pre-wrap">
+                <Heading
+                  type="h3"
+                  className="xl:text-[3.2rem] uppercase whitespace-pre-wrap"
+                >
                   {title}
                 </Heading>
               )}
 
               {description && (
-                <p className="mt-2 text-sm whitespace-pre-wrap">
+                <p className="mt-2 text-sm xl:text-lg whitespace-pre-wrap">
                   {description}
                 </p>
               )}
 
-              {readMore && (
+              {/* {readMore && (
                 <div className=" mt-5">
                   <Button appearance={"primary"} size={"medium"} url={readMore}>
                     Read More
+                  </Button>
+                </div>
+              )} */}
+              {!!(button?.url && button?.text) && (
+                <div className=" mt-5">
+                  <Button
+                    onClick={() => router.push(button.url)}
+                    appearance={"primary"}
+                    size={"medium"}
+                    download={button.isDownload}
+                  >
+                    {button.text}
                   </Button>
                 </div>
               )}

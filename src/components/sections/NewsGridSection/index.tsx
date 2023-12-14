@@ -5,6 +5,7 @@ import Button from "@/components/shared/Button";
 
 type PropsType = {
   onViewAll(): void;
+
   news: ComponentProps<typeof NewsCardGrid>[];
 };
 
@@ -26,7 +27,6 @@ const NewsGridSection = (props: PropsType) => {
           <Button
             appearance={"primary"}
             size={"large"}
-            url="/news"
             onClick={props.onViewAll}
           >
             View All
@@ -36,17 +36,13 @@ const NewsGridSection = (props: PropsType) => {
       <div className="flex flex-col-reverse lg:flex-row gap-4">
         <div className="flex flex-col gap-4 h-full">
           {props.news?.slice(0, 2).map((news) => (
-            <NewsCardGrid
-              key={news.id}
-              {...news}
-              onClick={() => console.log(news)}
-            />
+            <NewsCardGrid key={news.id} {...news} onClick={news.onClick} />
           ))}
         </div>
         {!!props.news?.[2] && (
           <NewsCardGrid
             {...props.news[2]}
-            onClick={() => console.log(props.news?.[2])}
+            onClick={props?.news?.[2].onClick}
             direction="column"
           />
         )}

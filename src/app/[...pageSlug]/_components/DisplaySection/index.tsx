@@ -83,7 +83,11 @@ const DisplaySection = (props: PropsType) => {
     switch (section.sectionType) {
       case PageSectionType.lifestyleStudio:
         return (
-          <YamahaLifestyleStudioPageSection {...section} key={section.id} />
+          <YamahaLifestyleStudioPageSection
+            {...section}
+            url={section.url}
+            key={section.id}
+          />
         );
       case PageSectionType.imageTwoColParagraph:
         return <ImageTwoColParagraph {...section} key={section.id} />;
@@ -106,6 +110,11 @@ const DisplaySection = (props: PropsType) => {
           {section?.sectionType === "hero-section" && (
             <Hero
               fullHeight={section?.fullScreen}
+              button={{
+                text: section.urlLabel,
+                url: section.url,
+                isDownload: section.isUrlDownload,
+              }}
               desktopBgImage={
                 section?.backgroundImage
                   ? validateImageUrl(section?.backgroundImage)

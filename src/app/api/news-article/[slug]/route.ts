@@ -4,12 +4,12 @@ import api from "@/utils/api";
 
 type ParamsType = {
   params: {
-    id: string;
+    slug: string;
   };
 };
 
 export const GET = async (req: NextRequest, { params }: ParamsType) => {
-  const res = await api.get(`/news-articles/${params.id}`);
+  const res = await api.get(`/news-articles/${params.slug}`);
   const data = await res.data;
   return NextResponse.json(data);
 };

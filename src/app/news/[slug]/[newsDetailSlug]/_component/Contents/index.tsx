@@ -129,7 +129,7 @@ const NewsContents = (props: PropsType) => {
                 pathname.includes("news-and-events")
                   ? "news-and-events"
                   : "yamaha-racing"
-              }/${item.id}`}
+              }/${item.slug}`}
             />
           ))}
         </div>

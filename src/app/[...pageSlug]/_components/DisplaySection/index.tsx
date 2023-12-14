@@ -106,6 +106,11 @@ const DisplaySection = (props: PropsType) => {
           {section?.sectionType === "hero-section" && (
             <Hero
               fullHeight={section?.fullScreen}
+              button={{
+                text: section.urlLabel,
+                url: section.url,
+                isDownload: section.isUrlDownload,
+              }}
               desktopBgImage={
                 section?.backgroundImage
                   ? validateImageUrl(section?.backgroundImage)

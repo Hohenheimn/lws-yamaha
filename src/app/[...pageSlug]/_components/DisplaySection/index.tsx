@@ -83,7 +83,11 @@ const DisplaySection = (props: PropsType) => {
     switch (section.sectionType) {
       case PageSectionType.lifestyleStudio:
         return (
-          <YamahaLifestyleStudioPageSection {...section} key={section.id} />
+          <YamahaLifestyleStudioPageSection
+            {...section}
+            url={section.url}
+            key={section.id}
+          />
         );
       case PageSectionType.imageTwoColParagraph:
         return <ImageTwoColParagraph {...section} key={section.id} />;
@@ -97,8 +101,6 @@ const DisplaySection = (props: PropsType) => {
       <AnnouncementModal desktopImage={"/assets/images/announcement.jpg"} />
     );
   };
-
-  console.log(pageSections);
 
   return (
     <>

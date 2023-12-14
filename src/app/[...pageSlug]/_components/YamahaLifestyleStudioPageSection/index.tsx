@@ -1,5 +1,5 @@
 import YamahaLifeStyleStudioSection from "@/components/sections/YamahaLifeStyleStudioSection";
-import React from "react";
+import { useRouter } from "next/navigation";
 
 type PropsType = Partial<{
   title: string;
@@ -13,12 +13,13 @@ type PropsType = Partial<{
 }>;
 
 const YamahaLifestyleStudioPageSection = (props: PropsType) => {
+  const router = useRouter();
   return (
     <YamahaLifeStyleStudioSection
       title={props?.title}
       subTitle={props.description}
       button={{
-        onClick: () => {},
+        onClick: () => router.push(`${props.url}`),
         text: `${props?.urlLabel}`,
       }}
       embedSocials={props.contents?.map((content) => ({

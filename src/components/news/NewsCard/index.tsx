@@ -17,7 +17,6 @@ export type NewsCardType = {
 type PropsType = NewsCardType;
 
 const NewsCard = (props: PropsType) => {
-  console.log(props.url, "props");
   return (
     <figure className="bg-[#323232] min-w-[300px] max-w-[450px] rounded-lg overflow-hidden">
       <div className="relative w-full h-[300px] bg-[#464646]">

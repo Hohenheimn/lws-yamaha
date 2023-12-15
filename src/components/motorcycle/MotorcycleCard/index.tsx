@@ -19,17 +19,17 @@ const MotorcycleCard = (props: MotorcycleCardType) => {
   return (
     <ul
       className={classNames(
-        "relative flex flex-col h-[70vh]",
+        "relative flex flex-col",
         !inheritWidth && "w-[300px]"
       )}
     >
       <li className="w-full flex justify-center relative after:content-[''] after:absolute after:w-full after:bottom-0 after:left-0 after:h-[40%] after:bg-white after:rounded-tl-xl  after:rounded-tr-xl">
-        <aside className=" w-[272px] aspect-square relative">
+        <aside className="w-[230px] aspect-square relative">
           <Image
             src={imageSrc}
             fill
             className="z-10 object-contain"
-            alt="vehicle"
+            alt={title}
           />
         </aside>
       </li>
@@ -41,19 +41,19 @@ const MotorcycleCard = (props: MotorcycleCardType) => {
             {features[0] && (
               <li className=" text-[#FFFFFF] flex gap-2">
                 <div className=" h-1 aspect-square bg-white rounded-full mt-2"></div>
-                <p className="line-clamp-2 text-xs">{features[0]}</p>
+                <p className="text-xs">{features[0]}</p>
               </li>
             )}
             {features[1] && (
               <li className=" text-[#FFFFFF] flex gap-2">
                 <div className=" h-1 aspect-square bg-white rounded-full mt-2"></div>
-                <p className="line-clamp-2 text-xs">{features[1]}</p>
+                <p className="text-xs">{features[1]}</p>
               </li>
             )}
             {features[2] && (
               <li className=" text-[#FFFFFF] flex gap-2">
                 <div className=" h-1 aspect-square bg-white rounded-full mt-2"></div>
-                <p className="line-clamp-2 text-xs">{features[2]}</p>
+                <p className="text-xs">{features[2]}</p>
               </li>
             )}
           </ul>

@@ -102,8 +102,6 @@ const DisplaySection = (props: PropsType) => {
     );
   };
 
-  console.log(pageSections, "pagesection");
-
   return (
     <>
       {renderAnnoucementModal()}

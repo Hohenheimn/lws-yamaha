@@ -50,7 +50,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
           <aside className=" relative w-full h-full lg:max-w-[700px] lg:max-h-[700px]">
             <Image
               src={activeColor?.motorcycleImage}
-              alt="motorcycle"
+              alt={activeColor?.motorcycleName}
               fill
               // width={700}
               // height={700}

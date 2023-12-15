@@ -53,7 +53,7 @@ const MotorcycleCarouselSection = (props: PropsType) => {
 
   return (
     <SectionContainer
-      className="relative flex flex-col items-center justify-center max-h-[90vh]"
+      className="relative flex flex-col items-center justify-center min-h-[90vh]"
       bgImage={desktopBgImage}
       mobileBgImage={mobileBgImage}
       width={"wide"}
@@ -63,13 +63,13 @@ const MotorcycleCarouselSection = (props: PropsType) => {
         <Heading type="h4">{title}</Heading>
         <p className="text-sm">{description}</p>
       </aside>
-      <div className=" w-full relative lg:mb-10">
+      <div className="w-full relative mb-6 lg:mb-10">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={30}
           slidesPerView={4}
           className="unit-carousel"
           freeMode
+          loop
           breakpoints={breakpoints}
         >
           <MotorcycleNavigationButton />

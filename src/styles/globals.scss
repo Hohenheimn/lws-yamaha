@@ -7,7 +7,7 @@ html {
 }
 
 .unit-carousel.swiper {
-  @apply px-24;
+  @apply px-16 lg:px-24;
 }
 
 * {

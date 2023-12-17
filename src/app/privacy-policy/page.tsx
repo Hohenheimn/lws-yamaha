@@ -1,12 +1,13 @@
 import React from "react";
 
 import PrivacyPolicySection from "@/components/sections/PrivacyPolicySection";
+import { createMetadata } from "@/utils/helpers";
 
 export const generateMetadata = () => {
-  return {
+  return createMetadata({
     title: "Privacy Policy",
     description: "",
-  };
+  });
 };
 
 const PrivacyPolicyPage = () => {

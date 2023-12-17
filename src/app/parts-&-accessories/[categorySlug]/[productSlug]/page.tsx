@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { Metadata } from "next";
 import PartsAndAccessoriesDetailsSection from "@/components/sections/PartsAndAccessoriesDetailsSection";
 import productData from "@/data/partsAndAccessories/product";
+import { createMetadata } from "@/utils/helpers";
 
 type PropsType = {
   params: {
@@ -31,7 +32,7 @@ export const generateMetadata = async ({
 }: PropsType): Promise<Metadata> => {
   const data = await getProductData(productSlug);
 
-  return {
+  const metadata: Metadata = {
     title: data.name,
     description: data.description,
     keywords: data.name?.replaceAll("-", ","),
@@ -47,6 +48,8 @@ export const generateMetadata = async ({
       ],
     },
   };
+
+  return createMetadata(metadata);
 };
 
 const ProductDetailsPage = async ({ params }: PropsType) => {

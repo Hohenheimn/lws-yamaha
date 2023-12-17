@@ -1,19 +1,16 @@
 import React from "react";
-
 import Hero from "@/components/sections/Hero";
-
 import InquieryAndFindDealerButtons from "@/components/sections/InquieryAndFindDealerButtons";
-
 import ArrowTitle from "@/components/shared/ArrowTitle";
-
-import EmbedSocialSection from "../components/_components/EmbedSocialSection";
 import GridEmbedSocialSection from "../components/_components/GridEmbedSocialSection";
+import { createMetadata } from "@/utils/helpers";
 
 export const generateMetadata = () => {
-  return {
+  return createMetadata({
     title: "Yamaha Lifestyle Studio",
-    description: "",
-  };
+    description:
+      "Be one with your motorcycle. Experience a complete package of advanced features that will redefine your ride.",
+  });
 };
 
 const YamahaLifestyleStudioPage = () => {

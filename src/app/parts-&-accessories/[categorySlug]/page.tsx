@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { Metadata } from "next";
 import HeroSection from "./_components/HeroSection";
 import ProductListSection from "./_components/ProductListSection";
+import { createMetadata } from "@/utils/helpers";
 
 type PropsType = {
   params: {
@@ -34,11 +35,10 @@ export const generateMetadata = async ({
 }: PropsType): Promise<Metadata> => {
   const data = await getCategoryData(categorySlug);
 
-  return {
+  const metadata: Metadata = {
     title: data.metaTitle,
     description: data.metaDescription,
     keywords: data.metaKeywords,
-
     openGraph: {
       title: data.metaTitle,
       description: data.metaDescription,
@@ -52,6 +52,8 @@ export const generateMetadata = async ({
       ],
     },
   };
+
+  return createMetadata(metadata);
 };
 
 const ProductCategoryPage = async ({ params }: PropsType) => {

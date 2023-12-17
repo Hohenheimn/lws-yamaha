@@ -19,6 +19,7 @@ import { createMetadata } from "@/utils/helpers";
 
 type PropsType = {
   params: {
+    categorySlug: string;
     vehicleSlug: string;
   };
 };
@@ -40,7 +41,7 @@ const getVehicleData = async (
 };
 
 export const generateMetadata = async ({
-  params: { vehicleSlug },
+  params: { vehicleSlug, categorySlug },
 }: PropsType): Promise<Metadata> => {
   const data = await getVehicleData(vehicleSlug);
 
@@ -48,10 +49,16 @@ export const generateMetadata = async ({
     title: data.metaTitle,
     description: data.metaDescription,
     keywords: data.metaKeywords,
+    alternates: {
+      canonical:
+        data.metaCanonical ||
+        `${config.apiNextBaseUrl}/motorcycle/${categorySlug}/${vehicleSlug}`,
+    },
     openGraph: {
       title: data.metaTitle,
       description: data.metaDescription,
       url: data.metaCanonical,
+
       images: [
         {
           url: `${config.imageBaseUrl}${data.metaImage}`,

@@ -4,11 +4,11 @@ import config from "@/utils/config";
 import { redirect } from "next/navigation";
 import { Metadata } from "next";
 import PartsAndAccessoriesDetailsSection from "@/components/sections/PartsAndAccessoriesDetailsSection";
-import productData from "@/data/partsAndAccessories/product";
 import { createMetadata } from "@/utils/helpers";
 
 type PropsType = {
   params: {
+    categorySlug: string;
     productSlug: string;
   };
 };
@@ -28,7 +28,7 @@ const getProductData = async (productSlug: string) => {
 };
 
 export const generateMetadata = async ({
-  params: { productSlug },
+  params: { productSlug, categorySlug },
 }: PropsType): Promise<Metadata> => {
   const data = await getProductData(productSlug);
 
@@ -36,6 +36,11 @@ export const generateMetadata = async ({
     title: data.name,
     description: data.description,
     keywords: data.name?.replaceAll("-", ","),
+    alternates: {
+      canonical:
+        data.metaCanonical ||
+        `${config.apiNextBaseUrl}/parts-&-accessories/${categorySlug}/${productSlug}`,
+    },
     openGraph: {
       title: data.name,
       description: data.description,

@@ -2,13 +2,16 @@ import React from "react";
 
 import PrivacyPolicySection from "@/components/sections/PrivacyPolicySection";
 import { createMetadata } from "@/utils/helpers";
+import config from "@/utils/config";
+import { Metadata } from "next";
 
-export const generateMetadata = () => {
-  return createMetadata({
-    title: "Privacy Policy",
-    description: "",
-  });
-};
+export const metadata: Metadata = createMetadata({
+  title: "Privacy Policy",
+  description: "",
+  alternates: {
+    canonical: `${config.apiNextBaseUrl}/privacy-policy`,
+  },
+});
 
 const PrivacyPolicyPage = () => {
   return (

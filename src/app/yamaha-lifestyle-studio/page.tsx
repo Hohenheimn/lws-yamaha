@@ -4,14 +4,17 @@ import InquieryAndFindDealerButtons from "@/components/sections/InquieryAndFindD
 import ArrowTitle from "@/components/shared/ArrowTitle";
 import GridEmbedSocialSection from "../components/_components/GridEmbedSocialSection";
 import { createMetadata } from "@/utils/helpers";
+import { Metadata } from "next";
+import config from "@/utils/config";
 
-export const generateMetadata = () => {
-  return createMetadata({
-    title: "Yamaha Lifestyle Studio",
-    description:
-      "Be one with your motorcycle. Experience a complete package of advanced features that will redefine your ride.",
-  });
-};
+export const metadata: Metadata = createMetadata({
+  title: "Yamaha Lifestyle Studio",
+  description:
+    "Be one with your motorcycle. Experience a complete package of advanced features that will redefine your ride.",
+  alternates: {
+    canonical: `${config.apiNextBaseUrl}/yamaha-lifestyle-studio`,
+  },
+});
 
 const YamahaLifestyleStudioPage = () => {
   return (

@@ -39,6 +39,11 @@ export const generateMetadata = async ({
     title: data.metaTitle,
     description: data.metaDescription,
     keywords: data.metaKeywords,
+    alternates: {
+      canonical:
+        data.metaCanonical ||
+        `${config.apiNextBaseUrl}/motorcycle/${categorySlug}`,
+    },
     openGraph: {
       title: data.metaTitle,
       description: data.metaDescription,

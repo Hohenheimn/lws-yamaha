@@ -38,6 +38,9 @@ export const createMetadata = (metadata: Metadata): Metadata => {
     openGraph: {
       ...metadata.openGraph,
       title: metaTitle,
+      type: "website",
+      url: `${metadata.alternates?.canonical}`,
+      siteName: metaTitle,
     },
   };
 };

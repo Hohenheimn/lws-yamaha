@@ -9,6 +9,7 @@ import config from "@/utils/config";
 
 type PropsType = {
   params: {
+    slug: string;
     newsDetailSlug: string;
   };
 };
@@ -23,6 +24,9 @@ export const generateMetadata = async ({
     const metadata: Metadata = {
       title: `${data.title}`,
       description: `${data.description}`,
+      alternates: {
+        canonical: `${config.apiNextBaseUrl}/news/${params.slug}/${params.newsDetailSlug}`,
+      },
       openGraph: {
         images: [
           {

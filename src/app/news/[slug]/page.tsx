@@ -4,6 +4,7 @@ import api from "@/utils/api";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { createMetadata } from "@/utils/helpers";
+import config from "@/utils/config";
 
 type PropsType = {
   params: {
@@ -26,6 +27,9 @@ export const generateMetadata = async ({
             `${_[0].toUpperCase()}${_.slice(1, _.length).toLocaleLowerCase()}`
         )
         .join(" ")}`,
+      alternates: {
+        canonical: `${config.apiNextBaseUrl}/news/${params.slug}`,
+      },
     };
 
     return createMetadata(metadata);

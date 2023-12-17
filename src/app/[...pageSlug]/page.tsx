@@ -8,6 +8,7 @@ import nextApi from "@/utils/nextApi";
 
 import DisplaySection from "./_components/DisplaySection";
 import { Metadata } from "next";
+import { createMetadata } from "@/utils/helpers";
 
 type Meta = {
   id?: number;
@@ -52,7 +53,8 @@ export const generateMetadata = async (
       console.error(err);
       error = true;
     });
-  return {
+
+  const metadata = {
     title: meta?.metaTitle,
     description: meta?.metaDescription,
     keywords: meta?.metaKeywords,
@@ -68,6 +70,10 @@ export const generateMetadata = async (
         },
       ],
     },
+  };
+
+  return {
+    ...createMetadata(metadata),
     error: error,
     slug: slug,
     metaId: meta?.id,

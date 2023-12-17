@@ -3,12 +3,13 @@ import React from "react";
 import DealerSection from "@/components/sections/DealerSection";
 import Hero from "@/components/sections/Hero";
 import InquieryAndFindDealerButtons from "@/components/sections/InquieryAndFindDealerButtons";
+import { createMetadata } from "@/utils/helpers";
 
 export const generateMetadata = () => {
-  return {
+  return createMetadata({
     title: "Find Dealer",
     description: "",
-  };
+  });
 };
 
 const FindDealer = () => {

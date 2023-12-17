@@ -84,7 +84,7 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
                 fill
                 src={`${config.imageBaseUrl}${image}`}
                 alt={currentVariant?.code}
-                className="p-2 object-contatn object-center"
+                className="p-2 object-contain object-center"
               />
             </div>
           ))}
@@ -106,7 +106,7 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
               fill
               src={`${config.imageBaseUrl}${variant?.images?.[0]}`}
               alt={variant?.code}
-              className="p-2 object-contatn object-center"
+              className="p-2 object-contain object-center"
             />
           </div>
         ))}

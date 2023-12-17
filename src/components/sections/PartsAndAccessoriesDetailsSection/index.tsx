@@ -60,7 +60,7 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
 
   const renderImagePreview = () => {
     return (
-      <div className="flex flex-col gap-5 w-full">
+      <div className="flex flex-col gap-5 w-full sm:w-fit">
         <div className="relative h-[300px] w-full sm:h-[500px] sm:w-[500px]  bg-[#323232] rounded-lg cursor-pointer">
           {currentVariant?.images?.length && (
             <Image

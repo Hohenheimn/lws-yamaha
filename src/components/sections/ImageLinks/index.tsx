@@ -32,7 +32,7 @@ const ImageLinks = (props: PropsType) => {
                     : `${imageBaseUrl}${item?.backgroundImage}`
                 }
                 fill
-                alt="background"
+                alt={`${item.name} background`}
                 className={` object-cover blur-sm`}
               />
               <Heading type="h4" className="text-center z-10 font-medium">

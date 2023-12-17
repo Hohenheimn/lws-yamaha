@@ -65,7 +65,7 @@ const NewsContents = (props: PropsType) => {
             <Image
               src={validateImageUrl(banner)}
               fill
-              alt="image"
+              alt={title}
               className=" object-cover"
             />
           </aside>
@@ -81,26 +81,29 @@ const NewsContents = (props: PropsType) => {
                 <>
                   {item.value.split(",").length > 1 ? (
                     <div className=" grid grid-cols-1 md:grid-cols-2 gap-5">
-                      {item.value.split(",").map((img, indx) => (
-                        <aside
-                          className=" w-full relative aspect-[2/1]"
-                          key={indx}
-                        >
-                          <Image
-                            src={validateImageUrl(img)}
-                            fill
-                            alt="image"
-                            className=" object-cover"
-                          />
-                        </aside>
-                      ))}
+                      {item.value.split(",").map((img, indx) => {
+                        console.log({ item });
+                        return (
+                          <aside
+                            className=" w-full relative aspect-[2/1]"
+                            key={indx}
+                          >
+                            <Image
+                              src={validateImageUrl(img)}
+                              fill
+                              alt={`${title} NEWS CONTENT IMAGE`}
+                              className=" object-cover"
+                            />
+                          </aside>
+                        );
+                      })}
                     </div>
                   ) : (
                     <aside className=" w-full relative aspect-[3/1]">
                       <Image
                         src={validateImageUrl(item.value.split(",")[0])}
                         fill
-                        alt="image"
+                        alt={`${title} NEWS CONTENT IMAGE`}
                         className=" object-cover"
                       />
                     </aside>

@@ -9,6 +9,7 @@ import Button from "@/components/shared/Button";
 import Heading from "@/components/shared/Heading";
 import validateImageUrl from "@/utils/validateImageUrl";
 import { useRouter } from "next/navigation";
+import classNames from "classnames";
 
 type PropsType = {
   desktopBgImage?: string;
@@ -127,7 +128,7 @@ const Hero = (props: PropsType) => {
             />
           ) : (
             <aside
-              className={` relative z-10 text-white w-full max-w-[40rem] 3xl:max-w-[55rem]`}
+              className={` relative z-10 text-white w-full max-w-[40rem] 3xl:max-w-[52rem]`}
             >
               {imageTitleUrl && (
                 <Image
@@ -147,7 +148,12 @@ const Hero = (props: PropsType) => {
               )}
 
               {description && (
-                <p className="mt-2 text-sm xl:text-lg whitespace-pre-wrap">
+                <p
+                  className={classNames(
+                    "mt-2 text-sm xl:text-base",
+                    textPosition !== "bottom-left" && "whitespace-pre-wrap"
+                  )}
+                >
                   {description}
                 </p>
               )}

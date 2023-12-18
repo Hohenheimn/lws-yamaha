@@ -8,6 +8,8 @@ type PropsType = {
   date: string;
   title: string;
   description: string;
+  onClickUrl?: string;
+  onViewAllUrl?: string;
   onClick(): void;
   direction?: "column" | "row"; // default: 'row'
 };
@@ -36,7 +38,7 @@ const NewsCardGrid = (props: PropsType) => {
         <p className="text-white">{props.date}</p>
         <p className={`text-[#A3A3A3]  line-clamp-5`}>{props.description}</p>
         <div className="w-fit flex items-end flex-1">
-          <Button appearance="primary" size="medium" onClick={props.onClick}>
+          <Button appearance="primary" size="medium" url={props.onClickUrl}>
             See more
           </Button>
         </div>

@@ -71,9 +71,9 @@ const NewsContents = (props: PropsType) => {
           </aside>
           <aside>
             <p className="text-textGray">{date}</p>
-            <Heading type="h4" className=" text-white">
+            <h1 className="text-white whitespace-pre-wrap text-[1.5rem] xl:text-[1.9rem] font-bold">
               {title}
-            </Heading>
+            </h1>
           </aside>
           {news?.map((item, indx) => (
             <div key={indx} className=" w-full">

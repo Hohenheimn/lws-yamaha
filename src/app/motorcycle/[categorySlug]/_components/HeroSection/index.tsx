@@ -14,6 +14,7 @@ const HeroSection = (props: PropsType) => {
       title={props.name}
       description={props.description}
       textPosition={"center-center"}
+      isSeo={true}
     />
   );
 };

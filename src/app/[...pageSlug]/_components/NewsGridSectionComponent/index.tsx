@@ -45,10 +45,12 @@ const NewsGridSectionComponent = (props: PropsType) => {
         date: data?.datePublished,
         title: data?.title,
         description: data.newsArticleContents[0].value,
+        onClickUrl: `/news/${data.SubCategory.slug}/${data.slug}`,
         onClick: () =>
           router.push(`/news/${data.SubCategory.slug}/${data.slug}`),
       }))}
       onViewAll={() => router.push("/news/news-and-events")}
+      onViewAllUrl="/news/news-and-events"
     />
   );
 };

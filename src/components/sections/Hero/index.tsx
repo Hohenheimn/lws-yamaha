@@ -9,6 +9,7 @@ import Button from "@/components/shared/Button";
 import Heading from "@/components/shared/Heading";
 import validateImageUrl from "@/utils/validateImageUrl";
 import { useRouter } from "next/navigation";
+import classNames from "classnames";
 
 type PropsType = {
   desktopBgImage?: string;
@@ -30,6 +31,7 @@ type PropsType = {
   scrollDown?: boolean;
   imageTitleUrl?: string;
   readMore?: string;
+  isSeo?: boolean;
   imageContent?: string;
   button?: {
     text: string;
@@ -52,6 +54,7 @@ const Hero = (props: PropsType) => {
     readMore,
     imageContent,
     button,
+    isSeo,
   } = props;
 
   return (
@@ -127,7 +130,7 @@ const Hero = (props: PropsType) => {
             />
           ) : (
             <aside
-              className={` relative z-10 text-white w-full max-w-[40rem] 3xl:max-w-[55rem]`}
+              className={` relative z-10 text-white w-full max-w-[40rem] 3xl:max-w-[52rem]`}
             >
               {imageTitleUrl && (
                 <Image
@@ -139,15 +142,20 @@ const Hero = (props: PropsType) => {
               )}
               {title && (
                 <Heading
-                  type="h3"
-                  className="xl:text-[3.2rem] uppercase whitespace-pre-wrap"
+                  type={isSeo ? "h1" : "h3"}
+                  className="text-[2rem] xl:text-[3rem] uppercase whitespace-pre-wrap"
                 >
                   {title}
                 </Heading>
               )}
 
               {description && (
-                <p className="mt-2 text-sm xl:text-lg whitespace-pre-wrap">
+                <p
+                  className={classNames(
+                    "mt-2 text-sm xl:text-base",
+                    textPosition !== "bottom-left" && "whitespace-pre-wrap"
+                  )}
+                >
                   {description}
                 </p>
               )}

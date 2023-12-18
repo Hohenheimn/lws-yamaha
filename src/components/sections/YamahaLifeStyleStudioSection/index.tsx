@@ -15,6 +15,7 @@ type PropsType = Partial<{
   button: {
     onClick(): void;
     text: string;
+    url?: string;
   };
   embedSocials: Array<EmbedSocialType>;
 }>;
@@ -32,7 +33,8 @@ const YamahaLifeStyleStudioSection = (props: PropsType) => {
         <Button
           appearance={"primary"}
           size={"medium"}
-          onClick={props?.button?.onClick}
+          // onClick={props?.button?.onClick}
+          url={props?.button?.url}
         >
           {props?.button?.text || "Button"}
         </Button>

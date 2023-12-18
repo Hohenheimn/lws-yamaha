@@ -143,7 +143,7 @@ const Hero = (props: PropsType) => {
               {title && (
                 <Heading
                   type={isSeo ? "h1" : "h3"}
-                  className="xl:text-[3.2rem] uppercase whitespace-pre-wrap"
+                  className="text-[2rem] xl:text-[3rem] uppercase whitespace-pre-wrap"
                 >
                   {title}
                 </Heading>

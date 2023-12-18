@@ -5,6 +5,8 @@ import { redirect } from "next/navigation";
 import { Metadata } from "next";
 import PartsAndAccessoriesDetailsSection from "@/components/sections/PartsAndAccessoriesDetailsSection";
 import { createMetadata } from "@/utils/helpers";
+import ProductCardList from "@/components/partsAndAccessories/ProductCardList";
+import RelatedProductListSection from "../_components/RelatedProductListSection/indexs";
 
 type PropsType = {
   params: {
@@ -61,8 +63,11 @@ const ProductDetailsPage = async ({ params }: PropsType) => {
   const product = await getProductData(params.productSlug);
 
   return (
-    <div className="py-10 px-5">
-      <PartsAndAccessoriesDetailsSection product={product} />
+    <div className="py-10 px-5 flex justify-center">
+      <div className="flex flex-col gap-10 w-full max-w-[1400px]">
+        <PartsAndAccessoriesDetailsSection product={product} />
+        <RelatedProductListSection productId={product.id} />
+      </div>
     </div>
   );
 };

@@ -30,6 +30,7 @@ type APIProductSubCategoryType = {
   tableType: string;
   slug: string;
   products?: Array<APIProductType>;
+  Category: APITProductCategoryType;
 };
 
 type APIProductVariantType = {

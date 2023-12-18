@@ -105,7 +105,7 @@ const DisplaySection = (props: PropsType) => {
   return (
     <>
       {renderAnnoucementModal()}
-      {pageSections?.map((section: SectionTypes) => (
+      {pageSections?.map((section: SectionTypes, index: number) => (
         <section key={section?.id}>
           {section?.sectionType === "hero-section" && (
             <Hero
@@ -120,6 +120,7 @@ const DisplaySection = (props: PropsType) => {
                   ? validateImageUrl(section?.backgroundImage)
                   : ""
               }
+              isSeo={index === 0}
               mobileBgImage={
                 section?.backgroundImage
                   ? validateImageUrl(section?.backgroundImage)

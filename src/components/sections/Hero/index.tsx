@@ -31,6 +31,7 @@ type PropsType = {
   scrollDown?: boolean;
   imageTitleUrl?: string;
   readMore?: string;
+  isSeo?: boolean;
   imageContent?: string;
   button?: {
     text: string;
@@ -53,6 +54,7 @@ const Hero = (props: PropsType) => {
     readMore,
     imageContent,
     button,
+    isSeo,
   } = props;
 
   return (
@@ -140,7 +142,7 @@ const Hero = (props: PropsType) => {
               )}
               {title && (
                 <Heading
-                  type="h3"
+                  type={isSeo ? "h1" : "h3"}
                   className="xl:text-[3.2rem] uppercase whitespace-pre-wrap"
                 >
                   {title}

@@ -1,7 +1,5 @@
 import React from "react";
-
 import Link from "next/link";
-
 import SectionContainer from "@/components/sections/SectionContainer";
 
 const InquieryAndFindDealerButtons = () => {

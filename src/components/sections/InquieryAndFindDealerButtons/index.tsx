@@ -18,7 +18,7 @@ const InquieryAndFindDealerButtons = () => {
         </li>
         <li>
           <Link
-            href={"/find-dealer"}
+            href={"https://find-dealer.yamaha-motor.com.ph"}
             className={` text-xl w-64 text-center py-3 whitespace-nowrap inline-block duration-150 text-white font-medium rounded-lg  bg-[#2f58cd] hover:bg-hover-quarternary`}
           >
             Find Dealer

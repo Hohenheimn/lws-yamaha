@@ -69,7 +69,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
           <Image
             src={activeColor?.desktopBgImage}
             fill
-            alt="background"
+            alt={`${activeColor?.motorcycleName} background`}
             className={` object-cover object-center ${
               activeColor?.mobileBgImage && "hidden md:inline"
             }`}
@@ -78,7 +78,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
             <Image
               src={activeColor?.mobileBgImage}
               fill
-              alt="background"
+              alt={`${activeColor?.motorcycleName} background`}
               className={` object-bottom object-cover inline md:hidden`}
             />
           )}

@@ -5,7 +5,6 @@ import { redirect } from "next/navigation";
 import { Metadata } from "next";
 import PartsAndAccessoriesDetailsSection from "@/components/sections/PartsAndAccessoriesDetailsSection";
 import { createMetadata } from "@/utils/helpers";
-import ProductCardList from "@/components/partsAndAccessories/ProductCardList";
 import RelatedProductListSection from "../_components/RelatedProductListSection/indexs";
 
 type PropsType = {

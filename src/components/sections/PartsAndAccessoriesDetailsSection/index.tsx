@@ -186,9 +186,16 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
         </div>
         <div className="flex flex-col gap-2">
           <p className="font-semibold">Product Description</p>
-          <p className="bg-[#323232] p-5 lg:p-7 rounded-lg min-h-[150px]">
-            {product?.description}
-          </p>
+          <div className="bg-[#323232] p-5 lg:p-7 rounded-lg min-h-[150px] flex flex-col gap-5">
+            {!(product?.description || currentVariant?.description) ? (
+              <p>Description currently unavailable.</p>
+            ) : (
+              <>
+                <p>{product?.description}</p>
+                <p>{currentVariant?.description}</p>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>

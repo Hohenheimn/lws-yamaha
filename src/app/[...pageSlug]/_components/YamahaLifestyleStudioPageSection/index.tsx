@@ -20,6 +20,7 @@ const YamahaLifestyleStudioPageSection = (props: PropsType) => {
       subTitle={props.description}
       button={{
         onClick: () => router.push(`${props.url}`),
+        url: props.url,
         text: `${props?.urlLabel}`,
       }}
       embedSocials={props.contents?.map((content) => ({

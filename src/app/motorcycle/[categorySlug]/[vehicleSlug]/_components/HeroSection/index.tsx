@@ -11,6 +11,7 @@ const HeroSection = (props: PropsType) => {
       title={props.title}
       description={props.description}
       textPosition={"bottom-left"}
+      isSeo={true}
     />
   );
 };

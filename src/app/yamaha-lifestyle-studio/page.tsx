@@ -21,8 +21,9 @@ const YamahaLifestyleStudioPage = () => {
     <div className="bg-primary">
       <Hero
         desktopBgImage="/assets/images/samples/yamaha-life-style-studio.png"
-        textPosition={"center-left"}
+        textPosition={"bottom-left"}
         title="Y-CONNECT"
+        isSeo={true}
         description={`Be one with your motorcycle. Experience a complete package of advanced features\nthat will redefine your ride.`}
       />
       <section className=" mt-10 lg:mt-20">

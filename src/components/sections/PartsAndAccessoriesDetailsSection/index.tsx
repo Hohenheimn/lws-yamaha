@@ -6,6 +6,7 @@ import classNames from "classnames";
 import config from "@/utils/config";
 import useAPI from "@/hooks/useAPI";
 import { groupBy } from "lodash";
+import Heading from "@/components/shared/Heading";
 
 type PropsType = {
   product: APIProductType;
@@ -173,7 +174,7 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
           {renderImagePreview()}
           <div className="flex flex-col justify-center gap-10 h-fit">
             <div className="flex flex-col gap-2">
-              <p className="font-semibold text-2xl">{product.name}</p>
+              <h1 className="font-semibold text-2xl">{product.name}</h1>
               <p className="text-white/70">{currentVariant?.code}</p>
               {renderModelsUsed()}
               {renderPrice()}

@@ -29,9 +29,9 @@ const FeaturedNewsSection = (props: PropsType) => {
       <div>
         <div className="flex gap-4 w-full items-center">
           <hr className="border-white flex-1" />
-          <Heading type="h3" className="text-white text-center">
+          <h1 className="text-white text-center whitespace-pre-wrap text-[1.9rem] xl:text-[2.5rem] font-bold">
             {props.title}
-          </Heading>
+          </h1>
           <hr className="border-white flex-1" />
         </div>
         <p className="text-center text-gray-400">{props.subTitle}</p>

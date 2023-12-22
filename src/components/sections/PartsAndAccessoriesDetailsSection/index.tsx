@@ -5,7 +5,7 @@ import Image from "next/image";
 import classNames from "classnames";
 import config from "@/utils/config";
 import useAPI from "@/hooks/useAPI";
-import { groupBy } from "lodash";
+import { groupBy, uniqBy } from "lodash";
 import Heading from "@/components/shared/Heading";
 
 type PropsType = {
@@ -28,6 +28,10 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
   const [attributes, setAttributes] =
     useState<APIProductVariantAttribute[][]>();
   const [currentAttribute, setCurrentAttribute] = useState<any>();
+  const variants = uniqBy(
+    product.productVariants,
+    (variant) => variant.code.split(" ")[0]
+  );
 
   //Set all the variants
   useEffect(() => {
@@ -97,7 +101,7 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
   const renderVariants = useMemo(() => {
     return (
       <div className="flex gap-5 flex-wrap pt-5">
-        {product.productVariants?.map((variant) => (
+        {variants?.map((variant) => (
           <div
             onClick={() => setCurrentVariant(variant)}
             key={variant.id}

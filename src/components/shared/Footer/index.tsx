@@ -48,7 +48,7 @@ const Footer = () => {
   const { data: settings, isLoading: settingsLoading }: any =
     useGetSettings("settings-footer");
 
-  const settingsSocial: settingsType = settings?.data;
+  const settingsSocial: settingsType = settings?.data?.[0];
 
   const updateBreadCrump = () => {
     const pathnameArray: footerBreadCrumbs = pathnameSplit.map(

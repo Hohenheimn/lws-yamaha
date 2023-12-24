@@ -9,6 +9,7 @@ import SectionContainer from "../SectionContainer";
 type PropsType = {
   onClick?: () => void;
   accessories: Array<ComponentProps<typeof AccessoryCard>>;
+  hideButton?: Boolean;
 };
 
 const AccessoriesSection = (props: PropsType) => {
@@ -33,9 +34,12 @@ const AccessoriesSection = (props: PropsType) => {
           </li>
         ))}
       </ul>
-      <Button appearance={"primary"} size={"large"} onClick={props.onClick}>
-        Other Accessories
-      </Button>
+
+      {!props.hideButton && (
+        <Button appearance={"primary"} size={"large"} onClick={props.onClick}>
+          Other Accessories
+        </Button>
+      )}
     </SectionContainer>
   );
 };

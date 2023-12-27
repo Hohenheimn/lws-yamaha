@@ -7,6 +7,7 @@ import Button from "@/components/shared/Button";
 import Heading from "@/components/shared/Heading";
 
 import SectionContainer from "../SectionContainer";
+import config from "@/utils/config";
 
 type PropsType = {
   image: string;
@@ -41,7 +42,11 @@ const PolicyAndGuidedbookSection = (props: PropsType) => {
                 <Button
                   appearance="primary"
                   size={"medium"}
-                  url={warranty?.url}
+                  url={
+                    /^documents\/+/.test(warranty?.url)
+                      ? `${config.imageBaseUrl}${warranty?.url}`
+                      : warranty?.url
+                  }
                   download={true}
                 >
                   {warranty?.urlLabel}

@@ -2,26 +2,13 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 import { AiFillInstagram, AiFillYoutube } from "react-icons/ai";
-
-import { FaFacebookF, FaTiktok, FaTwitter } from "react-icons/fa";
-
+import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { MdKeyboardArrowRight } from "react-icons/md";
-
 import { PiShareBold } from "react-icons/pi";
-
-import Breadcrumps from "@/components/partsAndAccessories/Breadcrumps";
-
-import { personalCommuter } from "@/data/headerPersonalCommuter/personalCommuter";
 import useAPI from "@/hooks/useAPI";
-
-import Button from "../Button";
-import Heading from "../Heading";
-
 type footerBreadCrumbs = {
   title: string;
   url: string;

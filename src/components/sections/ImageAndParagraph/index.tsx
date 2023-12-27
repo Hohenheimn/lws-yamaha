@@ -161,7 +161,15 @@ const ImageAndParagraph = (props: PropsType) => {
         )}
         {button?.title && (
           <div className="flex justify-start">
-            <Button appearance="primary" url={button?.url} size={"medium"}>
+            <Button
+              appearance="primary"
+              url={
+                /^documents\/+/.test(button?.url)
+                  ? `${config.imageBaseUrl}${button?.url}`
+                  : button?.url
+              }
+              size={"medium"}
+            >
               {button?.title}
             </Button>
           </div>

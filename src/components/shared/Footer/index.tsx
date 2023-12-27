@@ -91,7 +91,7 @@ const Footer = () => {
                     {indx === 0 ? "Top" : item.title}
                   </Link>{" "}
                   {indx !== isBreadCrump.length - 1 && (
-                    <MdKeyboardArrowRight className="w-5 h-5 ml-5" />
+                    <MdKeyboardArrowRight className="w-5 h-5 ml-2 md:ml-5" />
                   )}
                 </li>
               ))}

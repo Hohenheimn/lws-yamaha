@@ -28,10 +28,11 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
   const [attributes, setAttributes] =
     useState<APIProductVariantAttribute[][]>();
   const [currentAttribute, setCurrentAttribute] = useState<any>();
-  const variants = uniqBy(
-    product.productVariants,
-    (variant) => variant.code.split(" ")[0]
-  );
+  const variants = product.productVariants;
+  // const variants = uniqBy(
+  //   product.productVariants,
+  //   (variant) => variant.code.split(" ")[0]
+  // );
 
   //Set all the variants
   useEffect(() => {

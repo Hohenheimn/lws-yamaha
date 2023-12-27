@@ -8,6 +8,7 @@ import Heading from "@/components/shared/Heading";
 import { numberSeparator } from "@/utils/helpers";
 
 import SectionContainer from "../SectionContainer";
+import classNames from "classnames";
 
 type PropsType = {
   motorcycle_detail: MotorcycleDetailType[];
@@ -112,9 +113,12 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
                 {motorcycle_detail.map((item, indx) => (
                   <li
                     onClick={() => setActiveColor(item)}
-                    className={` w-10 aspect-square cursor-pointer  ${
-                      item.id === activeColor?.id && " border-2 border-red"
-                    }`}
+                    className={` w-10 aspect-square cursor-pointer shadow shadow-white/50 ${classNames(
+                      {
+                        "border-2 border-red shadow-none":
+                          item.id === activeColor?.id,
+                      }
+                    )}`}
                     style={{ backgroundColor: item.color }}
                     key={indx}
                   ></li>

@@ -1,49 +1,19 @@
 "use client";
 
 import React from "react";
-
 import dynamic from "next/dynamic";
-
-import GridEmbedSocialSection from "@/app/components/_components/GridEmbedSocialSection";
-import PolicyAndGuidedbookSectionComponent from "@/app/components/_components/PolicyAndGuidedbookSectionComponent";
-
-import YamahaTechnicalAcademySectionComponent from "@/app/components/_components/YamahaTechnicalAcademySectionComponent";
-
 import BlogSection from "@/components/sections/BlogSection";
-
-import DealerSection from "@/components/sections/DealerSection";
-
-import FeaturedNewsSection from "@/components/sections/FeaturedNewsSection";
-
-import NewsSection from "@/components/sections/NewsSection";
 import ParagraphAndDownloadSection from "@/components/sections/ParagraphAndDownloadSection";
-
 import PolicyAndGuidedbookSection from "@/components/sections/PolicyAndGuidedbookSection";
-
 import ServiceDetailSection from "@/components/sections/ServiceDetailSection";
-
 import VideoSection from "@/components/sections/VideoSection";
-
-import WhyChooseUsSectoin from "@/components/sections/WhyChooseUsSection";
-
 import WhyChooseUsSection from "@/components/sections/WhyChooseUsSection";
 import YamahaHistorySection from "@/components/sections/YamahaHistorySection";
-
 import YamahalubeCharacteristicSection from "@/components/sections/YamahalubeCharacteristicSection";
-
 import YamahaTechnicalAcademySection from "@/components/sections/YamahaTechnicalAcademySection";
 import YdtSection from "@/components/sections/YdtSection";
-
-import news from "@/data/news";
-import { raceYourFlagNews } from "@/data/news/featuredNews";
-import newsCardData from "@/data/news/newsCard";
-
 import useAPI from "@/hooks/useAPI";
-
-import config from "@/utils/config";
-
 import validateImageUrl from "@/utils/validateImageUrl";
-
 import OurServicesComponent from "../OurServicesComponent";
 import PageSectionType from "../PageSectionType";
 import { SectionTypes } from "./sectionTypes";

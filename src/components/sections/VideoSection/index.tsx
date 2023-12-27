@@ -51,15 +51,15 @@ const VideoSection = (props: PropsType) => {
         </div>
       </SectionContainer>
       {showModal && (
-        <div className="fixed flex flex-col justify-center gap-5 p-10 z-50 w-screen h-screen bg-black/50 left-0 top-0">
+        <div className="fixed flex flex-col justify-center gap-5 p-10 z-50 w-screen h-screen bg-black/70 backdrop-blur left-0 top-0">
           <button
-            className="p-2 bg-white/20 rounded-full self-end"
+            className="p-2 bg-white/10 hover:bg-white/50 transition-colors rounded-full self-end"
             onClick={() => setShowModal(false)}
           >
             <MdOutlineClose size={20} color="white" />
           </button>
           <iframe
-            className="w-full aspect-video"
+            className="w-full lg:max-w-[90%] self-center aspect-video"
             src={youtubeUrl}
             title={props.title}
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

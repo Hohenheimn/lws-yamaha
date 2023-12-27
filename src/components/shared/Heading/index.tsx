@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 type PropsType = {
   type: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -12,7 +13,10 @@ const Heading = (props: PropsType) => {
     <>
       {type === "h1" && (
         <h1
-          className={`whitespace-pre-wrap text-[3.5rem] xl:text-[4rem] font-bold ${className}`}
+          className={twMerge(
+            `whitespace-pre-wrap text-[3.5rem] xl:text-[4rem] font-bold`,
+            className
+          )}
         >
           {children}
         </h1>
@@ -46,11 +50,11 @@ const Heading = (props: PropsType) => {
         </h5>
       )}
       {type === "h6" && (
-        <h5
+        <h6
           className={`whitespace-pre-wrap text-lg xl:text-[1.2rem] font-bold ${className}`}
         >
           {children}
-        </h5>
+        </h6>
       )}
     </>
   );

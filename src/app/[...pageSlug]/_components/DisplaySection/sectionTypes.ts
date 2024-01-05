@@ -1,4 +1,5 @@
 export type SectionTypes = AllType &
+  GridSocialType &
   VehicleSectionType &
   HeroSectionType &
   NewsSectionType &
@@ -126,4 +127,9 @@ type YamahaHistorySection = {
     title: string;
     description: string;
   }[];
+};
+
+type GridSocialType = {
+  title: string;
+  contents: string[];
 };

@@ -5,43 +5,24 @@ import React from "react";
 import dynamic from "next/dynamic";
 
 import GridEmbedSocialSection from "@/app/components/_components/GridEmbedSocialSection";
-import PolicyAndGuidedbookSectionComponent from "@/app/components/_components/PolicyAndGuidedbookSectionComponent";
-
-import YamahaTechnicalAcademySectionComponent from "@/app/components/_components/YamahaTechnicalAcademySectionComponent";
-
 import BlogSection from "@/components/sections/BlogSection";
-
-import DealerSection from "@/components/sections/DealerSection";
-
-import FeaturedNewsSection from "@/components/sections/FeaturedNewsSection";
-
-import NewsSection from "@/components/sections/NewsSection";
 import ParagraphAndDownloadSection from "@/components/sections/ParagraphAndDownloadSection";
-
 import PolicyAndGuidedbookSection from "@/components/sections/PolicyAndGuidedbookSection";
-
+import PrivacyPolicySection from "@/components/sections/PrivacyPolicySection";
 import ServiceDetailSection from "@/components/sections/ServiceDetailSection";
-
 import VideoSection from "@/components/sections/VideoSection";
-
-import WhyChooseUsSectoin from "@/components/sections/WhyChooseUsSection";
-
 import WhyChooseUsSection from "@/components/sections/WhyChooseUsSection";
-import YamahaHistorySection from "@/components/sections/YamahaHistorySection";
 
+import YamahaHistorySection from "@/components/sections/YamahaHistorySection";
 import YamahalubeCharacteristicSection from "@/components/sections/YamahalubeCharacteristicSection";
 
 import YamahaTechnicalAcademySection from "@/components/sections/YamahaTechnicalAcademySection";
+
 import YdtSection from "@/components/sections/YdtSection";
 
-import news from "@/data/news";
-import { raceYourFlagNews } from "@/data/news/featuredNews";
-import newsCardData from "@/data/news/newsCard";
+import ArrowTitle from "@/components/shared/ArrowTitle";
 
 import useAPI from "@/hooks/useAPI";
-
-import config from "@/utils/config";
-
 import validateImageUrl from "@/utils/validateImageUrl";
 
 import OurServicesComponent from "../OurServicesComponent";
@@ -54,10 +35,6 @@ const NewsGridSectionComponent = dynamic(
 
 const MotorcycleCarouselSectionComponent = dynamic(
   () => import("../MotorcycleCarouselSectionComponent")
-);
-
-const EmbedSocialSection = dynamic(
-  () => import("@/app/components/_components/EmbedSocialSection")
 );
 const Hero = dynamic(() => import("@/components/sections/Hero"));
 const ImageLinks = dynamic(() => import("@/components/sections/ImageLinks"));
@@ -257,6 +234,22 @@ const DisplaySection = (props: PropsType) => {
 
           {section?.sectionType === "yamaha-history-section" && (
             <YamahaHistorySection newsData={section?.contents} />
+          )}
+
+          {section?.sectionType === "privacy-policy-section" && (
+            <PrivacyPolicySection
+              title={section?.title}
+              content={section?.contents}
+            />
+          )}
+
+          {section?.sectionType === "embed-social-section" && (
+            <section className=" mt-10 lg:mt-20">
+              <ArrowTitle title={section?.title} />
+              {section?.contents.map((item, indx) => (
+                <GridEmbedSocialSection key={indx} embedId={item} />
+              ))}
+            </section>
           )}
 
           {renderSection(section)}

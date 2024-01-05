@@ -41,9 +41,7 @@ const ColorAndPriceSection = (props: PropsType) => {
         motorcycleImage: `${config.imageBaseUrl}${vechicleVariant.image}`,
         motorcycleName: vechicleVariant.name,
         titleImage: `${config.imageBaseUrl}${vechicleVariant.logo}`,
-        desktopBgImage: /^(http)+/.test(vechicleVariant.backgroundImage)
-          ? vechicleVariant.backgroundImage
-          : `${config.imageBaseUrl}${vechicleVariant.backgroundImage}`,
+        desktopBgImage: `${config.imageBaseUrl}${vechicleVariant.backgroundImage}`,
         description: vechicleVariant.description,
       }))}
     />

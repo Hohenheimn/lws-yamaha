@@ -28,19 +28,17 @@ import validateImageUrl from "@/utils/validateImageUrl";
 import OurServicesComponent from "../OurServicesComponent";
 import PageSectionType from "../PageSectionType";
 import { SectionTypes } from "./sectionTypes";
+import ImageTwoColParagraph from "../ImageTwoColParagraphSection";
+import AnnouncementModal from "@/components/shared/modals/AnnouncementModal";
 
 const NewsGridSectionComponent = dynamic(
   () => import("../NewsGridSectionComponent")
 );
-
 const MotorcycleCarouselSectionComponent = dynamic(
   () => import("../MotorcycleCarouselSectionComponent")
 );
 const Hero = dynamic(() => import("@/components/sections/Hero"));
 const ImageLinks = dynamic(() => import("@/components/sections/ImageLinks"));
-const InquieryAndFindDealerButtons = dynamic(
-  () => import("@/components/sections/InquieryAndFindDealerButtons")
-);
 const Loading = dynamic(() => import("@/components/shared/Loading"));
 
 const YamahaLifestyleStudioPageSection = dynamic(
@@ -49,6 +47,7 @@ const YamahaLifestyleStudioPageSection = dynamic(
 type PropsType = {
   endpoint: string;
   queryName: string;
+  slug: string;
 };
 
 const DisplaySection = (props: PropsType) => {
@@ -65,23 +64,44 @@ const DisplaySection = (props: PropsType) => {
     switch (section.sectionType) {
       case PageSectionType.lifestyleStudio:
         return (
-          <YamahaLifestyleStudioPageSection {...section} key={section.id} />
+          <YamahaLifestyleStudioPageSection
+            {...section}
+            url={section.url}
+            key={section.id}
+          />
         );
+      case PageSectionType.imageTwoColParagraph:
+        return <ImageTwoColParagraph {...section} key={section.id} />;
     }
+  };
+
+  const renderAnnoucementModal = () => {
+    if (!["home", "", "/"].includes(props.slug)) return;
+
+    return (
+      <AnnouncementModal desktopImage={"/assets/images/announcement.jpg"} />
+    );
   };
 
   return (
     <>
-      {pageSections?.map((section: SectionTypes) => (
+      {renderAnnoucementModal()}
+      {pageSections?.map((section: SectionTypes, index: number) => (
         <section key={section?.id}>
           {section?.sectionType === "hero-section" && (
             <Hero
               fullHeight={section?.fullScreen}
+              button={{
+                text: section.urlLabel,
+                url: section.url,
+                isDownload: section.isUrlDownload,
+              }}
               desktopBgImage={
                 section?.backgroundImage
                   ? validateImageUrl(section?.backgroundImage)
                   : ""
               }
+              isSeo={index === 0}
               mobileBgImage={
                 section?.backgroundImage
                   ? validateImageUrl(section?.backgroundImage)
@@ -123,6 +143,7 @@ const DisplaySection = (props: PropsType) => {
           )}
           {section?.sectionType === "text-section" && (
             <ParagraphAndDownloadSection
+              title={section?.title}
               paragraph={section?.description}
               textAlignment={section?.alignContentHorizontal}
               downloadLink={section?.url}
@@ -190,6 +211,7 @@ const DisplaySection = (props: PropsType) => {
               youtubeUrl={section?.video}
               description={section?.description}
               title={section?.title}
+              imagePreview={section?.image}
             />
           )}
           {section?.sectionType === "ydt-section" && (
@@ -255,7 +277,7 @@ const DisplaySection = (props: PropsType) => {
           {renderSection(section)}
         </section>
       ))}
-      <InquieryAndFindDealerButtons />
+      {/* <InquieryAndFindDealerButtons /> */}
     </>
   );
 };

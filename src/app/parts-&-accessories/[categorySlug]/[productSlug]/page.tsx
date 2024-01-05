@@ -4,10 +4,13 @@ import config from "@/utils/config";
 import { redirect } from "next/navigation";
 import { Metadata } from "next";
 import PartsAndAccessoriesDetailsSection from "@/components/sections/PartsAndAccessoriesDetailsSection";
-import productData from "@/data/partsAndAccessories/product";
+import { createMetadata } from "@/utils/helpers";
+import ProductCardList from "@/components/partsAndAccessories/ProductCardList";
+import RelatedProductListSection from "../_components/RelatedProductListSection/indexs";
 
 type PropsType = {
   params: {
+    categorySlug: string;
     productSlug: string;
   };
 };
@@ -27,16 +30,19 @@ const getProductData = async (productSlug: string) => {
 };
 
 export const generateMetadata = async ({
-  params: { productSlug },
+  params: { productSlug, categorySlug },
 }: PropsType): Promise<Metadata> => {
   const data = await getProductData(productSlug);
 
-  console.log(data);
-
-  return {
+  const metadata: Metadata = {
     title: data.name,
     description: data.description,
     keywords: data.name?.replaceAll("-", ","),
+    alternates: {
+      canonical:
+        data.metaCanonical ||
+        `${config.apiNextBaseUrl}/parts-&-accessories/${categorySlug}/${productSlug}`,
+    },
     openGraph: {
       title: data.name,
       description: data.description,
@@ -49,14 +55,19 @@ export const generateMetadata = async ({
       ],
     },
   };
+
+  return createMetadata(metadata);
 };
 
 const ProductDetailsPage = async ({ params }: PropsType) => {
   const product = await getProductData(params.productSlug);
 
   return (
-    <div className="py-10 px-5">
-      <PartsAndAccessoriesDetailsSection product={product} />
+    <div className="py-10 px-5 flex justify-center">
+      <div className="flex flex-col gap-10 w-full max-w-[1400px]">
+        <PartsAndAccessoriesDetailsSection product={product} />
+        <RelatedProductListSection productId={product.id} />
+      </div>
     </div>
   );
 };

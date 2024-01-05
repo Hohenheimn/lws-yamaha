@@ -5,6 +5,7 @@ import Button from "@/components/shared/Button";
 
 type PropsType = {
   onViewAll(): void;
+  onViewAllUrl?: string;
   news: ComponentProps<typeof NewsCardGrid>[];
 };
 
@@ -12,7 +13,7 @@ const NewsGridSection = (props: PropsType) => {
   return (
     <div className="flex flex-col gap-10 bg-[#323232] p-5 md:p-10">
       <div className=" relative flex flex-col gap-3 lg:flex-row items-center justify-center flex-wrap border-b border-[#f1f1f1] pb-4">
-        <div>
+        <div className="text-center">
           <h2 className="font-bold text-[#f1f1f1] text-3xl md:text-center">
             News
           </h2>
@@ -26,8 +27,7 @@ const NewsGridSection = (props: PropsType) => {
           <Button
             appearance={"primary"}
             size={"large"}
-            url="/news"
-            onClick={props.onViewAll}
+            url={props.onViewAllUrl}
           >
             View All
           </Button>
@@ -39,14 +39,14 @@ const NewsGridSection = (props: PropsType) => {
             <NewsCardGrid
               key={news.id}
               {...news}
-              onClick={() => console.log(news)}
+              onClickUrl={news.onClickUrl}
             />
           ))}
         </div>
         {!!props.news?.[2] && (
           <NewsCardGrid
             {...props.news[2]}
-            onClick={() => console.log(props.news?.[2])}
+            onClick={props?.news?.[2].onClick}
             direction="column"
           />
         )}

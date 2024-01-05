@@ -1,6 +1,5 @@
 import React, { ComponentProps, Suspense } from "react";
 import { Montserrat } from "next/font/google";
-
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import "@/styles/globals.scss";
@@ -29,7 +28,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
       lang="en"
       className={`${montserrat.className} scroll-smooth scroll-pt-[75px]`}
     >
-      <body className="bg-[#131313]">
+      <body className="bg-[#212121]">
         <QueryProvider>
           <Header menu={menu} />
           {children}

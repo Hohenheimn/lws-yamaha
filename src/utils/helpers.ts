@@ -1,4 +1,5 @@
 import { saveAs } from "file-saver";
+import { Metadata } from "next";
 
 export const numberSeparator = (
   currency: string | number,
@@ -23,3 +24,23 @@ export const shareUrl = async (shareData: {
 };
 
 export default downloadUrl;
+
+export const createMetadata = (metadata: Metadata): Metadata => {
+  let metaTitle = metadata.title;
+
+  if (metaTitle !== "Yamaha Motor Philippines Official Website") {
+    metaTitle = `${metaTitle} | Yamaha Motor Philippines Official Website`;
+  }
+
+  return {
+    ...metadata,
+    title: metaTitle,
+    openGraph: {
+      ...metadata.openGraph,
+      title: metaTitle,
+      type: "website",
+      url: `${metadata.alternates?.canonical}`,
+      siteName: metaTitle,
+    },
+  };
+};

@@ -12,20 +12,27 @@ import { PiShareBold } from "react-icons/pi";
 import { navTabType } from "@/data/navigationUrl";
 
 import { MenuType } from "..";
+import classNames from "classnames";
 
 type PropsType = {
   tabs: MenuType[];
   onClose?: () => void;
   setClickedMenu?: Function;
+  setMobileMenu?: Function;
 };
 
-const NavSubTab = ({ tabs, onClose, setClickedMenu }: PropsType) => {
+const NavSubTab = ({
+  tabs,
+  onClose,
+  setClickedMenu,
+  setMobileMenu,
+}: PropsType) => {
   const pathname = usePathname();
   const [activeTab, setActiveTab] = useState(
     tabs.some((item) => pathname.includes(item.url)) ? pathname : tabs[0].url
   );
   return (
-    <section className=" w-11/12">
+    <section className="w-full px-5">
       <button
         className=" text-base flex xl:hidden items-center mb-5"
         onClick={() => {
@@ -35,21 +42,24 @@ const NavSubTab = ({ tabs, onClose, setClickedMenu }: PropsType) => {
         <MdOutlineKeyboardArrowLeft className=" text-3xl" />
         Back
       </button>
-      <ul className=" flex flex-col md:flex-row gap-16 items-center text-gray-300 tracking-wider mb-5">
+      <ul className="flex flex-col md:flex-row gap-3 md:gap-16 items-center text-gray-300 tracking-wider mb-4">
         {tabs.map((item, indx: number) => (
           <li
             key={indx}
             className={`${
               activeTab.includes(item.url) &&
-              " after:content-[''] text-white after:absolute after:w-full after:bottom-0 after:left-0 after:h-[2px] after:bg-white"
+              " after:content-[''] text-white after:absolute after:w-full after:bottom-0 after:left-0 after:h-[1px] after:bg-white"
             } text-lg relative  flex gap-2  items-center`}
           >
-            <div
+            <button
               onClick={() => setActiveTab(item.url)}
-              className=" cursor-pointer"
+              className={classNames(
+                activeTab.includes(item.url) && "font-semibold",
+                "cursor-pointer text-base"
+              )}
             >
               {item.label}
-            </div>
+            </button>
 
             {item?.withLinkIcon && (
               <Link href={item.url}>
@@ -59,20 +69,21 @@ const NavSubTab = ({ tabs, onClose, setClickedMenu }: PropsType) => {
           </li>
         ))}
       </ul>
-      <aside className=" text-gray-300 pb-5 flex bo overflow-auto scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
+      <aside className=" text-gray-300 pb-2 flex scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
         {tabs.map((item, indx) => (
           <div key={indx}>
             {activeTab.includes(item.url) && (
-              <ul className="grid md:grid-rows-6 grid-cols-1 md:grid-cols-none md:grid-flow-col gap-x-20 gap-y-5 overflow-auto">
+              <ul className="grid grid-cols-2 gap-x-12 md:grid-cols-none md:grid-flow-col md:grid-rows-6 md:gap-x-14 gap-y-2">
                 {item.children.map((menu, menuIndx) => (
                   <li key={menuIndx} className=" min-w-[7rem]">
                     <Link
                       href={menu.url}
-                      className={`${
+                      className={`hover:text-white md:text-sm transition-colors ${
                         menu.url === pathname && "text-white font-bold"
-                      } text-lg md:text-base`}
+                      }`}
                       onClick={() => {
                         setClickedMenu && setClickedMenu(null);
+                        setMobileMenu && setMobileMenu(false);
                       }}
                     >
                       {menu.label}

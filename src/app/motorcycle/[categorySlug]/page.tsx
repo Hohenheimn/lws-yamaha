@@ -12,7 +12,7 @@ import { redirect } from "next/navigation";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import HeroSection from "./_components/HeroSection";
-import axios from "axios";
+import { createMetadata } from "@/utils/helpers";
 
 const VehicleListSection = dynamic(
   () => import("./_components/VehicleListSection")
@@ -45,11 +45,15 @@ export const generateMetadata = async ({
 }: PropsType): Promise<Metadata> => {
   const data = await getCategoryData(categorySlug);
 
-  return {
+  return createMetadata({
     title: data.metaTitle,
     description: data.metaDescription,
     keywords: data.metaKeywords,
-
+    alternates: {
+      canonical:
+        data.metaCanonical ||
+        `${config.apiNextBaseUrl}/motorcycle/${categorySlug}`,
+    },
     openGraph: {
       title: data.metaTitle,
       description: data.metaDescription,
@@ -62,7 +66,7 @@ export const generateMetadata = async ({
         },
       ],
     },
-  };
+  });
 };
 
 const MotorcycleCategoryPage = async ({ params }: PropsType) => {

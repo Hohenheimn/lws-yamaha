@@ -1,12 +1,18 @@
-import React from "react";
+"use client";
 
 import NewsGridSection from "@/components/sections/NewsGridSection";
-import news from "@/data/news";
 import useAPI from "@/hooks/useAPI";
 import validateImageUrl from "@/utils/validateImageUrl";
+import { useRouter } from "next/navigation";
 
 type PropsType = {
   newsIds?: string;
+};
+
+type SubCategoryType = {
+  name: string;
+  slug: string;
+  id: number;
 };
 
 export type NewsType = {
@@ -16,6 +22,7 @@ export type NewsType = {
   id: number;
   slug: string;
   subCategoryId: number;
+  SubCategory: SubCategoryType;
   title: string;
   viewCount: number;
   newsArticleContents: {
@@ -26,8 +33,10 @@ export type NewsType = {
 
 const NewsGridSectionComponent = (props: PropsType) => {
   const { newsIds } = props;
+  const router = useRouter();
   const { useGet } = useAPI(`/api/news-article?newsIds=${newsIds}`);
-  const { data, isLoading }: any = useGet(`news-article-${newsIds}`);
+  const { data }: any = useGet(`news-article-${newsIds}`);
+
   return (
     <NewsGridSection
       news={data?.data.map((data: NewsType) => ({
@@ -36,8 +45,12 @@ const NewsGridSectionComponent = (props: PropsType) => {
         date: data?.datePublished,
         title: data?.title,
         description: data.newsArticleContents[0].value,
+        onClickUrl: `/news/${data.SubCategory.slug}/${data.slug}`,
+        onClick: () =>
+          router.push(`/news/${data.SubCategory.slug}/${data.slug}`),
       }))}
-      onViewAll={() => {}}
+      onViewAll={() => router.push("/news/news-and-events")}
+      onViewAllUrl="/news/news-and-events"
     />
   );
 };

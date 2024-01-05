@@ -8,6 +8,8 @@ import { IoIosArrowDown } from "react-icons/io";
 import Button from "@/components/shared/Button";
 import Heading from "@/components/shared/Heading";
 import validateImageUrl from "@/utils/validateImageUrl";
+import { useRouter } from "next/navigation";
+import classNames from "classnames";
 
 type PropsType = {
   desktopBgImage?: string;
@@ -29,10 +31,17 @@ type PropsType = {
   scrollDown?: boolean;
   imageTitleUrl?: string;
   readMore?: string;
+  isSeo?: boolean;
   imageContent?: string;
+  button?: {
+    text: string;
+    url: string;
+    isDownload: boolean;
+  };
 };
 
 const Hero = (props: PropsType) => {
+  const router = useRouter();
   const {
     desktopBgImage,
     mobileBgImage,
@@ -44,16 +53,16 @@ const Hero = (props: PropsType) => {
     imageTitleUrl,
     readMore,
     imageContent,
+    button,
+    isSeo,
   } = props;
 
   return (
     <>
       <section
-        className={` w-full relative ${
-          !fullHeight && "h-[52vh] min-h-[30rem]"
-        } ${fullHeight && "h-[92vh]"} flex justify-center ${
-          !desktopBgImage && "bg-black"
-        }`}
+        className={` w-full relative ${!fullHeight && "h-[62vh]"} ${
+          fullHeight && "h-[92vh]"
+        } flex justify-center ${!desktopBgImage && "bg-black"}`}
       >
         {desktopBgImage && (
           <Image
@@ -64,7 +73,9 @@ const Hero = (props: PropsType) => {
             }
             alt="banner"
             fill
-            className={` object-cover ${mobileBgImage && "hidden md:inline"}`}
+            className={`brightness-[0.7] object-cover ${
+              mobileBgImage && "hidden md:inline"
+            }`}
           />
         )}
 
@@ -77,22 +88,25 @@ const Hero = (props: PropsType) => {
             }
             alt="banner"
             fill
-            className={` object-cover ${mobileBgImage && "inline md:hidden"}`}
+            className={`brightness-[0.7] object-cover ${
+              mobileBgImage && "inline md:hidden"
+            }`}
           />
         )}
         {scrollDown && (
-          <div className=" absolute bottom-16">
+          <div className=" absolute bottom-16 z-20">
             <Link href={"#explore"}>
               <aside className=" flex items-center flex-col text-white">
-                <IoIosArrowDown className=" text-[5rem] -mb-16" />
-                <IoIosArrowDown className=" text-[8rem] -mb-10" />
+                <IoIosArrowDown className=" text-[4rem] -mb-16" />
+                <IoIosArrowDown className=" text-[7rem] -mb-12" />
               </aside>
             </Link>
           </div>
         )}
 
+        <div className="absolute top-0 left-0 z-10 w-full h-full bg-black/30"></div>
         <div
-          className={` h-full w-11/12 py-[5%] flex  z-10
+          className={`relative h-full w-11/12 py-[5%] flex  z-10
             ${textPosition === "bottom-left" && "justify-start items-end"}
             ${textPosition === "bottom-right" && "justify-end items-end"}
             ${textPosition === "bottom-center" && "justify-center items-end"}
@@ -116,7 +130,7 @@ const Hero = (props: PropsType) => {
             />
           ) : (
             <aside
-              className={` relative z-10 text-white w-full max-w-[40rem] 3xl:max-w-[55rem]`}
+              className={` relative z-10 text-white w-full max-w-[40rem] 3xl:max-w-[52rem]`}
             >
               {imageTitleUrl && (
                 <Image
@@ -127,19 +141,41 @@ const Hero = (props: PropsType) => {
                 />
               )}
               {title && (
-                <Heading type="h2" className=" uppercase whitespace-pre-wrap">
+                <Heading
+                  type={isSeo ? "h1" : "h3"}
+                  className="text-[2rem] xl:text-[3rem] uppercase whitespace-pre-wrap"
+                >
                   {title}
                 </Heading>
               )}
 
               {description && (
-                <p className=" text-lg whitespace-pre-wrap">{description}</p>
+                <p
+                  className={classNames(
+                    "mt-2 text-sm xl:text-base",
+                    textPosition !== "bottom-left" && "whitespace-pre-wrap"
+                  )}
+                >
+                  {description}
+                </p>
               )}
 
-              {readMore && (
+              {/* {readMore && (
                 <div className=" mt-5">
                   <Button appearance={"primary"} size={"medium"} url={readMore}>
                     Read More
+                  </Button>
+                </div>
+              )} */}
+              {!!(button?.url && button?.text) && (
+                <div className=" mt-5">
+                  <Button
+                    onClick={() => router.push(button.url)}
+                    appearance={"primary"}
+                    size={"medium"}
+                    download={button.isDownload}
+                  >
+                    {button.text}
                   </Button>
                 </div>
               )}

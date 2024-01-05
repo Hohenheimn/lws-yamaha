@@ -16,7 +16,7 @@ const SearchBar = (props: PropsType) => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder={placeholder}
-        className=" outline-none bg-transparent text-lg flex-1 placeholder:text-[#989898] "
+        className="outline-none bg-transparent text-lg flex-1 placeholder:text-[#989898] "
         autoComplete="off"
       />
       <BsSearch className=" text-3xl" />

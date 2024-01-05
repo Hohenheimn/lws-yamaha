@@ -6,6 +6,7 @@ import classNames from "classnames";
 import config from "@/utils/config";
 import useAPI from "@/hooks/useAPI";
 import { groupBy } from "lodash";
+import Heading from "@/components/shared/Heading";
 
 type PropsType = {
   product: APIProductType;
@@ -60,7 +61,7 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
 
   const renderImagePreview = () => {
     return (
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 w-full sm:w-fit">
         <div className="relative h-[300px] w-full sm:h-[500px] sm:w-[500px]  bg-[#323232] rounded-lg cursor-pointer">
           {currentVariant?.images?.length && (
             <Image
@@ -84,7 +85,7 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
                 fill
                 src={`${config.imageBaseUrl}${image}`}
                 alt={currentVariant?.code}
-                className="p-2 object-contatn object-center"
+                className="p-2 object-contain object-center"
               />
             </div>
           ))}
@@ -106,7 +107,7 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
               fill
               src={`${config.imageBaseUrl}${variant?.images?.[0]}`}
               alt={variant?.code}
-              className="p-2 object-contatn object-center"
+              className="p-2 object-contain object-center"
             />
           </div>
         ))}
@@ -139,8 +140,8 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
 
   const renderAttributes = () => {
     return attributes?.map((val, index) => (
-      <div key={index} className="flex gap-3 items-center pt-5">
-        <span className="font-semibold w-[55px] text-right">
+      <div key={index} className="flex flex-wrap gap-3 items-center pt-5">
+        <span className="font-semibold w-[55px]">
           {val?.[0].attribute.name}:
         </span>
         <div className="flex gap-2 flex-wrap">
@@ -168,12 +169,12 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
 
   return (
     <div className="flex justify-center">
-      <div className="w-full text-white max-w-[1400px] flex flex-col gap-10">
-        <div className="flex gap-10 flex-wrap">
+      <div className="w-full text-white flex flex-col gap-10">
+        <div className="flex gap-10 flex-col lg:flex-row">
           {renderImagePreview()}
           <div className="flex flex-col justify-center gap-10 h-fit">
             <div className="flex flex-col gap-2">
-              <p className="font-semibold text-2xl">{product.name}</p>
+              <h1 className="font-semibold text-2xl">{product.name}</h1>
               <p className="text-white/70">{currentVariant?.code}</p>
               {renderModelsUsed()}
               {renderPrice()}

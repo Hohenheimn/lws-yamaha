@@ -15,6 +15,7 @@ type PropsType = Partial<{
   button: {
     onClick(): void;
     text: string;
+    url?: string;
   };
   embedSocials: Array<EmbedSocialType>;
 }>;
@@ -23,7 +24,7 @@ const YamahaLifeStyleStudioSection = (props: PropsType) => {
   const [activeEmbed, setActiveEmbed] = useState<number>(1);
 
   return (
-    <div className="flex flex-col gap-10 bg-[#323232] p-5 md:p-10">
+    <div className="flex flex-col gap-10 p-5 md:p-10">
       <div className="flex flex-wrap items-end justify-between border-b gap-5 border-[#f1f1f1] pb-4">
         <div>
           <h2 className="font-bold text-[#f1f1f1] text-3xl">{props?.title}</h2>
@@ -31,8 +32,9 @@ const YamahaLifeStyleStudioSection = (props: PropsType) => {
         </div>
         <Button
           appearance={"primary"}
-          size={"large"}
-          onClick={props?.button?.onClick}
+          size={"medium"}
+          // onClick={props?.button?.onClick}
+          url={props?.button?.url}
         >
           {props?.button?.text || "Button"}
         </Button>

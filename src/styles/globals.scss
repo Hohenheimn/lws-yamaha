@@ -7,7 +7,11 @@ html {
 }
 
 .unit-carousel.swiper {
-  @apply px-14;
+  @apply px-16 lg:px-24;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 *::-webkit-scrollbar {
@@ -16,19 +20,16 @@ html {
 }
 *::-webkit-scrollbar-track {
   // border-radius: 100vh;
-  background: transparent;
+  background: #131313;
   // border: 5px solid #131313;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #545454;
+  background: #212121;
   border-radius: 100vh;
   border: 6px solid #131313;
 }
 
-*::-webkit-scrollbar-thumb:hover {
-  background: #7a7a7a;
-}
 .hide-scrollBar::-webkit-scrollbar {
   display: none !important;
 }
@@ -65,14 +66,14 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .y-connect-carousel {
-  .swiper-slide {
-    img {
-      filter: grayscale(100%);
-    }
-  }
-  .swiper-slide.swiper-slide-active {
-    img {
-      filter: grayscale(0%);
-    }
-  }
+  // .swiper-slide {
+  //   img {
+  //     filter: grayscale(100%);
+  //   }
+  // }
+  // .swiper-slide.swiper-slide-active {
+  //   img {
+  //     filter: grayscale(0%);
+  //   }
+  // }
 }

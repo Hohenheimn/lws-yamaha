@@ -20,8 +20,8 @@ const PrivacyPolicySection = (props: PropsType) => {
   const { title, content } = props;
   return (
     <SectionContainer width={"wide"} className=" space-y-10">
-      <article className=" space-y-5 text-[#FFFFFF]">
-        <Heading type="h2" className=" font-medium text-center mb-10 lg:mb-20">
+      <article className=" space-y-5 text-[#FFFFFF] flex flex-col gap-10 lg:gap-20">
+        <Heading type="h2" className=" font-medium text-center">
           {title}
         </Heading>
         <div className="space-y-16 two-col-paragraph">

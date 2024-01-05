@@ -50,7 +50,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
           <aside className=" relative w-full h-full lg:max-w-[700px] lg:max-h-[700px]">
             <Image
               src={activeColor?.motorcycleImage}
-              alt="motorcycle"
+              alt={activeColor?.motorcycleName}
               fill
               // width={700}
               // height={700}
@@ -69,7 +69,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
           <Image
             src={activeColor?.desktopBgImage}
             fill
-            alt="background"
+            alt={`${activeColor?.motorcycleName} background`}
             className={` object-cover object-center ${
               activeColor?.mobileBgImage && "hidden md:inline"
             }`}
@@ -78,7 +78,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
             <Image
               src={activeColor?.mobileBgImage}
               fill
-              alt="background"
+              alt={`${activeColor?.motorcycleName} background`}
               className={` object-bottom object-cover inline md:hidden`}
             />
           )}

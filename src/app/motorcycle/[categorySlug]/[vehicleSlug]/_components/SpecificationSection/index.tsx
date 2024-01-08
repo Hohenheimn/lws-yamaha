@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import SpecSection from "@/components/sections/SpecificationSection";
 import config from "@/utils/config";
 import useAPI from "@/hooks/useAPI";
+import downloadUrl from "@/utils/helpers";
 
 type PropsType = {
   vehicleId: number;
@@ -32,18 +33,11 @@ const SpecificationSection = (props: PropsType) => {
 
   if (isError) return;
 
-  const downloadBrochure = (brochure: string) => {
-    const anchor = document.createElement("a");
-    anchor.href = `${config.imageBaseUrl}${brochure}`;
-    anchor.download = `brochure-${brochure}`;
-    anchor.target = "_blank";
-
-    anchor.click();
-  };
-
   return (
     <SpecSection
-      onClickBrochure={() => downloadBrochure(props.brochure)}
+      onClickBrochure={() =>
+        downloadUrl(`${config.imageBaseUrl}${props.brochure}`)
+      }
       specifications={vehicleSpecs
         .filter((_) => _.vehicleSpecificationItems?.length)
         .map((spec) => ({

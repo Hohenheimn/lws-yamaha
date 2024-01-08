@@ -2,26 +2,13 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 import { AiFillInstagram, AiFillYoutube } from "react-icons/ai";
-
-import { FaFacebookF, FaTiktok, FaTwitter } from "react-icons/fa";
-
+import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { MdKeyboardArrowRight } from "react-icons/md";
-
 import { PiShareBold } from "react-icons/pi";
-
-import Breadcrumps from "@/components/partsAndAccessories/Breadcrumps";
-
-import { personalCommuter } from "@/data/headerPersonalCommuter/personalCommuter";
 import useAPI from "@/hooks/useAPI";
-
-import Button from "../Button";
-import Heading from "../Heading";
-
 type footerBreadCrumbs = {
   title: string;
   url: string;
@@ -48,7 +35,7 @@ const Footer = () => {
   const { data: settings, isLoading: settingsLoading }: any =
     useGetSettings("settings-footer");
 
-  const settingsSocial: settingsType = settings?.data;
+  const settingsSocial: settingsType = settings?.data?.[0];
 
   const updateBreadCrump = () => {
     const pathnameArray: footerBreadCrumbs = pathnameSplit.map(
@@ -91,7 +78,7 @@ const Footer = () => {
                     {indx === 0 ? "Top" : item.title}
                   </Link>{" "}
                   {indx !== isBreadCrump.length - 1 && (
-                    <MdKeyboardArrowRight className="w-5 h-5 ml-5" />
+                    <MdKeyboardArrowRight className="w-5 h-5 ml-2 md:ml-5" />
                   )}
                 </li>
               ))}

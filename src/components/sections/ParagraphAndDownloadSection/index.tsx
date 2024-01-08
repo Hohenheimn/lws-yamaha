@@ -4,6 +4,7 @@ import Link from "next/link";
 import Heading from "@/components/shared/Heading";
 
 import SectionContainer from "../SectionContainer";
+import config from "@/utils/config";
 
 type PropsType = {
   title?: string;
@@ -38,7 +39,7 @@ const ParagraphAndDownloadSection = (props: PropsType) => {
 
       {labelUrl && (
         <Link
-          href={downloadLink ? downloadLink : ""}
+          href={`${config.imageBaseUrl}${downloadLink}`}
           download={true}
           target="_blank"
           className="text-center w-full p-3 inline-block duration-150 text-white font-medium rounded-lg md:whitespace-nowrap md:px-12 md:py-3 md:w-1/3  bg-tertiary hover:bg-hover-tertiary"

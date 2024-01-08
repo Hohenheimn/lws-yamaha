@@ -38,6 +38,7 @@ const AccessoriesSection = (props: PropsType) => {
   return (
     <AccessoriesComponent
       onClick={() => router.push(`/parts-&-accessories/accessories`)}
+      hideButton={productVariants.length < 4}
       accessories={productVariants.map((productVariant) => ({
         accessoryImage: `${config.imageBaseUrl}${productVariant.images?.[0]}`,
         title: `${productVariant?.product?.name}`,

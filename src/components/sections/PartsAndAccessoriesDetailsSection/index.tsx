@@ -5,7 +5,7 @@ import Image from "next/image";
 import classNames from "classnames";
 import config from "@/utils/config";
 import useAPI from "@/hooks/useAPI";
-import { groupBy } from "lodash";
+import { groupBy, uniqBy } from "lodash";
 import Heading from "@/components/shared/Heading";
 
 type PropsType = {
@@ -28,6 +28,11 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
   const [attributes, setAttributes] =
     useState<APIProductVariantAttribute[][]>();
   const [currentAttribute, setCurrentAttribute] = useState<any>();
+  const variants = product.productVariants;
+  // const variants = uniqBy(
+  //   product.productVariants,
+  //   (variant) => variant.code.split(" ")[0]
+  // );
 
   //Set all the variants
   useEffect(() => {
@@ -97,7 +102,7 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
   const renderVariants = useMemo(() => {
     return (
       <div className="flex gap-5 flex-wrap pt-5">
-        {product.productVariants?.map((variant) => (
+        {variants?.map((variant) => (
           <div
             onClick={() => setCurrentVariant(variant)}
             key={variant.id}
@@ -186,9 +191,16 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
         </div>
         <div className="flex flex-col gap-2">
           <p className="font-semibold">Product Description</p>
-          <p className="bg-[#323232] p-5 lg:p-7 rounded-lg min-h-[150px]">
-            {product?.description}
-          </p>
+          <div className="bg-[#323232] p-5 lg:p-7 rounded-lg min-h-[150px] flex flex-col gap-5">
+            {!(product?.description || currentVariant?.description) ? (
+              <p>Description currently unavailable.</p>
+            ) : (
+              <>
+                <p>{product?.description}</p>
+                <p>{currentVariant?.description}</p>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>

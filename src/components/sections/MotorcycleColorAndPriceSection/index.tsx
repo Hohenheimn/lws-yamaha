@@ -8,6 +8,7 @@ import Heading from "@/components/shared/Heading";
 import { numberSeparator } from "@/utils/helpers";
 
 import SectionContainer from "../SectionContainer";
+import classNames from "classnames";
 
 type PropsType = {
   motorcycle_detail: MotorcycleDetailType[];
@@ -45,7 +46,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
         <ArrowTitle title={"Color & Price"} />
       </div>
 
-      <ul className=" w-[95.83%] flex justify-end flex-wrap lg:flex-nowrap relative">
+      <ul className="md:w-[95.83%] flex justify-end flex-wrap lg:flex-nowrap relative">
         <li className=" w-full lg:w-[50%] mr-0 lg:mr-[-10%] aspect-[1.2/1] md:aspect-[2/1] lg:aspect-auto lg:h-auto flex flex-col items-end justify-end z-10 relative">
           <aside className=" relative w-full h-full lg:max-w-[700px] lg:max-h-[700px]">
             <Image
@@ -65,25 +66,29 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
           </aside>
         </li>
 
-        <li className=" w-full lg:w-[60%] mt-5 lg:mt-16 relative rounded-bl-[3rem] rounded-tl-[3rem] overflow-hidden text-white flex items-center justify-center py-10 md:py-20 ">
-          <Image
-            src={activeColor?.desktopBgImage}
-            fill
-            alt={`${activeColor?.motorcycleName} background`}
-            className={` object-cover object-center ${
-              activeColor?.mobileBgImage && "hidden md:inline"
-            }`}
-          />
-          {activeColor?.mobileBgImage && (
+        <li className=" w-full lg:w-[70%] mt-5 lg:mt-16 relative md:rounded-bl-[3rem] md:rounded-tl-[3rem] overflow-hidden text-white flex items-center justify-center py-10 md:py-20 ">
+          <div className="absolute w-full h-full">
             <Image
-              src={activeColor?.mobileBgImage}
+              src={activeColor?.desktopBgImage}
               fill
-              alt={`${activeColor?.motorcycleName} background`}
-              className={` object-bottom object-cover inline md:hidden`}
+              alt="background"
+              className={` object-cover object-center ${
+                activeColor?.mobileBgImage && "hidden md:inline"
+              }`}
             />
-          )}
+            {activeColor?.mobileBgImage && (
+              <Image
+                src={activeColor?.mobileBgImage}
+                fill
+                alt="background"
+                className={` object-bottom object-cover inline md:hidden`}
+              />
+            )}
+            <div className="w-full h-full relative bg-black/70"></div>
+          </div>
+
           <aside className="relative z-10 space-y-8 w-10/12 lg:ml-[10%] lg:w-[60%] 2xl:w-[50%]">
-            <div className="w-full max-w-[400px] h-[170px] relative">
+            <div className="w-full max-w-[200px] md:max-w-[400px] h-[100px] md:h-[170px] relative">
               <Image
                 src={activeColor?.titleImage}
                 alt="title"
@@ -92,8 +97,8 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
               />
             </div>
 
-            <article className=" w-11/12 space-y-8">
-              <aside className=" space-y-5">
+            <article className=" w-11/12 space-y-5">
+              <aside className="space-y-5">
                 <Heading type={"h5"}>ONLY THE BEST FOR YOU!</Heading>
                 <p>{activeColor?.description}</p>
               </aside>
@@ -108,9 +113,12 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
                 {motorcycle_detail.map((item, indx) => (
                   <li
                     onClick={() => setActiveColor(item)}
-                    className={` w-10 aspect-square cursor-pointer  ${
-                      item.id === activeColor?.id && " border-2 border-red"
-                    }`}
+                    className={` w-10 aspect-square cursor-pointer shadow shadow-white/50 ${classNames(
+                      {
+                        "border-2 border-red shadow-none":
+                          item.id === activeColor?.id,
+                      }
+                    )}`}
                     style={{ backgroundColor: item.color }}
                     key={indx}
                   ></li>

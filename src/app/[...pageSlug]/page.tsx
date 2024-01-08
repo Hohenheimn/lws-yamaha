@@ -94,6 +94,7 @@ const SlugPage = async (props: PropsType) => {
       </section>
     );
   }
+
   return (
     <>
       <DisplaySection

@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-
 import dynamic from "next/dynamic";
 
 import GridEmbedSocialSection from "@/app/components/_components/GridEmbedSocialSection";
@@ -15,21 +14,20 @@ import WhyChooseUsSection from "@/components/sections/WhyChooseUsSection";
 
 import YamahaHistorySection from "@/components/sections/YamahaHistorySection";
 import YamahalubeCharacteristicSection from "@/components/sections/YamahalubeCharacteristicSection";
-
 import YamahaTechnicalAcademySection from "@/components/sections/YamahaTechnicalAcademySection";
 
 import YdtSection from "@/components/sections/YdtSection";
 
 import ArrowTitle from "@/components/shared/ArrowTitle";
 
+import AnnouncementModal from "@/components/shared/modals/AnnouncementModal";
 import useAPI from "@/hooks/useAPI";
 import validateImageUrl from "@/utils/validateImageUrl";
 
+import ImageTwoColParagraph from "../ImageTwoColParagraphSection";
 import OurServicesComponent from "../OurServicesComponent";
 import PageSectionType from "../PageSectionType";
 import { SectionTypes } from "./sectionTypes";
-import ImageTwoColParagraph from "../ImageTwoColParagraphSection";
-import AnnouncementModal from "@/components/shared/modals/AnnouncementModal";
 
 const NewsGridSectionComponent = dynamic(
   () => import("../NewsGridSectionComponent")

@@ -2,11 +2,7 @@
 
 import React, { useCallback, useState } from "react";
 import Image from "next/image";
-
-import { BsTypeH1 } from "react-icons/bs";
-
 import ImageViewer from "react-simple-image-viewer";
-
 import SectionContainer from "../SectionContainer";
 import GalleryItem from "./GalleryItem";
 
@@ -36,6 +32,7 @@ const LifeWithMotorcycleSection = (props: PropsType) => {
     setCurrentImage(0);
     setIsViewerOpen(false);
   };
+
   return (
     <>
       <SectionContainer className=" flex items-end flex-col" width="widest">

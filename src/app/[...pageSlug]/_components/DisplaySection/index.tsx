@@ -2,23 +2,32 @@
 
 import React from "react";
 import dynamic from "next/dynamic";
+
+import GridEmbedSocialSection from "@/app/components/_components/GridEmbedSocialSection";
 import BlogSection from "@/components/sections/BlogSection";
 import ParagraphAndDownloadSection from "@/components/sections/ParagraphAndDownloadSection";
 import PolicyAndGuidedbookSection from "@/components/sections/PolicyAndGuidedbookSection";
+import PrivacyPolicySection from "@/components/sections/PrivacyPolicySection";
 import ServiceDetailSection from "@/components/sections/ServiceDetailSection";
 import VideoSection from "@/components/sections/VideoSection";
 import WhyChooseUsSection from "@/components/sections/WhyChooseUsSection";
+
 import YamahaHistorySection from "@/components/sections/YamahaHistorySection";
 import YamahalubeCharacteristicSection from "@/components/sections/YamahalubeCharacteristicSection";
 import YamahaTechnicalAcademySection from "@/components/sections/YamahaTechnicalAcademySection";
+
 import YdtSection from "@/components/sections/YdtSection";
+
+import ArrowTitle from "@/components/shared/ArrowTitle";
+
+import AnnouncementModal from "@/components/shared/modals/AnnouncementModal";
 import useAPI from "@/hooks/useAPI";
 import validateImageUrl from "@/utils/validateImageUrl";
+
+import ImageTwoColParagraph from "../ImageTwoColParagraphSection";
 import OurServicesComponent from "../OurServicesComponent";
 import PageSectionType from "../PageSectionType";
 import { SectionTypes } from "./sectionTypes";
-import ImageTwoColParagraph from "../ImageTwoColParagraphSection";
-import AnnouncementModal from "@/components/shared/modals/AnnouncementModal";
 
 const NewsGridSectionComponent = dynamic(
   () => import("../NewsGridSectionComponent")
@@ -245,6 +254,22 @@ const DisplaySection = (props: PropsType) => {
 
           {section?.sectionType === "yamaha-history-section" && (
             <YamahaHistorySection newsData={section?.contents} />
+          )}
+
+          {section?.sectionType === "privacy-policy-section" && (
+            <PrivacyPolicySection
+              title={section?.title}
+              content={section?.contents}
+            />
+          )}
+
+          {section?.sectionType === "embed-social-section" && (
+            <section className=" mt-10 lg:mt-20">
+              <ArrowTitle title={section?.title} />
+              {section?.contents.map((item, indx) => (
+                <GridEmbedSocialSection key={indx} embedId={item} />
+              ))}
+            </section>
           )}
 
           {renderSection(section)}

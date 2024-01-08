@@ -1,8 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { title } from "process";
-
-import Button from "@/components/shared/Button";
 
 import Heading from "@/components/shared/Heading";
 
@@ -21,7 +18,7 @@ const ParagraphAndDownloadSection = (props: PropsType) => {
   const { title, paragraph, downloadLink, labelUrl, textAlignment } = props;
   return (
     <SectionContainer
-      width={"narrow"}
+      width={"wide"}
       className={` text-white space-y-5 ${
         textAlignment === "left" && "text-start"
       } ${textAlignment === "center" && "text-center"} ${

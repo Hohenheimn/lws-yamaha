@@ -151,7 +151,7 @@ const Footer = () => {
             {settingsSocial?.instagramUrl && (
               <li>
                 <Link href={settingsSocial?.instagramUrl}>
-                  <AiFillInstagram className=" text-3xl" />
+                  <AiFillInstagram className=" text-2xl" />
                 </Link>
               </li>
             )}
@@ -166,14 +166,19 @@ const Footer = () => {
             {settingsSocial?.facebookUrl && (
               <li>
                 <Link href={settingsSocial?.facebookUrl}>
-                  <FaFacebookF className=" text-3xl" />
+                  <FaFacebookF className=" text-xl" />
                 </Link>
               </li>
             )}
             {settingsSocial?.twitterUrl && (
               <li>
                 <Link href={settingsSocial?.twitterUrl}>
-                  <FaTwitter className=" text-3xl" />
+                  <Image
+                    src="/assets/svgs/x-twitter.svg"
+                    width={23}
+                    height={23}
+                    alt="Twitter Icon"
+                  />
                 </Link>
               </li>
             )}

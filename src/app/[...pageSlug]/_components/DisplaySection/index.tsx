@@ -83,7 +83,6 @@ const DisplaySection = (props: PropsType) => {
 
   return (
     <>
-      {renderAnnoucementModal()}
       {pageSections?.map((section: SectionTypes, index: number) => (
         <section key={section?.id}>
           {section?.sectionType === "hero-section" && (

@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import classNames from "classnames";
+
 import Link from "next/link";
 
 import { usePathname } from "next/navigation";
@@ -12,7 +14,6 @@ import { PiShareBold } from "react-icons/pi";
 import { navTabType } from "@/data/navigationUrl";
 
 import { MenuType } from "..";
-import classNames from "classnames";
 
 type PropsType = {
   tabs: MenuType[];
@@ -42,7 +43,7 @@ const NavSubTab = ({
         <MdOutlineKeyboardArrowLeft className=" text-3xl" />
         Back
       </button>
-      <ul className="flex flex-col md:flex-row gap-3 md:gap-16 items-center text-gray-300 tracking-wider mb-4">
+      <ul className="flex flex-col md:flex-row gap-3 md:gap-16 items-center text-gray-300 tracking-wider mb-6">
         {tabs.map((item, indx: number) => (
           <li
             key={indx}
@@ -71,28 +72,47 @@ const NavSubTab = ({
       </ul>
       <aside className=" text-gray-300 pb-2 flex scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
         {tabs.map((item, indx) => (
-          <div key={indx}>
-            {activeTab.includes(item.url) && (
-              <ul className="grid grid-cols-2 gap-x-12 md:grid-cols-none md:grid-flow-col md:grid-rows-6 md:gap-x-14 gap-y-2">
-                {item.children.map((menu, menuIndx) => (
-                  <li key={menuIndx} className=" min-w-[7rem]">
-                    <Link
-                      href={menu.url}
-                      className={`hover:text-white md:text-sm transition-colors ${
-                        menu.url === pathname && "text-white font-bold"
-                      }`}
-                      onClick={() => {
-                        setClickedMenu && setClickedMenu(null);
-                        setMobileMenu && setMobileMenu(false);
-                      }}
-                    >
-                      {menu.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+          <>
+            {item.url === activeTab && (
+              <div
+                key={indx}
+                className="w-full md:w-auto flex md:inline-block justify-center md:justify-start"
+              >
+                {activeTab.includes(item.url) && (
+                  <ul
+                    className={`${
+                      item.children.length >= 4
+                        ? "grid grid-cols-2 gap-x-12 md:grid-cols-none md:grid-flow-col md:grid-rows-6 md:gap-x-14 gap-y-2"
+                        : "grid grid-cols-1 gap-x-12 md:grid-cols-none md:grid-flow-col md:grid-rows-6 md:gap-x-14 gap-y-2"
+                    }`}
+                  >
+                    {item.children.map((menu, menuIndx) => (
+                      <li
+                        key={menuIndx}
+                        className={` min-w-[7rem] ${
+                          item.children.length < 4 &&
+                          "text-center md:text-start"
+                        }`}
+                      >
+                        <Link
+                          href={menu.url}
+                          className={`hover:text-white md:text-sm transition-colors ${
+                            menu.url === pathname && "text-white font-bold"
+                          }`}
+                          onClick={() => {
+                            setClickedMenu && setClickedMenu(null);
+                            setMobileMenu && setMobileMenu(false);
+                          }}
+                        >
+                          {menu.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             )}
-          </div>
+          </>
         ))}
       </aside>
     </section>

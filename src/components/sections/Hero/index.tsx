@@ -1,17 +1,18 @@
 "use client";
 
 import React from "react";
+import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
+
+import { useRouter } from "next/navigation";
 import { IoIosArrowDown } from "react-icons/io";
 
 import Button from "@/components/shared/Button";
 import Heading from "@/components/shared/Heading";
 import validateImageUrl from "@/utils/validateImageUrl";
-import { useRouter } from "next/navigation";
-import classNames from "classnames";
 
-type PropsType = {
+type PropsType = Partial<{
   desktopBgImage?: string;
   mobileBgImage?: string;
   title?: string;
@@ -38,7 +39,7 @@ type PropsType = {
     url: string;
     isDownload: boolean;
   };
-};
+}>;
 
 const Hero = (props: PropsType) => {
   const router = useRouter();

@@ -1,11 +1,13 @@
 import React from "react";
-import { redirect } from "next/navigation";
-import { NewsType } from "@/app/[...pageSlug]/_components/NewsGridSectionComponent";
-import nextApi from "@/utils/nextApi";
-import NewsContents from "./_component/Contents";
-import { createMetadata } from "@/utils/helpers";
 import { Metadata } from "next";
+import { redirect } from "next/navigation";
+
+import { NewsType } from "@/app/[...pageSlug]/_components/NewsGridSectionComponent";
 import config from "@/utils/config";
+import { createMetadata } from "@/utils/helpers";
+import nextApi from "@/utils/nextApi";
+
+import NewsContents from "./_component/Contents";
 
 type PropsType = {
   params: {
@@ -41,13 +43,6 @@ export const generateMetadata = async ({
     console.error(error);
     redirect("/404");
   }
-
-  console.log();
-
-  return createMetadata({
-    title: "News and Events",
-    description: "",
-  });
 };
 
 const getNewsCardData = async (newsDetailSlug: string) => {

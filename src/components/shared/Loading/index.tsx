@@ -1,7 +1,5 @@
 import React from "react";
 
-import Heading from "../Heading";
-
 const Loading = () => {
   return (
     <section className=" relative w-full h-[92vh] flex justify-center items-center bg-primary text-white overflow-hidden">

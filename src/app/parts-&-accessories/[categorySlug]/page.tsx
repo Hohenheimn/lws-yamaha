@@ -7,6 +7,7 @@ import { Metadata } from "next";
 import HeroSection from "./_components/HeroSection";
 import ProductListSection from "./_components/ProductListSection";
 import { createMetadata } from "@/utils/helpers";
+import PageLoader from "@/components/shared/PageLoader";
 
 type PropsType = {
   params: {

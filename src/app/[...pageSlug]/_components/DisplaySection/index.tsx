@@ -283,7 +283,6 @@ const DisplaySection = (props: PropsType) => {
 
   return (
     <>
-      {renderAnnoucementModal()}
       {pageSections?.map((section: SectionTypes, index: number) => (
         <section key={section?.id}>{renderSection(section, index)}</section>
       ))}

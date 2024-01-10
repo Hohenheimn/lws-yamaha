@@ -37,7 +37,7 @@ const FeatureCard = (props: PropsType) => {
         </div>
         {characterLength > 55 ? (
           <button
-            className="text-sm md:text-base text-[#c6c6c6] w-fit mt-2"
+            className="text-sm md:text-base text-[#c6c6c6] w-fit mt-2 border-b-[2px] border-[#c6c6c6] font-semibold"
             onClick={() => setIsSeeMore(!isSeeMore)}
           >
             {isSeeMore ? "See more" : "See less"}

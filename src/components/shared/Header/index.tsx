@@ -7,9 +7,10 @@ import { usePathname, useRouter } from "next/navigation";
 import { BiSearch } from "react-icons/bi";
 import { IoIosArrowDown, IoIosArrowDropdown } from "react-icons/io";
 import { IoMenuSharp } from "react-icons/io5";
+
+import SearchModal from "../SearchModal";
 import MobileMenu from "./MobileMenu";
 import SubMenu from "./SubMenu";
-import SearchModal from "../SearchModal";
 
 export type MenuType = {
   id: number;
@@ -116,7 +117,9 @@ const Header = (props: PropsType) => {
                   className={` hover:text-white duration-150 cursor-pointer text-base flex items-center gap-2 `}
                 >
                   <IoMenuSharp
-                    className=" inline-block xl:hidden text-2xl"
+                    className={` inline-block xl:hidden text-2xl ${
+                      mobileMenu && "pointer-events-none"
+                    }`}
                     onClick={() => setMobileMenu(!mobileMenu)}
                   />
                 </div>

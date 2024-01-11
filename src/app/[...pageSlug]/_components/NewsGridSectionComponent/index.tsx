@@ -3,6 +3,7 @@
 import NewsGridSection from "@/components/sections/NewsGridSection";
 import useAPI from "@/hooks/useAPI";
 import validateImageUrl from "@/utils/validateImageUrl";
+import { format } from "date-fns";
 import { useRouter } from "next/navigation";
 
 type PropsType = {
@@ -42,9 +43,11 @@ const NewsGridSectionComponent = (props: PropsType) => {
       news={data?.data.map((data: NewsType) => ({
         id: data?.id,
         image: validateImageUrl(data?.banner.split(",")[0]),
-        date: data?.datePublished,
+        date: format(data?.datePublished, "MMMM dd,yyyy"),
         title: data?.title,
-        description: data.newsArticleContents[0].value,
+        description: data?.newsArticleContents.find(
+          (article) => !/.(webp|jpg|jpeg|png)$/i.test(article.value)
+        )?.value,
         onClickUrl: `/news/${data.SubCategory.slug}/${data.slug}`,
         onClick: () =>
           router.push(`/news/${data.SubCategory.slug}/${data.slug}`),

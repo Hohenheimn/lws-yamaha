@@ -21,6 +21,7 @@ import useAPI from "@/hooks/useAPI";
 import validateImageUrl from "@/utils/validateImageUrl";
 
 import { NewsContent } from "../../page";
+import { format } from "date-fns";
 
 type PropsType = {
   news: NewsContent[];
@@ -55,7 +56,7 @@ const NewsContents = (props: PropsType) => {
     <>
       <SectionContainer width={"narrow"} className="relative">
         <button
-          className=" absolute top-0 right-[105%] text-white text-xl underline"
+          className="mb-5 text-white text-lg font-semibold underline"
           onClick={() => router.back()}
         >
           Go&nbsp;Back
@@ -125,9 +126,13 @@ const NewsContents = (props: PropsType) => {
               key={indx}
               id={item.id}
               image={validateImageUrl(item.banner.split(",")[0])}
-              date={item.datePublished}
+              date={format(item.datePublished, "MMMM dd,yyyy")}
               title={item.title}
-              description={item.newsArticleContents[0].value}
+              description={`${
+                item?.newsArticleContents.find(
+                  (article) => !/.(webp|jpg|jpeg|png)$/i.test(article.value)
+                )?.value
+              }`}
               url={`/news/${
                 pathname.includes("news-and-events")
                   ? "news-and-events"

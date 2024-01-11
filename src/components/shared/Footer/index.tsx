@@ -132,6 +132,7 @@ const Footer = () => {
                     item?.label === "Yamaha Motor Global" &&
                     "flex gap-2 items-center"
                   }`}
+                  target={item?.withLinkIcon ? "_blank" : "_self"}
                 >
                   {item?.label}{" "}
                   {item?.withLinkIcon && (

@@ -8,6 +8,7 @@ import { createMetadata } from "@/utils/helpers";
 import nextApi from "@/utils/nextApi";
 
 import NewsContents from "./_component/Contents";
+import { format } from "date-fns";
 
 type PropsType = {
   params: {
@@ -71,7 +72,7 @@ const NewsDetailPage = async (params: PropsType) => {
         news={news?.newsArticleContents}
         banner={news?.banner}
         title={news?.title}
-        date={news?.datePublished}
+        date={format(news?.datePublished, "MMMM dd,yyyy")}
       />
     </div>
   );

@@ -28,7 +28,7 @@ const FeatureCard = (props: PropsType) => {
           <h4 className="text-xl font-medium">{feature.title}</h4>
           <p
             className={classNames(
-              "text-sm md:text-base text-[#dbdbdb]",
+              "text-sm md:text-base text-[#dbdbdb] max-w-[400px]",
               isSeeMore && "truncate text-ellipsis"
             )}
           >

@@ -12,13 +12,9 @@ export const numberSeparator = (
 };
 
 export const downloadUrl = (fileUrl: string) => {
-  const anchor = document.createElement("a");
   const fileExt = fileUrl.split(".").pop();
 
-  anchor.setAttribute("href", fileUrl);
-  anchor.setAttribute("download", `${new Date()}${fileExt}`);
-
-  anchor.click();
+  saveAs(fileUrl, `${new Date()}${fileExt}`);
 };
 
 export const shareUrl = async (shareData: {

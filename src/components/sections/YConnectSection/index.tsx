@@ -80,22 +80,20 @@ const YConnectSection = (props: PropsType) => {
       <Heading type="h5" className=" w-10/12 font-medium">
         {headingText}
       </Heading>
-      <aside className=" w-full overflow-x-auto hide-scrollBar">
-        <ul className=" w-auto flex md:border-b-2 border-[#8C8C8C] gap-10 xl:gap-20 text-[#424242]">
-          {tabs.map((tab, indx) => (
-            <li
-              onClick={() => setActiveTab(tab)}
-              key={indx}
-              className={`py-3 px-2 cursor-pointer whitespace-nowrap md:-mb-[2px] ${
-                activeTab?.tab_name === tab.tab_name &&
-                "border-b-[4px] border-red font-medium text-red"
-              }`}
-            >
-              {tab.tab_name}
-            </li>
-          ))}
-        </ul>
-      </aside>
+      <ul className="w-full flex flex-wrap gap-x-5 md:gap-10 lg:gap-[100px] text-white md:border-b-2 border-[#8C8C8C]">
+        {tabs.map((tab, indx) => (
+          <li
+            onClick={() => setActiveTab(tab)}
+            key={indx}
+            className={`py-1 pt-3 lg:py-3 cursor-pointer whitespace-nowrap -mb-[2px] ${
+              activeTab?.tab_name === tab.tab_name &&
+              "border-b-[2px] border-red font-medium text-red"
+            }`}
+          >
+            {tab.tab_name}
+          </li>
+        ))}
+      </ul>
       <section className="w-full flex flex-wrap md:flex-nowrap items-center justify-center gap-5">
         {activeTab?.contentType === "slider" && (
           <aside className=" w-full flex flex-col justify-center items-center">

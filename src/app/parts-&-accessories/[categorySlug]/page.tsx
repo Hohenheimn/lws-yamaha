@@ -7,7 +7,6 @@ import { Metadata } from "next";
 import HeroSection from "./_components/HeroSection";
 import ProductListSection from "./_components/ProductListSection";
 import { createMetadata } from "@/utils/helpers";
-import PageLoader from "@/components/shared/PageLoader";
 
 type PropsType = {
   params: {
@@ -65,6 +64,8 @@ export const generateMetadata = async ({
 const ProductCategoryPage = async ({ params }: PropsType) => {
   const category = await getCategoryData(params.categorySlug);
 
+  console.log(category);
+
   return (
     <div>
       <HeroSection
@@ -72,7 +73,6 @@ const ProductCategoryPage = async ({ params }: PropsType) => {
         desktopBgImage={`${config.imageBaseUrl}${category?.image}`}
       />
       <ProductListSection categoryId={category.id} />
-      {/* <InquieryAndFindDealerButtons /> */}
     </div>
   );
 };

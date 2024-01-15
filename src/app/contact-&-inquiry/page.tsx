@@ -15,11 +15,7 @@ export const metadata: Metadata = createMetadata({
 });
 
 const ContactAndInquiryPage = () => {
-  return (
-    <>
-      <ContactForm />
-    </>
-  );
+  return <ContactForm />;
 };
 
 export default ContactAndInquiryPage;

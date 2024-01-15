@@ -1,12 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-
-import { FaLocationDot } from "react-icons/fa6";
-
 import SectionContainer from "@/components/sections/SectionContainer";
-import Button from "@/components/shared/Button";
 import ControllerField from "@/components/shared/ControllerField";
 import Heading from "@/components/shared/Heading";
 import NotificationModal, {
@@ -14,6 +10,7 @@ import NotificationModal, {
 } from "@/components/shared/NotificationModal";
 import ReCaptcha from "@/components/shared/Recaptcha";
 import useAPI from "@/hooks/useAPI";
+import Link from "next/link";
 
 type FormType = {
   name: string;
@@ -21,6 +18,7 @@ type FormType = {
   type: string;
   message: string;
   recaptchaKey: string;
+  isAgreeToPrivacyPolicy: boolean;
 };
 
 const ContactForm = () => {
@@ -29,11 +27,13 @@ const ContactForm = () => {
     message: "Inquiry successfully sent",
     show: false,
   });
+  const [isAgreeToPrivacyPolicy, setIsAgreeToPrivacyPolicy] = useState(false);
 
   const {
     handleSubmit,
     control,
     setValue,
+    register,
     formState: { errors },
   } = useForm<FormType>({
     defaultValues: {
@@ -58,6 +58,8 @@ const ContactForm = () => {
   const { mutate, isLoading: mutateLoading } = usePost;
 
   const SubmitHandler = (data: FormType) => {
+    if (!isAgreeToPrivacyPolicy) return;
+
     mutate(
       { data },
       {
@@ -246,6 +248,22 @@ const ContactForm = () => {
                   }}
                 />
               </li>
+              <li className="col-span-2  flex gap-2 items-center font-semibold">
+                <input
+                  type="checkbox"
+                  className="p-5"
+                  {...register("isAgreeToPrivacyPolicy", {
+                    required: true,
+                  })}
+                  onChange={(e) => setIsAgreeToPrivacyPolicy(e.target.checked)}
+                />
+                <p className="text-white">
+                  I agree to{" "}
+                  <Link href="/privacy-policy" className="underline">
+                    Yamaha Privacy Policy
+                  </Link>
+                </p>
+              </li>
               <li className=" col-span-2">
                 <Controller
                   name={"recaptchaKey"}
@@ -272,7 +290,10 @@ const ContactForm = () => {
                   )}
                 />
 
-                <button className="bg-tertiary mt-5 w-full py-3 hover:bg-hover-tertiary whitespace-nowrap inline-block duration-150 text-white rounded-lg font-medium">
+                <button
+                  className={`bg-tertiary mt-5 w-full py-3 hover:bg-hover-tertiary whitespace-nowrap inline-block duration-150 text-white rounded-lg font-medium disabled:opacity-50`}
+                  disabled={!isAgreeToPrivacyPolicy}
+                >
                   {mutateLoading ? "Sending..." : "Submit"}
                 </button>
               </li>

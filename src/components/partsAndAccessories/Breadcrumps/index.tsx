@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { twMerge } from "tailwind-merge";
 
 export type BreadcrumpType = {
   id: number;
@@ -11,21 +14,27 @@ export type BreadcrumpType = {
 
 type PropsType = {
   breadcrupms: BreadcrumpType[];
+  className?: string;
 };
 
 const Breadcrumps = (props: PropsType) => {
   const pathname = usePathname();
 
   return (
-    <div className="bg-[#1C1C1C] py-5 px-10 flex flex-wrap gap-2">
+    <div
+      className={twMerge(
+        "bg-[#1C1C1C] py-5 px-10 flex flex-wrap gap-2",
+        props?.className
+      )}
+    >
       {props.breadcrupms.map((breadcrump, index) => (
         <Link
           key={breadcrump.id}
           href={breadcrump.link}
           className={`flex gap-2 items-center ${
-            pathname === breadcrump.link
+            !pathname.endsWith(breadcrump.link)
               ? "text-[#f1f1f1] font-semibold"
-              : "text-[#8D8D8D]"
+              : "text-[#8D8D8D] cursor-default"
           }`}
         >
           <span>{breadcrump.name}</span>

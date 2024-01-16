@@ -42,7 +42,7 @@ const AccessoriesSection = (props: PropsType) => {
       accessories={productVariants.map((productVariant) => ({
         accessoryImage: `${config.imageBaseUrl}${productVariant.images?.[0]}`,
         title: `${productVariant?.product?.name}`,
-        url: `/parts-&-accessories/${productVariant?.product?.subCategory?.slug}/${productVariant?.product?.slug}`,
+        url: `/parts-&-accessories/${productVariant?.product?.subCategory?.Category.slug}/${productVariant?.product?.slug}`,
       }))}
     />
   );

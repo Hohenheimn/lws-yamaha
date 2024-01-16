@@ -64,8 +64,6 @@ export const generateMetadata = async ({
 const ProductCategoryPage = async ({ params }: PropsType) => {
   const category = await getCategoryData(params.categorySlug);
 
-  console.log(category);
-
   return (
     <div>
       <HeroSection

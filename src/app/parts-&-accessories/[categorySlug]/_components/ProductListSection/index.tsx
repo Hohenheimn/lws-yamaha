@@ -41,6 +41,8 @@ const ProductListSection = (props: PropsType) => {
     );
   }, [subCategories, subCategoryIds]);
 
+  console.log(filteredCategories);
+
   if (isError) return;
 
   return (
@@ -64,7 +66,7 @@ const ProductListSection = (props: PropsType) => {
                 image: `${config.imageBaseUrl}${product?.productVariants?.[0]?.images[0]}`,
                 onClick: () =>
                   router.push(
-                    `/parts-&-accessories/${subCategory.slug}/${product.slug}`
+                    `/parts-&-accessories/${subCategory.Category.slug}/${product.slug}`
                   ),
               }))}
             />

@@ -18,7 +18,7 @@ type PropsType = {
 const getProductData = async (params: PropsType["params"]) => {
   try {
     const res = await nextApi.get(
-      `/api/parts-and-accessories/${params.categorySlug}`
+      `/api/parts-and-accessories/${params.productSlug}?categorySlug=${params.categorySlug}`
     );
     const data = await res.data.data;
 

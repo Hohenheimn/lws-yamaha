@@ -35,8 +35,6 @@ const AccessoriesSection = (props: PropsType) => {
 
   if (isError) return;
 
-  console.log(productVariants);
-
   return (
     <AccessoriesComponent
       onClick={() => router.push(`/parts-&-accessories/accessories`)}

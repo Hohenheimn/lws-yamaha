@@ -47,7 +47,7 @@ const Header = (props: PropsType) => {
           <aside
             className=" cursor-pointer"
             onClick={() => {
-              router.push("/");
+              router.push("/home");
               setClickedMenu(null);
               setMobileMenu(false);
             }}

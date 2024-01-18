@@ -41,8 +41,6 @@ const ProductListSection = (props: PropsType) => {
     );
   }, [subCategories, subCategoryIds]);
 
-  console.log(filteredCategories);
-
   if (isError) return;
 
   return (

@@ -1,12 +1,17 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AiFillInstagram, AiFillYoutube } from "react-icons/ai";
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowRight, MdKeyboardArrowUp } from "react-icons/md";
 import { PiShareBold } from "react-icons/pi";
 import useAPI from "@/hooks/useAPI";
 type footerBreadCrumbs = {
@@ -25,29 +30,25 @@ type settingsType = {
 const Footer = () => {
   const pathname = usePathname();
   const pathnameSplit = pathname.split("/");
+  const [windowScrollY, setWindowScrollY] = useState(0);
+  const [windowHeight, setWindowHeight] = useState(0);
   const [isBreadCrump, setBreadCrump] = useState<footerBreadCrumbs>([]);
-
   const { useGet: useGetFooterMenu } = useAPI("/api/menu?subCategoryId=4");
   const { data: footerMenu, isLoading: footerMenuLoading }: any =
     useGetFooterMenu("footerMenu");
-
   const { useGet: useGetSettings } = useAPI("/api/settings");
   const { data: settings, isLoading: settingsLoading }: any =
     useGetSettings("settings-footer");
-
   const settingsSocial: settingsType = settings?.data?.[0];
 
-  const updateBreadCrump = () => {
-    const pathnameArray: footerBreadCrumbs = pathnameSplit.map(
-      (item, index) => {
-        return {
-          title: item.replaceAll("-", " "),
-          url: pathnameSplit.slice(0, index + 1).join("/"),
-        };
-      }
-    );
-    setBreadCrump(pathnameArray);
-  };
+  useLayoutEffect(() => {
+    window.addEventListener("scroll", () => {
+      setWindowScrollY(window.scrollY);
+    });
+    window.addEventListener("load", () => {
+      setWindowHeight(window.innerHeight);
+    });
+  }, []);
 
   useEffect(() => {
     if (
@@ -61,27 +62,55 @@ const Footer = () => {
     setBreadCrump([]);
   }, [pathname]);
 
+  const updateBreadCrump = () => {
+    const pathnameArray: footerBreadCrumbs = pathnameSplit.map(
+      (item, index) => {
+        return {
+          title: item.replaceAll("-", " "),
+          url: pathnameSplit.slice(0, index + 1).join("/"),
+        };
+      }
+    );
+
+    setBreadCrump(pathnameArray);
+  };
+
+  const renderScrollTopBtn = useCallback(() => {
+    if (windowScrollY <= windowHeight) return null;
+
+    return (
+      <Link href="" className="fixed bottom-5 right-5 z-10 bg-red rounded-full">
+        <MdKeyboardArrowUp className="w-12 h-12 text-white" />
+      </Link>
+    );
+  }, [windowScrollY <= windowHeight]);
+
   return (
-    <footer className=" flex flex-col items-center space-y-16 pt-6 pb-16 bg-primary">
+    <footer className="relative flex flex-col items-center space-y-16 pt-6 pb-16 bg-primary">
+      {renderScrollTopBtn()}
       <section className=" w-full flex justify-center items-center flex-col text-white space-y-10 md:space-y-16">
         <aside className=" w-full flex flex-col items-center">
           {isBreadCrump.length > 0 && (
             <ul className=" flex items-center gap-3 w-11/12 flex-wrap text-textGray mb-5">
-              {isBreadCrump.map((item, indx) => (
-                <li key={indx} className=" flex items-center">
-                  <Link
-                    href={item.url}
-                    className={`${
-                      item.url === pathname && "text-white"
-                    } capitalize`}
-                  >
-                    {indx === 0 ? "Top" : item.title}
-                  </Link>{" "}
-                  {indx !== isBreadCrump.length - 1 && (
-                    <MdKeyboardArrowRight className="w-5 h-5 ml-2 md:ml-5" />
-                  )}
-                </li>
-              ))}
+              {isBreadCrump.map((item, indx) => {
+                if (!item.title) return null;
+
+                return (
+                  <li key={indx} className=" flex items-center">
+                    <Link
+                      href={item.url}
+                      className={`${
+                        item.url === pathname && "text-white"
+                      } capitalize`}
+                    >
+                      {indx === 0 ? "Top" : item.title}
+                    </Link>{" "}
+                    {indx !== isBreadCrump.length - 1 && (
+                      <MdKeyboardArrowRight className="w-5 h-5 ml-2 md:ml-5" />
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           )}
           <ul className=" flex items-center w-full gap-5">

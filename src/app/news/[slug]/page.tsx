@@ -47,11 +47,7 @@ export const generateMetadata = async ({
 const NewsSlugPage = async (params: PropsType) => {
   const { slug } = params.params;
 
-  return (
-    <>
-      <NewsSlugComponents slug={slug} />
-    </>
-  );
+  return <NewsSlugComponents slug={slug} />;
 };
 
 export default NewsSlugPage;

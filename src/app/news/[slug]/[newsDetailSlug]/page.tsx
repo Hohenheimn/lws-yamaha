@@ -66,9 +66,11 @@ export type NewsContent = {
 const NewsDetailPage = async (params: PropsType) => {
   const { newsDetailSlug } = params.params;
   const news: NewsType = await getNewsCardData(newsDetailSlug);
+
   return (
     <div>
       <NewsContents
+        newsId={news?.id}
         news={news?.newsArticleContents}
         banner={news?.banner}
         title={news?.title}

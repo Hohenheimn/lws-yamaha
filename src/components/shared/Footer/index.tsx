@@ -42,11 +42,10 @@ const Footer = () => {
   const settingsSocial: settingsType = settings?.data?.[0];
 
   useLayoutEffect(() => {
+    setWindowHeight(window.innerHeight);
+
     window.addEventListener("scroll", () => {
       setWindowScrollY(window.scrollY);
-    });
-    window.addEventListener("load", () => {
-      setWindowHeight(window.innerHeight);
     });
   }, []);
 
@@ -79,7 +78,7 @@ const Footer = () => {
     if (windowScrollY <= windowHeight) return null;
 
     return (
-      <Link href="" className="fixed bottom-5 right-5 z-10 bg-red rounded-full">
+      <Link href="" className="fixed bottom-5 right-5 z-10 bg-red rounded">
         <MdKeyboardArrowUp className="w-12 h-12 text-white" />
       </Link>
     );

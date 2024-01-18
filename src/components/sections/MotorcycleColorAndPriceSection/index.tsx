@@ -116,7 +116,7 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
                 )}
                 <ul className="flex gap-2 flex-wrap">
                   {motorcycle_detail.map((item, indx) => (
-                    <li>
+                    <li key={indx}>
                       <button
                         title={item.motorcycleName}
                         onClick={() => setActiveColor(item)}
@@ -127,7 +127,6 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
                           }
                         )}`}
                         style={{ backgroundColor: item.color }}
-                        key={indx}
                       ></button>
                     </li>
                   ))}

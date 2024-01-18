@@ -19,6 +19,7 @@ import {
   A11y,
   Keyboard,
   Autoplay,
+  FreeMode,
 } from "swiper/modules";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
@@ -55,19 +56,19 @@ const YConnectSection = (props: PropsType) => {
 
   const breakpoints = {
     0: {
-      slidesPerView: 1,
+      // slidesPerView: 1,
       spaceBetween: 10,
     },
     800: {
-      slidesPerView: 2,
+      // slidesPerView: 2,
       spaceBetween: 10,
     },
     1280: {
-      slidesPerView: 3,
+      // slidesPerView: 3,
       spaceBetween: 30,
     },
     1550: {
-      slidesPerView: 4,
+      // slidesPerView: 4,
       spaceBetween: 30,
     },
   };
@@ -102,7 +103,7 @@ const YConnectSection = (props: PropsType) => {
                 {activeTab?.description}
               </p>
             )}
-            <div className=" w-full y-connect-carousel">
+            <div className="w-full y-connect-carousel">
               <Swiper
                 modules={[
                   Navigation,
@@ -111,28 +112,28 @@ const YConnectSection = (props: PropsType) => {
                   A11y,
                   Keyboard,
                   Autoplay,
+                  FreeMode,
                 ]}
-                spaceBetween={200}
                 freeMode
-                // loop={true}
-                centeredSlides
-                // autoplay={{ delay: 2000 }}
-                centeredSlidesBounds
                 breakpoints={breakpoints}
+                slidesPerView={"auto"}
+                className="swiper"
               >
                 {activeTab?.content?.map((item, indx) => (
-                  <SwiperSlide key={indx}>
-                    <aside className=" w-[320px] flex flex-col items-center">
-                      <h5 className=" text-center font-medium text-lg">
+                  <SwiperSlide key={indx} className="swiper-slide cursor-grab">
+                    <aside className="h-full flex flex-col items-center">
+                      <h5 className="flex-1 w-full text-center font-medium text-lg">
                         {item?.title}
                       </h5>
 
-                      <Image
-                        src={`${validateImageUrl(item.image)}`}
-                        alt=""
-                        width={300}
-                        height={300}
-                      />
+                      <div className="relative w-full h-full">
+                        <Image
+                          src={`${validateImageUrl(item.image)}`}
+                          alt=""
+                          className="object-contain"
+                          fill
+                        />
+                      </div>
                     </aside>
                   </SwiperSlide>
                 ))}
@@ -142,15 +143,15 @@ const YConnectSection = (props: PropsType) => {
         )}
         {activeTab.contentType === "content" && (
           <>
-            <aside className=" w-[20%] md:w-auto">
+            <aside className="relative w-[300px] md:w-[500px] h-[300px] md:h-[500px]">
               <Image
                 src={activeTab.image}
                 alt="phone"
-                width={500}
-                height={500}
+                fill
+                className="object-contain"
               />
             </aside>
-            <ul className=" w-[80%] text-start space-y-10">
+            <ul className="w-[80%] text-start space-y-10">
               {activeTab.content.map((item, indx) => (
                 <li
                   key={indx}

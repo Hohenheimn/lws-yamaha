@@ -1,5 +1,4 @@
 import React from "react";
-import InquieryAndFindDealerButtons from "@/components/sections/InquieryAndFindDealerButtons";
 import nextApi from "@/utils/nextApi";
 import config from "@/utils/config";
 import { redirect } from "next/navigation";

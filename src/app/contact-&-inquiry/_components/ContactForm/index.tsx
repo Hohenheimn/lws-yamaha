@@ -124,7 +124,7 @@ const ContactForm = () => {
                   }}
                 />
               </li>
-              <li>
+              <li className=" col-span-2 md:col-span-1">
                 <ControllerField
                   control={control}
                   errors={errors}
@@ -139,7 +139,7 @@ const ContactForm = () => {
                   }}
                 />
               </li>
-              <li>
+              <li className=" col-span-2 md:col-span-1">
                 <ControllerField
                   control={control}
                   errors={errors}

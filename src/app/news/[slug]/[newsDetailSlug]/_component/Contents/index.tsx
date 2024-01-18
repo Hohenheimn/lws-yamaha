@@ -28,6 +28,7 @@ type PropsType = {
   banner: string;
   title: string;
   date: string;
+  newsId?: number;
 };
 
 const NewsContents = (props: PropsType) => {
@@ -52,6 +53,7 @@ const NewsContents = (props: PropsType) => {
   if (pageLoading) {
     return <Loading />;
   }
+
   return (
     <>
       <SectionContainer width={"narrow"} className="relative">
@@ -121,25 +123,31 @@ const NewsContents = (props: PropsType) => {
       <ArrowTitle title={"Others"} />
       <SectionContainer width={"wide"}>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 ">
-          {otherNews?.map((item, indx) => (
-            <NewsCard
-              key={indx}
-              id={item.id}
-              image={validateImageUrl(item.banner.split(",")[0])}
-              date={format(item.datePublished, "MMMM dd,yyyy")}
-              title={item.title}
-              description={`${
-                item?.newsArticleContents.find(
-                  (article) => !/.(webp|jpg|jpeg|png)$/i.test(article.value)
-                )?.value
-              }`}
-              url={`/news/${
-                pathname.includes("news-and-events")
-                  ? "news-and-events"
-                  : "yamaha-racing"
-              }/${item.slug}`}
-            />
-          ))}
+          {otherNews?.map((item, indx) => {
+            if (props.newsId === item.id) {
+              return null;
+            }
+
+            return (
+              <NewsCard
+                key={indx}
+                id={item.id}
+                image={validateImageUrl(item.banner.split(",")[0])}
+                date={format(item.datePublished, "MMMM dd,yyyy")}
+                title={item.title}
+                description={`${
+                  item?.newsArticleContents.find(
+                    (article) => !/.(webp|jpg|jpeg|png)$/i.test(article.value)
+                  )?.value
+                }`}
+                url={`/news/${
+                  pathname.includes("news-and-events")
+                    ? "news-and-events"
+                    : "yamaha-racing"
+                }/${item.slug}`}
+              />
+            );
+          })}
         </div>
         <div className=" pt-10 lg:pt-20">
           <Pagination

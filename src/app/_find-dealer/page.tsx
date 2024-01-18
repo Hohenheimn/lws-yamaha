@@ -1,5 +1,4 @@
 import React from "react";
-
 import DealerSection from "@/components/sections/DealerSection";
 import Hero from "@/components/sections/Hero";
 import InquieryAndFindDealerButtons from "@/components/sections/InquieryAndFindDealerButtons";

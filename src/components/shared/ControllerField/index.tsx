@@ -52,18 +52,16 @@ function ControllerField({
             type !== "textarea" &&
             type !== "radio" &&
             type !== "checkbox" && (
-              <>
-                <input
-                  id={name}
-                  type={type}
-                  //   placeholder={placeholder}
-                  {...field}
-                  className={inputStyle + " appearance-none"}
-                />
-              </>
+              <input
+                id={name}
+                type={type}
+                //   placeholder={placeholder}
+                {...field}
+                className={inputStyle + "appearance-none"}
+              />
             )}
           {type === "checkbox" && (
-            <div className=" w-full">
+            <div className="w-full">
               <input
                 id={name}
                 type={type}

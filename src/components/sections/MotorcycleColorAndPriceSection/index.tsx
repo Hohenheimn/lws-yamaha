@@ -28,7 +28,6 @@ type MotorcycleDetailType = {
 
 const MotorcycleColorAndPriceSection = (props: PropsType) => {
   const { motorcycle_detail } = props;
-
   const [activeColor, setActiveColor] = useState<MotorcycleDetailType>(
     motorcycle_detail[0]
   );
@@ -109,21 +108,31 @@ const MotorcycleColorAndPriceSection = (props: PropsType) => {
                 </Heading>
               </aside>
 
-              <ul className="flex gap-2 flex-wrap">
-                {motorcycle_detail.map((item, indx) => (
-                  <li
-                    onClick={() => setActiveColor(item)}
-                    className={` w-10 aspect-square cursor-pointer shadow shadow-white/50 ${classNames(
-                      {
-                        "border-2 border-red shadow-none":
-                          item.id === activeColor?.id,
-                      }
-                    )}`}
-                    style={{ backgroundColor: item.color }}
-                    key={indx}
-                  ></li>
-                ))}
-              </ul>
+              <div className="flex flex-col gap-1">
+                {motorcycle_detail.length > 1 && (
+                  <h5 className="font-semibold text-white">
+                    Select your preferred color
+                  </h5>
+                )}
+                <ul className="flex gap-2 flex-wrap">
+                  {motorcycle_detail.map((item, indx) => (
+                    <li>
+                      <button
+                        title={item.motorcycleName}
+                        onClick={() => setActiveColor(item)}
+                        className={` w-10 aspect-square cursor-pointer shadow shadow-white/50 ${classNames(
+                          {
+                            "border-2 white-red shadow-none":
+                              item.id === activeColor?.id,
+                          }
+                        )}`}
+                        style={{ backgroundColor: item.color }}
+                        key={indx}
+                      ></button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </article>
           </aside>
         </li>

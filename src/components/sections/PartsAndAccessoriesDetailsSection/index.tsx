@@ -164,13 +164,14 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
     return attributes?.map((val, index) => (
       <div
         key={index}
-        className="flex flex-col gap-1 sm:flex-row sm:gap-3 pt-2 sm:pt-5"
+        // className="flex flex-col gap-1 sm:flex-row sm:gap-3 pt-2 sm:pt-5"
       >
         <span className="font-semibold w-[55px]">
-          {val?.[0].attribute.name}:
+          {val?.[0].attribute.name}:{" "}
         </span>
+        {val?.map((_) => _.value).join(", ")}
         <div className="flex gap-2 flex-wrap">
-          {val?.map((_, index) => (
+          {/* {val?.map((_, index) => (
             <button
               key={_.id}
               onClick={() =>
@@ -188,10 +189,25 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
             >
               {_.value}
             </button>
-          ))}
+          ))} */}
         </div>
       </div>
     ));
+  };
+
+  const renderProductDescription = () => {
+    if (!(product?.description || currentVariant?.description))
+      return <div className="h-[50px] w-full"></div>;
+
+    return (
+      <div className="flex flex-col gap-2">
+        <p className="font-semibold">Product Description</p>
+        <div className="bg-[#323232] p-5 lg:p-7 rounded-lg min-h-[150px] flex flex-col gap-5">
+          <p>{product?.description}</p>
+          <p>{currentVariant?.description}</p>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -213,19 +229,7 @@ const PartsAndAccessoriesDetailsSection = (props: PropsType) => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-2">
-          <p className="font-semibold">Product Description</p>
-          <div className="bg-[#323232] p-5 lg:p-7 rounded-lg min-h-[150px] flex flex-col gap-5">
-            {!(product?.description || currentVariant?.description) ? (
-              <p>Description currently unavailable.</p>
-            ) : (
-              <>
-                <p>{product?.description}</p>
-                <p>{currentVariant?.description}</p>
-              </>
-            )}
-          </div>
-        </div>
+        {renderProductDescription()}
       </div>
     </div>
   );

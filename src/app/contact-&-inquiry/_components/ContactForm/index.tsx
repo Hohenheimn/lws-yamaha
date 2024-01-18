@@ -39,7 +39,7 @@ const ContactForm = () => {
     defaultValues: {
       name: "",
       email: "",
-      type: "",
+      type: "Sales",
       message: "",
       recaptchaKey: "",
     },
@@ -58,6 +58,7 @@ const ContactForm = () => {
   const { mutate, isLoading: mutateLoading } = usePost;
 
   const SubmitHandler = (data: FormType) => {
+    console.log(data);
     if (!isAgreeToPrivacyPolicy) return;
 
     mutate(
@@ -96,65 +97,6 @@ const ContactForm = () => {
             />
           </div>
         )}
-
-        {/* <article className=" py-10 px-10 bg-secondary space-y-10 w-full lg:w-2/4">
-        <aside className=" space-y-2">
-          <Heading type="h5" className=" font-medium text-white">
-            Yamaha Motor Philippines is ready to serve you
-          </Heading>
-          <p className=" text-textGray">
-            {
-              "Wherever you are in the Philippines– our Customer Service will help you with any questions or requests relating to Yamaha Products.​"
-            }
-          </p>
-        </aside>
-        <aside className=" space-y-2 pb-5 border-b border-textGray">
-          <p className=" text-white font-medium">Head Office</p>
-          <aside className=" flex items-center gap-3">
-            <FaLocationDot className=" text-white text-xl" />
-            <p className=" text-textGray">
-              Lots 1&2, Block 17, Phase I, LIMA Technology Center, Malvar,
-              Batangas
-            </p>
-          </aside>
-        </aside>
-
-        <div className=" space-y-5">
-          <aside className=" space-y-2">
-            <Heading type="h5" className=" font-medium text-white">
-              Sales Office
-            </Heading>
-          </aside>
-          <aside className=" space-y-2 pb-5 border-b border-textGray">
-            <p className=" text-white font-medium">Manila Sales Office</p>
-            <aside className=" flex items-center gap-3">
-              <FaLocationDot className=" text-white text-xl" />
-              <p className=" text-textGray">
-                Twin Oaks Place One Greenfield District,Mandaluyong City
-              </p>
-            </aside>
-          </aside>
-          <aside className=" space-y-2 pb-5 border-b border-textGray">
-            <p className=" text-white font-medium">Cebu Sales Office</p>
-            <aside className=" flex items-center gap-3">
-              <FaLocationDot className=" text-white text-xl" />
-              <p className=" text-textGray">
-                8th floor FPN Epic Ctr., AS Fortuna Street, Barangay Bakilid,
-                Mandaue City
-              </p>
-            </aside>
-          </aside>
-          <aside className=" space-y-2 pb-5 border-b border-textGray">
-            <p className=" text-white font-medium">Davao Sales Office</p>
-            <aside className=" flex items-center gap-3">
-              <FaLocationDot className=" text-white text-xl" />
-              <p className=" text-textGray">
-                Unit 4, 5 & 6 Bagsai Complex, Sta. Ana Ave.,Davao City
-              </p>
-            </aside>
-          </aside>
-        </div>
-      </article> */}
 
         <article className="w-full lg:w-2/4">
           <aside className=" mb-5">
@@ -224,6 +166,7 @@ const ContactForm = () => {
                     "Part & Accessories",
                     "Service",
                     "Yamaha Riding Academy",
+                    "Others",
                   ]}
                   rules={{
                     required: {

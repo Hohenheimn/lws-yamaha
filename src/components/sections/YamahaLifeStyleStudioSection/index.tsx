@@ -2,7 +2,7 @@ import EmbedSocialSection from "@/app/components/_components/EmbedSocialSection"
 import Button from "@/components/shared/Button";
 import GridEmbedSection from "@/components/shared/EmbedSocials/GridEmbedSection";
 import classNames from "classnames";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 type EmbedSocialType = {
   embedSocialId: string;
@@ -25,19 +25,21 @@ const YamahaLifeStyleStudioSection = (props: PropsType) => {
 
   return (
     <div className="flex flex-col gap-10 p-5 md:p-10">
-      <div className="flex flex-wrap items-end justify-between border-b gap-5 border-[#f1f1f1] pb-4">
-        <div>
-          <h2 className="font-bold text-[#f1f1f1] text-3xl">{props?.title}</h2>
-          <p className="text-[#f1f1f1]">{props?.subTitle}</p>
+      <div className="relative flex flex-col items-center justify-center border-b border-[#f1f1f1] pb-4">
+        <h2 className="font-bold text-[#f1f1f1] text-3xl text-center">
+          {props?.title}
+        </h2>
+        <p className="text-[#f1f1f1] max-w-xl text-center">{props?.subTitle}</p>
+        <div className="mt-3 xl:mt-0 xl:absolute right-0">
+          <Button
+            appearance={"primary"}
+            size={"medium"}
+            // onClick={props?.button?.onClick}
+            url={props?.button?.url}
+          >
+            {props?.button?.text || "Button"}
+          </Button>
         </div>
-        <Button
-          appearance={"primary"}
-          size={"medium"}
-          // onClick={props?.button?.onClick}
-          url={props?.button?.url}
-        >
-          {props?.button?.text || "Button"}
-        </Button>
       </div>
       <div className="flex flex-col gap-10 items-center">
         <div className="text-[#f1f1f1] text-xl flex gap-4">

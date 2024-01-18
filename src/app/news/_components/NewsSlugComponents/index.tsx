@@ -95,12 +95,14 @@ const NewsSlugComponents = (props: PropTypes) => {
             />
           ))}
         </div>
-        <div className=" pt-10 lg:pt-20">
-          <Pagination
-            setTablePage={setCurrentPage}
-            tablePage={currentPage}
-            totalPage={Number(page?.data?.totalPage)}
-          />
+        <div className="flex justify-center md:justify-end">
+          <div className="pt-10 lg:pt-20">
+            <Pagination
+              setTablePage={setCurrentPage}
+              tablePage={currentPage}
+              totalPage={Number(page?.data?.totalPage)}
+            />
+          </div>
         </div>
       </SectionContainer>
     </div>

@@ -18,19 +18,22 @@ type PropsType = {
 
 const PrivacyPolicySection = (props: PropsType) => {
   const { title, content } = props;
+
+  console.log(content);
   return (
     <SectionContainer width={"wide"} className=" space-y-10">
       <article className=" space-y-5 text-[#FFFFFF] flex flex-col gap-10 lg:gap-20">
         <Heading type="h2" className=" font-medium text-center">
           {title}
         </Heading>
-        <div className="space-y-16 two-col-paragraph">
+        {/* <div className="space-y-16 two-col-paragraph"> */}
+        <div className="space-y-16">
           {content?.map((item, indx) => (
             <article key={indx} className=" space-y-5">
               {item.type === "contact-info" ? (
                 <div>
                   <p className=" font-medium mb-5">Data Protection Office</p>
-                  <p className=" font-medium whitespace-pre-wrap">
+                  <p className="font-medium whitespace-pre-wrap">
                     {item?.address}
                   </p>
                   <p className=" font-medium whitespace-pre-wrap">

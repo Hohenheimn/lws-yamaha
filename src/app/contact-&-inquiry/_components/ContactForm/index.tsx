@@ -145,7 +145,7 @@ const ContactForm = () => {
                   errors={errors}
                   name={"contactNo"}
                   label={"Contact Number"}
-                  type={"number"}
+                  type={"tel"}
                   rules={{
                     required: {
                       value: true,

@@ -1,7 +1,4 @@
 import React from "react";
-import axios from "axios";
-import ParagraphAndDownloadSection from "@/components/sections/ParagraphAndDownloadSection";
-import TitleAndParagraphSection from "@/components/sections/TitleAndParagraphSection";
 import Heading from "@/components/shared/Heading";
 import config from "@/utils/config";
 import nextApi from "@/utils/nextApi";

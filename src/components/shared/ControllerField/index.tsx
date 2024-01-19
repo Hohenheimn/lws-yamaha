@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Controller } from "react-hook-form";
+import { MdOutlineArrowDropDown } from "react-icons/md";
 
 type Props = {
   control: any;
@@ -15,6 +16,7 @@ type Props = {
     | "number"
     | "radio"
     | "password"
+    | "tel"
     | "email"
     | "textarea"
     | "date";
@@ -28,16 +30,23 @@ type Props = {
 const inputStyle =
   "border border-textGray bg-transparent text-white rounded-md px-2 py-2 h-16 outline-none w-full";
 
-function ControllerField({
-  control,
-  errors,
-  name,
-  label,
-  rules,
-  type,
-  selectOptions,
-  radioOptions,
-}: Props) {
+function ControllerField(props: Props) {
+  const {
+    control,
+    errors,
+    name,
+    label,
+    rules,
+    type,
+    selectOptions,
+    radioOptions,
+  } = props;
+  const selectRef = useRef<HTMLSelectElement>(null);
+
+  const onClickSelectContainer = () => {
+    selectRef.current?.click();
+  };
+
   return (
     <Controller
       name={name}
@@ -83,18 +92,25 @@ function ControllerField({
             ></textarea>
           )}
           {type === "select" && selectOptions && (
-            <select
-              id={name}
-              {...field}
-              defaultValue={selectOptions[0]}
-              className={inputStyle}
-            >
-              {selectOptions?.map((item, index) => (
-                <option key={index} value={item} className=" bg-secondary">
-                  {item}
-                </option>
-              ))}
-            </select>
+            <div className="relative flex items-center">
+              <MdOutlineArrowDropDown
+                className={`text-white w-7 h-7 absolute right-3`}
+                onClick={onClickSelectContainer}
+              />
+              <select
+                id={name}
+                {...field}
+                defaultValue={selectOptions[0]}
+                className={`${inputStyle} appearance-none relative`}
+                ref={selectRef}
+              >
+                {selectOptions?.map((item, index) => (
+                  <option key={index} value={item} className=" bg-secondary">
+                    {item}
+                  </option>
+                ))}
+              </select>
+            </div>
           )}
           {type === "radio" && (
             <ul className=" space-y-2">

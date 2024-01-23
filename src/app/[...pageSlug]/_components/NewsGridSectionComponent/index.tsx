@@ -1,10 +1,11 @@
 "use client";
 
+import { format, isValid } from "date-fns";
+import { useRouter } from "next/navigation";
+
 import NewsGridSection from "@/components/sections/NewsGridSection";
 import useAPI from "@/hooks/useAPI";
 import validateImageUrl from "@/utils/validateImageUrl";
-import { format } from "date-fns";
-import { useRouter } from "next/navigation";
 
 type PropsType = {
   newsIds?: string;
@@ -19,7 +20,7 @@ type SubCategoryType = {
 export type NewsType = {
   banner: string;
   categoryId: string;
-  datePublished: string;
+  datePublished: number | Date;
   id: number;
   slug: string;
   subCategoryId: number;
@@ -43,7 +44,9 @@ const NewsGridSectionComponent = (props: PropsType) => {
       news={data?.data.map((data: NewsType) => ({
         id: data?.id,
         image: validateImageUrl(data?.banner.split(",")[0]),
-        date: format(data?.datePublished, "MMMM dd,yyyy"),
+        date: isValid(data?.datePublished)
+          ? format(data?.datePublished, "MMMM dd,yyyy")
+          : "",
         title: data?.title,
         description: data?.newsArticleContents.find(
           (article) => !/.(webp|jpg|jpeg|png)$/i.test(article.value)

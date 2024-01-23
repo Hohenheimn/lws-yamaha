@@ -1,27 +1,30 @@
 import React, { useEffect, useRef, useState } from "react";
-import ArrowTitle from "@/components/shared/ArrowTitle";
-import SectionContainer from "../SectionContainer";
 import Image from "next/image";
 import { HiMiniPlay } from "react-icons/hi2";
 import { MdOutlineClose } from "react-icons/md";
+
+import ArrowTitle from "@/components/shared/ArrowTitle";
 import config from "@/utils/config";
+
+import SectionContainer from "../SectionContainer";
 
 type PropsType = {
   title: string;
   description: string;
   youtubeUrl: string;
   imagePreview: string;
+  isSeo?: boolean;
 };
 
 const VideoSection = (props: PropsType) => {
-  const { title, description, youtubeUrl, imagePreview } = props;
+  const { title, description, youtubeUrl, imagePreview, isSeo } = props;
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
       <SectionContainer width={"widest"}>
         <div className="flex flex-col gap-5 w-full">
-          <ArrowTitle title={title} description={description} />
+          <ArrowTitle title={title} description={description} isSeo={isSeo} />
           <div className="w-full p-5   md:p-10">
             <div className="relative aspect-video w-full bg-white/10 flex rounded-lg overflow-hidden justify-center items-center">
               {!imagePreview ? (

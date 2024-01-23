@@ -17,6 +17,7 @@ const YConnectPage = () => {
         desktopBgImage="/assets/images/samples/sample-y-connect-hero.png"
         textPosition={"center-left"}
         title="Y-CONNECT"
+        isSeo={true}
         description={`Be one with your motorcycle. Experience a complete package of advanced features\nthat will redefine your ride.`}
       />
       <YConnectSectionComponent />

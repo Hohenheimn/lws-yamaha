@@ -14,16 +14,18 @@ type PropsType = {
     address?: string;
     contact?: string;
   }[];
+  isSeo: boolean;
 };
 
 const PrivacyPolicySection = (props: PropsType) => {
-  const { title, content } = props;
-
-  console.log(content);
+  const { title, content, isSeo } = props;
   return (
     <SectionContainer width={"wide"} className=" space-y-10">
       <article className=" space-y-5 text-[#FFFFFF] flex flex-col gap-10 lg:gap-20">
-        <Heading type="h2" className=" font-medium text-center">
+        <Heading
+          type={isSeo ? "h1" : "h2"}
+          className=" font-medium text-center"
+        >
           {title}
         </Heading>
         {/* <div className="space-y-16 two-col-paragraph"> */}

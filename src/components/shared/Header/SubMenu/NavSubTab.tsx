@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 
 import Link from "next/link";
@@ -32,6 +32,7 @@ const NavSubTab = ({
   const [activeTab, setActiveTab] = useState(
     tabs.some((item) => pathname.includes(item.url)) ? pathname : tabs[0].url
   );
+
   return (
     <section className="w-full px-5">
       <button
@@ -72,8 +73,8 @@ const NavSubTab = ({
       </ul>
       <aside className=" text-gray-300 pb-2 flex scrollbar-thin scrollbar-thumb-[#545454] hover:scrollbar-thumb-[#7a7a7a] scrollbar-thumb-rounded-full">
         {tabs.map((item, indx) => (
-          <>
-            {item.url === activeTab && (
+          <div key={indx}>
+            {activeTab.includes(item.url) && (
               <div
                 key={indx}
                 className="w-full md:w-auto flex md:inline-block justify-center md:justify-start"
@@ -112,7 +113,7 @@ const NavSubTab = ({
                 )}
               </div>
             )}
-          </>
+          </div>
         ))}
       </aside>
     </section>

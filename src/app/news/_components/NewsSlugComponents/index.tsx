@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 
+import { format, isValid } from "date-fns";
+
 import { usePathname } from "next/navigation";
 
 import { NewsType } from "@/app/[...pageSlug]/_components/NewsGridSectionComponent";
@@ -14,7 +16,6 @@ import Loading from "@/components/shared/Loading";
 import Pagination from "@/components/shared/Pagination";
 import useAPI from "@/hooks/useAPI";
 import validateImageUrl from "@/utils/validateImageUrl";
-import { format } from "date-fns/format";
 
 type PropTypes = {
   slug: string;
@@ -84,7 +85,11 @@ const NewsSlugComponents = (props: PropTypes) => {
               key={indx}
               id={news?.id}
               image={`${validateImageUrl(news.banner.split(",")[0])}`}
-              date={format(news?.datePublished, "MMMM dd,yyyy")}
+              date={
+                isValid(news?.datePublished)
+                  ? format(news?.datePublished, "MMMM dd,yyyy")
+                  : ""
+              }
               title={news?.title}
               description={`${
                 news?.newsArticleContents.find(

@@ -3,6 +3,7 @@ import { BsTriangleFill } from "react-icons/bs";
 type PropsType = {
   title: string;
   description?: string;
+  isSeo?: boolean;
 };
 
 const ArrowTitle = (props: PropsType) => {
@@ -13,7 +14,12 @@ const ArrowTitle = (props: PropsType) => {
         <BsTriangleFill className="h-full text-[40px] rotate-90 -translate-x-[5px] text-[#D52B1E]" />
       </div>
       <aside className=" space-y-2">
-        <p className="text-[#f1f1f1] font-bold text-3xl">{props.title}</p>
+        {props?.isSeo ? (
+          <h1 className="text-[#f1f1f1] font-bold text-3xl">{props.title}</h1>
+        ) : (
+          <p className="text-[#f1f1f1] font-bold text-3xl">{props.title}</p>
+        )}
+
         {props.description && (
           <p className=" text-textGray">{props.description}</p>
         )}

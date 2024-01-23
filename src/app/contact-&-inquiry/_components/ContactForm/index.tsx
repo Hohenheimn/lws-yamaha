@@ -1,7 +1,9 @@
 "use client";
 
 import React, { ChangeEvent, useState } from "react";
+import Link from "next/link";
 import { Controller, useForm } from "react-hook-form";
+
 import SectionContainer from "@/components/sections/SectionContainer";
 import ControllerField from "@/components/shared/ControllerField";
 import Heading from "@/components/shared/Heading";
@@ -10,7 +12,6 @@ import NotificationModal, {
 } from "@/components/shared/NotificationModal";
 import ReCaptcha from "@/components/shared/Recaptcha";
 import useAPI from "@/hooks/useAPI";
-import Link from "next/link";
 
 type FormType = {
   name: string;
@@ -100,7 +101,7 @@ const ContactForm = () => {
 
         <article className="w-full lg:w-2/4">
           <aside className=" mb-5">
-            <Heading type="h5" className=" font-medium text-white">
+            <Heading type="h1" className=" font-medium text-white">
               Contact Us
             </Heading>
             <p className=" text-textGray">

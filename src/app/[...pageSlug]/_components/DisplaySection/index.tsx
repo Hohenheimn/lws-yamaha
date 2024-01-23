@@ -205,6 +205,7 @@ const DisplaySection = (props: PropsType) => {
             description={section?.description}
             title={section?.title}
             imagePreview={section?.image}
+            isSeo={index === 0}
           />
         );
 
@@ -259,6 +260,7 @@ const DisplaySection = (props: PropsType) => {
           <PrivacyPolicySection
             title={section?.title}
             content={section?.contents}
+            isSeo={index === 0}
           />
         );
 

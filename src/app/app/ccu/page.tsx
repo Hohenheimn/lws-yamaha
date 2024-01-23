@@ -18,6 +18,7 @@ const page = () => {
         desktopBgImage="/assets/images/samples/sample-ccu-hero.png"
         textPosition={"center-left"}
         title={`THE NEW CCU\nTECHNOLOGY`}
+        isSeo={true}
         description={`Lorem ipsum dolor sit amet consectetur. Malesuada non mauris pellentesque\naugue fermentum tristique nulla et. In vitae donec fringilla elit hendrerit aliquet`}
       />
       <CcuMyRideLinkSectionComponent />
